@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-21T07:53:36.110Z</updated>
+  <updated>2017-03-21T08:12:00.486Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://WinterSmileSB101.online/2017/03/20/CreatYourOwnWithGithubpages-and-Hexo/"/>
     <id>http://WinterSmileSB101.online/2017/03/20/CreatYourOwnWithGithubpages-and-Hexo/</id>
     <published>2017-03-20T13:57:48.000Z</published>
-    <updated>2017-03-21T07:53:36.110Z</updated>
+    <updated>2017-03-21T08:12:00.486Z</updated>
     
     <summary type="html">
     
@@ -28,6 +28,14 @@
     
     </summary>
     
+      <category term="程序猿" scheme="http://WinterSmileSB101.online/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
+    
+    
+      <category term="Github" scheme="http://WinterSmileSB101.online/tags/Github/"/>
+    
+      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
+    
+      <category term="独立博客" scheme="http://WinterSmileSB101.online/tags/%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
