@@ -815,7 +815,7 @@ pre .javascript .function {
   padding: 0 20px;
   font-size: 14px;
   color: #fff;
-  background: #222;
+  background: #fff;
   border: 2px solid #222;
   text-decoration: none;
   border-radius: 0;
@@ -826,7 +826,7 @@ pre .javascript .function {
 }
 .btn:hover,
 .post-button .btn:hover {
-  border-color: #fff;
+  border-color: #222;
   color: #fff;
   background: #222;
 }
