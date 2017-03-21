@@ -2687,8 +2687,7 @@ hr {
   padding: 0;
   font-size: 14px;
   color: #fff;
-  background: none;
-  border: 2px solid #222;
+  border: 2px solid #fff;
   transition-property: border;
 }
 @media (max-width: 767px) {
