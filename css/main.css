@@ -826,9 +826,9 @@ pre .javascript .function {
 }
 .btn:hover,
 .post-button .btn:hover {
-  border-color: #222;
-  color: #222;
-  background: #fff;
+  border-color: #fff;
+  color: #fff;
+  background: #222;
 }
 .btn-bar {
   display: block;
