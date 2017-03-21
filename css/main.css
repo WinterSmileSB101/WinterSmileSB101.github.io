@@ -42,7 +42,7 @@ a {
 }
 a:active,
 a:hover {
-  outline: 2;
+  outline: 0;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -815,7 +815,7 @@ pre .javascript .function {
   padding: 0 20px;
   font-size: 14px;
   color: #fff;
-  background: #fff;
+  background: #222;
   border: 2px solid #222;
   text-decoration: none;
   border-radius: 0;
@@ -827,8 +827,8 @@ pre .javascript .function {
 .btn:hover,
 .post-button .btn:hover {
   border-color: #222;
-  color: #fff;
-  background: #222;
+  color: #222;
+  background: #fff;
 }
 .btn-bar {
   display: block;
@@ -1067,14 +1067,14 @@ pre .javascript .function {
   display: block;
   font-size: 13px;
   line-height: inherit;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #222;
   transition-property: border-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
 }
 .menu .menu-item a:hover {
-  border-bottom-color: #222;
+  border-bottom-color: transparent;
 }
 .menu .menu-item .fa {
   margin-right: 5px;
@@ -1681,7 +1681,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2d2f06;
+  background: #8eff5d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2680,15 +2680,16 @@ hr {
 }
 .post-button {
   margin-top: 20px;
-  text-align: center;
-  padding: 5px;
+  text-align: left;
 }
 .post-button a {
   margin: 0 8px 8px 0 !important;
-  padding: 0 10px 0 10px;
+  padding: 0;
   font-size: 14px;
-  color: #fff;
-  border: 1px solid #000;
+  color: #666;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #666;
   transition-property: border;
 }
 @media (max-width: 767px) {
@@ -2703,7 +2704,6 @@ hr {
 }
 .post-button a:hover {
   border-bottom-color: #222;
-  color: #fff;
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
