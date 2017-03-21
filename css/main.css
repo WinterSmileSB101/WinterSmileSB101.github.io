@@ -2681,6 +2681,7 @@ hr {
 .post-button {
   margin-top: 20px;
   text-align: center;
+  padding: 5px;
 }
 .post-button a {
   margin: 0 8px 8px 0 !important;
