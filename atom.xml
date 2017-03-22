@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T07:53:51.904Z</updated>
+  <updated>2017-03-22T07:58:22.139Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSP中使用 &lt;% %&gt; 的时候进行引用jar包的方法</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/JSP%E8%BF%9B%E8%A1%8C%E5%BC%95%E7%94%A8jar%E5%8C%85%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/JSP进行引用jar包的方法/</id>
+    <published>2017-03-22T07:55:50.000Z</published>
+    <updated>2017-03-22T07:58:22.139Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="WEB" scheme="http://WinterSmileSB101.online/categories/WEB/"/>
+    
+      <category term="JSP" scheme="http://WinterSmileSB101.online/categories/WEB/JSP/"/>
+    
+    
+      <category term="Web" scheme="http://WinterSmileSB101.online/tags/Web/"/>
+    
+      <category term="JSP" scheme="http://WinterSmileSB101.online/tags/JSP/"/>
+    
+      <category term="引入Jar包" scheme="http://WinterSmileSB101.online/tags/%E5%BC%95%E5%85%A5Jar%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法</title>
@@ -117,9 +144,9 @@
       <category term="Android 实践" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E8%B7%B5/"/>
     
     
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
-    
       <category term="Activity" scheme="http://WinterSmileSB101.online/tags/Activity/"/>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
       <category term="活动传递对象" scheme="http://WinterSmileSB101.online/tags/%E6%B4%BB%E5%8A%A8%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1/"/>
     
@@ -564,28 +591,6 @@
       <category term="16进制" scheme="http://WinterSmileSB101.online/tags/16%E8%BF%9B%E5%88%B6/"/>
     
       <category term="color" scheme="http://WinterSmileSB101.online/tags/color/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 使用总结</title>
-    <link href="http://WinterSmileSB101.online/2017/03/22/summer-hexo/"/>
-    <id>http://WinterSmileSB101.online/2017/03/22/summer-hexo/</id>
-    <published>2017-03-22T01:49:12.000Z</published>
-    <updated>2017-03-22T02:03:04.582Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-在-md-文件中引入图片等资源&quot;&gt;&lt;a href=&quot;#1-在-md-文件中引入图片等资源&quot; class=&quot;headerlink&quot; title=&quot;1.在 md 文件中引入图片等资源&quot;&gt;&lt;/a&gt;1.在 md 文件中引入图片等资源&lt;/h2&gt;&lt;h3 id=&quot;md-中引
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
-    
-      <category term="总结" scheme="http://WinterSmileSB101.online/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
