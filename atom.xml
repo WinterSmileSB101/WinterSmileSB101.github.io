@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T07:31:03.889Z</updated>
+  <updated>2017-03-22T07:42:36.592Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android利用Gson生成或解析json</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/Android%E5%88%A9%E7%94%A8Gson%E7%94%9F%E6%88%90%E6%88%96%E8%A7%A3%E6%9E%90json/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/Android利用Gson生成或解析json/</id>
+    <published>2017-03-22T07:33:27.000Z</published>
+    <updated>2017-03-22T07:42:36.592Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主转载文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+      <category term="Gson" scheme="http://WinterSmileSB101.online/tags/Gson/"/>
+    
+      <category term="Json" scheme="http://WinterSmileSB101.online/tags/Json/"/>
+    
+  </entry>
   
   <entry>
     <title>17开年第一篇Activity之间传递 List&lt;T&gt; 以及 T 对象类型数据的方法</title>
@@ -86,11 +111,11 @@
       <category term="Android 实战" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
-    
       <category term="AppBarLayout 滑动" scheme="http://WinterSmileSB101.online/tags/AppBarLayout-%E6%BB%91%E5%8A%A8/"/>
     
       <category term="OnOffsetChangedListener" scheme="http://WinterSmileSB101.online/tags/OnOffsetChangedListener/"/>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
   </entry>
   
@@ -557,30 +582,6 @@
       <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
     
       <category term="侧边栏" scheme="http://WinterSmileSB101.online/tags/%E4%BE%A7%E8%BE%B9%E6%A0%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为你的Hexo添加Nest动画</title>
-    <link href="http://WinterSmileSB101.online/2017/03/22/Next-Use-Nest/"/>
-    <id>http://WinterSmileSB101.online/2017/03/22/Next-Use-Nest/</id>
-    <published>2017-03-22T00:35:38.000Z</published>
-    <updated>2017-03-22T01:04:56.054Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;如果你没有使用-Hexo-主题（或者主题中没有集合Nest）&quot;&gt;&lt;a href=&quot;#如果你没有使用-Hexo-主题（或者主题中没有集合Nest）&quot; class=&quot;headerlink&quot; title=&quot;如果你没有使用 Hexo 主题（或者主题中没有集合Nest）&quot;&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/categories/Hexo/"/>
-    
-    
-      <category term="动画" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E7%94%BB/"/>
-    
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
-    
-      <category term="Nest" scheme="http://WinterSmileSB101.online/tags/Nest/"/>
     
   </entry>
   
