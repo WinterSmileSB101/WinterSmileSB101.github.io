@@ -1,0 +1,1182 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,自定义 View,守望先锋,OverWatch," />
+
+
+
+
+
+  <link rel="alternate" href="http://blog.csdn.net/qq_21265915/rss/list" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。先上效果：
+截图不是gif，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 自己动手实现守望先锋动画">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。先上效果：
+截图不是gif，">
+<meta property="og:image" content="http://img.blog.csdn.net/20161111121431279?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161111121502254?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161111121519989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2017-03-22T08:27:36.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 自己动手实现守望先锋动画">
+<meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。先上效果：
+截图不是gif，">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161111121431279?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/"/>
+
+
+
+
+
+  <title> Android 自己动手实现守望先锋动画 | WinterSmileSB101 的个人房间 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">胆小认生，不易相处</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WinterSmileSB101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myHeadImg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WinterSmileSB101 的个人房间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android 自己动手实现守望先锋动画
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T16:14:40+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T16:27:36+08:00">
+                2017-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Adnroid-自定义View/" itemprop="url" rel="index">
+                    <span itemprop="name">Adnroid 自定义View</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/自己动手实现守望先锋动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/自己动手实现守望先锋动画/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/22/自己动手实现守望先锋动画/" class="leancloud_visitors" data-flag-title="Android 自己动手实现守望先锋动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
+</blockquote>
+<h4 id="起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。"><a href="#起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。" class="headerlink" title="起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。"></a>起因：因为逛CSDN的时候无意间看到这篇博文（<a href="http://blog.csdn.net/a396901990/article/details/52862077?locationNum=4&amp;fps=1" target="_blank" rel="external">传送门</a>），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。</h4><h4 id="先上效果："><a href="#先上效果：" class="headerlink" title="先上效果："></a>先上效果：</h4><p><img src="http://img.blog.csdn.net/20161111121431279?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"><br><img src="http://img.blog.csdn.net/20161111121502254?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"><br><img src="http://img.blog.csdn.net/20161111121519989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="截图不是gif，请见谅。"><a href="#截图不是gif，请见谅。" class="headerlink" title="截图不是gif，请见谅。"></a>截图不是gif，请见谅。</h4><h4 id="下面来实现：（绘制一个正六边形我就不再多说）"><a href="#下面来实现：（绘制一个正六边形我就不再多说）" class="headerlink" title="下面来实现：（绘制一个正六边形我就不再多说）"></a>下面来实现：（绘制一个正六边形我就不再多说）</h4><h4 id="先来绘制出所有的六边形："><a href="#先来绘制出所有的六边形：" class="headerlink" title="先来绘制出所有的六边形："></a>先来绘制出所有的六边形：</h4><h4 id="按照上图所示："><a href="#按照上图所示：" class="headerlink" title="按照上图所示："></a>按照上图所示：</h4><h4 id="六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么"><a href="#六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么" class="headerlink" title="六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么"></a>六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么</h4><h4 id="六边形的高等于：Math-sqrt-3-六边形边长。"><a href="#六边形的高等于：Math-sqrt-3-六边形边长。" class="headerlink" title="六边形的高等于：Math.sqrt(3)*六边形边长。"></a>六边形的高等于：Math.sqrt(3)*六边形边长。</h4><h4 id="第一个出现位置的起始点坐标是：（六边形的高-2，六边形边长-2）。"><a href="#第一个出现位置的起始点坐标是：（六边形的高-2，六边形边长-2）。" class="headerlink" title="第一个出现位置的起始点坐标是：（六边形的高/2，六边形边长/2）。"></a>第一个出现位置的起始点坐标是：（六边形的高/2，六边形边长/2）。</h4><h4 id="第二个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形的边长-2）"><a href="#第二个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形的边长-2）" class="headerlink" title="第二个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形的边长/2）."></a>第二个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形的边长/2）.</h4><h4 id="第三个出现位置的起始点坐标是：（六边形的高-2，（六边形的边长-2）-3）"><a href="#第三个出现位置的起始点坐标是：（六边形的高-2，（六边形的边长-2）-3）" class="headerlink" title="第三个出现位置的起始点坐标是：（六边形的高*2，（六边形的边长/2）*3）."></a>第三个出现位置的起始点坐标是：（六边形的高*2，（六边形的边长/2）*3）.</h4><h4 id="第四个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形边长-3）"><a href="#第四个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形边长-3）" class="headerlink" title="第四个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形边长*3）."></a>第四个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形边长*3）.</h4><h4 id="第五个出现位置的起始点坐标是：（六边形的高-2，六边形边长-3）"><a href="#第五个出现位置的起始点坐标是：（六边形的高-2，六边形边长-3）" class="headerlink" title="第五个出现位置的起始点坐标是：（六边形的高/2，六边形边长*3）."></a>第五个出现位置的起始点坐标是：（六边形的高/2，六边形边长*3）.</h4><h4 id="第六个出现位置的起始点坐标是：（0，（六边形的边长-2）-3）"><a href="#第六个出现位置的起始点坐标是：（0，（六边形的边长-2）-3）" class="headerlink" title="第六个出现位置的起始点坐标是：（0，（六边形的边长/2）*3）."></a>第六个出现位置的起始点坐标是：（0，（六边形的边长/2）*3）.</h4><h4 id="第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长-2）-3）"><a href="#第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长-2）-3）" class="headerlink" title="第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长/2）*3）."></a>第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长/2）*3）.</h4><h4 id="其他点的计算就不一一列举了，都是很简单的数学计算。"><a href="#其他点的计算就不一一列举了，都是很简单的数学计算。" class="headerlink" title="其他点的计算就不一一列举了，都是很简单的数学计算。"></a>其他点的计算就不一一列举了，都是很简单的数学计算。</h4><h4 id="先讲动画："><a href="#先讲动画：" class="headerlink" title="先讲动画："></a>先讲动画：</h4><h4 id="这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。"><a href="#这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。" class="headerlink" title="这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。"></a>这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。</h4><h4 id="下面是动画代码："><a href="#下面是动画代码：" class="headerlink" title="下面是动画代码："></a>下面是动画代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mShowAni = ValueAnimator.ofFloat(<span class="number">0</span>,<span class="number">1</span>);  </div><div class="line">        mShowAni.setDuration(<span class="number">200</span>);  </div><div class="line">        mShowAni.setInterpolator(<span class="keyword">new</span> DecelerateInterpolator());  </div><div class="line">        mShowAni.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animation)</span></span>&#123;  </div><div class="line">                <span class="keyword">float</span> value = (<span class="keyword">float</span>)animation.getAnimatedValue();  </div><div class="line">                mScale = <span class="number">0.5f</span>+value/<span class="number">2</span>;  </div><div class="line">                mPaint.setAlpha((<span class="keyword">int</span>)(value*<span class="number">255</span>));  </div><div class="line">                invalidate();<span class="comment">//更新  </span></div><div class="line">            &#125;  </div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<h4 id="添加动画监听："><a href="#添加动画监听：" class="headerlink" title="添加动画监听："></a>添加动画监听：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">mShowAni.addListener(<span class="keyword">new</span> Animator.AnimatorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line"></div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line">                mShowAni.removeAllListeners();  </div><div class="line">                mShowAni = <span class="keyword">null</span>;  </div><div class="line">                initAni();  </div><div class="line">                <span class="keyword">if</span>(drawNum!=<span class="number">8</span>) &#123;  </div><div class="line">                    backDrawNum = <span class="number">8</span>;<span class="comment">//赋值回退动画的位置  </span></div><div class="line">                    drawNum++;<span class="comment">//正向动画的位置自增1  </span></div><div class="line">                &#125;  </div><div class="line">                <span class="keyword">if</span>(drawNum==<span class="number">8</span> &amp;&amp; backDrawNum!=<span class="number">0</span>)  </div><div class="line">                &#123;  </div><div class="line">                    <span class="comment">//开始播放逆向动画  </span></div><div class="line">                    backDrawNum--;  </div><div class="line">                    mShowAni.reverse();  </div><div class="line">                &#125;  </div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(drawNum==<span class="number">8</span> &amp;&amp; backDrawNum==<span class="number">0</span>)  </div><div class="line">                &#123;  </div><div class="line">                    <span class="comment">//逆向动画播放完毕，播放正向动画  </span></div><div class="line">                    drawNum = <span class="number">1</span>;  </div><div class="line">                &#125;  </div><div class="line">                invalidate();  </div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationCancel</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line"></div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line"></div><div class="line">            &#125;  </div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<h4 id="现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）："><a href="#现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）：" class="headerlink" title="现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）："></a>现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DrawSix</span><span class="params">(Canvas canvas,Paint paint,<span class="keyword">int</span> mLength,<span class="keyword">float</span> Xoffset,<span class="keyword">float</span> Yoffset,<span class="keyword">float</span> scale)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        Path mPath = <span class="keyword">new</span> Path();  </div><div class="line">        <span class="keyword">float</span> height = (<span class="keyword">float</span>)(Math.sqrt(<span class="number">3</span>)*mLength);  </div><div class="line">        mPath.moveTo(Xoffset,Yoffset+mLength/<span class="number">2</span>);<span class="comment">//初始点  </span></div><div class="line">        mPath.lineTo(Xoffset+height/<span class="number">2</span>,Yoffset);  </div><div class="line">        mPath.lineTo(Xoffset+height,Yoffset+mLength/<span class="number">2</span>);  </div><div class="line">        mPath.lineTo(Xoffset+height,Yoffset+(mLength/<span class="number">2</span>)*<span class="number">3</span>);  </div><div class="line">        mPath.lineTo(Xoffset+height/<span class="number">2</span>,Yoffset+mLength*<span class="number">2</span>);  </div><div class="line">        mPath.lineTo(Xoffset,Yoffset+(mLength/<span class="number">2</span>)*<span class="number">3</span>);  </div><div class="line">        mPath.lineTo(Xoffset,Yoffset+mLength/<span class="number">2</span>);  </div><div class="line">        mPath.close();<span class="comment">//闭合路径  </span></div><div class="line">        <span class="comment">//Log.i("动画里","mScale:"+mScale);  </span></div><div class="line">        <span class="keyword">if</span>(scale!=-<span class="number">1</span>) &#123;<span class="comment">//防止动画重复播放  </span></div><div class="line">            <span class="keyword">if</span>(mShowAni != <span class="keyword">null</span> &amp;&amp; ! mShowAni.isRunning()) &#123;  </div><div class="line">                mShowAni.start();  </div><div class="line">            &#125;  </div><div class="line">            canvas.save();  </div><div class="line">            canvas.scale(scale,scale,Xoffset + height / <span class="number">2</span>,Yoffset + mLength);  </div><div class="line">            canvas.drawPath(mPath,paint);  </div><div class="line">            canvas.restore();  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">else</span>  </div><div class="line">        &#123;  </div><div class="line">            <span class="comment">//==-1的时候不播放动画，不处理会导致画面闪动  </span></div><div class="line">            canvas.save();  </div><div class="line">            canvas.scale(<span class="number">1</span>,<span class="number">1</span>,Xoffset + height / <span class="number">2</span>,Yoffset + mLength);  </div><div class="line">            canvas.drawPath(mPath,paint);  </div><div class="line">            canvas.restore();  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 画守望六边形</div><div class="line">     * <span class="doctag">@param</span> canvas</div><div class="line">     * <span class="doctag">@param</span> paint</div><div class="line">     * <span class="doctag">@param</span> mLength 半径</div><div class="line">     * <span class="doctag">@param</span> Xoffset 偏移量</div><div class="line">     * <span class="doctag">@param</span> Yoffset Y偏移量</div><div class="line">     * <span class="doctag">@param</span> drawNum 绘画的位置</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DrawOWSix</span><span class="params">(Canvas canvas,Paint paint,<span class="keyword">int</span> mLength,<span class="keyword">float</span> Xoffset,<span class="keyword">float</span> Yoffset,<span class="keyword">int</span> drawNum,<span class="keyword">int</span> backNum)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">float</span> height = (<span class="keyword">float</span>)(Math.sqrt(<span class="number">3</span>)*mLength);  </div><div class="line">        <span class="keyword">float</span> XoffsetZero = Xoffset;  </div><div class="line">        <span class="keyword">float</span> XoffsetOne = Xoffset+height/<span class="number">2</span>;  </div><div class="line">        <span class="keyword">float</span> YoffsetOne = Yoffset;  </div><div class="line">        <span class="keyword">float</span> XoffsetTwo = Xoffset+(height/<span class="number">2</span>)*<span class="number">3</span>;  </div><div class="line">        <span class="keyword">float</span> XoffsetThree = Xoffset+height*<span class="number">2</span>;  </div><div class="line">        <span class="keyword">float</span> YoffsetTwo = Yoffset+(mLength/<span class="number">2</span>)*<span class="number">3</span>;  </div><div class="line">        <span class="keyword">float</span> YoffsetThree = Xoffset+mLength*<span class="number">3</span>;  </div><div class="line">        <span class="keyword">float</span> XoffsetCenter = Xoffset+height;  </div><div class="line">        Paint defaultPaint = paint;<span class="comment">//用来绘制已经播放完成动画的六边形  </span></div><div class="line">        paint.setAlpha(<span class="number">255</span>);  </div><div class="line">        <span class="keyword">if</span>(drawNum==<span class="number">8</span>)  </div><div class="line">        &#123;  </div><div class="line">            drawNum = backNum;  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">//画六边形，里面的-1赋值是用来让动画不再播放的  </span></div><div class="line">        <span class="keyword">switch</span>(drawNum) &#123;  </div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetOne,YoffsetOne,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">4</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">5</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetOne + <span class="number">3</span>,YoffsetThree + <span class="number">6</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">6</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne + <span class="number">3</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetZero,YoffsetTwo + <span class="number">3</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">7</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne + <span class="number">3</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetZero,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetCenter + <span class="number">3</span>,YoffsetTwo + <span class="number">3</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">default</span>:  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="接下来就要实现ondraw（）方法了："><a href="#接下来就要实现ondraw（）方法了：" class="headerlink" title="接下来就要实现ondraw（）方法了："></a>接下来就要实现ondraw（）方法了：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);  </div><div class="line">        <span class="keyword">this</span>.canvas = canvas;  </div><div class="line">        DrawOWSix(<span class="keyword">this</span>.canvas,mPaint,mLength,XOffset,YOffset,drawNum,backDrawNum);  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）："><a href="#实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）：" class="headerlink" title="实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）："></a>实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">DrawStar</span><span class="params">(Context context,AttributeSet attrs)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context,attrs);  </div><div class="line">    <span class="keyword">final</span> TypedArray array = context.getTheme().obtainStyledAttributes(attrs,R.styleable.OverWatchLoadingView, <span class="number">0</span>, <span class="number">0</span>);  </div><div class="line">        mColor = array.getColor(R.styleable.OverWatchLoadingView_view_color, Color.parseColor(<span class="string">"#FFCC00"</span>));  </div><div class="line">        array.recycle();  </div><div class="line">        mPaint = <span class="keyword">new</span> Paint();  </div><div class="line">        mPaint.setAntiAlias(<span class="keyword">true</span>);  </div><div class="line">        mPaint.setAlpha(<span class="number">0</span>);  </div><div class="line">        mPaint.setColor(mColor);  </div><div class="line">        View = <span class="keyword">this</span>;  </div><div class="line">        mScale = <span class="number">0</span>;  </div><div class="line">        initAni();  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DrawStar</span><span class="params">(Context context,AttributeSet attrs,<span class="keyword">int</span> defStyleAttr,Paint mPaint)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context,attrs,defStyleAttr);  </div><div class="line">        <span class="keyword">this</span>.mPaint = mPaint;  </div><div class="line">        View = <span class="keyword">this</span>;  </div><div class="line">        mScale = <span class="number">0</span>;  </div><div class="line">        initAni();  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DrawStar</span><span class="params">(Context context,AttributeSet attrs,<span class="keyword">int</span> defStyleAttr,<span class="keyword">int</span> defStyleRes,Paint mPaint)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context,attrs,defStyleAttr,defStyleRes);  </div><div class="line">        <span class="keyword">this</span>.mPaint = mPaint;  </div><div class="line">        View = <span class="keyword">this</span>;  </div><div class="line">        mScale = <span class="number">0</span>;  </div><div class="line">        initAni();  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。"><a href="#当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。" class="headerlink" title="当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。"></a>当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pauseLoading</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mShowAni.pause();  </div><div class="line">    &#125;  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">continueLoading</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mShowAni.start();  </div><div class="line">    &#125;  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancelLoading</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mShowAni.cancel();  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="源码传送门（传送门）"><a href="#源码传送门（传送门）" class="headerlink" title="源码传送门（传送门）"></a>源码传送门（<a href="http://download.csdn.net/detail/qq_21265915/9680135" target="_blank" rel="external">传送门</a>）</h4>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzong_erweima.jpg" alt="WinterSmileSB101 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的微信公众帐号，不定期推送各种技术文章</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/自定义-View/" rel="tag"># 自定义 View</a>
+          
+            <a href="/tags/守望先锋/" rel="tag"># 守望先锋</a>
+          
+            <a href="/tags/OverWatch/" rel="tag"># OverWatch</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/新闻接口（2016-11-15更新）/" rel="next" title="新闻接口（2016-11-15更新）">
+                <i class="fa fa-chevron-left"></i> 新闻接口（2016-11-15更新）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/" rel="prev" title="安卓（Android）ViewPager+TabLayout实现图片轮播效果">
+                安卓（Android）ViewPager+TabLayout实现图片轮播效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/22/自己动手实现守望先锋动画/"
+     data-title="Android 自己动手实现守望先锋动画"
+     data-content=""
+     data-url="http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/22/自己动手实现守望先锋动画/"
+           data-title="Android 自己动手实现守望先锋动画" data-url="http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myHeadImg.jpeg"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://blog.csdn.net/qq_21265915/rss/list" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      <!--  <div class="links-of-author motion-element">
+          
+        </div>
+        -->
+
+<!--自己写的社交链接-->
+        <div class="links-of-author motion-element">
+         <span class="links-of-author-item">
+         <a href="https://github.com/WinterSmileSB101" title="Github">
+         <i class="fa fa-fw fa-github fa-lg"></i>
+         </a>
+         </span>
+
+         <span class="links-of-author-item">
+                  <a href="http://weibo.com/5602632941/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博">
+                  <i class="fa fa-fw fa-weibo fa-lg"></i>
+                  </a>
+                  </span>
+
+         <span class="links-of-author-item">
+         <a href="http://www.jianshu.com/users/73344bc7e890/timeline" title="简书">
+         <i class="fa fa-fw fa-bookmark fa-lg"></i>
+         </a>
+         </span>
+
+<br />
+
+        <span class="links-of-author-item">
+                 <a href="https://www.douban.com/people/159359470/" title="豆瓣">
+                 <i class="fa fa-fw fa-newspaper-o fa-lg"></i>
+                 </a>
+                 </span>
+
+        <span class="links-of-author-item">
+                 <a href="http://blog.csdn.net/qq_21265915" title="CSDN博客">
+                 <i class="fa fa-fw fa-bug fa-lg"></i>
+                 </a>
+                 </span>
+
+        </div>
+        <!--自己写的社交链接-->
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。"><span class="nav-number">1.</span> <span class="nav-text">起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先上效果："><span class="nav-number">2.</span> <span class="nav-text">先上效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截图不是gif，请见谅。"><span class="nav-number">3.</span> <span class="nav-text">截图不是gif，请见谅。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面来实现：（绘制一个正六边形我就不再多说）"><span class="nav-number">4.</span> <span class="nav-text">下面来实现：（绘制一个正六边形我就不再多说）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先来绘制出所有的六边形："><span class="nav-number">5.</span> <span class="nav-text">先来绘制出所有的六边形：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按照上图所示："><span class="nav-number">6.</span> <span class="nav-text">按照上图所示：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么"><span class="nav-number">7.</span> <span class="nav-text">六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六边形的高等于：Math-sqrt-3-六边形边长。"><span class="nav-number">8.</span> <span class="nav-text">六边形的高等于：Math.sqrt(3)*六边形边长。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个出现位置的起始点坐标是：（六边形的高-2，六边形边长-2）。"><span class="nav-number">9.</span> <span class="nav-text">第一个出现位置的起始点坐标是：（六边形的高/2，六边形边长/2）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形的边长-2）"><span class="nav-number">10.</span> <span class="nav-text">第二个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形的边长/2）.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个出现位置的起始点坐标是：（六边形的高-2，（六边形的边长-2）-3）"><span class="nav-number">11.</span> <span class="nav-text">第三个出现位置的起始点坐标是：（六边形的高*2，（六边形的边长/2）*3）.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形边长-3）"><span class="nav-number">12.</span> <span class="nav-text">第四个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形边长*3）.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五个出现位置的起始点坐标是：（六边形的高-2，六边形边长-3）"><span class="nav-number">13.</span> <span class="nav-text">第五个出现位置的起始点坐标是：（六边形的高/2，六边形边长*3）.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六个出现位置的起始点坐标是：（0，（六边形的边长-2）-3）"><span class="nav-number">14.</span> <span class="nav-text">第六个出现位置的起始点坐标是：（0，（六边形的边长/2）*3）.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长-2）-3）"><span class="nav-number">15.</span> <span class="nav-text">第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长/2）*3）.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他点的计算就不一一列举了，都是很简单的数学计算。"><span class="nav-number">16.</span> <span class="nav-text">其他点的计算就不一一列举了，都是很简单的数学计算。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先讲动画："><span class="nav-number">17.</span> <span class="nav-text">先讲动画：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。"><span class="nav-number">18.</span> <span class="nav-text">这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面是动画代码："><span class="nav-number">19.</span> <span class="nav-text">下面是动画代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加动画监听："><span class="nav-number">20.</span> <span class="nav-text">添加动画监听：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）："><span class="nav-number">21.</span> <span class="nav-text">现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来就要实现ondraw（）方法了："><span class="nav-number">22.</span> <span class="nav-text">接下来就要实现ondraw（）方法了：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）："><span class="nav-number">23.</span> <span class="nav-text">实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。"><span class="nav-number">24.</span> <span class="nav-text">当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码传送门（传送门）"><span class="nav-number">25.</span> <span class="nav-text">源码传送门（传送门）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.3.20 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered By - WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+    个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  WinterSmileSB101
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>

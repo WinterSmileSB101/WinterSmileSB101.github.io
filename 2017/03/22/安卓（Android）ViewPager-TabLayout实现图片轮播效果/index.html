@@ -1,0 +1,1182 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,自定义 View,轮播效果,ViewPager,TabLayout," />
+
+
+
+
+
+  <link rel="alternate" href="http://blog.csdn.net/qq_21265915/rss/list" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。最终代码传送门
+
+文章较长，请耐心食用起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓（Android）ViewPager+TabLayout实现图片轮播效果">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。最终代码传送门
+
+文章较长，请耐心食用起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout">
+<meta property="og:image" content="http://img.blog.csdn.net/20161109222057157?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161109222144877?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161110120943179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161110120854770?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2017-03-22T08:38:58.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓（Android）ViewPager+TabLayout实现图片轮播效果">
+<meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。最终代码传送门
+
+文章较长，请耐心食用起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161109222057157?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/"/>
+
+
+
+
+
+  <title> 安卓（Android）ViewPager+TabLayout实现图片轮播效果 | WinterSmileSB101 的个人房间 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">胆小认生，不易相处</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WinterSmileSB101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myHeadImg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WinterSmileSB101 的个人房间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                安卓（Android）ViewPager+TabLayout实现图片轮播效果
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T16:26:15+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T16:38:58+08:00">
+                2017-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Adnroid-自定义View/" itemprop="url" rel="index">
+                    <span itemprop="name">Adnroid 自定义View</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/" class="leancloud_visitors" data-flag-title="安卓（Android）ViewPager+TabLayout实现图片轮播效果">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。<br><a href="http://download.csdn.net/detail/qq_21265915/9678637" target="_blank" rel="external">最终代码传送门</a></p>
+</blockquote>
+<h2 id="文章较长，请耐心食用"><a href="#文章较长，请耐心食用" class="headerlink" title="文章较长，请耐心食用"></a>文章较长，请耐心食用</h2><h4 id="起因：-最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。"><a href="#起因：-最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。" class="headerlink" title="起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。"></a>起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。</h4><h4 id="思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题："><a href="#思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题：" class="headerlink" title="思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题："></a>思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题：</h4><h4 id="1-SpannableString-来实现图文混排，混排方法（传送门）。"><a href="#1-SpannableString-来实现图文混排，混排方法（传送门）。" class="headerlink" title="1.SpannableString 来实现图文混排，混排方法（传送门）。"></a>1.SpannableString 来实现图文混排，混排方法（<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2013/0731/1497.html" target="_blank" rel="external">传送门</a>）。</h4><h4 id="2-使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView-View-view-或者setCustomView-int-R-id-方法来设置显示。"><a href="#2-使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView-View-view-或者setCustomView-int-R-id-方法来设置显示。" class="headerlink" title="2.使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView(View view)或者setCustomView(int R_id)方法来设置显示。"></a>2.使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView(View view)或者setCustomView(int R_id)方法来设置显示。</h4><h4 id="下面正题："><a href="#下面正题：" class="headerlink" title="下面正题："></a>下面正题：</h4><h4 id="这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。"><a href="#这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。" class="headerlink" title="这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。"></a>这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。</h4><h3 id="一。首先我们来准备图片："><a href="#一。首先我们来准备图片：" class="headerlink" title="一。首先我们来准备图片："></a>一。首先我们来准备图片：</h3><h4 id="没有选中的位置的提示图片："><a href="#没有选中的位置的提示图片：" class="headerlink" title="没有选中的位置的提示图片："></a>没有选中的位置的提示图片：</h4><p><img src="http://img.blog.csdn.net/20161109222057157?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="选中了之后的位置的提示图片："><a href="#选中了之后的位置的提示图片：" class="headerlink" title="选中了之后的位置的提示图片："></a>选中了之后的位置的提示图片：</h4><p><img src="http://img.blog.csdn.net/20161109222144877?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="图片都可以使用ps制作，很简单。"><a href="#图片都可以使用ps制作，很简单。" class="headerlink" title="图片都可以使用ps制作，很简单。"></a>图片都可以使用ps制作，很简单。</h4><h3 id="二。然后我们来写轮播界面的布局（老规矩，先代码后解释）："><a href="#二。然后我们来写轮播界面的布局（老规矩，先代码后解释）：" class="headerlink" title="二。然后我们来写轮播界面的布局（老规矩，先代码后解释）："></a>二。然后我们来写轮播界面的布局（老规矩，先代码后解释）：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line"><span class="comment">&lt;!--轮播viewpager布局--&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>  </span></div><div class="line">                <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>  </div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>&gt;  </div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span>  </span></div><div class="line">        <span class="attr">app:tabIndicatorColor</span>=<span class="string">"@color/colorTransparent"</span>  </div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/luobo_tablayout"</span>  </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"100dp"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"10dp"</span>  </div><div class="line">        <span class="attr">app:tabMinWidth</span>=<span class="string">"10dp"</span>  </div><div class="line">        <span class="attr">app:tabMaxWidth</span>=<span class="string">"30dp"</span>  </div><div class="line">        <span class="attr">app:tabGravity</span>=<span class="string">"center"</span>  </div><div class="line">        <span class="attr">app:tabMode</span>=<span class="string">"fixed"</span>  </div><div class="line">        <span class="attr">android:layout_alignParentEnd</span>=<span class="string">"true"</span>  </div><div class="line">        <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>  </div><div class="line">        <span class="attr">android:translationZ</span>=<span class="string">"2dp"</span>  </div><div class="line">        <span class="attr">android:layout_marginBottom</span>=<span class="string">"5dp"</span>/&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span>  </span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/luobo_viewpager"</span>  </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:translationZ</span>=<span class="string">"0dp"</span>  </div><div class="line">    &gt;  </div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.view.ViewPager</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="这里解释几个点："><a href="#这里解释几个点：" class="headerlink" title="这里解释几个点："></a>这里解释几个点：</h4><h5 id="（1）translationZ属性-为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。"><a href="#（1）translationZ属性-为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。" class="headerlink" title="（1）translationZ属性:为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。"></a>（1）translationZ属性:为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。</h5><h5 id="（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。"><a href="#（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。" class="headerlink" title="（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。"></a>（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。</h5><h5 id="（3）tabMinWidth属性："><a href="#（3）tabMinWidth属性：" class="headerlink" title="（3）tabMinWidth属性："></a>（3）tabMinWidth属性：</h5><h5 id="tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。"><a href="#tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。" class="headerlink" title="tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。"></a>tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。</h5><h3 id="三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），"><a href="#三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），" class="headerlink" title="三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），"></a>三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），</h3><h4 id="布局文件如下："><a href="#布局文件如下：" class="headerlink" title="布局文件如下："></a>布局文件如下：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>  </span></div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/imageLayout_Image"</span>  </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>  </div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@mipmap/winter_news_place_hloder_pic"</span>  </div><div class="line">    <span class="attr">android:src</span>=<span class="string">"@color/colorTransparent"</span>/&gt;  </div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span>  </span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/imageLayout_Title"</span>  </div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"@color/colorWrite"</span>  </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"200dp"</span>  </div><div class="line">        <span class="attr">android:marqueeRepeatLimit</span>=<span class="string">"marquee_forever"</span>  </div><div class="line">        <span class="attr">android:maxLines</span>=<span class="string">"1"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"20dp"</span>  </div><div class="line">        <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>  </div><div class="line">        <span class="attr">android:textAlignment</span>=<span class="string">"viewStart"</span>  </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"15dp"</span>/&gt;  </div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="这里设置了图片为默认的占位图片。可根据喜好设置。"><a href="#这里设置了图片为默认的占位图片。可根据喜好设置。" class="headerlink" title="这里设置了图片为默认的占位图片。可根据喜好设置。"></a>这里设置了图片为默认的占位图片。可根据喜好设置。</h4><h3 id="四。既然我们要自定义-tablayout-的布局，那么我们现在就来写这个布局文件"><a href="#四。既然我们要自定义-tablayout-的布局，那么我们现在就来写这个布局文件" class="headerlink" title="四。既然我们要自定义 tablayout 的布局，那么我们现在就来写这个布局文件"></a>四。既然我们要自定义 tablayout 的布局，那么我们现在就来写这个布局文件</h3><h4 id="布局很简单，就一个-ImageView，为了拉伸图片到全部页面，我们这里设置他的-background-属性而不是-src-属性："><a href="#布局很简单，就一个-ImageView，为了拉伸图片到全部页面，我们这里设置他的-background-属性而不是-src-属性：" class="headerlink" title="布局很简单，就一个 ImageView，为了拉伸图片到全部页面，我们这里设置他的 background 属性而不是 src 属性："></a>布局很简单，就一个 ImageView，为了拉伸图片到全部页面，我们这里设置他的 background 属性而不是 src 属性：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>  </span></div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/Imageview"</span>  </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@mipmap/luobo_unseleted"</span>/&gt;  </div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。"><a href="#五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。" class="headerlink" title="五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。"></a>五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。</h3><h4 id="这里插播一下布局中插入碎片（Fragment）的方法，老规矩："><a href="#这里插播一下布局中插入碎片（Fragment）的方法，老规矩：" class="headerlink" title="这里插播一下布局中插入碎片（Fragment）的方法，老规矩："></a>这里插播一下布局中插入碎片（Fragment）的方法，老规矩：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">fragment</span>  </span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>  </div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/luoboViewPaget"</span>  </div><div class="line">        <span class="attr">android:name</span>=<span class="string">"lunbo.viewPagerLuobo"</span>/&gt;</div></pre></td></tr></table></figure>
+<h4 id="注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。"><a href="#注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。" class="headerlink" title="注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。"></a>注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。</h4><h3 id="现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）："><a href="#现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）：" class="headerlink" title="现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）："></a>现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> lunbo;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;  </div><div class="line"><span class="keyword">import</span> android.graphics.BitmapFactory;  </div><div class="line"><span class="keyword">import</span> android.graphics.drawable.BitmapDrawable;  </div><div class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;  </div><div class="line"><span class="keyword">import</span> android.icu.text.LocaleDisplayNames;  </div><div class="line"><span class="keyword">import</span> android.os.Bundle;  </div><div class="line"><span class="keyword">import</span> android.os.Handler;  </div><div class="line"><span class="keyword">import</span> android.os.Message;  </div><div class="line"><span class="keyword">import</span> android.support.annotation.Nullable;  </div><div class="line"><span class="keyword">import</span> android.support.design.widget.TabLayout;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.Fragment;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.FragmentManager;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.FragmentPagerAdapter;  </div><div class="line"><span class="keyword">import</span> android.support.v4.content.ContextCompat;  </div><div class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager;  </div><div class="line"><span class="keyword">import</span> android.support.v7.app.WindowDecorActionBar;  </div><div class="line"><span class="keyword">import</span> android.text.Spannable;  </div><div class="line"><span class="keyword">import</span> android.text.SpannableString;  </div><div class="line"><span class="keyword">import</span> android.text.style.ImageSpan;  </div><div class="line"><span class="keyword">import</span> android.util.Log;  </div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;  </div><div class="line"><span class="keyword">import</span> android.view.View;  </div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;  </div><div class="line"><span class="keyword">import</span> android.widget.ImageView;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> com.android.volley.RequestQueue;  </div><div class="line"><span class="keyword">import</span> com.android.volley.Response;  </div><div class="line"><span class="keyword">import</span> com.android.volley.VolleyError;  </div><div class="line"><span class="keyword">import</span> com.android.volley.toolbox.StringRequest;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> NewsInfo.JUHE_NewsInfo;  </div><div class="line"><span class="keyword">import</span> Static.StaticValue;  </div><div class="line"><span class="keyword">import</span> Util.FileOP.FileStore;  </div><div class="line"><span class="keyword">import</span> Util.NetWork;  </div><div class="line"><span class="keyword">import</span> winter.zxb.smilesb101.winternews.R;  </div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 项目名称：WinterNews</div><div class="line"> * 类描述：图片轮播类</div><div class="line"> * 创建人：SmileSB101</div><div class="line"> * 创建时间：2016/11/9 0009 07:36</div><div class="line"> * 修改人：Administrator</div><div class="line"> * 修改时间：2016/11/9 0009 07:36</div><div class="line"> * 修改备注：</div><div class="line"> */  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">viewPagerLuobo</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span>&#123;  </div><div class="line">    <span class="keyword">private</span> TabLayout mTablayout;  </div><div class="line">    <span class="keyword">private</span> ViewPager mViewPager;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> selectNum;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> pageNum;  </div><div class="line">    <span class="keyword">private</span> View view;  </div><div class="line">    <span class="keyword">private</span> ArrayList&lt;JUHE_NewsInfo&gt; juhe_newsInfos = <span class="keyword">new</span> ArrayList&lt;&gt;();  </div><div class="line">    <span class="keyword">private</span> viewPagerAdapter mViewPageAdapter;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GetNewsDown = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GetNewsError = -<span class="number">1</span>;  </div><div class="line">    <span class="keyword">private</span> Handler handler = <span class="keyword">new</span> Handler()&#123;  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span></span>&#123;  </div><div class="line">            <span class="keyword">super</span>.handleMessage(msg);  </div><div class="line">            <span class="keyword">switch</span>(msg.what)  </div><div class="line">            &#123;  </div><div class="line">                <span class="keyword">case</span> GetNewsDown:  </div><div class="line">                    Log.i(<span class="string">"设置轮播图片显示"</span>,<span class="string">"handleMessage: "</span>);  </div><div class="line">                    showTopNews();  </div><div class="line">                    <span class="keyword">break</span>;  </div><div class="line">                <span class="keyword">case</span> GetNewsError:  </div><div class="line">                    <span class="keyword">break</span>;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;;  </div><div class="line">    <span class="meta">@Nullable</span>  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState)</span></span>&#123;  </div><div class="line">        view = inflater.inflate(R.layout.lunbo_viewpager,container,<span class="keyword">false</span>);  </div><div class="line">        selectNum = <span class="number">0</span>;  </div><div class="line">        pageNum = <span class="number">3</span>;  </div><div class="line">        getTopNews();  </div><div class="line">        <span class="keyword">return</span> view;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getTopNews</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        RequestQueue mrequeue = NetWork.getmRequestqueue(StaticValue.MainActivity);  </div><div class="line">        String utl = <span class="string">"http://v.juhe.cn/toutiao/index?top&amp;key=2d89bbcc668f4ef02cade2b00d7d9265"</span>;  </div><div class="line">        StringRequest stringRequest = <span class="keyword">new</span> StringRequest(utl,<span class="keyword">new</span> Response.Listener&lt;String&gt;()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String s)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"获取到头条"</span>,<span class="string">"onResponse: "</span>);  </div><div class="line">                juhe_newsInfos = FileStore.getJUHENews_List(s);  </div><div class="line">                handler.sendEmptyMessage(GetNewsDown);  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="keyword">new</span> Response.ErrorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError volleyError)</span></span>&#123;  </div><div class="line">                handler.sendEmptyMessage(GetNewsError);  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        mrequeue.add(stringRequest);  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showTopNews</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mViewPager = (ViewPager)view.findViewById(R.id.luobo_viewpager);  </div><div class="line">        mViewPageAdapter = <span class="keyword">new</span> viewPagerAdapter(getFragmentManager());  </div><div class="line">        mViewPager.setAdapter(mViewPageAdapter);  </div><div class="line">        setmTablayout();  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setmTablayout</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mTablayout = (TabLayout)view.findViewById(R.id.luobo_tablayout);  </div><div class="line">        mTablayout.setupWithViewPager(mViewPager);  </div><div class="line">        <span class="comment">//添加tab，这里添加一开始显示的图片，重要代码  </span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;mViewPageAdapter.getCount();i++) &#123;  </div><div class="line">            TabLayout.Tab tab = mTablayout.getTabAt(i);  </div><div class="line">            Log.i(<span class="string">"添加图片"</span>,<span class="string">"setmTablayout: 1"</span>);  </div><div class="line">            View v = LayoutInflater.from(StaticValue.MainActivity).inflate(R.layout.luobo_tablayout,<span class="keyword">null</span>);  </div><div class="line">            ImageView tabImage = (ImageView)v.findViewById(R.id.Imageview);  </div><div class="line">            tabImage.setBackgroundResource(R.mipmap.luobo_unseleted);  </div><div class="line">            tab.setCustomView(v);  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">//添加图片变换，在这里进行选项变化时图片的设置，重要代码  </span></div><div class="line">        mTablayout.addOnTabSelectedListener(<span class="keyword">new</span> TabLayout.OnTabSelectedListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabSelected</span><span class="params">(TabLayout.Tab tab)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"图片添加"</span>,<span class="string">"onTabSelected: "</span>);  </div><div class="line">                View v = tab.getCustomView();  </div><div class="line">                ImageView tabImage = (ImageView)v.findViewById(R.id.Imageview);  </div><div class="line">                tabImage.setBackgroundResource(R.mipmap.luobo_seleted);  </div><div class="line">                <span class="comment">//tab.setCustomView(v);  </span></div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabUnselected</span><span class="params">(TabLayout.Tab tab)</span></span>&#123;  </div><div class="line">                View v = tab.getCustomView();  </div><div class="line">                ImageView tabImage = (ImageView)v.findViewById(R.id.Imageview);  </div><div class="line">                tabImage.setBackgroundResource(R.mipmap.luobo_unseleted);  </div><div class="line">                <span class="comment">//tab.setCustomView(v);  </span></div><div class="line">            &#125;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabReselected</span><span class="params">(TabLayout.Tab tab)</span></span>&#123;  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        <span class="comment">//后台开启计时器线程，每3秒设置一次选项变化，实现轮播的逻辑，重要代码。  </span></div><div class="line">        handler.postDelayed(<span class="keyword">new</span> Runnable()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;  </div><div class="line">                selectNum = selectNum%pageNum;  </div><div class="line">                Log.i(<span class="string">"选项卡数量"</span>,<span class="string">"run: "</span>+selectNum);  </div><div class="line">                mViewPager.setCurrentItem(selectNum);  </div><div class="line">                selectNum++;  </div><div class="line">                handler.postDelayed(<span class="keyword">this</span>,<span class="number">3000</span>);  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="number">0</span>);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">viewPagerAdapter</span> <span class="keyword">extends</span> <span class="title">FragmentPagerAdapter</span></span>&#123;  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">viewPagerAdapter</span><span class="params">(FragmentManager fm)</span></span>&#123;  </div><div class="line">            <span class="keyword">super</span>(fm);  </div><div class="line">        &#125;  </div><div class="line"></div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span></span>&#123;  </div><div class="line">            <span class="keyword">return</span> pageNum;  </div><div class="line">        &#125;  </div><div class="line"></div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;  </div><div class="line">            <span class="keyword">return</span> ImageFragment.newInstence(juhe_newsInfos.get(position));  </div><div class="line">        &#125;  </div><div class="line"></div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> CharSequence <span class="title">getPageTitle</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;  </div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="获取新闻数据接口是来自聚合网，"><a href="#获取新闻数据接口是来自聚合网，" class="headerlink" title="获取新闻数据接口是来自聚合网，"></a>获取新闻数据接口是来自聚合网，</h4><h4 id="下面贴出轮播Viewpager中的内容Fragment："><a href="#下面贴出轮播Viewpager中的内容Fragment：" class="headerlink" title="下面贴出轮播Viewpager中的内容Fragment："></a>下面贴出轮播Viewpager中的内容Fragment：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> lunbo;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;  </div><div class="line"><span class="keyword">import</span> android.support.annotation.Nullable;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.Fragment;  </div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;  </div><div class="line"><span class="keyword">import</span> android.view.View;  </div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;  </div><div class="line"><span class="keyword">import</span> android.widget.ImageView;  </div><div class="line"><span class="keyword">import</span> android.widget.TextView;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> com.bumptech.glide.Glide;  </div><div class="line"><span class="keyword">import</span> com.bumptech.glide.load.resource.drawable.GlideDrawable;  </div><div class="line"><span class="keyword">import</span> com.bumptech.glide.request.animation.GlideAnimation;  </div><div class="line"><span class="keyword">import</span> com.bumptech.glide.request.target.SimpleTarget;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> NewsInfo.JUHE_NewsInfo;  </div><div class="line"><span class="keyword">import</span> winter.zxb.smilesb101.winternews.R;  </div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 项目名称：WinterNews</div><div class="line"> * 类描述：轮播ViewPager中显示的内容的Fragment</div><div class="line"> * 创建人：SmileSB101</div><div class="line"> * 创建时间：2016/11/9 0009 13:24</div><div class="line"> * 修改人：Administrator</div><div class="line"> * 修改时间：2016/11/9 0009 13:24</div><div class="line"> * 修改备注：</div><div class="line"> */  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImageFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span>&#123;  </div><div class="line">    <span class="keyword">private</span> ImageView mImageView;  </div><div class="line">    <span class="keyword">private</span> JUHE_NewsInfo juhe_newsInfo;  </div><div class="line">    <span class="keyword">private</span> TextView title;  </div><div class="line">    Fragment context;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJuhe_newsInfo</span><span class="params">(JUHE_NewsInfo juhe_newsInfo)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">this</span>.juhe_newsInfo = juhe_newsInfo;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImageFragment</span><span class="params">()</span></span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ImageFragment <span class="title">newInstence</span><span class="params">(JUHE_NewsInfo juhe_newsInfo)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        ImageFragment imageFragment = <span class="keyword">new</span> ImageFragment();  </div><div class="line">        imageFragment.setJuhe_newsInfo(juhe_newsInfo);  </div><div class="line">        <span class="keyword">return</span> imageFragment;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="meta">@Nullable</span>  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState)</span></span>&#123;  </div><div class="line">        View rootView = <span class="keyword">null</span>;  </div><div class="line">        context = <span class="keyword">this</span>;  </div><div class="line">        rootView = inflater.inflate(R.layout.image_layout,container,<span class="keyword">false</span>);  </div><div class="line">        title = (TextView)rootView.findViewById(R.id.imageLayout_Title);  </div><div class="line">        mImageView = (ImageView)rootView.findViewById(R.id.imageLayout_Image);  </div><div class="line">        <span class="keyword">if</span>(juhe_newsInfo!=<span class="keyword">null</span>) &#123;  </div><div class="line">            Glide.with(context)  </div><div class="line">                    .load(juhe_newsInfo.getThumbnail_pic_s())  </div><div class="line">                    .placeholder(R.mipmap.winter_news_place_hloder_pic)  </div><div class="line">                    .error(R.mipmap.winter_news_error_pic)  </div><div class="line">                    .into(<span class="keyword">new</span> SimpleTarget&lt;GlideDrawable&gt;()&#123;  </div><div class="line">                        <span class="meta">@Override</span>  </div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource,GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; glideAnimation)</span></span>&#123;  </div><div class="line">                            <span class="comment">//在这里设置图片背景（当GLide获取完成图片之后执行）  </span></div><div class="line">                            mImageView.setBackground(resource);  </div><div class="line">                        &#125;  </div><div class="line">                    &#125;);  </div><div class="line">            title.setText(juhe_newsInfo.getTitle());  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">else</span>  </div><div class="line">        &#123;  </div><div class="line">            Glide.with(context)  </div><div class="line">                    .load(R.mipmap.winter_news_place_hloder_pic)  </div><div class="line">                    .error(R.mipmap.winter_news_error_pic)  </div><div class="line">                    .into(<span class="keyword">new</span> SimpleTarget&lt;GlideDrawable&gt;()&#123;  </div><div class="line">                        <span class="meta">@Override</span>  </div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource,GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; glideAnimation)</span></span>&#123;  </div><div class="line">                            <span class="comment">//在这里设置图片背景（当GLide获取完成图片之后执行）  </span></div><div class="line">                            mImageView.setBackground(resource);  </div><div class="line">                        &#125;  </div><div class="line">                    &#125;);  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">return</span> rootView;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。"><a href="#图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。" class="headerlink" title="图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。"></a>图片加载我使用的是Glide库，详细的使用方法（<a href="http://blog.csdn.net/carson_ho/article/details/52663351" target="_blank" rel="external">点击开启传送门</a>）。</h4><h3 id="下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）"><a href="#下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）" class="headerlink" title="下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）"></a>下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）</h3><h2 id="下面是截图（可以看到效果已经实现了，但是tab间距太远-骚新闻什么的不要理他）"><a href="#下面是截图（可以看到效果已经实现了，但是tab间距太远-骚新闻什么的不要理他）" class="headerlink" title="下面是截图（可以看到效果已经实现了，但是tab间距太远,骚新闻什么的不要理他）"></a><strong>下面是截图（可以看到效果已经实现了，但是tab间距太远,骚新闻什么的不要理他）</strong></h2><p><img src="http://img.blog.csdn.net/20161110120943179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h2 id="于是我们调整一下tablayout的padding值以及tabMaxWidth的值："><a href="#于是我们调整一下tablayout的padding值以及tabMaxWidth的值：" class="headerlink" title="于是我们调整一下tablayout的padding值以及tabMaxWidth的值："></a>于是我们调整一下tablayout的padding值以及tabMaxWidth的值：</h2><h3 id="改变之后的tablayout如下："><a href="#改变之后的tablayout如下：" class="headerlink" title="改变之后的tablayout如下："></a>改变之后的tablayout如下：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span>  </span></div><div class="line">       <span class="attr">app:tabIndicatorColor</span>=<span class="string">"@color/colorTransparent"</span>  </div><div class="line">       <span class="attr">android:id</span>=<span class="string">"@+id/luobo_tablayout"</span>  </div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"100dp"</span>  </div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"10dp"</span>  </div><div class="line">       <span class="attr">app:tabMinWidth</span>=<span class="string">"10dp"</span>  </div><div class="line">       <span class="attr">app:tabMaxWidth</span>=<span class="string">"10dp"</span>  </div><div class="line">       <span class="attr">app:tabPadding</span>=<span class="string">"0dp"</span>  </div><div class="line">       <span class="attr">app:tabPaddingStart</span>=<span class="string">"0dp"</span>  </div><div class="line">       <span class="attr">app:tabPaddingEnd</span>=<span class="string">"0dp"</span>  </div><div class="line">       <span class="attr">app:tabGravity</span>=<span class="string">"center"</span>  </div><div class="line">       <span class="attr">app:tabMode</span>=<span class="string">"fixed"</span>  </div><div class="line">       <span class="attr">android:layout_alignParentEnd</span>=<span class="string">"true"</span>  </div><div class="line">       <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>  </div><div class="line">       <span class="attr">android:translationZ</span>=<span class="string">"2dp"</span>  </div><div class="line">       <span class="attr">android:layout_marginBottom</span>=<span class="string">"5dp"</span>/&gt;</div></pre></td></tr></table></figure>
+<h3 id="这里控件的宽度可以自己根据实际需求更改"><a href="#这里控件的宽度可以自己根据实际需求更改" class="headerlink" title="这里控件的宽度可以自己根据实际需求更改"></a>这里控件的宽度可以自己根据实际需求更改</h3><h3 id="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"><a href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！" class="headerlink" title="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"></a>注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</h3><h3 id="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-1"><a href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-1" class="headerlink" title="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"></a>注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</h3><h3 id="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-2"><a href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-2" class="headerlink" title="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"></a>注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</h3><h3 id="最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。"><a href="#最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。" class="headerlink" title="最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。"></a>最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。</h3><h3 id="如有问题，欢迎指正。"><a href="#如有问题，欢迎指正。" class="headerlink" title="如有问题，欢迎指正。"></a>如有问题，欢迎指正。</h3><h3 id="现在来看看最终效果："><a href="#现在来看看最终效果：" class="headerlink" title="现在来看看最终效果："></a>现在来看看最终效果：</h3><p><img src="http://img.blog.csdn.net/20161110120854770?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzong_erweima.jpg" alt="WinterSmileSB101 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的微信公众帐号，不定期推送各种技术文章</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/自定义-View/" rel="tag"># 自定义 View</a>
+          
+            <a href="/tags/轮播效果/" rel="tag"># 轮播效果</a>
+          
+            <a href="/tags/ViewPager/" rel="tag"># ViewPager</a>
+          
+            <a href="/tags/TabLayout/" rel="tag"># TabLayout</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/自己动手实现守望先锋动画/" rel="next" title="Android 自己动手实现守望先锋动画">
+                <i class="fa fa-chevron-left"></i> Android 自己动手实现守望先锋动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/"
+     data-title="安卓（Android）ViewPager+TabLayout实现图片轮播效果"
+     data-content=""
+     data-url="http://WinterSmileSB101.online/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/"
+           data-title="安卓（Android）ViewPager+TabLayout实现图片轮播效果" data-url="http://WinterSmileSB101.online/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myHeadImg.jpeg"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://blog.csdn.net/qq_21265915/rss/list" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      <!--  <div class="links-of-author motion-element">
+          
+        </div>
+        -->
+
+<!--自己写的社交链接-->
+        <div class="links-of-author motion-element">
+         <span class="links-of-author-item">
+         <a href="https://github.com/WinterSmileSB101" title="Github">
+         <i class="fa fa-fw fa-github fa-lg"></i>
+         </a>
+         </span>
+
+         <span class="links-of-author-item">
+                  <a href="http://weibo.com/5602632941/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博">
+                  <i class="fa fa-fw fa-weibo fa-lg"></i>
+                  </a>
+                  </span>
+
+         <span class="links-of-author-item">
+         <a href="http://www.jianshu.com/users/73344bc7e890/timeline" title="简书">
+         <i class="fa fa-fw fa-bookmark fa-lg"></i>
+         </a>
+         </span>
+
+<br />
+
+        <span class="links-of-author-item">
+                 <a href="https://www.douban.com/people/159359470/" title="豆瓣">
+                 <i class="fa fa-fw fa-newspaper-o fa-lg"></i>
+                 </a>
+                 </span>
+
+        <span class="links-of-author-item">
+                 <a href="http://blog.csdn.net/qq_21265915" title="CSDN博客">
+                 <i class="fa fa-fw fa-bug fa-lg"></i>
+                 </a>
+                 </span>
+
+        </div>
+        <!--自己写的社交链接-->
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章较长，请耐心食用"><span class="nav-number">1.</span> <span class="nav-text">文章较长，请耐心食用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#起因：-最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。"><span class="nav-number">1.0.1.</span> <span class="nav-text">起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题："><span class="nav-number">1.0.2.</span> <span class="nav-text">思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SpannableString-来实现图文混排，混排方法（传送门）。"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.SpannableString 来实现图文混排，混排方法（传送门）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView-View-view-或者setCustomView-int-R-id-方法来设置显示。"><span class="nav-number">1.0.4.</span> <span class="nav-text">2.使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView(View view)或者setCustomView(int R_id)方法来设置显示。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面正题："><span class="nav-number">1.0.5.</span> <span class="nav-text">下面正题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。"><span class="nav-number">1.0.6.</span> <span class="nav-text">这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一。首先我们来准备图片："><span class="nav-number">1.1.</span> <span class="nav-text">一。首先我们来准备图片：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#没有选中的位置的提示图片："><span class="nav-number">1.1.1.</span> <span class="nav-text">没有选中的位置的提示图片：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选中了之后的位置的提示图片："><span class="nav-number">1.1.2.</span> <span class="nav-text">选中了之后的位置的提示图片：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片都可以使用ps制作，很简单。"><span class="nav-number">1.1.3.</span> <span class="nav-text">图片都可以使用ps制作，很简单。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二。然后我们来写轮播界面的布局（老规矩，先代码后解释）："><span class="nav-number">1.2.</span> <span class="nav-text">二。然后我们来写轮播界面的布局（老规矩，先代码后解释）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这里解释几个点："><span class="nav-number">1.2.1.</span> <span class="nav-text">这里解释几个点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）translationZ属性-为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">（1）translationZ属性:为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（3）tabMinWidth属性："><span class="nav-number">1.2.1.3.</span> <span class="nav-text">（3）tabMinWidth属性：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），"><span class="nav-number">1.3.</span> <span class="nav-text">三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#布局文件如下："><span class="nav-number">1.3.1.</span> <span class="nav-text">布局文件如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这里设置了图片为默认的占位图片。可根据喜好设置。"><span class="nav-number">1.3.2.</span> <span class="nav-text">这里设置了图片为默认的占位图片。可根据喜好设置。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四。既然我们要自定义-tablayout-的布局，那么我们现在就来写这个布局文件"><span class="nav-number">1.4.</span> <span class="nav-text">四。既然我们要自定义 tablayout 的布局，那么我们现在就来写这个布局文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#布局很简单，就一个-ImageView，为了拉伸图片到全部页面，我们这里设置他的-background-属性而不是-src-属性："><span class="nav-number">1.4.1.</span> <span class="nav-text">布局很简单，就一个 ImageView，为了拉伸图片到全部页面，我们这里设置他的 background 属性而不是 src 属性：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。"><span class="nav-number">1.5.</span> <span class="nav-text">五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这里插播一下布局中插入碎片（Fragment）的方法，老规矩："><span class="nav-number">1.5.1.</span> <span class="nav-text">这里插播一下布局中插入碎片（Fragment）的方法，老规矩：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。"><span class="nav-number">1.5.2.</span> <span class="nav-text">注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）："><span class="nav-number">1.6.</span> <span class="nav-text">现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取新闻数据接口是来自聚合网，"><span class="nav-number">1.6.1.</span> <span class="nav-text">获取新闻数据接口是来自聚合网，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面贴出轮播Viewpager中的内容Fragment："><span class="nav-number">1.6.2.</span> <span class="nav-text">下面贴出轮播Viewpager中的内容Fragment：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。"><span class="nav-number">1.6.3.</span> <span class="nav-text">图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）"><span class="nav-number">1.7.</span> <span class="nav-text">下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面是截图（可以看到效果已经实现了，但是tab间距太远-骚新闻什么的不要理他）"><span class="nav-number">2.</span> <span class="nav-text">下面是截图（可以看到效果已经实现了，但是tab间距太远,骚新闻什么的不要理他）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#于是我们调整一下tablayout的padding值以及tabMaxWidth的值："><span class="nav-number">3.</span> <span class="nav-text">于是我们调整一下tablayout的padding值以及tabMaxWidth的值：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变之后的tablayout如下："><span class="nav-number">3.1.</span> <span class="nav-text">改变之后的tablayout如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里控件的宽度可以自己根据实际需求更改"><span class="nav-number">3.2.</span> <span class="nav-text">这里控件的宽度可以自己根据实际需求更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"><span class="nav-number">3.3.</span> <span class="nav-text">注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-1"><span class="nav-number">3.4.</span> <span class="nav-text">注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-2"><span class="nav-number">3.5.</span> <span class="nav-text">注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。"><span class="nav-number">3.6.</span> <span class="nav-text">最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如有问题，欢迎指正。"><span class="nav-number">3.7.</span> <span class="nav-text">如有问题，欢迎指正。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现在来看看最终效果："><span class="nav-number">3.8.</span> <span class="nav-text">现在来看看最终效果：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.3.20 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered By - WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+    个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  WinterSmileSB101
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>
