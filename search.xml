@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法]]></title>
+      <url>%2F2017%2F03%2F22%2F%E4%BD%BF%E7%94%A8LayoutInflater%E8%A3%85%E8%BD%BD%E5%B8%83%E5%B1%80%E6%88%96%E8%80%85setContentView%E8%A3%85%E8%BD%BD%E5%B8%83%E5%B1%80%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0OOM%EF%BC%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%89%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
+      <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 起因：今天写一个视频图片信息展示页面的时候，在recyclerView中添加条目中，使用1View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.file_item,parent,false); 但是一运行就提示如下错误 接下来的错误信息我就不提供了，没什么实际作用，从前面的指向来看，就是： 1View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.file_item,parent,false); 这句语句所带来的问题，但是这句语句是正确的，所以唯一能有问题的就是布局文件。*经过测试，锁定了问题的症结：布局中使用的图片分辨率太大了！由于是在网上找的图标素材，故每个都是超过15001500以上的分辨率，而我这里同时使用了4个这样的控件来提供用户操作。这就是导致OOM的问题所在。解决方法：既然找到了问题所在，那么就可以想办法解决，这里我提供两种思路：1.使用低分辨率的图片（建议使用）。2.使用Glide或者其他开源图片加载库使用代码控制图片的载入（但是这样会加重代码量，而且用户体验也不一定好，不建议使用）。我这里使用的就是第一种思路，第二种没有测试过，应该是可行的，但是在用户体验和代码量上，应该会有问题。那么问题又来了，怎么降低图片分辨率？**缩小图片大小方法]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[解决在自定义AlertDialog中EditText无法弹出软键盘的问题]]></title>
       <url>%2F2017%2F03%2F22%2F%E8%A7%A3%E5%86%B3%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89AlertDialog%E4%B8%ADEditText%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%BD%AF%E9%94%AE%E7%9B%98%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
       <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 原因：今天做一个文件管理器的时候，在文件重命名上遇到了一个问题（准确的说是两个另外一个与本文无关，就不多提）—在弹出的AlertDialog中的EditText居然无法弹出软键盘，我这里需要输入你这是逗我？多番查询之后知道了原因：在setContentView（）方法之前就调用了show（）方法。所以没能够识别（或者是没有这么彻底，具体原因我也不解）。解决办法：在show之前，使用 LayoutInflat 来新建一个布局，然后通过setView（）方法，先把布局设置进去。后面的就不变。问题就此解决。12345678910111213alertDialog = new android.app.AlertDialog.Builder(context).create(); alertDialog.setCancelable(true); LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); LinearLayout layout = (LinearLayout)inflater.inflate(contentViewID, null); alertDialog.setView(layout); window = alertDialog.getWindow(); window.setContentView(contentViewID); alertDialog.show(); nameTextView = (EditText)window.findViewById(R.id.dialog_name); nameTextView.setText(name); this.name = name; surebtn = (Button)window.findViewById(R.id.dialog_sureBtn); canclebtn = (Button)window.findViewById(R.id.dialog_cancleBtn); 这里的LinearLayout是因为自定义的AlertDialog布局的根布局就是LinearLayout，所以，根布局是什么这里就应该用什么。下面效果图：]]></content>

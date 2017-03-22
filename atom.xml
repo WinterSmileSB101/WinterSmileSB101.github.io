@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T07:48:18.586Z</updated>
+  <updated>2017-03-22T07:53:51.904Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/%E4%BD%BF%E7%94%A8LayoutInflater%E8%A3%85%E8%BD%BD%E5%B8%83%E5%B1%80%E6%88%96%E8%80%85setContentView%E8%A3%85%E8%BD%BD%E5%B8%83%E5%B1%80%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0OOM%EF%BC%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%89%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法/</id>
+    <published>2017-03-22T07:49:35.000Z</published>
+    <updated>2017-03-22T07:53:51.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 实践" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+      <category term="内存溢出" scheme="http://WinterSmileSB101.online/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/"/>
+    
+      <category term="OOM" scheme="http://WinterSmileSB101.online/tags/OOM/"/>
+    
+      <category term="LayoutInflater" scheme="http://WinterSmileSB101.online/tags/LayoutInflater/"/>
+    
+      <category term="setContentView" scheme="http://WinterSmileSB101.online/tags/setContentView/"/>
+    
+  </entry>
   
   <entry>
     <title>解决在自定义AlertDialog中EditText无法弹出软键盘的问题</title>
@@ -88,9 +117,9 @@
       <category term="Android 实践" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E8%B7%B5/"/>
     
     
-      <category term="Activity" scheme="http://WinterSmileSB101.online/tags/Activity/"/>
-    
       <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+      <category term="Activity" scheme="http://WinterSmileSB101.online/tags/Activity/"/>
     
       <category term="活动传递对象" scheme="http://WinterSmileSB101.online/tags/%E6%B4%BB%E5%8A%A8%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1/"/>
     
@@ -555,30 +584,6 @@
     
     
       <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
-    
-      <category term="总结" scheme="http://WinterSmileSB101.online/tags/%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Next 使用总结</title>
-    <link href="http://WinterSmileSB101.online/2017/03/22/summer-next/"/>
-    <id>http://WinterSmileSB101.online/2017/03/22/summer-next/</id>
-    <published>2017-03-22T01:36:37.000Z</published>
-    <updated>2017-03-22T01:52:00.837Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-Next-中的多级目录&quot;&gt;&lt;a href=&quot;#1-Next-中的多级目录&quot; class=&quot;headerlink&quot; title=&quot;1. Next 中的多级目录&quot;&gt;&lt;/a&gt;1. Next 中的多级目录&lt;/h2&gt;&lt;h3 id=&quot;Next-是默认支持了多级目录的，那么
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/categories/Hexo/"/>
-    
-      <category term="Next" scheme="http://WinterSmileSB101.online/categories/Hexo/Next/"/>
-    
-    
-      <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
     
       <category term="总结" scheme="http://WinterSmileSB101.online/tags/%E6%80%BB%E7%BB%93/"/>
     
