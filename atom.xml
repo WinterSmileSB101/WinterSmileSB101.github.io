@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T00:35:38.199Z</updated>
+  <updated>2017-03-22T01:02:39.381Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -16,16 +16,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Next_Use_Nest</title>
+    <title>为你的Hexo添加Nest动画</title>
     <link href="http://WinterSmileSB101.online/2017/03/22/Next-Use-Nest/"/>
     <id>http://WinterSmileSB101.online/2017/03/22/Next-Use-Nest/</id>
     <published>2017-03-22T00:35:38.000Z</published>
-    <updated>2017-03-22T00:35:38.199Z</updated>
+    <updated>2017-03-22T01:02:39.381Z</updated>
     
     <summary type="html">
     
+      &lt;h1 id=&quot;如果你没有使用-Hexo-主题（或者主题中没有集合Nest）&quot;&gt;&lt;a href=&quot;#如果你没有使用-Hexo-主题（或者主题中没有集合Nest）&quot; class=&quot;headerlink&quot; title=&quot;如果你没有使用 Hexo 主题（或者主题中没有集合Nest）&quot;&gt;
+    
     </summary>
     
+      <category term="Hexo" scheme="http://WinterSmileSB101.online/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
+    
+      <category term="动画" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E7%94%BB/"/>
+    
+      <category term="Nest" scheme="http://WinterSmileSB101.online/tags/Nest/"/>
     
   </entry>
   

@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title><![CDATA[Next_Use_Nest]]></title>
+      <title><![CDATA[为你的Hexo添加Nest动画]]></title>
       <url>%2F2017%2F03%2F22%2FNext-Use-Nest%2F</url>
-      <content type="text"></content>
+      <content type="text"><![CDATA[如果你没有使用 Hexo 主题（或者主题中没有集合Nest）1.添加下列代码到你的布局文件中的 标签之前（位置/layout/layout.ejs）1&lt;script type=&quot;text/javascript&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;&lt;/script&gt; 2.在引用的同时可以对 Nest 进行相关的配置 color ： 线条颜色, 默认: ‘0,0,0’ ；三个数字分别为(R,G,B)，注意用,分割 opacity : 线条透明度（0~1）, 默认: 0.5 count : 线条的总数量, 默认: 150，（建议修改少点，否者 cpu 占用过高） zIndex : 背景的z-index属性，css属性用于控制所在层的位置, 默认: -13.举个栗子 1&lt;script type=&quot;text/javascript&quot; color=&quot;0,0,255&quot; opacity=&apos;0.7&apos; zIndex=&quot;-2&quot; count=&quot;99&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;&lt;/script&gt; 然后编译，提交，就大功告成 如果你使用集成了 Nest 的主题，就去主题配置中开启这里以 Next 主题为栗子（主题配置文件在 next/_config.yml,默认是false），找到12# Canvas-nestcanvas_nest: false 在文档的大概接近最下方的位置，把 false 修改成 ture，然后编译，提交，就大功告成]]></content>
     </entry>
 
     
