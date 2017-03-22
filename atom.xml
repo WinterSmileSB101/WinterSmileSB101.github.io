@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T02:50:34.962Z</updated>
+  <updated>2017-03-22T04:26:25.007Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>漫吧漫画阅读界面的搭建（一）基础布局搭建（上）</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/uibuilder-first-1/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/uibuilder-first-1/</id>
+    <published>2017-03-22T02:59:43.000Z</published>
+    <updated>2017-03-22T04:26:25.007Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为wintersmilesb101-（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，未经
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 实战" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/"/>
+    
+      <category term="Android 漫画App漫吧（自写爬虫）开发" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/Android-%E6%BC%AB%E7%94%BBApp%E6%BC%AB%E5%90%A7%EF%BC%88%E8%87%AA%E5%86%99%E7%88%AC%E8%99%AB%EF%BC%89%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="界面" scheme="http://WinterSmileSB101.online/tags/%E7%95%8C%E9%9D%A2/"/>
+    
+      <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
+    
+      <category term="漫吧" scheme="http://WinterSmileSB101.online/tags/%E6%BC%AB%E5%90%A7/"/>
+    
+      <category term="Cartoon8" scheme="http://WinterSmileSB101.online/tags/Cartoon8/"/>
+    
+  </entry>
   
   <entry>
     <title>常用颜色表</title>
@@ -143,9 +174,9 @@
       <category term="Hexo" scheme="http://WinterSmileSB101.online/categories/Hexo/"/>
     
     
-      <category term="动画" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E7%94%BB/"/>
-    
       <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
+    
+      <category term="动画" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E7%94%BB/"/>
     
       <category term="Nest" scheme="http://WinterSmileSB101.online/tags/Nest/"/>
     
@@ -156,7 +187,7 @@
     <link href="http://WinterSmileSB101.online/2017/03/20/CreatYourOwnWithGithubpages-and-Hexo/"/>
     <id>http://WinterSmileSB101.online/2017/03/20/CreatYourOwnWithGithubpages-and-Hexo/</id>
     <published>2017-03-20T13:57:48.000Z</published>
-    <updated>2017-03-22T01:53:19.949Z</updated>
+    <updated>2017-03-22T04:01:55.339Z</updated>
     
     <summary type="html">
     
@@ -164,14 +195,16 @@
     
     </summary>
     
-      <category term="程序猿" scheme="http://WinterSmileSB101.online/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
+      <category term="博客" scheme="http://WinterSmileSB101.online/categories/%E5%8D%9A%E5%AE%A2/"/>
     
-    
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
     
       <category term="Github" scheme="http://WinterSmileSB101.online/tags/Github/"/>
     
+      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
+    
       <category term="独立博客" scheme="http://WinterSmileSB101.online/tags/%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="搭建博客" scheme="http://WinterSmileSB101.online/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
