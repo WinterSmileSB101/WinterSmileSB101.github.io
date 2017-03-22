@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T07:15:04.307Z</updated>
+  <updated>2017-03-22T07:31:03.889Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>17开年第一篇Activity之间传递 List&lt;T&gt; 以及 T 对象类型数据的方法</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/17%E5%BC%80%E5%B9%B4%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B4%BB%E5%8A%A8%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/17开年第一篇活动传递对象/</id>
+    <published>2017-03-22T07:25:09.000Z</published>
+    <updated>2017-03-22T07:31:03.889Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 实践" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+      <category term="Activity" scheme="http://WinterSmileSB101.online/tags/Activity/"/>
+    
+      <category term="活动传递对象" scheme="http://WinterSmileSB101.online/tags/%E6%B4%BB%E5%8A%A8%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1/"/>
+    
+      <category term="活动传递 List" scheme="http://WinterSmileSB101.online/tags/%E6%B4%BB%E5%8A%A8%E4%BC%A0%E9%80%92-List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 拿来就用的圆形图片控件</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/%E6%8B%BF%E6%9D%A5%E5%B0%B1%E7%94%A8%E7%9A%84%E5%9C%86%E5%BD%A2%E5%9B%BE%E7%89%87%E6%8E%A7%E4%BB%B6/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/拿来就用的圆形图片控件/</id>
+    <published>2017-03-22T07:20:37.000Z</published>
+    <updated>2017-03-22T07:23:51.536Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+      <category term="圆形图片控件" scheme="http://WinterSmileSB101.online/tags/%E5%9C%86%E5%BD%A2%E5%9B%BE%E7%89%87%E6%8E%A7%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>AppBarLayout.OnOffsetChangedListener的使用-监听AppBarLauout的滑动</title>
@@ -34,11 +86,11 @@
       <category term="Android 实战" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/"/>
     
     
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
       <category term="AppBarLayout 滑动" scheme="http://WinterSmileSB101.online/tags/AppBarLayout-%E6%BB%91%E5%8A%A8/"/>
     
       <category term="OnOffsetChangedListener" scheme="http://WinterSmileSB101.online/tags/OnOffsetChangedListener/"/>
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
   </entry>
   
@@ -472,9 +524,9 @@
       <category term="Next" scheme="http://WinterSmileSB101.online/categories/Hexo/Next/"/>
     
     
-      <category term="总结" scheme="http://WinterSmileSB101.online/tags/%E6%80%BB%E7%BB%93/"/>
-    
       <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
+    
+      <category term="总结" scheme="http://WinterSmileSB101.online/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -524,37 +576,11 @@
       <category term="Hexo" scheme="http://WinterSmileSB101.online/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
-    
       <category term="动画" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E7%94%BB/"/>
     
-      <category term="Nest" scheme="http://WinterSmileSB101.online/tags/Nest/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用GitHubPages+Hexo+域名创建独立私有博客</title>
-    <link href="http://WinterSmileSB101.online/2017/03/20/CreatYourOwnWithGithubpages-and-Hexo/"/>
-    <id>http://WinterSmileSB101.online/2017/03/20/CreatYourOwnWithGithubpages-and-Hexo/</id>
-    <published>2017-03-20T13:57:48.000Z</published>
-    <updated>2017-03-22T04:01:55.339Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用GitHubPages-Hexo-域名创建自己的独立私有博客&quot;&gt;&lt;a href=&quot;#使用GitHubPages-Hexo-域名创建自己的独立私有博客&quot; class=&quot;headerlink&quot; title=&quot;使用GitHubPages+Hexo+域名创建自己的独立
-    
-    </summary>
-    
-      <category term="博客" scheme="http://WinterSmileSB101.online/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="Github" scheme="http://WinterSmileSB101.online/tags/Github/"/>
-    
       <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
     
-      <category term="独立博客" scheme="http://WinterSmileSB101.online/tags/%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="搭建博客" scheme="http://WinterSmileSB101.online/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+      <category term="Nest" scheme="http://WinterSmileSB101.online/tags/Nest/"/>
     
   </entry>
   
