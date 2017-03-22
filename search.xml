@@ -3,9 +3,16 @@
   
     
     <entry>
+      <title><![CDATA[summer_hexo]]></title>
+      <url>%2F2017%2F03%2F22%2Fsummer-hexo%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Next 使用总结]]></title>
       <url>%2F2017%2F03%2F22%2Fsummer-next%2F</url>
-      <content type="text"><![CDATA[1. Next 中的多级目录Next 是默认支持了多级目录的，那么要怎么设置呢？添加分类标签我就不说了，官方文档说的很清楚，我们创建（ hexo new summer_next）了一篇文章后,大概是这样子的12345---title: summer-nextdate: 2017-03-22 09:36:37tags:--- 默认并没有分类标签，我们想要实现把文章分类的话，就添加如下代码12categories: - Hexo 这样我们的文章就会被分类到 Hexo 类别下，那么如何实现多级分类呢？很简单，只需要在 Hexo （也就是你想要增加子分类的分类后），再写出分类，来个栗子1234categories: - Hexo- Next- 定制你的 Next 侧边栏 这样我们就实现了如下效果,多级菜单就实现了：]]></content>
+      <content type="text"><![CDATA[1. Next 中的多级目录Next 是默认支持了多级目录的，那么要怎么设置呢？添加分类标签我就不说了，官方文档说的很清楚，我们创建（ hexo new summer_next）了一篇文章后,大概是这样子的12345---title: summer-nextdate: 2017-03-22 09:36:37tags:--- 默认并没有分类标签，我们想要实现把文章分类的话，就添加如下代码12categories: - Hexo 这样我们的文章就会被分类到 Hexo 类别下，那么如何实现多级分类呢？很简单，只需要在 Hexo （也就是你想要增加子分类的分类后），再写出分类，来个栗子1234categories: - Hexo- Next- 定制你的 Next 侧边栏 这样我们就实现了如下效果,多级菜单就实现了： 2. Next 中 Nest 动画背景这个很简单，直接打开 next/_config.yml 文件，找到 canvas ：false，然后改成 true 就好了。]]></content>
     </entry>
 
     
