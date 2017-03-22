@@ -1,0 +1,1201 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UI,网易云音乐,底部播放栏,Service," />
+
+
+
+
+
+  <link rel="alternate" href="http://blog.csdn.net/qq_21265915/rss/list" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+项目 GitHub 地址此博文源码下载地址
+
+先说原理：音乐播放需要使用到 Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？把UI和音乐 Service 合在一起，用 Service">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+项目 GitHub 地址此博文源码下载地址
+
+先说原理：音乐播放需要使用到 Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？把UI和音乐 Service 合在一起，用 Service">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190455232?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190524601?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190530764?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190536805?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190546414?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190555227?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190605920?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20161023190618014?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2017-03-22T09:26:19.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现">
+<meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+项目 GitHub 地址此博文源码下载地址
+
+先说原理：音乐播放需要使用到 Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？把UI和音乐 Service 合在一起，用 Service">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161023190455232?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/"/>
+
+
+
+
+
+  <title> 安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现 | WinterSmileSB101 的个人房间 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">胆小认生，不易相处</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WinterSmileSB101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myHeadImg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WinterSmileSB101 的个人房间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T17:12:58+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T17:26:19+08:00">
+                2017-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Android-实战/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 实战</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Android-实战/Android-馨乐（音乐APP，UI仿网易云音乐）开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 馨乐（音乐APP，UI仿网易云音乐）开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/" class="leancloud_visitors" data-flag-title="安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
+<p><a href="https://github.com/WinterSmileSB101/winterMusic" target="_blank" rel="external">项目 GitHub 地址</a><br><a href="http://download.csdn.net/detail/qq_21265915/9661736" target="_blank" rel="external">此博文源码下载地址</a></p>
+</blockquote>
+<h4 id="先说原理：音乐播放需要使用到-Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？"><a href="#先说原理：音乐播放需要使用到-Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？" class="headerlink" title="先说原理：音乐播放需要使用到 Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？"></a>先说原理：音乐播放需要使用到 Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？</h4><h4 id="把UI和音乐-Service-合在一起，用-Service-来控制-UI-界面不是更简单。在进入-Activity-的时候判定是否播放列表不为空或者是否正在播放音乐来动态添加UI界面。简单的这样就实现了播放栏的常驻（虽然只是看起来，但是挺简单的，完成后效果也不错）。"><a href="#把UI和音乐-Service-合在一起，用-Service-来控制-UI-界面不是更简单。在进入-Activity-的时候判定是否播放列表不为空或者是否正在播放音乐来动态添加UI界面。简单的这样就实现了播放栏的常驻（虽然只是看起来，但是挺简单的，完成后效果也不错）。" class="headerlink" title="把UI和音乐 Service 合在一起，用 Service 来控制 UI 界面不是更简单。在进入 Activity 的时候判定是否播放列表不为空或者是否正在播放音乐来动态添加UI界面。简单的这样就实现了播放栏的常驻（虽然只是看起来，但是挺简单的，完成后效果也不错）。"></a>把UI和音乐 Service 合在一起，用 Service 来控制 UI 界面不是更简单。在进入 Activity 的时候判定是否播放列表不为空或者是否正在播放音乐来动态添加UI界面。简单的这样就实现了播放栏的常驻（虽然只是看起来，但是挺简单的，完成后效果也不错）。</h4><h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><h4 id="1-建立-MusicService-类，继承自-Service-基类，并且实现基本的音乐播放逻辑，这里我实现了添加播放列表以及播放的方法。我预想的网易云音乐的播放面板存在逻辑为，只要播放列表不为空以及列表内存在可播放音乐，就存在这个音乐播放控制面板。这里为了简单，我们就先只检查播放列表是否为空，不为空就实例化出来播放控制面板。为空的话就去掉。这里我-Activity-发消息给-Service-是通过绑定开启服务的方式，具体实现不再赘述，直接说添加播放列表方法："><a href="#1-建立-MusicService-类，继承自-Service-基类，并且实现基本的音乐播放逻辑，这里我实现了添加播放列表以及播放的方法。我预想的网易云音乐的播放面板存在逻辑为，只要播放列表不为空以及列表内存在可播放音乐，就存在这个音乐播放控制面板。这里为了简单，我们就先只检查播放列表是否为空，不为空就实例化出来播放控制面板。为空的话就去掉。这里我-Activity-发消息给-Service-是通过绑定开启服务的方式，具体实现不再赘述，直接说添加播放列表方法：" class="headerlink" title="1.建立 MusicService 类，继承自 Service 基类，并且实现基本的音乐播放逻辑，这里我实现了添加播放列表以及播放的方法。我预想的网易云音乐的播放面板存在逻辑为，只要播放列表不为空以及列表内存在可播放音乐，就存在这个音乐播放控制面板。这里为了简单，我们就先只检查播放列表是否为空，不为空就实例化出来播放控制面板。为空的话就去掉。这里我 Activity 发消息给 Service 是通过绑定开启服务的方式，具体实现不再赘述，直接说添加播放列表方法："></a>1.建立 MusicService 类，继承自 Service 基类，并且实现基本的音乐播放逻辑，这里我实现了添加播放列表以及播放的方法。我预想的网易云音乐的播放面板存在逻辑为，只要播放列表不为空以及列表内存在可播放音乐，就存在这个音乐播放控制面板。这里为了简单，我们就先只检查播放列表是否为空，不为空就实例化出来播放控制面板。为空的话就去掉。这里我 Activity 发消息给 Service 是通过绑定开启服务的方式，具体实现不再赘述，直接说添加播放列表方法：</h4><h4 id="在-Service-中定义添加播放列表方法，如果是只添加一首，那么就播放这一首，添加多首就不改变当前的播放状态："><a href="#在-Service-中定义添加播放列表方法，如果是只添加一首，那么就播放这一首，添加多首就不改变当前的播放状态：" class="headerlink" title="在 Service 中定义添加播放列表方法，如果是只添加一首，那么就播放这一首，添加多首就不改变当前的播放状态："></a>在 Service 中定义添加播放列表方法，如果是只添加一首，那么就播放这一首，添加多首就不改变当前的播放状态：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * 添加音乐到播放列表,添加一首</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addPlayListInner</span><span class="params">(Mp3Info mp3s)</span></span>&#123;  </div><div class="line">        <span class="keyword">if</span>(!PlayList.contains(mp3s))  </div><div class="line">        &#123;  </div><div class="line">            <span class="comment">//不存在这首歌曲，直接存入  </span></div><div class="line">            <span class="comment">//播放这首歌返回  </span></div><div class="line">            Help.INSERT_VALUES_TO_SQLITE(PlayListContentProvider.CONTENT_SONGS_URI,mp3s);<span class="comment">//存入数据库保存  </span></div><div class="line">            PlayList.add(mp3s);  </div><div class="line">            CurrentPlayPosition = PlayList.size()-<span class="number">1</span>;<span class="comment">//赋值当前播放位置为现在的位置  </span></div><div class="line">        &#125;  </div><div class="line">        <span class="comment">//播放当前音乐  </span></div><div class="line">        playInner(CurrentPlayPosition);  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="下面再来看播放方法（只是一个基础例子，需要完善的还有很多）："><a href="#下面再来看播放方法（只是一个基础例子，需要完善的还有很多）：" class="headerlink" title="下面再来看播放方法（只是一个基础例子，需要完善的还有很多）："></a>下面再来看播放方法（只是一个基础例子，需要完善的还有很多）：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * 实现方法</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> position 播放位置</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">playInner</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            playPreInner(position);  </div><div class="line">            mediaPlayer.start();  </div><div class="line">            isPlaying = <span class="keyword">true</span>;  </div><div class="line">            CreateFloatView();  </div><div class="line">            setPlayBarValue(PlayList.get(CurrentPlayPosition),mediaPlayer);<span class="comment">//设置播放栏  </span></div><div class="line">            <span class="comment">//使用定时器提交播放进度  </span></div><div class="line">            Timer timer = <span class="keyword">new</span> Timer();  </div><div class="line">            TimerTask task = <span class="keyword">new</span> TimerTask()&#123;  </div><div class="line">                <span class="meta">@Override</span>  </div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;  </div><div class="line">                    musicProcessBar.setProgress(mediaPlayer.getCurrentPosition());  </div><div class="line">                &#125;  </div><div class="line">            &#125;;  </div><div class="line">            timer.schedule(task,<span class="number">0</span>,<span class="number">1000</span>);  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">catch</span>(Exception e)  </div><div class="line">        &#123;  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="可以看到，上面播放音乐的方法中我们调用了一个方法，是CreateFloatView（）–这是用来创建播放控制面板的，实现如下："><a href="#可以看到，上面播放音乐的方法中我们调用了一个方法，是CreateFloatView（）–这是用来创建播放控制面板的，实现如下：" class="headerlink" title="可以看到，上面播放音乐的方法中我们调用了一个方法，是CreateFloatView（）–这是用来创建播放控制面板的，实现如下："></a>可以看到，上面播放音乐的方法中我们调用了一个方法，是CreateFloatView（）–这是用来创建播放控制面板的，实现如下：</h4><h4 id="布局文件："><a href="#布局文件：" class="headerlink" title="布局文件："></a>布局文件：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line"><span class="comment">&lt;!--浮动音乐控制布局--&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>  </span></div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">    <span class="attr">android:layout_gravity</span>=<span class="string">"bottom"</span>  </div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/float_Music_Container"</span>  </div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@color/colorHalfTransparentWrite"</span>&gt;  </div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span>  </span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"bottom"</span>  </div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@color/colorHalfTransparentWrite"</span>&gt;  </div><div class="line">        <span class="comment">&lt;!--音乐图片--&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/float_MusicImage"</span>  </div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">            <span class="attr">android:layout_marginLeft</span>=<span class="string">"10dp"</span>  </div><div class="line">            <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span>/&gt;  </div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span>  </span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">            <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">            <span class="attr">android:layout_toEndOf</span>=<span class="string">"@+id/float_MusicImage"</span>  </div><div class="line">            <span class="attr">android:layout_marginLeft</span>=<span class="string">"5dp"</span>&gt;  </div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span>  </span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/float_Music_Name"</span>  </div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:textSize</span>=<span class="string">"20dp"</span>  </div><div class="line">                <span class="attr">android:textColor</span>=<span class="string">"#000000"</span>/&gt;  </div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span>  </span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/float_Music_Artist"</span>  </div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:textColor</span>=<span class="string">"@color/colorPrimarySliver"</span>  </div><div class="line">                <span class="attr">android:textSize</span>=<span class="string">"14dp"</span>  </div><div class="line">                <span class="attr">android:layout_marginTop</span>=<span class="string">"3dp"</span>/&gt;  </div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span>  </div><div class="line">        <span class="comment">&lt;!--右边的控制按钮--&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">RelativeLayout</span>  </span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"180dp"</span>  </div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span>  </div><div class="line">            <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span>  </div><div class="line">            <span class="attr">android:layout_alignParentEnd</span>=<span class="string">"true"</span>&gt;  </div><div class="line">            <span class="comment">&lt;!--播放列表按钮--&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/float_Play_List"</span>  </div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span>  </div><div class="line">                <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span>  </div><div class="line">                <span class="attr">android:src</span>=<span class="string">"@drawable/playbar_btn_playlist"</span>/&gt;  </div><div class="line">            <span class="comment">&lt;!--播放或者暂停按钮--&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/float_Play_Btn"</span>  </div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span>  </div><div class="line">                <span class="attr">android:src</span>=<span class="string">"@drawable/playbar_play_btn"</span>/&gt;  </div><div class="line">            <span class="comment">&lt;!--下一曲音乐--&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/float_Next_Music"</span>  </div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">                <span class="attr">android:layout_alignParentEnd</span>=<span class="string">"true"</span>  </div><div class="line">                <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span>  </div><div class="line">                <span class="attr">android:src</span>=<span class="string">"@drawable/playbar_play_next_btn"</span>/&gt;  </div><div class="line">        <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span>  </div><div class="line"><span class="comment">&lt;!--音乐进度--&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">ProgressBar</span>  </span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/float_Music_ProgressBar"</span>  </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  </div><div class="line">        <span class="attr">android:progress</span>=<span class="string">"0"</span>  </div><div class="line">        <span class="attr">android:visibility</span>=<span class="string">"visible"</span>  </div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/ProgressBar_Mini"</span>/&gt;    </div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="实现方法："><a href="#实现方法：" class="headerlink" title="实现方法："></a>实现方法：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * 建立底部浮动栏的方法</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CreateFloatView</span><span class="params">()</span></span>&#123;  </div><div class="line">        <span class="keyword">if</span>(PlayList.size() &gt; <span class="number">0</span>) &#123;  </div><div class="line">            mFloatView = LayoutInflater.from(getBaseContext()).inflate(R.layout.float_music_control_layout,<span class="keyword">null</span>);  </div><div class="line">            ViewGroup mDecorView = (ViewGroup)StaticValue.NowActivity.getWindow().getDecorView();  </div><div class="line">            mContentContainer = (FrameLayout)((ViewGroup)mDecorView.getChildAt(<span class="number">0</span>)).getChildAt(<span class="number">1</span>);  </div><div class="line">            FrameLayout.LayoutParams layoutParams = <span class="keyword">new</span> FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);  </div><div class="line">            musicProcessBar = (ProgressBar)mFloatView.findViewById(R.id.float_Music_ProgressBar);  </div><div class="line">            musicImageView = (ImageView)mFloatView.findViewById(R.id.float_MusicImage);  </div><div class="line">            musicNameTextView = (TextView)mFloatView.findViewById(R.id.float_Music_Name);  </div><div class="line">            musicArtistTextView = (TextView)mFloatView.findViewById(R.id.float_Music_Artist);  </div><div class="line">            musicPlayBtn = (ImageView)mFloatView.findViewById(R.id.float_Play_Btn);  </div><div class="line">            musicNextBtn = (ImageView)mFloatView.findViewById(R.id.float_Next_Music);  </div><div class="line">            musicPlayListBtn = (ImageView)mFloatView.findViewById(R.id.float_Play_List);  </div><div class="line">            mFloatView.findViewById(R.id.float_Music_Container).setOnClickListener(<span class="keyword">this</span>);  </div><div class="line">            musicPlayBtn.setOnClickListener(<span class="keyword">this</span>);  </div><div class="line">            musicPlayListBtn.setOnClickListener(<span class="keyword">this</span>);  </div><div class="line">            musicNextBtn.setOnClickListener(<span class="keyword">this</span>);  </div><div class="line">            <span class="comment">//获取当前正在播放的音乐  </span></div><div class="line">            layoutParams.gravity = Gravity.BOTTOM;<span class="comment">//设置对齐位置  </span></div><div class="line">            mContentContainer.addView(mFloatView,layoutParams);  </div><div class="line">            <span class="keyword">if</span>(! mediaPlayer.isPlaying()) &#123;  </div><div class="line">                <span class="comment">//没有正在播放的，准备当前位置的音乐，设置值  </span></div><div class="line">                playPreInner(- <span class="number">1</span>);  </div><div class="line">            &#125;  </div><div class="line">            setPlayBarValue(PlayList.get(CurrentPlayPosition),mediaPlayer);<span class="comment">//设置播放控制面板的值  </span></div><div class="line">        &#125;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="可以看到，这里又调用了一个setPlayBarVlaue（mp3info-MediaPlayer）方法，下面我们来看看实现："><a href="#可以看到，这里又调用了一个setPlayBarVlaue（mp3info-MediaPlayer）方法，下面我们来看看实现：" class="headerlink" title="可以看到，这里又调用了一个setPlayBarVlaue（mp3info,MediaPlayer）方法，下面我们来看看实现："></a>可以看到，这里又调用了一个setPlayBarVlaue（mp3info,MediaPlayer）方法，下面我们来看看实现：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * 设置播放栏的值</div><div class="line">     * <span class="doctag">@param</span> NowMp3 正在播放的mp3对象</div><div class="line">     * <span class="doctag">@param</span> mediaPlayer1 当前的mediaPlayer对象</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setPlayBarValue</span><span class="params">(Mp3Info NowMp3,MediaPlayer mediaPlayer1)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        musicProcessBar.setMax(mediaPlayer1.getDuration());<span class="comment">//设置播放进度进度条最大值，  </span></div><div class="line">        musicProcessBar.setProgress(mediaPlayer1.getCurrentPosition());<span class="comment">//设置播放进度条当前进度值  </span></div><div class="line">        musicNameTextView.setText(NowMp3.getDisplayName());<span class="comment">//设置音乐名称  </span></div><div class="line">        musicImageView.setImageResource(R.drawable.ic_menu_gallery);<span class="comment">//设置音乐专辑图片  </span></div><div class="line">        musicArtistTextView.setText(NowMp3.getArtist());<span class="comment">//设置歌手名称  </span></div><div class="line">        <span class="comment">//设置为暂停的图片  </span></div><div class="line">        musicPlayBtn.setImageResource(R.mipmap.playbar_btn_pause);  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="我们接着在服务的onCreate方法中调用CreateFloatView（）方法以便打开应用的时候检测是否添加播放栏，还有"><a href="#我们接着在服务的onCreate方法中调用CreateFloatView（）方法以便打开应用的时候检测是否添加播放栏，还有" class="headerlink" title="我们接着在服务的onCreate方法中调用CreateFloatView（）方法以便打开应用的时候检测是否添加播放栏，还有"></a>我们接着在服务的onCreate方法中调用CreateFloatView（）方法以便打开应用的时候检测是否添加播放栏，还有</h4><h4 id="重点：：：："><a href="#重点：：：：" class="headerlink" title="重点：：：："></a>重点：：：：</h4><h4 id="在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！"><a href="#在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！" class="headerlink" title="在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！"></a>在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！</h4><h4 id="在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！-1"><a href="#在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！-1" class="headerlink" title="在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！"></a>在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！</h4><h4 id="在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！-2"><a href="#在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！-2" class="headerlink" title="在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！"></a>在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！</h4><h4 id="事重三！下面看看效果："><a href="#事重三！下面看看效果：" class="headerlink" title="事重三！下面看看效果："></a>事重三！下面看看效果：</h4><h4 id="由于这种效果使用静态图片不好观看，动态图还没弄好软件，我看再搞搞，先忍受这个东西吧："><a href="#由于这种效果使用静态图片不好观看，动态图还没弄好软件，我看再搞搞，先忍受这个东西吧：" class="headerlink" title="由于这种效果使用静态图片不好观看，动态图还没弄好软件，我看再搞搞，先忍受这个东西吧："></a>由于这种效果使用静态图片不好观看，动态图还没弄好软件，我看再搞搞，先忍受这个东西吧：</h4><h4 id="程序进入："><a href="#程序进入：" class="headerlink" title="程序进入："></a>程序进入：</h4><p><img src="http://img.blog.csdn.net/20161023190455232?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="点击音乐栏目："><a href="#点击音乐栏目：" class="headerlink" title="点击音乐栏目："></a>点击音乐栏目：</h4><p><img src="http://img.blog.csdn.net/20161023190524601?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="点击本地音乐："><a href="#点击本地音乐：" class="headerlink" title="点击本地音乐："></a>点击本地音乐：</h4><p><img src="http://img.blog.csdn.net/20161023190530764?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="点击扫描："><a href="#点击扫描：" class="headerlink" title="点击扫描："></a>点击扫描：</h4><p><img src="http://img.blog.csdn.net/20161023190536805?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="扫描完成："><a href="#扫描完成：" class="headerlink" title="扫描完成："></a>扫描完成：</h4><p><img src="http://img.blog.csdn.net/20161023190546414?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="回到音乐界面："><a href="#回到音乐界面：" class="headerlink" title="回到音乐界面："></a>回到音乐界面：</h4><p><img src="http://img.blog.csdn.net/20161023190555227?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="点击一首歌曲播放，播放面板就显示出来了！-在此感谢能够看到这里的各位看官-："><a href="#点击一首歌曲播放，播放面板就显示出来了！-在此感谢能够看到这里的各位看官-：" class="headerlink" title="点击一首歌曲播放，播放面板就显示出来了！(在此感谢能够看到这里的各位看官)："></a>点击一首歌曲播放，播放面板就显示出来了！(在此感谢能够看到这里的各位看官)：</h4><p><img src="http://img.blog.csdn.net/20161023190605920?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="现在我们返回主界面看看是否有播放面板："><a href="#现在我们返回主界面看看是否有播放面板：" class="headerlink" title="现在我们返回主界面看看是否有播放面板："></a>现在我们返回主界面看看是否有播放面板：</h4><p><img src="http://img.blog.csdn.net/20161023190618014?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"><br>播放面板已经有了，说明我们的逻辑是对的，看起来效果也还不错。感谢您能够看到这里，敬礼！<br>需要源码的我已经上传到了我的CSDN <a href="http://download.csdn.net/detail/qq_21265915/9661736" target="_blank" rel="external">下载地址</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzong_erweima.jpg" alt="WinterSmileSB101 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的微信公众帐号，不定期推送各种技术文章</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UI/" rel="tag"># UI</a>
+          
+            <a href="/tags/网易云音乐/" rel="tag"># 网易云音乐</a>
+          
+            <a href="/tags/底部播放栏/" rel="tag"># 底部播放栏</a>
+          
+            <a href="/tags/Service/" rel="tag"># Service</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/Android中利用Random生成随机数/" rel="next" title="Android中利用Random生成随机数">
+                <i class="fa fa-chevron-left"></i> Android中利用Random生成随机数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/"
+     data-title="安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现"
+     data-content=""
+     data-url="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/"
+           data-title="安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现" data-url="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用UI绑定到Service上实现/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myHeadImg.jpeg"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://blog.csdn.net/qq_21265915/rss/list" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      <!--  <div class="links-of-author motion-element">
+          
+        </div>
+        -->
+
+<!--自己写的社交链接-->
+        <div class="links-of-author motion-element">
+         <span class="links-of-author-item">
+         <a href="https://github.com/WinterSmileSB101" title="Github">
+         <i class="fa fa-fw fa-github fa-lg"></i>
+         </a>
+         </span>
+
+         <span class="links-of-author-item">
+                  <a href="http://weibo.com/5602632941/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博">
+                  <i class="fa fa-fw fa-weibo fa-lg"></i>
+                  </a>
+                  </span>
+
+         <span class="links-of-author-item">
+         <a href="http://www.jianshu.com/users/73344bc7e890/timeline" title="简书">
+         <i class="fa fa-fw fa-bookmark fa-lg"></i>
+         </a>
+         </span>
+
+<br />
+
+        <span class="links-of-author-item">
+                 <a href="https://www.douban.com/people/159359470/" title="豆瓣">
+                 <i class="fa fa-fw fa-newspaper-o fa-lg"></i>
+                 </a>
+                 </span>
+
+        <span class="links-of-author-item">
+                 <a href="http://blog.csdn.net/qq_21265915" title="CSDN博客">
+                 <i class="fa fa-fw fa-bug fa-lg"></i>
+                 </a>
+                 </span>
+
+        </div>
+        <!--自己写的社交链接-->
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#先说原理：音乐播放需要使用到-Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？"><span class="nav-number">1.</span> <span class="nav-text">先说原理：音乐播放需要使用到 Service，而播放栏也是属于音乐播放的，那么为什么我们不把这两者合在一起呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把UI和音乐-Service-合在一起，用-Service-来控制-UI-界面不是更简单。在进入-Activity-的时候判定是否播放列表不为空或者是否正在播放音乐来动态添加UI界面。简单的这样就实现了播放栏的常驻（虽然只是看起来，但是挺简单的，完成后效果也不错）。"><span class="nav-number">2.</span> <span class="nav-text">把UI和音乐 Service 合在一起，用 Service 来控制 UI 界面不是更简单。在进入 Activity 的时候判定是否播放列表不为空或者是否正在播放音乐来动态添加UI界面。简单的这样就实现了播放栏的常驻（虽然只是看起来，但是挺简单的，完成后效果也不错）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现："><span class="nav-number">3.</span> <span class="nav-text">实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-建立-MusicService-类，继承自-Service-基类，并且实现基本的音乐播放逻辑，这里我实现了添加播放列表以及播放的方法。我预想的网易云音乐的播放面板存在逻辑为，只要播放列表不为空以及列表内存在可播放音乐，就存在这个音乐播放控制面板。这里为了简单，我们就先只检查播放列表是否为空，不为空就实例化出来播放控制面板。为空的话就去掉。这里我-Activity-发消息给-Service-是通过绑定开启服务的方式，具体实现不再赘述，直接说添加播放列表方法："><span class="nav-number">4.</span> <span class="nav-text">1.建立 MusicService 类，继承自 Service 基类，并且实现基本的音乐播放逻辑，这里我实现了添加播放列表以及播放的方法。我预想的网易云音乐的播放面板存在逻辑为，只要播放列表不为空以及列表内存在可播放音乐，就存在这个音乐播放控制面板。这里为了简单，我们就先只检查播放列表是否为空，不为空就实例化出来播放控制面板。为空的话就去掉。这里我 Activity 发消息给 Service 是通过绑定开启服务的方式，具体实现不再赘述，直接说添加播放列表方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-Service-中定义添加播放列表方法，如果是只添加一首，那么就播放这一首，添加多首就不改变当前的播放状态："><span class="nav-number">5.</span> <span class="nav-text">在 Service 中定义添加播放列表方法，如果是只添加一首，那么就播放这一首，添加多首就不改变当前的播放状态：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面再来看播放方法（只是一个基础例子，需要完善的还有很多）："><span class="nav-number">6.</span> <span class="nav-text">下面再来看播放方法（只是一个基础例子，需要完善的还有很多）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以看到，上面播放音乐的方法中我们调用了一个方法，是CreateFloatView（）–这是用来创建播放控制面板的，实现如下："><span class="nav-number">7.</span> <span class="nav-text">可以看到，上面播放音乐的方法中我们调用了一个方法，是CreateFloatView（）–这是用来创建播放控制面板的，实现如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局文件："><span class="nav-number">8.</span> <span class="nav-text">布局文件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现方法："><span class="nav-number">9.</span> <span class="nav-text">实现方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以看到，这里又调用了一个setPlayBarVlaue（mp3info-MediaPlayer）方法，下面我们来看看实现："><span class="nav-number">10.</span> <span class="nav-text">可以看到，这里又调用了一个setPlayBarVlaue（mp3info,MediaPlayer）方法，下面我们来看看实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们接着在服务的onCreate方法中调用CreateFloatView（）方法以便打开应用的时候检测是否添加播放栏，还有"><span class="nav-number">11.</span> <span class="nav-text">我们接着在服务的onCreate方法中调用CreateFloatView（）方法以便打开应用的时候检测是否添加播放栏，还有</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重点：：：："><span class="nav-number">12.</span> <span class="nav-text">重点：：：：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！"><span class="nav-number">13.</span> <span class="nav-text">在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！-1"><span class="nav-number">14.</span> <span class="nav-text">在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！-2"><span class="nav-number">15.</span> <span class="nav-text">在onResume（）方法中也调用CreateFloatView（）方法，这样才能让已经被挂起的Activity重新进入前台时能够检查是否添加播放栏！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事重三！下面看看效果："><span class="nav-number">16.</span> <span class="nav-text">事重三！下面看看效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#由于这种效果使用静态图片不好观看，动态图还没弄好软件，我看再搞搞，先忍受这个东西吧："><span class="nav-number">17.</span> <span class="nav-text">由于这种效果使用静态图片不好观看，动态图还没弄好软件，我看再搞搞，先忍受这个东西吧：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序进入："><span class="nav-number">18.</span> <span class="nav-text">程序进入：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击音乐栏目："><span class="nav-number">19.</span> <span class="nav-text">点击音乐栏目：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击本地音乐："><span class="nav-number">20.</span> <span class="nav-text">点击本地音乐：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击扫描："><span class="nav-number">21.</span> <span class="nav-text">点击扫描：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扫描完成："><span class="nav-number">22.</span> <span class="nav-text">扫描完成：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回到音乐界面："><span class="nav-number">23.</span> <span class="nav-text">回到音乐界面：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击一首歌曲播放，播放面板就显示出来了！-在此感谢能够看到这里的各位看官-："><span class="nav-number">24.</span> <span class="nav-text">点击一首歌曲播放，播放面板就显示出来了！(在此感谢能够看到这里的各位看官)：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在我们返回主界面看看是否有播放面板："><span class="nav-number">25.</span> <span class="nav-text">现在我们返回主界面看看是否有播放面板：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.3.20 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered By - WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+    个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  WinterSmileSB101
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>
