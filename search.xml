@@ -3,16 +3,23 @@
   
     
     <entry>
+      <title><![CDATA[Android 根据设置的日期获取星期几]]></title>
+      <url>%2F2017%2F03%2F22%2F%E6%A0%B9%E6%8D%AE%E8%AE%BE%E7%BD%AE%E7%9A%84%E6%97%A5%E6%9C%9F%E8%8E%B7%E5%8F%96%E6%98%9F%E6%9C%9F%E5%87%A0%2F</url>
+      <content type="text"><![CDATA[版权声明：本文为转载，出处未知，知道出处可以联系我。 有个注意的点：就是包的引入，你的对应版本是24和以上就引入Android.icu.util包版本是24以下就引入Java.util包123456789101112131415161718192021222324252627282930313233343536373839404142434445/** * 判断当前日期是星期几 * * @param pTime 设置的需要判断的时间 //格式如2012-09-08 * * @return dayForWeek 判断结果 * @Exception 发生异常 */// String pTime = "2012-03-12"; private String getWeek(String pTime) &#123; String Week = ""; SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); Calendar c = Calendar.getInstance(); try &#123; c.setTime(format.parse(pTime)); &#125; catch (ParseException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; if (c.get(Calendar.DAY_OF_WEEK) == 1) &#123; Week += "天"; &#125; if (c.get(Calendar.DAY_OF_WEEK) == 2) &#123; Week += "一"; &#125; if (c.get(Calendar.DAY_OF_WEEK) == 3) &#123; Week += "二"; &#125; if (c.get(Calendar.DAY_OF_WEEK) == 4) &#123; Week += "三"; &#125; if (c.get(Calendar.DAY_OF_WEEK) == 5) &#123; Week += "四"; &#125; if (c.get(Calendar.DAY_OF_WEEK) == 6) &#123; Week += "五"; &#125; if (c.get(Calendar.DAY_OF_WEEK) == 7) &#123; Week += "六"; &#125; return Week; &#125;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Okhttp获取中文网页乱码的解决方式]]></title>
       <url>%2F2017%2F03%2F22%2FOkhttp%E8%8E%B7%E5%8F%96%E4%B8%AD%E6%96%87%E7%BD%91%E9%A1%B5%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%2F</url>
-      <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 OkHttp post请求编码问题 解决放法###在回调方法onResponse方法中12byte[] b = response.body().bytes(); //获取数据的bytesString info = new String(b, "GB2312"); //然后将其转为gb2312]]></content>
+      <content type="text"><![CDATA[版权声明：本文为转载，出处未知，知道出处可以联系我。 OkHttp post请求编码问题 解决放法###在回调方法onResponse方法中12byte[] b = response.body().bytes(); //获取数据的bytesString info = new String(b, "GB2312"); //然后将其转为gb2312]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[爬坑之路一_初步认识Android爬虫]]></title>
       <url>%2F2017%2F03%2F22%2F%E7%88%AC%E5%9D%91%E4%B9%8B%E8%B7%AF%E4%B8%80-%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86Android%E7%88%AC%E8%99%AB%2F</url>
-      <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。]]></content>
+      <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 心血来潮想做个漫画App，看到掘金的各种Python爬虫等，看了原理，觉得Adnroid上应该也很简单啊，现在网络访问开源库那么多，期中Okhttp就挺好用，不过Okhttp访问返回的源码中中文会出现乱码，Okhttp获取页面中文乱码问题解决方法或者直接用原生的来访问，获取到网页源码，然后直接通过pattern来匹配正则表达式不就能够很方便的爬出很多页面的东西吗？可是。。。我太天真了，一开始直接使用pattern来匹配就遇到了字符大小超过限制的问题，那应该怎么办？后来又了解到了Jsoup，Jsoup中文ApiJsoup是一个Java的html解析器，可以使用可以通过DOM，CSS以及类似jQuery的方法来查询取出数据。现在应该可以了吧，字符大小是解决了。新的问题出现了，我根本取不到那个img标签。几番调试，我发现了，那通过Jsoup访问的返回网页没有了img标签！！！只剩下一个加载中.gif和加载错误的图片。word天，搞什么，这网页居然没有加载完！于是又查询资料，发现Jsoup不支持js操作，也就是说我们通过Jsoup除非抓取网页的静态内容，动态的没法抓取！那就很尴尬了啊。目前我想到的解决方法：1.通过WebView 来构建模拟访问，然后在网页加载完成之后也就是重写WebViewClient中的onPageFinished(WebView view,String url){}方法来通过DOM条件来获取到加载之后的网页的数据。2.也是通过WebView来构建模拟访问，然后管理下载（图片等）3.还是WebView来构建模拟访问，再与JS交互来取得自己想要的数据。另外，通过WebView构建模拟访问加载页面完毕之后可以做很多事情，毕竟我们可以拿到真正的网页源码了，那么我们要怎么获取网页源码呢？WebViewh获取网页源码方式]]></content>
     </entry>
 
     
