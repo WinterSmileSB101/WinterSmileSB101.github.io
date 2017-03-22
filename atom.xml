@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T06:16:45.891Z</updated>
+  <updated>2017-03-22T06:21:41.650Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Okhttp获取中文网页乱码的解决方式</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/Okhttp%E8%8E%B7%E5%8F%96%E4%B8%AD%E6%96%87%E7%BD%91%E9%A1%B5%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/Okhttp获取中文网页乱码的解决方式/</id>
+    <published>2017-03-22T06:20:15.000Z</published>
+    <updated>2017-03-22T06:21:41.650Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 实战" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/"/>
+    
+    
+      <category term="Okhttp" scheme="http://WinterSmileSB101.online/tags/Okhttp/"/>
+    
+      <category term="中文网页乱码" scheme="http://WinterSmileSB101.online/tags/%E4%B8%AD%E6%96%87%E7%BD%91%E9%A1%B5%E4%B9%B1%E7%A0%81/"/>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>爬坑之路一_初步认识Android爬虫</title>
@@ -121,9 +148,9 @@
     
       <category term="Andriod" scheme="http://WinterSmileSB101.online/tags/Andriod/"/>
     
-      <category term="OnScrollListener" scheme="http://WinterSmileSB101.online/tags/OnScrollListener/"/>
-    
       <category term="RecyclerView" scheme="http://WinterSmileSB101.online/tags/RecyclerView/"/>
+    
+      <category term="OnScrollListener" scheme="http://WinterSmileSB101.online/tags/OnScrollListener/"/>
     
   </entry>
   
@@ -148,13 +175,13 @@
       <category term="Android 漫画App漫吧（自写爬虫）开发" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/Android-%E6%BC%AB%E7%94%BBApp%E6%BC%AB%E5%90%A7%EF%BC%88%E8%87%AA%E5%86%99%E7%88%AC%E8%99%AB%EF%BC%89%E5%BC%80%E5%8F%91/"/>
     
     
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
       <category term="界面" scheme="http://WinterSmileSB101.online/tags/%E7%95%8C%E9%9D%A2/"/>
     
       <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
     
       <category term="漫吧" scheme="http://WinterSmileSB101.online/tags/%E6%BC%AB%E5%90%A7/"/>
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
       <category term="Cartoon8" scheme="http://WinterSmileSB101.online/tags/Cartoon8/"/>
     
@@ -181,13 +208,13 @@
       <category term="Android 漫画App漫吧（自写爬虫）开发" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/Android-%E6%BC%AB%E7%94%BBApp%E6%BC%AB%E5%90%A7%EF%BC%88%E8%87%AA%E5%86%99%E7%88%AC%E8%99%AB%EF%BC%89%E5%BC%80%E5%8F%91/"/>
     
     
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
       <category term="界面" scheme="http://WinterSmileSB101.online/tags/%E7%95%8C%E9%9D%A2/"/>
     
       <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
     
       <category term="漫吧" scheme="http://WinterSmileSB101.online/tags/%E6%BC%AB%E5%90%A7/"/>
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
       <category term="Cartoon8" scheme="http://WinterSmileSB101.online/tags/Cartoon8/"/>
     
@@ -204,7 +231,7 @@
     <link href="http://WinterSmileSB101.online/2017/03/22/uibuilder-first-1/"/>
     <id>http://WinterSmileSB101.online/2017/03/22/uibuilder-first-1/</id>
     <published>2017-03-22T02:59:43.000Z</published>
-    <updated>2017-03-22T06:17:39.555Z</updated>
+    <updated>2017-03-22T06:19:21.861Z</updated>
     
     <summary type="html">
     
@@ -220,13 +247,13 @@
       <category term="Android 漫画App漫吧（自写爬虫）开发" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/Android-%E6%BC%AB%E7%94%BBApp%E6%BC%AB%E5%90%A7%EF%BC%88%E8%87%AA%E5%86%99%E7%88%AC%E8%99%AB%EF%BC%89%E5%BC%80%E5%8F%91/"/>
     
     
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
       <category term="界面" scheme="http://WinterSmileSB101.online/tags/%E7%95%8C%E9%9D%A2/"/>
     
       <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
     
       <category term="漫吧" scheme="http://WinterSmileSB101.online/tags/%E6%BC%AB%E5%90%A7/"/>
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
       <category term="Cartoon8" scheme="http://WinterSmileSB101.online/tags/Cartoon8/"/>
     
