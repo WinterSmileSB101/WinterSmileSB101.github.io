@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="定制,Next,侧边栏," />
+  <meta name="keywords" content="Hexo,定制,Next,侧边栏," />
 
 
 
@@ -107,16 +107,25 @@
 
 
 
-<meta name="description" content="成都工业学院14级，学习了各种后台技能，对前端也甚是抱有好感，准备再入坑前端。">
+<meta name="description" content="Next 侧边栏文件的位置为（next/layout/_macro/sidebar.swig）实现自定义的社交这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照 Next 上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。还是看看症状图吧，服药前
+服药后
+下面说治病过程，打开侧边栏文件，找到如下位置（ 82 行）123456789">
 <meta property="og:type" content="article">
 <meta property="og:title" content="定制你的 Next 侧边栏">
 <meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/custom-your-next-sidebar/index.html">
 <meta property="og:site_name" content="WinterSmileSB101 的个人房间">
-<meta property="og:description" content="成都工业学院14级，学习了各种后台技能，对前端也甚是抱有好感，准备再入坑前端。">
-<meta property="og:updated_time" content="2017-03-22T01:08:32.423Z">
+<meta property="og:description" content="Next 侧边栏文件的位置为（next/layout/_macro/sidebar.swig）实现自定义的社交这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照 Next 上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。还是看看症状图吧，服药前
+服药后
+下面说治病过程，打开侧边栏文件，找到如下位置（ 82 行）123456789">
+<meta property="og:image" content="http://WinterSmileSB101.online/img/27.png">
+<meta property="og:image" content="http://WinterSmileSB101.online/img/28.png">
+<meta property="og:updated_time" content="2017-03-22T01:29:38.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="定制你的 Next 侧边栏">
-<meta name="twitter:description" content="成都工业学院14级，学习了各种后台技能，对前端也甚是抱有好感，准备再入坑前端。">
+<meta name="twitter:description" content="Next 侧边栏文件的位置为（next/layout/_macro/sidebar.swig）实现自定义的社交这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照 Next 上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。还是看看症状图吧，服药前
+服药后
+下面说治病过程，打开侧边栏文件，找到如下位置（ 82 行）123456789">
+<meta name="twitter:image" content="http://WinterSmileSB101.online/img/27.png">
 
 
 
@@ -384,7 +393,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T09:08:32+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T09:29:38+08:00">
                 2017-03-22
               </time>
             
@@ -405,6 +414,17 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Hexo/" itemprop="url" rel="index">
                     <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/Next/" itemprop="url" rel="index">
+                    <span itemprop="name">Next</span>
                   </a>
                 </span>
 
@@ -459,7 +479,11 @@
       
 
       
-        
+        <h1 id="Next-侧边栏文件的位置为（next-layout-macro-sidebar-swig）"><a href="#Next-侧边栏文件的位置为（next-layout-macro-sidebar-swig）" class="headerlink" title="Next 侧边栏文件的位置为（next/layout/_macro/sidebar.swig）"></a><strong>Next 侧边栏文件的位置为（next/layout/_macro/sidebar.swig）</strong></h1><h1 id="实现自定义的社交"><a href="#实现自定义的社交" class="headerlink" title="实现自定义的社交"></a><strong>实现自定义的社交</strong></h1><h3 id="这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照-Next-上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。"><a href="#这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照-Next-上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。" class="headerlink" title="这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照 Next 上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。"></a>这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照 Next 上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。</h3><h3 id="还是看看症状图吧，服药前"><a href="#还是看看症状图吧，服药前" class="headerlink" title="还是看看症状图吧，服药前"></a>还是看看症状图吧，服药前</h3><p><img src="/img/27.png" alt="image"></p>
+<h3 id="服药后"><a href="#服药后" class="headerlink" title="服药后"></a>服药后</h3><p><img src="/img/28.png" alt="image"></p>
+<h3 id="下面说治病过程，打开侧边栏文件，找到如下位置（-82-行）"><a href="#下面说治病过程，打开侧边栏文件，找到如下位置（-82-行）" class="headerlink" title="下面说治病过程，打开侧边栏文件，找到如下位置（ 82 行）"></a>下面说治病过程，打开侧边栏文件，找到如下位置（ 82 行）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;links-of-author motion-element&quot;&gt;</div><div class="line">          &#123;% if theme.social %&#125;</div><div class="line">            &#123;% for name, link in theme.social %&#125;</div><div class="line">              &lt;span class=&quot;links-of-author-item&quot;&gt;</div><div class="line">                &lt;a href=&quot;&#123;&#123; link &#125;&#125;&quot; target=&quot;_blank&quot; title=&quot;&#123;&#123; name &#125;&#125;&quot;&gt;</div><div class="line">                  &#123;% if theme.social_icons.enable %&#125;</div><div class="line">                    &lt;i class=&quot;fa fa-fw fa-&#123;&#123; theme.social_icons[name] | default(&apos;globe&apos;) | lower &#125;&#125;&quot;&gt;&lt;/i&gt;</div><div class="line">                  &#123;% endif %&#125;</div><div class="line">                  &#123;&#123; name &#125;&#125;</div><div class="line">                &lt;/a&gt;</div><div class="line">              &lt;/span&gt;</div><div class="line">            &#123;% endfor %&#125;</div><div class="line">          &#123;% endif %&#125;</div><div class="line">        &lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="可以看到这里是使用了遍历来生成我们的社交，但是不知为毛我的没有。所以就暴力一点。直接全部改成下面的样子"><a href="#可以看到这里是使用了遍历来生成我们的社交，但是不知为毛我的没有。所以就暴力一点。直接全部改成下面的样子" class="headerlink" title="可以看到这里是使用了遍历来生成我们的社交，但是不知为毛我的没有。所以就暴力一点。直接全部改成下面的样子"></a>可以看到这里是使用了遍历来生成我们的社交，但是不知为毛我的没有。所以就暴力一点。直接全部改成下面的样子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;!--自己写的社交链接--&gt;</div><div class="line">        &lt;div class=&quot;links-of-author motion-element&quot;&gt;</div><div class="line">         &lt;span class=&quot;links-of-author-item&quot;&gt;</div><div class="line">         &lt;a href=&quot;https://github.com/WinterSmileSB101&quot; title=&quot;Github&quot;&gt;</div><div class="line">         &lt;i class=&quot;fa fa-fw fa-github fa-lg&quot;&gt;&lt;/i&gt;</div><div class="line">         &lt;/a&gt;</div><div class="line">         &lt;/span&gt;</div><div class="line"></div><div class="line">         &lt;span class=&quot;links-of-author-item&quot;&gt;</div><div class="line">                  &lt;a href=&quot;http://weibo.com/5602632941/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1&quot; title=&quot;微博&quot;&gt;</div><div class="line">                  &lt;i class=&quot;fa fa-fw fa-weibo fa-lg&quot;&gt;&lt;/i&gt;</div><div class="line">                  &lt;/a&gt;</div><div class="line">                  &lt;/span&gt;</div><div class="line"></div><div class="line">         &lt;span class=&quot;links-of-author-item&quot;&gt;</div><div class="line">         &lt;a href=&quot;http://www.jianshu.com/users/73344bc7e890/timeline&quot; title=&quot;简书&quot;&gt;</div><div class="line">         &lt;i class=&quot;fa fa-fw fa-bookmark fa-lg&quot;&gt;&lt;/i&gt;</div><div class="line">         &lt;/a&gt;</div><div class="line">         &lt;/span&gt;</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line"></div><div class="line">        &lt;span class=&quot;links-of-author-item&quot;&gt;</div><div class="line">                 &lt;a href=&quot;https://www.douban.com/people/159359470/&quot; title=&quot;豆瓣&quot;&gt;</div><div class="line">                 &lt;i class=&quot;fa fa-fw fa-newspaper-o fa-lg&quot;&gt;&lt;/i&gt;</div><div class="line">                 &lt;/a&gt;</div><div class="line">                 &lt;/span&gt;</div><div class="line"></div><div class="line">        &lt;span class=&quot;links-of-author-item&quot;&gt;</div><div class="line">                 &lt;a href=&quot;http://blog.csdn.net/qq_21265915&quot; title=&quot;CSDN博客&quot;&gt;</div><div class="line">                 &lt;i class=&quot;fa fa-fw fa-bug fa-lg&quot;&gt;&lt;/i&gt;</div><div class="line">                 &lt;/a&gt;</div><div class="line">                 &lt;/span&gt;</div><div class="line"></div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;!--自己写的社交链接--&gt;</div></pre></td></tr></table></figure>
+<h3 id="个人觉得这里条目也不多，就直接全部写出来了，懒得去搞那些花里胡哨的东西（懒癌症又犯了），把-href-中的换成对应你的链接就可以了，如果多了可以删除一些，少了可以增加一些，真是美滋滋。"><a href="#个人觉得这里条目也不多，就直接全部写出来了，懒得去搞那些花里胡哨的东西（懒癌症又犯了），把-href-中的换成对应你的链接就可以了，如果多了可以删除一些，少了可以增加一些，真是美滋滋。" class="headerlink" title="个人觉得这里条目也不多，就直接全部写出来了，懒得去搞那些花里胡哨的东西（懒癌症又犯了），把 href 中的换成对应你的链接就可以了，如果多了可以删除一些，少了可以增加一些，真是美滋滋。"></a>个人觉得这里条目也不多，就直接全部写出来了，懒得去搞那些花里胡哨的东西（懒癌症又犯了），把 href 中的换成对应你的链接就可以了，如果多了可以删除一些，少了可以增加一些，真是美滋滋。</h3>
       
     </div>
 
@@ -492,6 +516,8 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           
             <a href="/tags/定制/" rel="tag"># 定制</a>
           
@@ -588,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/myHeadImg.jpeg"
@@ -615,7 +650,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -696,6 +731,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Next-侧边栏文件的位置为（next-layout-macro-sidebar-swig）"><span class="nav-number">1.</span> <span class="nav-text">Next 侧边栏文件的位置为（next/layout/_macro/sidebar.swig）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现自定义的社交"><span class="nav-number">2.</span> <span class="nav-text">实现自定义的社交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照-Next-上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。"><span class="nav-number">2.0.1.</span> <span class="nav-text">这里有人就会觉得我是多事了，我确实是蛋疼，不仅蛋疼还胃疼，我直接按照 Next 上的主题配置社交模块，居然没有任何反应，作为一个才入坑的萌新，迫于无奈，只能使用笨法子来暴力解决了。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#还是看看症状图吧，服药前"><span class="nav-number">2.0.2.</span> <span class="nav-text">还是看看症状图吧，服药前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服药后"><span class="nav-number">2.0.3.</span> <span class="nav-text">服药后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面说治病过程，打开侧边栏文件，找到如下位置（-82-行）"><span class="nav-number">2.0.4.</span> <span class="nav-text">下面说治病过程，打开侧边栏文件，找到如下位置（ 82 行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以看到这里是使用了遍历来生成我们的社交，但是不知为毛我的没有。所以就暴力一点。直接全部改成下面的样子"><span class="nav-number">2.0.5.</span> <span class="nav-text">可以看到这里是使用了遍历来生成我们的社交，但是不知为毛我的没有。所以就暴力一点。直接全部改成下面的样子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人觉得这里条目也不多，就直接全部写出来了，懒得去搞那些花里胡哨的东西（懒癌症又犯了），把-href-中的换成对应你的链接就可以了，如果多了可以删除一些，少了可以增加一些，真是美滋滋。"><span class="nav-number">2.0.6.</span> <span class="nav-text">个人觉得这里条目也不多，就直接全部写出来了，懒得去搞那些花里胡哨的东西（懒癌症又犯了），把 href 中的换成对应你的链接就可以了，如果多了可以删除一些，少了可以增加一些，真是美滋滋。</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
