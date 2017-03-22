@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[新闻接口（2016-11-15更新）]]></title>
+      <url>%2F2017%2F03%2F22%2F%E6%96%B0%E9%97%BB%E6%8E%A5%E5%8F%A3%EF%BC%882016-11-15%E6%9B%B4%E6%96%B0%EF%BC%89%2F</url>
+      <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 最近做一款新闻app于是用到了一些新闻接口1.聚合数据：https://www.juhe.cn/--基本推送的是一些骚新闻，假的不行。。。2.易源数据：http://apistore.baidu.com/apiworks/servicedetail/688.html--这个没有看过，不过里面分类比较多，频道也比较多，返回内容比较多，更新也比较快，从开发者做一个新闻app来说，完全够用了。3.天行数据：http://www.tianapi.com/--个人觉得这个比较没用，完全开发自娱自乐还行，100000次调用限制在哪里摆着呢，不过也不知道内容怎么样，可以尝试，如果内容很好，也可以用来做上线app]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Jsp显示集合元素方式]]></title>
       <url>%2F2017%2F03%2F22%2FJsp%E6%98%BE%E7%A4%BA%E9%9B%86%E5%90%88%E5%85%83%E7%B4%A0%E6%96%B9%E5%BC%8F%2F</url>
       <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 最近遇到一个显示集合的问题，在这里记录一下：1234567&lt;% List&lt;String&gt; str_list = new ArrayList&lt;String&gt;(); for (int i = 0; i &lt; str_list.size(); i++)&#123;//对上一个&lt;%%&gt;进行封闭，以方便下面的显示 %&gt; &lt;p&gt;&lt;%=str_list.get(i) %&gt;&lt;/p&gt; &lt;% &#125; %&gt; 比如我们在servlet中传递了一个customerS的ArrayList过来，想要遍历显示的话：123456789101112131415161718&lt;% ArrayList&lt;Customer&gt; al = (ArrayList&lt;Customer&gt;)request.getAttribute("customerS"); System.out.println("al大小："+al.size()); for(Customer c:al) &#123; //在这里设置c的值 pageContext.setAttribute("c",c); //这里对&lt;%进行关闭，用于插入表格显示数据 %&gt; &lt;table&gt; &lt;tr&gt;&lt;td&gt;顾客号：&lt;/td&gt;&lt;td&gt;$&#123;c.cust_id&#125;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;顾客名称：&lt;/td&gt;&lt;td&gt;$&#123;c.cname&#125;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;顾客邮编：&lt;/td&gt;&lt;td&gt;$&#123;c.email&#125;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;顾客余额：&lt;/td&gt;&lt;td&gt;$&#123;c.balance&#125;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;% &#125; %&gt; 注意：前面需要加上相关包的引用（引用方式传送门）。]]></content>

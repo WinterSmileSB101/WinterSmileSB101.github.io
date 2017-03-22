@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T08:07:34.444Z</updated>
+  <updated>2017-03-22T08:12:10.701Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新闻接口（2016-11-15更新）</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/%E6%96%B0%E9%97%BB%E6%8E%A5%E5%8F%A3%EF%BC%882016-11-15%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/新闻接口（2016-11-15更新）/</id>
+    <published>2017-03-22T08:09:03.000Z</published>
+    <updated>2017-03-22T08:12:10.701Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="开源" scheme="http://WinterSmileSB101.online/categories/%E5%BC%80%E6%BA%90/"/>
+    
+      <category term="接口（开放 Api ）" scheme="http://WinterSmileSB101.online/categories/%E5%BC%80%E6%BA%90/%E6%8E%A5%E5%8F%A3%EF%BC%88%E5%BC%80%E6%94%BE-Api-%EF%BC%89/"/>
+    
+    
+      <category term="接口" scheme="http://WinterSmileSB101.online/tags/%E6%8E%A5%E5%8F%A3/"/>
+    
+      <category term="新闻" scheme="http://WinterSmileSB101.online/tags/%E6%96%B0%E9%97%BB/"/>
+    
+      <category term="免费" scheme="http://WinterSmileSB101.online/tags/%E5%85%8D%E8%B4%B9/"/>
+    
+  </entry>
   
   <entry>
     <title>Jsp显示集合元素方式</title>
@@ -173,9 +200,9 @@
       <category term="Android 实践" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E8%B7%B5/"/>
     
     
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
-    
       <category term="Activity" scheme="http://WinterSmileSB101.online/tags/Activity/"/>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
       <category term="活动传递对象" scheme="http://WinterSmileSB101.online/tags/%E6%B4%BB%E5%8A%A8%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1/"/>
     
@@ -543,45 +570,6 @@
       <category term="漫吧" scheme="http://WinterSmileSB101.online/tags/%E6%BC%AB%E5%90%A7/"/>
     
       <category term="Cartoon8" scheme="http://WinterSmileSB101.online/tags/Cartoon8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>漫吧漫画阅读界面的搭建（一）基础布局搭建（下）</title>
-    <link href="http://WinterSmileSB101.online/2017/03/22/%E6%BC%AB%E5%90%A7%E6%BC%AB%E7%94%BB%E9%98%85%E8%AF%BB%E7%95%8C%E9%9D%A2%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E5%B8%83%E5%B1%80%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
-    <id>http://WinterSmileSB101.online/2017/03/22/漫吧漫画阅读界面的搭建（一）基础布局搭建（下）/</id>
-    <published>2017-03-22T05:30:47.000Z</published>
-    <updated>2017-03-22T06:13:40.093Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
-    
-    </summary>
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
-    
-      <category term="Android 实战" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/"/>
-    
-      <category term="Android 漫画App漫吧（自写爬虫）开发" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/Android-%E6%BC%AB%E7%94%BBApp%E6%BC%AB%E5%90%A7%EF%BC%88%E8%87%AA%E5%86%99%E7%88%AC%E8%99%AB%EF%BC%89%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
-    
-      <category term="界面" scheme="http://WinterSmileSB101.online/tags/%E7%95%8C%E9%9D%A2/"/>
-    
-      <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
-    
-      <category term="漫吧" scheme="http://WinterSmileSB101.online/tags/%E6%BC%AB%E5%90%A7/"/>
-    
-      <category term="Cartoon8" scheme="http://WinterSmileSB101.online/tags/Cartoon8/"/>
-    
-      <category term="RecyclerView" scheme="http://WinterSmileSB101.online/tags/RecyclerView/"/>
-    
-      <category term="SeekBar" scheme="http://WinterSmileSB101.online/tags/SeekBar/"/>
-    
-      <category term="滑动冲突" scheme="http://WinterSmileSB101.online/tags/%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81/"/>
     
   </entry>
   
