@@ -67,11 +67,11 @@
     
       <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
-      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
-    
       <category term="网易云音乐" scheme="http://WinterSmileSB101.online/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
     
       <category term="底部播放栏" scheme="http://WinterSmileSB101.online/tags/%E5%BA%95%E9%83%A8%E6%92%AD%E6%94%BE%E6%A0%8F/"/>
+    
+      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
     
       <category term="自定义 BaseActivity" scheme="http://WinterSmileSB101.online/tags/%E8%87%AA%E5%AE%9A%E4%B9%89-BaseActivity/"/>
     
@@ -98,9 +98,9 @@
     
       <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
-      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
-    
       <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
+    
+      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
     
   </entry>
   
@@ -127,11 +127,11 @@
     
       <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
-      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
-    
       <category term="网易云音乐" scheme="http://WinterSmileSB101.online/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
     
       <category term="底部播放栏" scheme="http://WinterSmileSB101.online/tags/%E5%BA%95%E9%83%A8%E6%92%AD%E6%94%BE%E6%A0%8F/"/>
+    
+      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
     
       <category term="自定义 BaseActivity" scheme="http://WinterSmileSB101.online/tags/%E8%87%AA%E5%AE%9A%E4%B9%89-BaseActivity/"/>
     
@@ -160,13 +160,13 @@
     
       <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
-      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
-    
       <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
     
       <category term="网易云音乐" scheme="http://WinterSmileSB101.online/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
     
       <category term="底部播放栏" scheme="http://WinterSmileSB101.online/tags/%E5%BA%95%E9%83%A8%E6%92%AD%E6%94%BE%E6%A0%8F/"/>
+    
+      <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
     
   </entry>
   
@@ -308,7 +308,7 @@
     <link href="http://WinterSmileSB101.online/2017/03/22/%E5%AE%89%E5%8D%93%EF%BC%88Android%EF%BC%89ViewPager-TabLayout%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E6%95%88%E6%9E%9C/"/>
     <id>http://WinterSmileSB101.online/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/</id>
     <published>2017-03-22T08:26:15.000Z</published>
-    <updated>2017-03-22T08:38:58.298Z</updated>
+    <updated>2017-03-22T13:14:07.353Z</updated>
     
     <summary type="html">
     
@@ -319,7 +319,7 @@
     
       <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
     
-      <category term="Adnroid 自定义View" scheme="http://WinterSmileSB101.online/categories/Android/Adnroid-%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
+      <category term="Android 自定义View" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
     
     
       <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
@@ -339,7 +339,7 @@
     <link href="http://WinterSmileSB101.online/2017/03/22/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B%E5%8A%A8%E7%94%BB/"/>
     <id>http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/</id>
     <published>2017-03-22T08:14:40.000Z</published>
-    <updated>2017-03-22T08:27:36.368Z</updated>
+    <updated>2017-03-22T13:13:55.660Z</updated>
     
     <summary type="html">
     
@@ -350,7 +350,7 @@
     
       <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
     
-      <category term="Adnroid 自定义View" scheme="http://WinterSmileSB101.online/categories/Android/Adnroid-%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
+      <category term="Android 自定义View" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
     
     
       <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
