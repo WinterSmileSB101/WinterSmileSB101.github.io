@@ -1,0 +1,1167 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,自定义View,鸿洋," />
+
+
+
+
+
+  <link rel="alternate" href="http://blog.csdn.net/qq_21265915/rss/list" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解， 尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/鸿洋大神博文的坑/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解， 尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点）">
+<meta property="og:updated_time" content="2017-03-22T06:50:51.033Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑">
+<meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解， 尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/22/鸿洋大神博文的坑/"/>
+
+
+
+
+
+  <title> 鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑 | WinterSmileSB101 的个人房间 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">胆小认生，不易相处</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/22/鸿洋大神博文的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WinterSmileSB101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myHeadImg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WinterSmileSB101 的个人房间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T14:35:19+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T14:50:51+08:00">
+                2017-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Android-自定义View/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 自定义View</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/鸿洋大神博文的坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/鸿洋大神博文的坑/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/22/鸿洋大神博文的坑/" class="leancloud_visitors" data-flag-title="鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
+</blockquote>
+<h4 id="原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解，-尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点），可是没想到第一步就遇到了问题。写这博文主要是为了记录错误，也可以为同样遇到这问题的童鞋提供一个解决办法。"><a href="#原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解，-尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点），可是没想到第一步就遇到了问题。写这博文主要是为了记录错误，也可以为同样遇到这问题的童鞋提供一个解决办法。" class="headerlink" title="原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解， 尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点），可是没想到第一步就遇到了问题。写这博文主要是为了记录错误，也可以为同样遇到这问题的童鞋提供一个解决办法。"></a>原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解， 尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点），可是没想到第一步就遇到了问题。写这博文主要是为了记录错误，也可以为同样遇到这问题的童鞋提供一个解决办法。</h4><h4 id="首先给出鸿洋大神此博文传送门。你们可以先过去看看。由于要用到部分大神的文字才方便解释（不知算不算那啥，有问题联系我，立马删除）"><a href="#首先给出鸿洋大神此博文传送门。你们可以先过去看看。由于要用到部分大神的文字才方便解释（不知算不算那啥，有问题联系我，立马删除）" class="headerlink" title="首先给出鸿洋大神此博文传送门。你们可以先过去看看。由于要用到部分大神的文字才方便解释（不知算不算那啥，有问题联系我，立马删除）"></a>首先给出鸿洋大神<a href="http://blog.csdn.net/lmj623565791/article/details/24252901/" target="_blank" rel="external">此博文传送门</a>。你们可以先过去看看。由于要用到部分大神的文字才方便解释（不知算不算那啥，有问题联系我，立马删除）</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line">1、自定义View的属性，首先在res/values/  下建立一个attrs.xml ， 在里面定义我们的属性和声明我们的整个样式。  </div><div class="line">[html] view plain copy 在CODE上查看代码片派生到我的代码片  </div><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;    </div><div class="line">&lt;resources&gt;    </div><div class="line"></div><div class="line">    &lt;attr name="titleText" format="string" /&gt;    </div><div class="line">    &lt;attr name="titleTextColor" format="color" /&gt;    </div><div class="line">    &lt;attr name="titleTextSize" format="dimension" /&gt;    </div><div class="line"></div><div class="line">    &lt;declare-styleable name="CustomTitleView"&gt;    </div><div class="line">        &lt;attr name="titleText" /&gt;    </div><div class="line">        &lt;attr name="titleTextColor" /&gt;    </div><div class="line">        &lt;attr name="titleTextSize" /&gt;    </div><div class="line">    &lt;/declare-styleable&gt;    </div><div class="line"></div><div class="line">&lt;/resources&gt;    </div><div class="line">我们定义了字体，字体颜色，字体大小3个属性，format是值该属性的取值类型:  </div><div class="line">一共有：string,color,demension,integer,enum,reference,float,boolean,fraction,flag;不清楚的可以google一把。  </div><div class="line">然后在布局中声明我们的自定义View  </div><div class="line">[objc] view plain copy 在CODE上查看代码片派生到我的代码片  </div><div class="line">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"    </div><div class="line">    xmlns:tools="http://schemas.android.com/tools"    </div><div class="line">    xmlns:custom="http://schemas.android.com/apk/res/com.example.customview01"    </div><div class="line">    android:layout_width="match_parent"    </div><div class="line">    android:layout_height="match_parent" &gt;    </div><div class="line"></div><div class="line">    &lt;com.example.customview01.view.CustomTitleView    </div><div class="line">        android:layout_width="200dp"    </div><div class="line">        android:layout_height="100dp"    </div><div class="line">        custom:titleText="3712"    </div><div class="line">        custom:titleTextColor="#ff0000"    </div><div class="line">        custom:titleTextSize="40sp" /&gt;    </div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;    </div><div class="line"></div><div class="line">一定要引入 xmlns:custom="http://schemas.android.com/apk/res/com.example.customview01"我们的命名空间，后面的包路径指的是项目的package  </div><div class="line">2、在View的构造方法中，获得我们的自定义的样式  </div><div class="line">[java] view plain copy 在CODE上查看代码片派生到我的代码片  </div><div class="line">/**   </div><div class="line">     * 文本   </div><div class="line">     */    </div><div class="line">    private String mTitleText;    </div><div class="line">    /**   </div><div class="line">     * 文本的颜色   </div><div class="line">     */    </div><div class="line">    private int mTitleTextColor;    </div><div class="line">    /**   </div><div class="line">     * 文本的大小   </div><div class="line">     */    </div><div class="line">    private int mTitleTextSize;    </div><div class="line"></div><div class="line">    /**   </div><div class="line">     * 绘制时控制文本绘制的范围   </div><div class="line">     */    </div><div class="line">    private Rect mBound;    </div><div class="line">    private Paint mPaint;    </div><div class="line"></div><div class="line">    public CustomTitleView(Context context, AttributeSet attrs)    </div><div class="line">    &#123;    </div><div class="line">        this(context, attrs, 0);    </div><div class="line">    &#125;    </div><div class="line"></div><div class="line">    public CustomTitleView(Context context)    </div><div class="line">    &#123;    </div><div class="line">        this(context, null);    </div><div class="line">    &#125;    </div><div class="line"></div><div class="line">    /**   </div><div class="line">     * 获得我自定义的样式属性   </div><div class="line">     *    </div><div class="line">     * @param context   </div><div class="line">     * @param attrs   </div><div class="line">     * @param defStyle   </div><div class="line">     */    </div><div class="line">    public CustomTitleView(Context context, AttributeSet attrs, int defStyle)    </div><div class="line">    &#123;    </div><div class="line">        super(context, attrs, defStyle);    </div><div class="line">        /**   </div><div class="line">         * 获得我们所定义的自定义样式属性   </div><div class="line">         */    </div><div class="line">        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyle, 0);    </div><div class="line">        int n = a.getIndexCount();    </div><div class="line">        for (int i = 0; i &lt; n; i++)    </div><div class="line">        &#123;    </div><div class="line">            int attr = a.getIndex(i);    </div><div class="line">            switch (attr)    </div><div class="line">            &#123;    </div><div class="line">            case R.styleable.CustomTitleView_titleText:    </div><div class="line">                mTitleText = a.getString(attr);    </div><div class="line">                break;    </div><div class="line">            case R.styleable.CustomTitleView_titleTextColor:    </div><div class="line">                // 默认颜色设置为黑色    </div><div class="line">                mTitleTextColor = a.getColor(attr, Color.BLACK);    </div><div class="line">                break;    </div><div class="line">            case R.styleable.CustomTitleView_titleTextSize:    </div><div class="line">                // 默认设置为16sp，TypeValue也可以把sp转化为px    </div><div class="line">                mTitleTextSize = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(    </div><div class="line">                        TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));    </div><div class="line">                break;    </div><div class="line"></div><div class="line">            &#125;    </div><div class="line"></div><div class="line">        &#125;    </div><div class="line">        a.recycle();    </div><div class="line"></div><div class="line">        /**   </div><div class="line">         * 获得绘制文本的宽和高   </div><div class="line">         */    </div><div class="line">        mPaint = new Paint();    </div><div class="line">        mPaint.setTextSize(mTitleTextSize);    </div><div class="line">        // mPaint.setColor(mTitleTextColor);    </div><div class="line">        mBound = new Rect();    </div><div class="line">        mPaint.getTextBounds(mTitleText, 0, mTitleText.length(), mBound);    </div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="我们可以看到，步骤我们做的都是一样的。但是在获取自定义属性值得时候就不一样了。"><a href="#我们可以看到，步骤我们做的都是一样的。但是在获取自定义属性值得时候就不一样了。" class="headerlink" title="我们可以看到，步骤我们做的都是一样的。但是在获取自定义属性值得时候就不一样了。"></a>我们可以看到，步骤我们做的都是一样的。但是在获取自定义属性值得时候就不一样了。</h4><h4 id="上文是这样的："><a href="#上文是这样的：" class="headerlink" title="上文是这样的："></a>上文是这样的：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**   </span></div><div class="line">         * 获得我们所定义的自定义样式属性   </div><div class="line">         */    </div><div class="line">        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyle, <span class="number">0</span>);    </div><div class="line">        <span class="keyword">int</span> n = a.getIndexCount();    </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)    </div><div class="line">        &#123;    </div><div class="line">            <span class="keyword">int</span> attr = a.getIndex(i);    </div><div class="line">            <span class="keyword">switch</span> (attr)    </div><div class="line">            &#123;    </div><div class="line">            <span class="keyword">case</span> R.styleable.CustomTitleView_titleText:    </div><div class="line">                mTitleText = a.getString(attr);    </div><div class="line">                <span class="keyword">break</span>;    </div><div class="line">            <span class="keyword">case</span> R.styleable.CustomTitleView_titleTextColor:    </div><div class="line">                <span class="comment">// 默认颜色设置为黑色    </span></div><div class="line">                mTitleTextColor = a.getColor(attr, Color.BLACK);    </div><div class="line">                <span class="keyword">break</span>;    </div><div class="line">            <span class="keyword">case</span> R.styleable.CustomTitleView_titleTextSize:    </div><div class="line">                <span class="comment">// 默认设置为16sp，TypeValue也可以把sp转化为px    </span></div><div class="line">                mTitleTextSize = a.getDimensionPixelSize(attr, (<span class="keyword">int</span>) TypedValue.applyDimension(    </div><div class="line">                        TypedValue.COMPLEX_UNIT_SP, <span class="number">16</span>, getResources().getDisplayMetrics()));    </div><div class="line">                <span class="keyword">break</span>;    </div><div class="line"></div><div class="line">            &#125;    </div><div class="line"></div><div class="line">        &#125;    </div><div class="line">        a.recycle();</div></pre></td></tr></table></figure>
+<h2 id="也就是先获取了自定义属性的目录索引值，然后通过switch进行与我们的attrs-xml相匹配，最后进行取值。"><a href="#也就是先获取了自定义属性的目录索引值，然后通过switch进行与我们的attrs-xml相匹配，最后进行取值。" class="headerlink" title="也就是先获取了自定义属性的目录索引值，然后通过switch进行与我们的attrs.xml相匹配，最后进行取值。"></a><strong>也就是先获取了自定义属性的目录索引值，然后通过switch进行与我们的attrs.xml相匹配，最后进行取值。</strong></h2><h4 id="这样咋看没有什么问题，在这篇博文也没什么问题，"><a href="#这样咋看没有什么问题，在这篇博文也没什么问题，" class="headerlink" title="这样咋看没有什么问题，在这篇博文也没什么问题，"></a>这样咋看没有什么问题，在这篇博文也没什么问题，</h4><h4 id="但是如果我们想偷点懒，不在xml中写出任何我们的自定义属性，这时会发生什么？"><a href="#但是如果我们想偷点懒，不在xml中写出任何我们的自定义属性，这时会发生什么？" class="headerlink" title="但是如果我们想偷点懒，不在xml中写出任何我们的自定义属性，这时会发生什么？"></a>但是如果我们想偷点懒，不在xml中写出任何我们的自定义属性，这时会发生什么？</h4><h4 id="你肯定会说当然是取代码中你写的默认值啊，非也，非也。照这种写法是不能取到任何默认值！"><a href="#你肯定会说当然是取代码中你写的默认值啊，非也，非也。照这种写法是不能取到任何默认值！" class="headerlink" title="你肯定会说当然是取代码中你写的默认值啊，非也，非也。照这种写法是不能取到任何默认值！"></a>你肯定会说当然是取代码中你写的默认值啊，非也，非也。照这种写法是不能取到任何默认值！</h4><h4 id="为什么？看看叛徒的那个句子（明显长的不一样，那么胖还说不是叛徒），理解到了吗？"><a href="#为什么？看看叛徒的那个句子（明显长的不一样，那么胖还说不是叛徒），理解到了吗？" class="headerlink" title="为什么？看看叛徒的那个句子（明显长的不一样，那么胖还说不是叛徒），理解到了吗？"></a>为什么？看看叛徒的那个句子（明显长的不一样，那么胖还说不是叛徒），理解到了吗？</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyle, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<h4 id="是通过查询我们使用自定义View的时候里面所写出的值，准确的说是保存所有我们写出的值，比如上文中的："><a href="#是通过查询我们使用自定义View的时候里面所写出的值，准确的说是保存所有我们写出的值，比如上文中的：" class="headerlink" title="是通过查询我们使用自定义View的时候里面所写出的值，准确的说是保存所有我们写出的值，比如上文中的："></a>是通过查询我们使用自定义View的时候里面所写出的值，准确的说是保存所有我们写出的值，比如上文中的：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">android:layout_width="200dp"    </div><div class="line">        android:layout_height="100dp"    </div><div class="line">        custom:titleText="3712"    </div><div class="line">        custom:titleTextColor="#ff0000"    </div><div class="line">        custom:titleTextSize="40sp"</div></pre></td></tr></table></figure>
+<h4 id="它就会找到，Android-layout-width-android-layout-height-custom-titleText-custom-titleTextColor-custom-titleTextSize。这几组值"><a href="#它就会找到，Android-layout-width-android-layout-height-custom-titleText-custom-titleTextColor-custom-titleTextSize。这几组值" class="headerlink" title="它就会找到，Android:layout_width,android:layout_height,custom:titleText,custom:titleTextColor,custom:titleTextSize。这几组值."></a>它就会找到，Android:layout_width,android:layout_height,custom:titleText,custom:titleTextColor,custom:titleTextSize。这几组值.</h4><h4 id="但是如果我们自定义的属性不写上去呢？只是想控制个控件的大小（事实证明很多情况下你的确不太会去改变控件的其他属性，除非你需要），就会变成只找到android-layout-width-android-layout-height。这时候如果你再通过Switch（）去匹配的话，除了android-layout-width-android-layout-height两个分支，其他的都不会被执行，既然没有执行，那么默认值如何取得出？"><a href="#但是如果我们自定义的属性不写上去呢？只是想控制个控件的大小（事实证明很多情况下你的确不太会去改变控件的其他属性，除非你需要），就会变成只找到android-layout-width-android-layout-height。这时候如果你再通过Switch（）去匹配的话，除了android-layout-width-android-layout-height两个分支，其他的都不会被执行，既然没有执行，那么默认值如何取得出？" class="headerlink" title="但是如果我们自定义的属性不写上去呢？只是想控制个控件的大小（事实证明很多情况下你的确不太会去改变控件的其他属性，除非你需要），就会变成只找到android:layout_width,android:layout_height。这时候如果你再通过Switch（）去匹配的话，除了android:layout_width,android:layout_height两个分支，其他的都不会被执行，既然没有执行，那么默认值如何取得出？"></a>但是如果我们自定义的属性不写上去呢？只是想控制个控件的大小（事实证明很多情况下你的确不太会去改变控件的其他属性，除非你需要），就会变成只找到android:layout_width,android:layout_height。这时候如果你再通过Switch（）去匹配的话，除了android:layout_width,android:layout_height两个分支，其他的都不会被执行，既然没有执行，那么默认值如何取得出？</h4><h4 id="找到了问题所在，我们就要解决了，解决也很简单，去掉获取目录，不使用switch-语句，每个属性都这样获取："><a href="#找到了问题所在，我们就要解决了，解决也很简单，去掉获取目录，不使用switch-语句，每个属性都这样获取：" class="headerlink" title="找到了问题所在，我们就要解决了，解决也很简单，去掉获取目录，不使用switch()语句，每个属性都这样获取："></a>找到了问题所在，我们就要解决了，解决也很简单，去掉获取目录，不使用switch()语句，每个属性都这样获取：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyle, <span class="number">0</span>);</div><div class="line"><span class="comment">// 默认颜色设置为黑色    </span></div><div class="line">                mTitleTextColor = a.getColor(attr, Color.BLACK);</div></pre></td></tr></table></figure>
+<h4 id="这样就能保证每个想要设置默认值的能正确的被设置默认值了。"><a href="#这样就能保证每个想要设置默认值的能正确的被设置默认值了。" class="headerlink" title="这样就能保证每个想要设置默认值的能正确的被设置默认值了。"></a>这样就能保证每个想要设置默认值的能正确的被设置默认值了。</h4><h4 id="有问题欢迎指正，如引用的部分文字有侵权，请告知我，我会立即处理、"><a href="#有问题欢迎指正，如引用的部分文字有侵权，请告知我，我会立即处理、" class="headerlink" title="有问题欢迎指正，如引用的部分文字有侵权，请告知我，我会立即处理、"></a>有问题欢迎指正，如引用的部分文字有侵权，请告知我，我会立即处理、</h4>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzong_erweima.jpg" alt="WinterSmileSB101 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的微信公众帐号，不定期推送各种技术文章</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/自定义View/" rel="tag"># 自定义View</a>
+          
+            <a href="/tags/鸿洋/" rel="tag"># 鸿洋</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/根据设置的日期获取星期几/" rel="next" title="Android 根据设置的日期获取星期几">
+                <i class="fa fa-chevron-left"></i> Android 根据设置的日期获取星期几
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/22/鸿洋大神博文的坑/"
+     data-title="鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑"
+     data-content=""
+     data-url="http://WinterSmileSB101.online/2017/03/22/鸿洋大神博文的坑/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/22/鸿洋大神博文的坑/"
+           data-title="鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑" data-url="http://WinterSmileSB101.online/2017/03/22/鸿洋大神博文的坑/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myHeadImg.jpeg"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://blog.csdn.net/qq_21265915/rss/list" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      <!--  <div class="links-of-author motion-element">
+          
+        </div>
+        -->
+
+<!--自己写的社交链接-->
+        <div class="links-of-author motion-element">
+         <span class="links-of-author-item">
+         <a href="https://github.com/WinterSmileSB101" title="Github">
+         <i class="fa fa-fw fa-github fa-lg"></i>
+         </a>
+         </span>
+
+         <span class="links-of-author-item">
+                  <a href="http://weibo.com/5602632941/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博">
+                  <i class="fa fa-fw fa-weibo fa-lg"></i>
+                  </a>
+                  </span>
+
+         <span class="links-of-author-item">
+         <a href="http://www.jianshu.com/users/73344bc7e890/timeline" title="简书">
+         <i class="fa fa-fw fa-bookmark fa-lg"></i>
+         </a>
+         </span>
+
+<br />
+
+        <span class="links-of-author-item">
+                 <a href="https://www.douban.com/people/159359470/" title="豆瓣">
+                 <i class="fa fa-fw fa-newspaper-o fa-lg"></i>
+                 </a>
+                 </span>
+
+        <span class="links-of-author-item">
+                 <a href="http://blog.csdn.net/qq_21265915" title="CSDN博客">
+                 <i class="fa fa-fw fa-bug fa-lg"></i>
+                 </a>
+                 </span>
+
+        </div>
+        <!--自己写的社交链接-->
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解，-尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点），可是没想到第一步就遇到了问题。写这博文主要是为了记录错误，也可以为同样遇到这问题的童鞋提供一个解决办法。"><span class="nav-number">1.</span> <span class="nav-text">原因是由于接触安卓也这么久了，但是自定义view这方面一直没怎么了解， 尤其是对于自定义属性的使用。由于最近app上需要用到自定义View，于是决定把自定义View的坑填上（毕竟安卓中自定义View是重点也是难点），可是没想到第一步就遇到了问题。写这博文主要是为了记录错误，也可以为同样遇到这问题的童鞋提供一个解决办法。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首先给出鸿洋大神此博文传送门。你们可以先过去看看。由于要用到部分大神的文字才方便解释（不知算不算那啥，有问题联系我，立马删除）"><span class="nav-number">2.</span> <span class="nav-text">首先给出鸿洋大神此博文传送门。你们可以先过去看看。由于要用到部分大神的文字才方便解释（不知算不算那啥，有问题联系我，立马删除）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们可以看到，步骤我们做的都是一样的。但是在获取自定义属性值得时候就不一样了。"><span class="nav-number">3.</span> <span class="nav-text">我们可以看到，步骤我们做的都是一样的。但是在获取自定义属性值得时候就不一样了。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上文是这样的："><span class="nav-number">4.</span> <span class="nav-text">上文是这样的：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#也就是先获取了自定义属性的目录索引值，然后通过switch进行与我们的attrs-xml相匹配，最后进行取值。"><span class="nav-number"></span> <span class="nav-text">也就是先获取了自定义属性的目录索引值，然后通过switch进行与我们的attrs.xml相匹配，最后进行取值。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这样咋看没有什么问题，在这篇博文也没什么问题，"><span class="nav-number">1.</span> <span class="nav-text">这样咋看没有什么问题，在这篇博文也没什么问题，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#但是如果我们想偷点懒，不在xml中写出任何我们的自定义属性，这时会发生什么？"><span class="nav-number">2.</span> <span class="nav-text">但是如果我们想偷点懒，不在xml中写出任何我们的自定义属性，这时会发生什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你肯定会说当然是取代码中你写的默认值啊，非也，非也。照这种写法是不能取到任何默认值！"><span class="nav-number">3.</span> <span class="nav-text">你肯定会说当然是取代码中你写的默认值啊，非也，非也。照这种写法是不能取到任何默认值！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么？看看叛徒的那个句子（明显长的不一样，那么胖还说不是叛徒），理解到了吗？"><span class="nav-number">4.</span> <span class="nav-text">为什么？看看叛徒的那个句子（明显长的不一样，那么胖还说不是叛徒），理解到了吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#是通过查询我们使用自定义View的时候里面所写出的值，准确的说是保存所有我们写出的值，比如上文中的："><span class="nav-number">5.</span> <span class="nav-text">是通过查询我们使用自定义View的时候里面所写出的值，准确的说是保存所有我们写出的值，比如上文中的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#它就会找到，Android-layout-width-android-layout-height-custom-titleText-custom-titleTextColor-custom-titleTextSize。这几组值"><span class="nav-number">6.</span> <span class="nav-text">它就会找到，Android:layout_width,android:layout_height,custom:titleText,custom:titleTextColor,custom:titleTextSize。这几组值.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#但是如果我们自定义的属性不写上去呢？只是想控制个控件的大小（事实证明很多情况下你的确不太会去改变控件的其他属性，除非你需要），就会变成只找到android-layout-width-android-layout-height。这时候如果你再通过Switch（）去匹配的话，除了android-layout-width-android-layout-height两个分支，其他的都不会被执行，既然没有执行，那么默认值如何取得出？"><span class="nav-number">7.</span> <span class="nav-text">但是如果我们自定义的属性不写上去呢？只是想控制个控件的大小（事实证明很多情况下你的确不太会去改变控件的其他属性，除非你需要），就会变成只找到android:layout_width,android:layout_height。这时候如果你再通过Switch（）去匹配的话，除了android:layout_width,android:layout_height两个分支，其他的都不会被执行，既然没有执行，那么默认值如何取得出？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到了问题所在，我们就要解决了，解决也很简单，去掉获取目录，不使用switch-语句，每个属性都这样获取："><span class="nav-number">8.</span> <span class="nav-text">找到了问题所在，我们就要解决了，解决也很简单，去掉获取目录，不使用switch()语句，每个属性都这样获取：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这样就能保证每个想要设置默认值的能正确的被设置默认值了。"><span class="nav-number">9.</span> <span class="nav-text">这样就能保证每个想要设置默认值的能正确的被设置默认值了。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有问题欢迎指正，如引用的部分文字有侵权，请告知我，我会立即处理、"><span class="nav-number">10.</span> <span class="nav-text">有问题欢迎指正，如引用的部分文字有侵权，请告知我，我会立即处理、</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.3.20 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered By - WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+    个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  WinterSmileSB101
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>

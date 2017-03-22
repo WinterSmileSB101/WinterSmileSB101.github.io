@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T06:33:21.346Z</updated>
+  <updated>2017-03-22T06:50:51.033Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>鸿洋大神博文Android 自定义View (一)中自定义属性所遇到的坑</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/%E9%B8%BF%E6%B4%8B%E5%A4%A7%E7%A5%9E%E5%8D%9A%E6%96%87%E7%9A%84%E5%9D%91/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/鸿洋大神博文的坑/</id>
+    <published>2017-03-22T06:35:19.000Z</published>
+    <updated>2017-03-22T06:50:51.033Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 自定义View" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
+    
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+      <category term="自定义View" scheme="http://WinterSmileSB101.online/tags/%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
+    
+      <category term="鸿洋" scheme="http://WinterSmileSB101.online/tags/%E9%B8%BF%E6%B4%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 根据设置的日期获取星期几</title>
@@ -47,14 +74,14 @@
     <link href="http://WinterSmileSB101.online/2017/03/22/Okhttp%E8%8E%B7%E5%8F%96%E4%B8%AD%E6%96%87%E7%BD%91%E9%A1%B5%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/"/>
     <id>http://WinterSmileSB101.online/2017/03/22/Okhttp获取中文网页乱码的解决方式/</id>
     <published>2017-03-22T06:20:15.000Z</published>
-    <updated>2017-03-22T06:32:40.123Z</updated>
+    <updated>2017-03-22T06:38:45.374Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;版权声明：本文为转载，出处未知，知道出处可以联系&lt;a href=&quot;mailto:891532752@qq.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;版权声明：本文为转载，出处未知，知道出处可以联系&lt;a href=&quot;mailto: 891532752@qq.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我&lt;/a&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;Ok
+&lt;h3 id=&quot;O
     
     </summary>
     
@@ -392,9 +419,9 @@
     
       <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
     
-      <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
-    
       <category term="定制" scheme="http://WinterSmileSB101.online/tags/%E5%AE%9A%E5%88%B6/"/>
+    
+      <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
     
       <category term="侧边栏" scheme="http://WinterSmileSB101.online/tags/%E4%BE%A7%E8%BE%B9%E6%A0%8F/"/>
     
