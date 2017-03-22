@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Android 控件的相对动画实现小说阅读的上下菜单的隐藏与显示]]></title>
+      <url>%2F2017%2F03%2F22%2F%E6%8E%A7%E4%BB%B6%E7%9A%84%E7%9B%B8%E5%AF%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AF%B4%E9%98%85%E8%AF%BB%E7%9A%84%E4%B8%8A%E4%B8%8B%E8%8F%9C%E5%8D%95%E7%9A%84%E9%9A%90%E8%97%8F%E4%B8%8E%E6%98%BE%E7%A4%BA%2F</url>
+      <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 直接上代码：1.这个是相对于自身往上平移自身高度的动画123TranslateAnimation translateAnimation =new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f, Animation.RELATIVE_TO_SELF,0.0f, Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,-1.0f); 2.这个是相对于自身往下平移自身高度的动画1234TranslateAnimation translateAnimation1 = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 1.0f); 其实就是对于下面这个方法的使用12public TranslateAnimation(int fromXType, float fromXValue, int toXType, float toXValue, int fromYType, float fromYValue, int toYType, float toYValue) **不过在动画的执行的地方有不同，不是通过Start()方法执行动画，而是通过设置View 的Visibility来控制动画的播放。比如这里有一个需要隐藏的View 变量名为topLayout，那么这里实现动画的方式就为**12toplayout.setAnimation(translateAnimation);toplayout.setVisibility(View.INVISIBLE); 这里就可以实现动画的播放，这里设置的是INVISIBLE，是因为我们的控件本来是可见的（VISIBLE），所以动画的控制是通过View的可见性来控制的，也就是说，这里也可以设置为View.GONE，也是可以触发动画。当处于INVISIBLE或者GONE的时候，设置为VISIBLE就可以播放动画了。下面上效果：]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[通过OnScrollListener来监听RecyclerView的位置，以更新RV]]></title>
       <url>%2F2017%2F03%2F22%2F%E9%80%9A%E8%BF%87OnScrollListener%E6%9D%A5%E7%9B%91%E5%90%ACRecyclerView%E7%9A%84%E4%BD%8D%E7%BD%AE%2F</url>
       <content type="text"><![CDATA[版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。 最近做一个漫画app，在阅读漫画界面需要通过获取recyclerView的位置来实时更新界面上的图片进度（比如1/9），查阅资料得知了可以通过LayoutManager来获取recyclerView的item位置信息。那么由于这里我的是一幅图是整个屏幕大小，所以通过代码：123LinearLayoutManager l = (LinearLayoutManager)recyclerView.getLayoutManager(); adapterNowPos = l.findFirstVisibleItemPosition(); allItems = l.getItemCount(); 其中，adapterNowPos 就是当前的图片位置，allItems 则是recyclerView中的所有条目数量。接下来需要搞定的就是动态通知了，于是我们给recyclerView添加一个滑动监听器，完整的代码如下：123456789101112recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener()&#123; @Override public void onScrolled(RecyclerView recyclerView,int dx,int dy)&#123; super.onScrolled(recyclerView,dx,dy); LinearLayoutManager l = (LinearLayoutManager)recyclerView.getLayoutManager(); adapterNowPos = l.findFirstVisibleItemPosition(); allItems = l.getItemCount(); String s = adapterNowPos+1+"/"+allItems; comic_pic_state.setText(s);//设置图片的数量 pic_state_top.setText(s); &#125; &#125;); 这样就完成了实时更新。下面上图：]]></content>
