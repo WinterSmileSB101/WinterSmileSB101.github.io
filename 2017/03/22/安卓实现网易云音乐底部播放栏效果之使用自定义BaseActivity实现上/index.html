@@ -1,0 +1,1189 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Service,网易云音乐,底部播放栏,自定义 BaseActivity," />
+
+
+
+
+
+  <link rel="alternate" href="http://blog.csdn.net/qq_21265915/rss/list" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+项目 GitHub 地址此博文源码下载地址
+
+起因： 最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。折磨： 1.一开始我看到知乎有大神说使用Acti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+项目 GitHub 地址此博文源码下载地址
+
+起因： 最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。折磨： 1.一开始我看到知乎有大神说使用Acti">
+<meta property="og:image" content="http://img.blog.csdn.net/20161019133617996?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2017-03-22T12:23:17.259Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上">
+<meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+项目 GitHub 地址此博文源码下载地址
+
+起因： 最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。折磨： 1.一开始我看到知乎有大神说使用Acti">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161019133617996?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/"/>
+
+
+
+
+
+  <title> 安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上 | WinterSmileSB101 的个人房间 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">胆小认生，不易相处</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WinterSmileSB101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myHeadImg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WinterSmileSB101 的个人房间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T20:17:19+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T20:23:17+08:00">
+                2017-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Android-实战/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 实战</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Android-实战/Android-馨乐（音乐APP，UI仿网易云音乐）开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 馨乐（音乐APP，UI仿网易云音乐）开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/" class="leancloud_visitors" data-flag-title="安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
+<p><a href="https://github.com/WinterSmileSB101/winterMusic" target="_blank" rel="external">项目 GitHub 地址</a><br><a href="http://download.csdn.net/detail/qq_21265915/9661736" target="_blank" rel="external">此博文源码下载地址</a></p>
+</blockquote>
+<h4 id="起因：-最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。"><a href="#起因：-最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。" class="headerlink" title="起因： 最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。"></a>起因： 最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。</h4><h4 id="折磨：-1-一开始我看到知乎有大神说使用Activity-Fragment实现的，链接，但是我的项目已经使用了多Activity布局，直接推翻不太舒服，也太懒，也麻烦。于是这个方法废除。"><a href="#折磨：-1-一开始我看到知乎有大神说使用Activity-Fragment实现的，链接，但是我的项目已经使用了多Activity布局，直接推翻不太舒服，也太懒，也麻烦。于是这个方法废除。" class="headerlink" title="折磨： 1.一开始我看到知乎有大神说使用Activity+Fragment实现的，链接，但是我的项目已经使用了多Activity布局，直接推翻不太舒服，也太懒，也麻烦。于是这个方法废除。"></a>折磨： 1.一开始我看到知乎有大神说使用Activity+Fragment实现的，<a href="http://www.zhihu.com/question/36448929" target="_blank" rel="external">链接</a>，但是我的项目已经使用了多Activity布局，直接推翻不太舒服，也太懒，也麻烦。于是这个方法废除。</h4><h4 id="2-后来又了解到应该可以直接自定义一个BaseActivity，在其中的onPost-（）方法里实现布局的添加，方法参数我就不写了，然后重写startActivity（Intent-intent）方法，在里面设置intent的-flag-为Intent-FLAG-ACTIVITY-NO-ANIMATION，即为取消切换Activity的时候的动画效果，这样就能实现无缝切换了。这样看来应该可行。我并没有实验过，有兴趣的童鞋可以自己实验一次。"><a href="#2-后来又了解到应该可以直接自定义一个BaseActivity，在其中的onPost-（）方法里实现布局的添加，方法参数我就不写了，然后重写startActivity（Intent-intent）方法，在里面设置intent的-flag-为Intent-FLAG-ACTIVITY-NO-ANIMATION，即为取消切换Activity的时候的动画效果，这样就能实现无缝切换了。这样看来应该可行。我并没有实验过，有兴趣的童鞋可以自己实验一次。" class="headerlink" title="2.后来又了解到应该可以直接自定义一个BaseActivity，在其中的onPost （）方法里实现布局的添加，方法参数我就不写了，然后重写startActivity（Intent intent）方法，在里面设置intent的 flag 为Intent.FLAG_ACTIVITY_NO_ANIMATION，即为取消切换Activity的时候的动画效果，这样就能实现无缝切换了。这样看来应该可行。我并没有实验过，有兴趣的童鞋可以自己实验一次。"></a>2.后来又了解到应该可以直接自定义一个BaseActivity，在其中的onPost （）方法里实现布局的添加，方法参数我就不写了，然后重写startActivity（Intent intent）方法，在里面设置intent的 flag 为Intent.FLAG_ACTIVITY_NO_ANIMATION，即为取消切换Activity的时候的动画效果，这样就能实现无缝切换了。这样看来应该可行。我并没有实验过，有兴趣的童鞋可以自己实验一次。</h4><h4 id="3-这一次，也是在知乎看到一个大神给出的思路，这个思路看起来前两个简单，而且更容易维护代码，自定义性也更好，那就是使用悬浮窗！不过使用这个也有问题，就是权限的问题，很多手机都是默认禁止掉了应用程序的悬浮窗权限，但是如果你开发的是系统应用的话，就默认给予了，不过我相信大多数人开发的都不是系统应用，所以这就是个麻烦点。为了解决这个，我们需要把WindowManager-LayoutParams-的变量的type设置为TYPE-TOAST-具体对应实际使用可以看这篇博客，具体我没有试验过，不过通过TYPE-TOAST这种类型设置，无权限显示是实现了，但是现在即使你不在引用程序内，只要程序没有退出，他都会一直显示在屏幕上，这显然不符合我们的要求，对于这个问题，有一种解决办法是对程序进行后台检测，但是这种方法太消耗性能，一，用固定时间刷新会导致用户体验差，如果时间差够短，用户体验没什么，但是性能被大幅度浪费了。所以这种方法不行。"><a href="#3-这一次，也是在知乎看到一个大神给出的思路，这个思路看起来前两个简单，而且更容易维护代码，自定义性也更好，那就是使用悬浮窗！不过使用这个也有问题，就是权限的问题，很多手机都是默认禁止掉了应用程序的悬浮窗权限，但是如果你开发的是系统应用的话，就默认给予了，不过我相信大多数人开发的都不是系统应用，所以这就是个麻烦点。为了解决这个，我们需要把WindowManager-LayoutParams-的变量的type设置为TYPE-TOAST-具体对应实际使用可以看这篇博客，具体我没有试验过，不过通过TYPE-TOAST这种类型设置，无权限显示是实现了，但是现在即使你不在引用程序内，只要程序没有退出，他都会一直显示在屏幕上，这显然不符合我们的要求，对于这个问题，有一种解决办法是对程序进行后台检测，但是这种方法太消耗性能，一，用固定时间刷新会导致用户体验差，如果时间差够短，用户体验没什么，但是性能被大幅度浪费了。所以这种方法不行。" class="headerlink" title="3.这一次，也是在知乎看到一个大神给出的思路，这个思路看起来前两个简单，而且更容易维护代码，自定义性也更好，那就是使用悬浮窗！不过使用这个也有问题，就是权限的问题，很多手机都是默认禁止掉了应用程序的悬浮窗权限，但是如果你开发的是系统应用的话，就默认给予了，不过我相信大多数人开发的都不是系统应用，所以这就是个麻烦点。为了解决这个，我们需要把WindowManager.LayoutParams 的变量的type设置为TYPE_TOAST,具体对应实际使用可以看这篇博客，具体我没有试验过，不过通过TYPE_TOAST这种类型设置，无权限显示是实现了，但是现在即使你不在引用程序内，只要程序没有退出，他都会一直显示在屏幕上，这显然不符合我们的要求，对于这个问题，有一种解决办法是对程序进行后台检测，但是这种方法太消耗性能，一，用固定时间刷新会导致用户体验差，如果时间差够短，用户体验没什么，但是性能被大幅度浪费了。所以这种方法不行。"></a>3.这一次，也是在知乎看到一个大神给出的思路，这个思路看起来前两个简单，而且更容易维护代码，自定义性也更好，那就是使用悬浮窗！不过使用这个也有问题，就是权限的问题，很多手机都是默认禁止掉了应用程序的悬浮窗权限，但是如果你开发的是系统应用的话，就默认给予了，不过我相信大多数人开发的都不是系统应用，所以这就是个麻烦点。为了解决这个，我们需要把WindowManager.LayoutParams 的变量的type设置为TYPE_TOAST,具体对应实际使用可以看<a href="http://blog.csdn.net/qq_28690547/article/details/50386045" target="_blank" rel="external">这篇博客</a>，具体我没有试验过，不过通过TYPE_TOAST这种类型设置，无权限显示是实现了，但是现在即使你不在引用程序内，只要程序没有退出，他都会一直显示在屏幕上，这显然不符合我们的要求，对于这个问题，有一种解决办法是对程序进行后台检测，但是这种方法太消耗性能，一，用固定时间刷新会导致用户体验差，如果时间差够短，用户体验没什么，但是性能被大幅度浪费了。所以这种方法不行。</h4><h3 id="结果：难道就没有只在程序内显示的无需权限的悬浮窗了吗？答案大家一起寻找吧。在这里我使用第二种方法，"><a href="#结果：难道就没有只在程序内显示的无需权限的悬浮窗了吗？答案大家一起寻找吧。在这里我使用第二种方法，" class="headerlink" title="结果：难道就没有只在程序内显示的无需权限的悬浮窗了吗？答案大家一起寻找吧。在这里我使用第二种方法，"></a>结果：难道就没有只在程序内显示的无需权限的悬浮窗了吗？答案大家一起寻找吧。在这里我使用第二种方法，</h3><h3 id="步骤：1-定义BaseActivity，继承自AppCompatActivity"><a href="#步骤：1-定义BaseActivity，继承自AppCompatActivity" class="headerlink" title="步骤：1.定义BaseActivity，继承自AppCompatActivity"></a>步骤：1.定义BaseActivity，继承自AppCompatActivity</h3><h3 id="直接上代码，注释里我写了关键位置，其他很简单"><a href="#直接上代码，注释里我写了关键位置，其他很简单" class="headerlink" title="直接上代码，注释里我写了关键位置，其他很简单"></a>直接上代码，注释里我写了关键位置，其他很简单</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> winter.zxb.smilesb101.winterMusic;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Intent;  </div><div class="line"><span class="keyword">import</span> android.os.Bundle;  </div><div class="line"><span class="keyword">import</span> android.support.annotation.Nullable;  </div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;  </div><div class="line"><span class="keyword">import</span> android.view.Gravity;  </div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;  </div><div class="line"><span class="keyword">import</span> android.view.View;  </div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;  </div><div class="line"><span class="keyword">import</span> android.view.WindowManager;  </div><div class="line"><span class="keyword">import</span> android.widget.FrameLayout;  </div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 自定义基类，实现无缝切换底部播放栏</div><div class="line"> * Created by SmileSB101 on 2016/10/19 0019.</div><div class="line"> */  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseActity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span>&#123;  </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * windowManager对象</div><div class="line">     */  </div><div class="line">    <span class="keyword">private</span> WindowManager windowManager;  </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 根视野</div><div class="line">     */  </div><div class="line">    <span class="keyword">private</span> FrameLayout mContentContainer;  </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 浮动视野</div><div class="line">     */  </div><div class="line">    <span class="keyword">private</span> View mFloatView;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </div><div class="line">        ViewGroup mDecorView = (ViewGroup) getWindow().getDecorView();  </div><div class="line">        mContentContainer = (FrameLayout) ((ViewGroup) mDecorView.getChildAt(<span class="number">0</span>)).getChildAt(<span class="number">1</span>);  </div><div class="line">        mFloatView =  LayoutInflater.from(getBaseContext()).inflate(R.layout.float_music_control_layout, <span class="keyword">null</span>);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onPostCreate(savedInstanceState);  </div><div class="line">        FrameLayout.LayoutParams layoutParams = <span class="keyword">new</span> FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);  </div><div class="line">        layoutParams.gravity = Gravity.BOTTOM;  </div><div class="line">        mContentContainer.addView(mFloatView,layoutParams);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onStart();  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="comment">/***</span></div><div class="line">     * 重点，设置这个可以实现前进Activity时候的无动画切换</div><div class="line">     * <span class="doctag">@param</span> intent</div><div class="line">     */  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent)</span></span>&#123;  </div><div class="line">        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);<span class="comment">//设置切换没有动画，用来实现活动之间的无缝切换  </span></div><div class="line">        <span class="keyword">super</span>.startActivity(intent);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     *  重点，在这里设置按下返回键，或者返回button的时候无动画</div><div class="line">     */  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finish</span><span class="params">()</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>.finish();  </div><div class="line">        overridePendingTransition(<span class="number">0</span>, <span class="number">0</span>);<span class="comment">//设置返回没有动画  </span></div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-其他需要播放栏的类继承自这个自定义的Activity就可以实现效果了。"><a href="#2-其他需要播放栏的类继承自这个自定义的Activity就可以实现效果了。" class="headerlink" title="2.其他需要播放栏的类继承自这个自定义的Activity就可以实现效果了。"></a>2.其他需要播放栏的类继承自这个自定义的Activity就可以实现效果了。</h3><p><img src="http://img.blog.csdn.net/20161019133617996?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzong_erweima.jpg" alt="WinterSmileSB101 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的微信公众帐号，不定期推送各种技术文章</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Service/" rel="tag"># Service</a>
+          
+            <a href="/tags/网易云音乐/" rel="tag"># 网易云音乐</a>
+          
+            <a href="/tags/底部播放栏/" rel="tag"># 底部播放栏</a>
+          
+            <a href="/tags/自定义-BaseActivity/" rel="tag"># 自定义 BaseActivity</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/Serivce通知Activity更新UI方法总结/" rel="next" title="Serivce通知Activity更新UI方法总结">
+                <i class="fa fa-chevron-left"></i> Serivce通知Activity更新UI方法总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/" rel="prev" title="用 AndroidSDK 中的 Face Detector 实现人脸识别">
+                用 AndroidSDK 中的 Face Detector 实现人脸识别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/"
+     data-title="安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上"
+     data-content=""
+     data-url="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/"
+           data-title="安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上" data-url="http://WinterSmileSB101.online/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myHeadImg.jpeg"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">87</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://blog.csdn.net/qq_21265915/rss/list" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      <!--  <div class="links-of-author motion-element">
+          
+        </div>
+        -->
+
+<!--自己写的社交链接-->
+        <div class="links-of-author motion-element">
+         <span class="links-of-author-item">
+         <a href="https://github.com/WinterSmileSB101" title="Github">
+         <i class="fa fa-fw fa-github fa-lg"></i>
+         </a>
+         </span>
+
+         <span class="links-of-author-item">
+                  <a href="http://weibo.com/5602632941/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博">
+                  <i class="fa fa-fw fa-weibo fa-lg"></i>
+                  </a>
+                  </span>
+
+         <span class="links-of-author-item">
+         <a href="http://www.jianshu.com/users/73344bc7e890/timeline" title="简书">
+         <i class="fa fa-fw fa-bookmark fa-lg"></i>
+         </a>
+         </span>
+
+<br />
+
+        <span class="links-of-author-item">
+                 <a href="https://www.douban.com/people/159359470/" title="豆瓣">
+                 <i class="fa fa-fw fa-newspaper-o fa-lg"></i>
+                 </a>
+                 </span>
+
+        <span class="links-of-author-item">
+                 <a href="http://blog.csdn.net/qq_21265915" title="CSDN博客">
+                 <i class="fa fa-fw fa-bug fa-lg"></i>
+                 </a>
+                 </span>
+
+        </div>
+        <!--自己写的社交链接-->
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#起因：-最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。"><span class="nav-number">1.</span> <span class="nav-text">起因： 最近在写一个音乐项目，发现网易云音乐的底部播放栏看起来不错，不同的页面切换也能做到无缝连接，于是自己打算仿造一个。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#折磨：-1-一开始我看到知乎有大神说使用Activity-Fragment实现的，链接，但是我的项目已经使用了多Activity布局，直接推翻不太舒服，也太懒，也麻烦。于是这个方法废除。"><span class="nav-number">2.</span> <span class="nav-text">折磨： 1.一开始我看到知乎有大神说使用Activity+Fragment实现的，链接，但是我的项目已经使用了多Activity布局，直接推翻不太舒服，也太懒，也麻烦。于是这个方法废除。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-后来又了解到应该可以直接自定义一个BaseActivity，在其中的onPost-（）方法里实现布局的添加，方法参数我就不写了，然后重写startActivity（Intent-intent）方法，在里面设置intent的-flag-为Intent-FLAG-ACTIVITY-NO-ANIMATION，即为取消切换Activity的时候的动画效果，这样就能实现无缝切换了。这样看来应该可行。我并没有实验过，有兴趣的童鞋可以自己实验一次。"><span class="nav-number">3.</span> <span class="nav-text">2.后来又了解到应该可以直接自定义一个BaseActivity，在其中的onPost （）方法里实现布局的添加，方法参数我就不写了，然后重写startActivity（Intent intent）方法，在里面设置intent的 flag 为Intent.FLAG_ACTIVITY_NO_ANIMATION，即为取消切换Activity的时候的动画效果，这样就能实现无缝切换了。这样看来应该可行。我并没有实验过，有兴趣的童鞋可以自己实验一次。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-这一次，也是在知乎看到一个大神给出的思路，这个思路看起来前两个简单，而且更容易维护代码，自定义性也更好，那就是使用悬浮窗！不过使用这个也有问题，就是权限的问题，很多手机都是默认禁止掉了应用程序的悬浮窗权限，但是如果你开发的是系统应用的话，就默认给予了，不过我相信大多数人开发的都不是系统应用，所以这就是个麻烦点。为了解决这个，我们需要把WindowManager-LayoutParams-的变量的type设置为TYPE-TOAST-具体对应实际使用可以看这篇博客，具体我没有试验过，不过通过TYPE-TOAST这种类型设置，无权限显示是实现了，但是现在即使你不在引用程序内，只要程序没有退出，他都会一直显示在屏幕上，这显然不符合我们的要求，对于这个问题，有一种解决办法是对程序进行后台检测，但是这种方法太消耗性能，一，用固定时间刷新会导致用户体验差，如果时间差够短，用户体验没什么，但是性能被大幅度浪费了。所以这种方法不行。"><span class="nav-number">4.</span> <span class="nav-text">3.这一次，也是在知乎看到一个大神给出的思路，这个思路看起来前两个简单，而且更容易维护代码，自定义性也更好，那就是使用悬浮窗！不过使用这个也有问题，就是权限的问题，很多手机都是默认禁止掉了应用程序的悬浮窗权限，但是如果你开发的是系统应用的话，就默认给予了，不过我相信大多数人开发的都不是系统应用，所以这就是个麻烦点。为了解决这个，我们需要把WindowManager.LayoutParams 的变量的type设置为TYPE_TOAST,具体对应实际使用可以看这篇博客，具体我没有试验过，不过通过TYPE_TOAST这种类型设置，无权限显示是实现了，但是现在即使你不在引用程序内，只要程序没有退出，他都会一直显示在屏幕上，这显然不符合我们的要求，对于这个问题，有一种解决办法是对程序进行后台检测，但是这种方法太消耗性能，一，用固定时间刷新会导致用户体验差，如果时间差够短，用户体验没什么，但是性能被大幅度浪费了。所以这种方法不行。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果：难道就没有只在程序内显示的无需权限的悬浮窗了吗？答案大家一起寻找吧。在这里我使用第二种方法，"><span class="nav-number"></span> <span class="nav-text">结果：难道就没有只在程序内显示的无需权限的悬浮窗了吗？答案大家一起寻找吧。在这里我使用第二种方法，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤：1-定义BaseActivity，继承自AppCompatActivity"><span class="nav-number"></span> <span class="nav-text">步骤：1.定义BaseActivity，继承自AppCompatActivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接上代码，注释里我写了关键位置，其他很简单"><span class="nav-number"></span> <span class="nav-text">直接上代码，注释里我写了关键位置，其他很简单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-其他需要播放栏的类继承自这个自定义的Activity就可以实现效果了。"><span class="nav-number"></span> <span class="nav-text">2.其他需要播放栏的类继承自这个自定义的Activity就可以实现效果了。</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.3.20 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered By - WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+    个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  WinterSmileSB101
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>

@@ -1,0 +1,1170 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,SDK,人脸识别,Face Detector," />
+
+
+
+
+
+  <link rel="alternate" href="http://blog.csdn.net/qq_21265915/rss/list" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主转载文章，原文地址。
+
+很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah 一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android SDK从1.0版本中（API level 1）就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 AndroidSDK 中的 Face Detector 实现人脸识别">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主转载文章，原文地址。
+
+很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah 一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android SDK从1.0版本中（API level 1）就">
+<meta property="og:updated_time" content="2017-03-22T12:32:25.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用 AndroidSDK 中的 Face Detector 实现人脸识别">
+<meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主转载文章，原文地址。
+
+很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah 一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android SDK从1.0版本中（API level 1）就">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/"/>
+
+
+
+
+
+  <title> 用 AndroidSDK 中的 Face Detector 实现人脸识别 | WinterSmileSB101 的个人房间 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">胆小认生，不易相处</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WinterSmileSB101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myHeadImg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WinterSmileSB101 的个人房间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                用 AndroidSDK 中的 Face Detector 实现人脸识别
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T20:18:06+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T20:32:25+08:00">
+                2017-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/SDK/" itemprop="url" rel="index">
+                    <span itemprop="name">SDK</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/" class="leancloud_visitors" data-flag-title="用 AndroidSDK 中的 Face Detector 实现人脸识别">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主转载文章，<a href="http://www.cnblogs.com/mainroadlee/p/android_sdk_face_detection.html" target="_blank" rel="external">原文地址</a>。</p>
+</blockquote>
+<h4 id="很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah-一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android-SDK从1-0版本中（API-level-1）就已经集成了简单的人脸识别功能，通过调用FaceDetector-我们可以在Android平台上实现Bitmap多人脸识别（一张图中有多个人脸出现的话）。周五啦，我就简简单单写写，希望感兴趣的同学对这个深藏在Android-SDK中的功能有所了解。"><a href="#很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah-一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android-SDK从1-0版本中（API-level-1）就已经集成了简单的人脸识别功能，通过调用FaceDetector-我们可以在Android平台上实现Bitmap多人脸识别（一张图中有多个人脸出现的话）。周五啦，我就简简单单写写，希望感兴趣的同学对这个深藏在Android-SDK中的功能有所了解。" class="headerlink" title="很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah 一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android SDK从1.0版本中（API level 1）就已经集成了简单的人脸识别功能，通过调用FaceDetector 我们可以在Android平台上实现Bitmap多人脸识别（一张图中有多个人脸出现的话）。周五啦，我就简简单单写写，希望感兴趣的同学对这个深藏在Android SDK中的功能有所了解。"></a>很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah 一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android SDK从1.0版本中（API level 1）就已经集成了简单的人脸识别功能，通过调用FaceDetector 我们可以在Android平台上实现Bitmap多人脸识别（一张图中有多个人脸出现的话）。周五啦，我就简简单单写写，希望感兴趣的同学对这个深藏在Android SDK中的功能有所了解。</h4><h4 id="流程是这样的："><a href="#流程是这样的：" class="headerlink" title="流程是这样的："></a>流程是这样的：</h4><h4 id="1-读取一张图片至Bitmap-（从Resource中，或是从手机相册中选取）"><a href="#1-读取一张图片至Bitmap-（从Resource中，或是从手机相册中选取）" class="headerlink" title="1. 读取一张图片至Bitmap （从Resource中，或是从手机相册中选取）"></a>1. 读取一张图片至Bitmap （从Resource中，或是从手机相册中选取）</h4><h4 id="2-使用FaceDetector-API分析Bitmap，将探测到的人脸数据以FaceDetector-Face存储在一个Face-list中；"><a href="#2-使用FaceDetector-API分析Bitmap，将探测到的人脸数据以FaceDetector-Face存储在一个Face-list中；" class="headerlink" title="2. 使用FaceDetector API分析Bitmap，将探测到的人脸数据以FaceDetector.Face存储在一个Face list中；"></a>2. 使用<a href="http://developer.android.com/reference/android/media/FaceDetector.html" target="_blank" rel="external">FaceDetector API</a>分析Bitmap，将探测到的人脸数据以FaceDetector.Face存储在一个Face list中；</h4><h4 id="3-将人脸框显示在图片上。"><a href="#3-将人脸框显示在图片上。" class="headerlink" title="3.将人脸框显示在图片上。"></a>3.将人脸框显示在图片上。</h4><h4 id="Step-1-读取图片"><a href="#Step-1-读取图片" class="headerlink" title="Step 1: 读取图片"></a>Step 1: 读取图片</h4><h4 id="从Drawable中读取图片资源"><a href="#从Drawable中读取图片资源" class="headerlink" title="从Drawable中读取图片资源"></a>从Drawable中读取图片资源</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bitmap sampleBmp=BitmapFactory.decodeResource(getResources(), R.drawable.sample1);</div></pre></td></tr></table></figure>
+<h4 id="或者直接从手机的图片库读取（Album-Gallery）"><a href="#或者直接从手机的图片库读取（Album-Gallery）" class="headerlink" title="或者直接从手机的图片库读取（Album/Gallery）"></a>或者直接从手机的图片库读取（Album/Gallery）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readPictureFromAlbum</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">        intent.setType(<span class="string">"image/*"</span>);</div><div class="line">        intent.setAction(Intent.ACTION_GET_CONTENT);</div><div class="line">        startActivityForResult(Intent.createChooser(intent,</div><div class="line">                <span class="string">"Select Picture"</span>), ALBUM_REQUEST_CODE);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode,<span class="keyword">int</span> resultCode,Intent data)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (requestCode == ALBUM_REQUEST_CODE &amp;&amp; resultCode == RESULT_OK &amp;&amp; <span class="keyword">null</span> != data) &#123;</div><div class="line">            Uri selectedImage = data.getData();</div><div class="line">            String[] filePathColumn = &#123; MediaStore.Images.Media.DATA &#125;;</div><div class="line"></div><div class="line">            Cursor cursor = getContentResolver().query(selectedImage,</div><div class="line">                    filePathColumn, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line">            cursor.moveToFirst();</div><div class="line"></div><div class="line">            <span class="keyword">int</span> columnIndex = cursor.getColumnIndex(filePathColumn[<span class="number">0</span>]);</div><div class="line">            String picturePath = cursor.getString(columnIndex);</div><div class="line">            cursor.close();</div><div class="line">            Bitmap galleryBmp=BitmapFactory.decodeFile(picturePath);</div><div class="line">            <span class="comment">//placeholderFragment.detectFaces(galleryBmp);</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="当然，也可以直接从摄像头读取（Camera-Capture）。但我读摄像头返回图片的代码在模拟器上运行正常，而在三星的手机上Bug多多，后来看了下确实不少人遇到读取三星手机摄像头报错的问题。所以这段代码我就先不贴了。"><a href="#当然，也可以直接从摄像头读取（Camera-Capture）。但我读摄像头返回图片的代码在模拟器上运行正常，而在三星的手机上Bug多多，后来看了下确实不少人遇到读取三星手机摄像头报错的问题。所以这段代码我就先不贴了。" class="headerlink" title="当然，也可以直接从摄像头读取（Camera Capture）。但我读摄像头返回图片的代码在模拟器上运行正常，而在三星的手机上Bug多多，后来看了下确实不少人遇到读取三星手机摄像头报错的问题。所以这段代码我就先不贴了。"></a>当然，也可以直接从摄像头读取（Camera Capture）。但我读摄像头返回图片的代码在模拟器上运行正常，而在三星的手机上Bug多多，后来看了下确实不少人遇到读取三星手机摄像头报错的问题。所以这段代码我就先不贴了。</h4><h4 id="好了，我们拿到了Bitmap，识别起来！"><a href="#好了，我们拿到了Bitmap，识别起来！" class="headerlink" title="好了，我们拿到了Bitmap，识别起来！"></a>好了，我们拿到了Bitmap，识别起来！</h4><h4 id="Step-2-通过FaceDetector-API进行人脸识别"><a href="#Step-2-通过FaceDetector-API进行人脸识别" class="headerlink" title="Step 2: 通过FaceDetector API进行人脸识别"></a>Step 2: 通过FaceDetector API进行人脸识别</h4><h4 id="FaceDetecor只能读取RGB-565格式的Bitmap，所以在开始识别前，我们需要将上面得到的Bitmap进行一次格式转换。"><a href="#FaceDetecor只能读取RGB-565格式的Bitmap，所以在开始识别前，我们需要将上面得到的Bitmap进行一次格式转换。" class="headerlink" title="FaceDetecor只能读取RGB 565格式的Bitmap，所以在开始识别前，我们需要将上面得到的Bitmap进行一次格式转换。"></a>FaceDetecor只能读取RGB 565格式的Bitmap，所以在开始识别前，我们需要将上面得到的Bitmap进行一次格式转换。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bitmap tmpBmp = inputImage.copy(Bitmap.Config.RGB_565, <span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+<h4 id="图片格式没问题了，我们来创建一个FaceDetector的实例。FaceDetector是能从一张图中找出多个人脸的，可以通过设置MAX-FACES来控制搜索人脸的个数（我的程序里把MAX-FACES设成了1，只找出一个可信度最高的人脸）。"><a href="#图片格式没问题了，我们来创建一个FaceDetector的实例。FaceDetector是能从一张图中找出多个人脸的，可以通过设置MAX-FACES来控制搜索人脸的个数（我的程序里把MAX-FACES设成了1，只找出一个可信度最高的人脸）。" class="headerlink" title="图片格式没问题了，我们来创建一个FaceDetector的实例。FaceDetector是能从一张图中找出多个人脸的，可以通过设置MAX_FACES来控制搜索人脸的个数（我的程序里把MAX_FACES设成了1，只找出一个可信度最高的人脸）。"></a>图片格式没问题了，我们来创建一个FaceDetector的实例。FaceDetector是能从一张图中找出多个人脸的，可以通过设置MAX_FACES来控制搜索人脸的个数（我的程序里把MAX_FACES设成了1，只找出一个可信度最高的人脸）。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">FaceDetector faceDet = <span class="keyword">new</span> FaceDetector(tmpBmp.getWidth(), tmpBmp.getHeight(), MAX_FACES);</div><div class="line">FaceDetector.Face[] faceList = <span class="keyword">new</span> FaceDetector.Face[MAX_FACES];</div><div class="line">faceDet.findFaces(tmpBmp, faceList);</div></pre></td></tr></table></figure>
+<h4 id="通过调用FaceDetector-的findFaces方法，我们可以找到tmpBmp中的人脸数据，并存储在FaceDetector-Face-数组里（facelist）。"><a href="#通过调用FaceDetector-的findFaces方法，我们可以找到tmpBmp中的人脸数据，并存储在FaceDetector-Face-数组里（facelist）。" class="headerlink" title="通过调用FaceDetector 的findFaces方法，我们可以找到tmpBmp中的人脸数据，并存储在FaceDetector.Face 数组里（facelist）。"></a>通过调用FaceDetector 的findFaces方法，我们可以找到tmpBmp中的人脸数据，并存储在FaceDetector.Face 数组里（facelist）。</h4><h4 id="其实通过查看FaceDetector-API文档我们发现，它查找人脸的原理是：找眼睛。它返回的人脸数据face，通过调用public-float-eyesDistance-，public-void-getMidPoint-PointF-point-，我们可以得到探测到的两眼间距，以及两眼中心点位置（MidPoint）。public-float-confidence-可以返回该人脸数据的可信度-0-1-，这个值越大，该人脸数据的准确度也就越高。"><a href="#其实通过查看FaceDetector-API文档我们发现，它查找人脸的原理是：找眼睛。它返回的人脸数据face，通过调用public-float-eyesDistance-，public-void-getMidPoint-PointF-point-，我们可以得到探测到的两眼间距，以及两眼中心点位置（MidPoint）。public-float-confidence-可以返回该人脸数据的可信度-0-1-，这个值越大，该人脸数据的准确度也就越高。" class="headerlink" title="其实通过查看FaceDetector API文档我们发现，它查找人脸的原理是：找眼睛。它返回的人脸数据face，通过调用public float eyesDistance ()，public void getMidPoint (PointF point)，我们可以得到探测到的两眼间距，以及两眼中心点位置（MidPoint）。public float confidence () 可以返回该人脸数据的可信度(0~1)，这个值越大，该人脸数据的准确度也就越高。"></a>其实通过查看FaceDetector API文档我们发现，它查找人脸的原理是：找眼睛。它返回的人脸数据face，通过调用public float eyesDistance ()，public void getMidPoint (PointF point)，我们可以得到探测到的两眼间距，以及两眼中心点位置（MidPoint）。public float confidence () 可以返回该人脸数据的可信度(0~1)，这个值越大，该人脸数据的准确度也就越高。</h4><h4 id="通过读取保存在Face中的人脸数据，我们可以得到一个以两眼间距为边长，中心在两眼中点的一个正方形。"><a href="#通过读取保存在Face中的人脸数据，我们可以得到一个以两眼间距为边长，中心在两眼中点的一个正方形。" class="headerlink" title="通过读取保存在Face中的人脸数据，我们可以得到一个以两眼间距为边长，中心在两眼中点的一个正方形。"></a>通过读取保存在Face中的人脸数据，我们可以得到一个以两眼间距为边长，中心在两眼中点的一个正方形。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; faceList.length; i++) &#123;</div><div class="line">                FaceDetector.Face face = faceList[i];</div><div class="line">                Log.d(<span class="string">"FaceDet"</span>, <span class="string">"Face ["</span>+face+<span class="string">"]"</span>);</div><div class="line">                <span class="keyword">if</span> (face != <span class="keyword">null</span>) &#123;</div><div class="line">                    Log.d(<span class="string">"FaceDet"</span>, <span class="string">"Face ["</span>+i+<span class="string">"] - Confidence ["</span>+face.confidence()+<span class="string">"]"</span>);</div><div class="line">                    PointF pf = <span class="keyword">new</span> PointF();</div><div class="line">                    <span class="comment">//getMidPoint(PointF point);</span></div><div class="line">                    <span class="comment">//Sets the position of the mid-point between the eyes.</span></div><div class="line">                    face.getMidPoint(pf);</div><div class="line">                    Log.d(<span class="string">"FaceDet"</span>, <span class="string">"\t Eyes distance ["</span>+face.eyesDistance()+<span class="string">"] - Face midpoint ["</span>+pf.x+<span class="string">"&amp;"</span>+pf.y+<span class="string">"]"</span>);</div><div class="line">                    RectF r = <span class="keyword">new</span> RectF();</div><div class="line">                    r.left = pf.x - face.eyesDistance() / <span class="number">2</span>;</div><div class="line">                    r.right = pf.x + face.eyesDistance() / <span class="number">2</span>;</div><div class="line">                    r.top = pf.y - face.eyesDistance() / <span class="number">2</span>;</div><div class="line">                    r.bottom = pf.y + face.eyesDistance() / <span class="number">2</span>;</div><div class="line">                    faceRects[i] = r;</div><div class="line">                    detectedFaces++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+<h4 id="有了这组RectF，把它显示在图片上，我们就大功告成了。"><a href="#有了这组RectF，把它显示在图片上，我们就大功告成了。" class="headerlink" title="有了这组RectF，把它显示在图片上，我们就大功告成了。"></a>有了这组RectF，把它显示在图片上，我们就大功告成了。</h4><h4 id="Step3-对原图进行缩放，并在图上显示人脸框。"><a href="#Step3-对原图进行缩放，并在图上显示人脸框。" class="headerlink" title="Step3:对原图进行缩放，并在图上显示人脸框。"></a>Step3:对原图进行缩放，并在图上显示人脸框。</h4><h4 id="自然，这里我们需要使用一个自定义的View。我把它命名为FaceView，每当FaceView人脸检测完成，如果检测到人脸，则invalidate一下（这样才能调用View-的-onDraw方法），然后在onDraw里，将人脸框显示出来。这里涉及到自定义View，以及图片，人脸框的按比例缩放。这里贴一下大概的代码，示例代码你可以在文末的链接里下载。"><a href="#自然，这里我们需要使用一个自定义的View。我把它命名为FaceView，每当FaceView人脸检测完成，如果检测到人脸，则invalidate一下（这样才能调用View-的-onDraw方法），然后在onDraw里，将人脸框显示出来。这里涉及到自定义View，以及图片，人脸框的按比例缩放。这里贴一下大概的代码，示例代码你可以在文末的链接里下载。" class="headerlink" title="自然，这里我们需要使用一个自定义的View。我把它命名为FaceView，每当FaceView人脸检测完成，如果检测到人脸，则invalidate一下（这样才能调用View 的 onDraw方法），然后在onDraw里，将人脸框显示出来。这里涉及到自定义View，以及图片，人脸框的按比例缩放。这里贴一下大概的代码，示例代码你可以在文末的链接里下载。"></a>自然，这里我们需要使用一个自定义的View。我把它命名为FaceView，每当FaceView人脸检测完成，如果检测到人脸，则invalidate一下（这样才能调用View 的 onDraw方法），然后在onDraw里，将人脸框显示出来。这里涉及到自定义View，以及图片，人脸框的按比例缩放。这里贴一下大概的代码，示例代码你可以在文末的链接里下载。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">       Paint imgPaint = <span class="keyword">new</span> Paint();</div><div class="line">       <span class="keyword">if</span>(inputImage!=<span class="keyword">null</span>)</div><div class="line">       &#123;</div><div class="line">           <span class="keyword">int</span> imgWidth=inputImage.getWidth();</div><div class="line">           <span class="keyword">int</span> imgHeight=inputImage.getHeight();</div><div class="line">           Rect src = <span class="keyword">new</span> Rect();<span class="comment">// 图片</span></div><div class="line">           src.top=<span class="number">0</span>;</div><div class="line">           src.left=<span class="number">0</span>;</div><div class="line">           src.right=src.left+imgWidth;</div><div class="line">           src.bottom=src.top+imgHeight;</div><div class="line">           Rect dst = <span class="keyword">new</span> Rect();<span class="comment">// 屏幕</span></div><div class="line">           <span class="keyword">int</span> viewWidth=<span class="keyword">this</span>.getWidth();</div><div class="line">           <span class="keyword">int</span> width=<span class="number">0</span>;</div><div class="line">           <span class="keyword">int</span> height=<span class="number">0</span>;</div><div class="line">           <span class="keyword">if</span>(inputImage.getWidth()&gt;viewWidth)</div><div class="line">           &#123;</div><div class="line">               width=viewWidth;</div><div class="line">               height=(viewWidth*imgHeight)/imgWidth;</div><div class="line">           &#125;</div><div class="line">           <span class="keyword">else</span></div><div class="line">           &#123;</div><div class="line">               width=imgWidth;</div><div class="line">               height=imgHeight;</div><div class="line">           &#125;</div><div class="line">           dst.top=<span class="number">0</span>;</div><div class="line">           dst.left=<span class="number">0</span>;</div><div class="line">           dst.right=dst.left+width;</div><div class="line">           dst.bottom=dst.top+height;</div><div class="line"></div><div class="line">           canvas.drawBitmap(inputImage, src, dst, imgPaint);</div><div class="line">           Log.v(<span class="string">"FaceView"</span>,<span class="string">"view width:"</span>+<span class="keyword">this</span>.getWidth());</div><div class="line"></div><div class="line">           <span class="keyword">if</span>(detected)</div><div class="line">           &#123;</div><div class="line">               Paint rectPaint = <span class="keyword">new</span> Paint();</div><div class="line">               rectPaint.setStrokeWidth(<span class="number">2</span>);</div><div class="line">               rectPaint.setColor(Color.RED);</div><div class="line">               rectPaint.setStyle(Paint.Style.STROKE);</div><div class="line"></div><div class="line">               <span class="comment">//float scaleRatio=((float)width)/(float)imgWidth;</span></div><div class="line"></div><div class="line">               <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; detectedFaces; i++) &#123;</div><div class="line">                   RectF r = faceRects[i];</div><div class="line">                   Log.v(<span class="string">"FaceView"</span>,<span class="string">"r.top="</span>+r.top);</div><div class="line">                   r.top=(r.top*width)/imgWidth;</div><div class="line">                   r.left=(r.left*width)/imgWidth;</div><div class="line">                   r.right=(r.right*width)/imgWidth;</div><div class="line">                   r.bottom=(r.bottom*width)/imgWidth;</div><div class="line"></div><div class="line">                   <span class="keyword">if</span> (r != <span class="keyword">null</span>)</div><div class="line">                       canvas.drawRect(r, rectPaint);</div><div class="line">               &#125;</div><div class="line">               detected=<span class="keyword">false</span>;</div><div class="line">               detectedFaces=<span class="number">0</span>;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h4 id="注意：FaceDetector搜索人脸的过程是比较耗时的，尤其当图片Size较大（例如640-480）时，耗时个一两秒是很常见的。为防止程序长时间没相应报错，人脸检测部分我使用了AsyncTask"><a href="#注意：FaceDetector搜索人脸的过程是比较耗时的，尤其当图片Size较大（例如640-480）时，耗时个一两秒是很常见的。为防止程序长时间没相应报错，人脸检测部分我使用了AsyncTask" class="headerlink" title="注意：FaceDetector搜索人脸的过程是比较耗时的，尤其当图片Size较大（例如640*480）时，耗时个一两秒是很常见的。为防止程序长时间没相应报错，人脸检测部分我使用了AsyncTask"></a>注意：FaceDetector搜索人脸的过程是比较耗时的，尤其当图片Size较大（例如640*480）时，耗时个一两秒是很常见的。为防止程序长时间没相应报错，人脸检测部分我使用了AsyncTask</h4><h4 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h4><h4 id="p-s-感谢下-公下-エリカ-清纯的图片ㅋㅋㅋ"><a href="#p-s-感谢下-公下-エリカ-清纯的图片ㅋㅋㅋ" class="headerlink" title="p.s 感谢下 公下 エリカ 清纯的图片ㅋㅋㅋ"></a>p.s 感谢下 公下 エリカ 清纯的图片ㅋㅋㅋ</h4><h4 id="注意：FaceDetector做些简单的人脸识别还可以，要是需要专业，快速，甚至和数据库比对匹配的那种高级人脸识别算法，可以试试OpenCV的Android开发包-http-opencv-org-platforms-android-html"><a href="#注意：FaceDetector做些简单的人脸识别还可以，要是需要专业，快速，甚至和数据库比对匹配的那种高级人脸识别算法，可以试试OpenCV的Android开发包-http-opencv-org-platforms-android-html" class="headerlink" title="注意：FaceDetector做些简单的人脸识别还可以，要是需要专业，快速，甚至和数据库比对匹配的那种高级人脸识别算法，可以试试OpenCV的Android开发包 http://opencv.org/platforms/android.html"></a>注意：FaceDetector做些简单的人脸识别还可以，要是需要专业，快速，甚至和数据库比对匹配的那种高级人脸识别算法，可以试试OpenCV的Android开发包 <a href="http://opencv.org/platforms/android.html" target="_blank" rel="external">http://opencv.org/platforms/android.html</a></h4><h4 id="Sample代码下载："><a href="#Sample代码下载：" class="headerlink" title="Sample代码下载："></a>Sample代码下载：</h4><h4 id="https-www-dropbox-com-s-3vz252c9olipnjv-FaceDetectionTutorialProject-zip"><a href="#https-www-dropbox-com-s-3vz252c9olipnjv-FaceDetectionTutorialProject-zip" class="headerlink" title="https://www.dropbox.com/s/3vz252c9olipnjv/FaceDetectionTutorialProject.zip"></a><a href="https://www.dropbox.com/s/3vz252c9olipnjv/FaceDetectionTutorialProject.zip" target="_blank" rel="external">https://www.dropbox.com/s/3vz252c9olipnjv/FaceDetectionTutorialProject.zip</a></h4><h4 id="http-www-mobiletuts-me-一个及时更新的Android开发教程网站"><a href="#http-www-mobiletuts-me-一个及时更新的Android开发教程网站" class="headerlink" title="http://www.mobiletuts.me 一个及时更新的Android开发教程网站"></a><a href="http://www.mobiletuts.me" target="_blank" rel="external">http://www.mobiletuts.me</a> 一个及时更新的Android开发教程网站</h4><h4 id="再次说下，由于原图挂了，最近又比较忙，还没能及时补图，还有现在也有很多成熟的脸部检测方案了，比如免费的脸型检测SDK网站Face-需要进阶功能的童靴可以自行登录face-com去建立更加专业的脸型检测。"><a href="#再次说下，由于原图挂了，最近又比较忙，还没能及时补图，还有现在也有很多成熟的脸部检测方案了，比如免费的脸型检测SDK网站Face-需要进阶功能的童靴可以自行登录face-com去建立更加专业的脸型检测。" class="headerlink" title="再次说下，由于原图挂了，最近又比较忙，还没能及时补图，还有现在也有很多成熟的脸部检测方案了，比如免费的脸型检测SDK网站Face++,需要进阶功能的童靴可以自行登录face++.com去建立更加专业的脸型检测。"></a>再次说下，由于原图挂了，最近又比较忙，还没能及时补图，还有现在也有很多成熟的脸部检测方案了，比如免费的脸型检测SDK网站Face++,需要进阶功能的童靴可以自行登录face++.com去建立更加专业的脸型检测。</h4>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/gongzong_erweima.jpg" alt="WinterSmileSB101 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的微信公众帐号，不定期推送各种技术文章</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/SDK/" rel="tag"># SDK</a>
+          
+            <a href="/tags/人脸识别/" rel="tag"># 人脸识别</a>
+          
+            <a href="/tags/Face-Detector/" rel="tag"># Face Detector</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上/" rel="next" title="安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上">
+                <i class="fa fa-chevron-left"></i> 安卓实现网易云音乐底部播放栏效果之使用自定义BaseActivity实现上
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/"
+     data-title="用 AndroidSDK 中的 Face Detector 实现人脸识别"
+     data-content=""
+     data-url="http://WinterSmileSB101.online/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/"
+           data-title="用 AndroidSDK 中的 Face Detector 实现人脸识别" data-url="http://WinterSmileSB101.online/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myHeadImg.jpeg"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">87</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://blog.csdn.net/qq_21265915/rss/list" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      <!--  <div class="links-of-author motion-element">
+          
+        </div>
+        -->
+
+<!--自己写的社交链接-->
+        <div class="links-of-author motion-element">
+         <span class="links-of-author-item">
+         <a href="https://github.com/WinterSmileSB101" title="Github">
+         <i class="fa fa-fw fa-github fa-lg"></i>
+         </a>
+         </span>
+
+         <span class="links-of-author-item">
+                  <a href="http://weibo.com/5602632941/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博">
+                  <i class="fa fa-fw fa-weibo fa-lg"></i>
+                  </a>
+                  </span>
+
+         <span class="links-of-author-item">
+         <a href="http://www.jianshu.com/users/73344bc7e890/timeline" title="简书">
+         <i class="fa fa-fw fa-bookmark fa-lg"></i>
+         </a>
+         </span>
+
+<br />
+
+        <span class="links-of-author-item">
+                 <a href="https://www.douban.com/people/159359470/" title="豆瓣">
+                 <i class="fa fa-fw fa-newspaper-o fa-lg"></i>
+                 </a>
+                 </span>
+
+        <span class="links-of-author-item">
+                 <a href="http://blog.csdn.net/qq_21265915" title="CSDN博客">
+                 <i class="fa fa-fw fa-bug fa-lg"></i>
+                 </a>
+                 </span>
+
+        </div>
+        <!--自己写的社交链接-->
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah-一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android-SDK从1-0版本中（API-level-1）就已经集成了简单的人脸识别功能，通过调用FaceDetector-我们可以在Android平台上实现Bitmap多人脸识别（一张图中有多个人脸出现的话）。周五啦，我就简简单单写写，希望感兴趣的同学对这个深藏在Android-SDK中的功能有所了解。"><span class="nav-number">1.</span> <span class="nav-text">很多手机图片管理应用都开始集成人脸识别功能。一提到人脸识别，模式识别，滤波，BlahBlah 一堆复杂的技术名字戳入脑海中，立刻觉得这玩意儿没法碰，太玄乎了。其实Android SDK从1.0版本中（API level 1）就已经集成了简单的人脸识别功能，通过调用FaceDetector 我们可以在Android平台上实现Bitmap多人脸识别（一张图中有多个人脸出现的话）。周五啦，我就简简单单写写，希望感兴趣的同学对这个深藏在Android SDK中的功能有所了解。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流程是这样的："><span class="nav-number">2.</span> <span class="nav-text">流程是这样的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-读取一张图片至Bitmap-（从Resource中，或是从手机相册中选取）"><span class="nav-number">3.</span> <span class="nav-text">1. 读取一张图片至Bitmap （从Resource中，或是从手机相册中选取）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用FaceDetector-API分析Bitmap，将探测到的人脸数据以FaceDetector-Face存储在一个Face-list中；"><span class="nav-number">4.</span> <span class="nav-text">2. 使用FaceDetector API分析Bitmap，将探测到的人脸数据以FaceDetector.Face存储在一个Face list中；</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-将人脸框显示在图片上。"><span class="nav-number">5.</span> <span class="nav-text">3.将人脸框显示在图片上。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-1-读取图片"><span class="nav-number">6.</span> <span class="nav-text">Step 1: 读取图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从Drawable中读取图片资源"><span class="nav-number">7.</span> <span class="nav-text">从Drawable中读取图片资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#或者直接从手机的图片库读取（Album-Gallery）"><span class="nav-number">8.</span> <span class="nav-text">或者直接从手机的图片库读取（Album/Gallery）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当然，也可以直接从摄像头读取（Camera-Capture）。但我读摄像头返回图片的代码在模拟器上运行正常，而在三星的手机上Bug多多，后来看了下确实不少人遇到读取三星手机摄像头报错的问题。所以这段代码我就先不贴了。"><span class="nav-number">9.</span> <span class="nav-text">当然，也可以直接从摄像头读取（Camera Capture）。但我读摄像头返回图片的代码在模拟器上运行正常，而在三星的手机上Bug多多，后来看了下确实不少人遇到读取三星手机摄像头报错的问题。所以这段代码我就先不贴了。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#好了，我们拿到了Bitmap，识别起来！"><span class="nav-number">10.</span> <span class="nav-text">好了，我们拿到了Bitmap，识别起来！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-2-通过FaceDetector-API进行人脸识别"><span class="nav-number">11.</span> <span class="nav-text">Step 2: 通过FaceDetector API进行人脸识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FaceDetecor只能读取RGB-565格式的Bitmap，所以在开始识别前，我们需要将上面得到的Bitmap进行一次格式转换。"><span class="nav-number">12.</span> <span class="nav-text">FaceDetecor只能读取RGB 565格式的Bitmap，所以在开始识别前，我们需要将上面得到的Bitmap进行一次格式转换。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片格式没问题了，我们来创建一个FaceDetector的实例。FaceDetector是能从一张图中找出多个人脸的，可以通过设置MAX-FACES来控制搜索人脸的个数（我的程序里把MAX-FACES设成了1，只找出一个可信度最高的人脸）。"><span class="nav-number">13.</span> <span class="nav-text">图片格式没问题了，我们来创建一个FaceDetector的实例。FaceDetector是能从一张图中找出多个人脸的，可以通过设置MAX_FACES来控制搜索人脸的个数（我的程序里把MAX_FACES设成了1，只找出一个可信度最高的人脸）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过调用FaceDetector-的findFaces方法，我们可以找到tmpBmp中的人脸数据，并存储在FaceDetector-Face-数组里（facelist）。"><span class="nav-number">14.</span> <span class="nav-text">通过调用FaceDetector 的findFaces方法，我们可以找到tmpBmp中的人脸数据，并存储在FaceDetector.Face 数组里（facelist）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其实通过查看FaceDetector-API文档我们发现，它查找人脸的原理是：找眼睛。它返回的人脸数据face，通过调用public-float-eyesDistance-，public-void-getMidPoint-PointF-point-，我们可以得到探测到的两眼间距，以及两眼中心点位置（MidPoint）。public-float-confidence-可以返回该人脸数据的可信度-0-1-，这个值越大，该人脸数据的准确度也就越高。"><span class="nav-number">15.</span> <span class="nav-text">其实通过查看FaceDetector API文档我们发现，它查找人脸的原理是：找眼睛。它返回的人脸数据face，通过调用public float eyesDistance ()，public void getMidPoint (PointF point)，我们可以得到探测到的两眼间距，以及两眼中心点位置（MidPoint）。public float confidence () 可以返回该人脸数据的可信度(0~1)，这个值越大，该人脸数据的准确度也就越高。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过读取保存在Face中的人脸数据，我们可以得到一个以两眼间距为边长，中心在两眼中点的一个正方形。"><span class="nav-number">16.</span> <span class="nav-text">通过读取保存在Face中的人脸数据，我们可以得到一个以两眼间距为边长，中心在两眼中点的一个正方形。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有了这组RectF，把它显示在图片上，我们就大功告成了。"><span class="nav-number">17.</span> <span class="nav-text">有了这组RectF，把它显示在图片上，我们就大功告成了。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-对原图进行缩放，并在图上显示人脸框。"><span class="nav-number">18.</span> <span class="nav-text">Step3:对原图进行缩放，并在图上显示人脸框。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自然，这里我们需要使用一个自定义的View。我把它命名为FaceView，每当FaceView人脸检测完成，如果检测到人脸，则invalidate一下（这样才能调用View-的-onDraw方法），然后在onDraw里，将人脸框显示出来。这里涉及到自定义View，以及图片，人脸框的按比例缩放。这里贴一下大概的代码，示例代码你可以在文末的链接里下载。"><span class="nav-number">19.</span> <span class="nav-text">自然，这里我们需要使用一个自定义的View。我把它命名为FaceView，每当FaceView人脸检测完成，如果检测到人脸，则invalidate一下（这样才能调用View 的 onDraw方法），然后在onDraw里，将人脸框显示出来。这里涉及到自定义View，以及图片，人脸框的按比例缩放。这里贴一下大概的代码，示例代码你可以在文末的链接里下载。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意：FaceDetector搜索人脸的过程是比较耗时的，尤其当图片Size较大（例如640-480）时，耗时个一两秒是很常见的。为防止程序长时间没相应报错，人脸检测部分我使用了AsyncTask"><span class="nav-number">20.</span> <span class="nav-text">注意：FaceDetector搜索人脸的过程是比较耗时的，尤其当图片Size较大（例如640*480）时，耗时个一两秒是很常见的。为防止程序长时间没相应报错，人脸检测部分我使用了AsyncTask</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行结果："><span class="nav-number">21.</span> <span class="nav-text">运行结果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-s-感谢下-公下-エリカ-清纯的图片ㅋㅋㅋ"><span class="nav-number">22.</span> <span class="nav-text">p.s 感谢下 公下 エリカ 清纯的图片ㅋㅋㅋ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意：FaceDetector做些简单的人脸识别还可以，要是需要专业，快速，甚至和数据库比对匹配的那种高级人脸识别算法，可以试试OpenCV的Android开发包-http-opencv-org-platforms-android-html"><span class="nav-number">23.</span> <span class="nav-text">注意：FaceDetector做些简单的人脸识别还可以，要是需要专业，快速，甚至和数据库比对匹配的那种高级人脸识别算法，可以试试OpenCV的Android开发包 http://opencv.org/platforms/android.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample代码下载："><span class="nav-number">24.</span> <span class="nav-text">Sample代码下载：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#https-www-dropbox-com-s-3vz252c9olipnjv-FaceDetectionTutorialProject-zip"><span class="nav-number">25.</span> <span class="nav-text">https://www.dropbox.com/s/3vz252c9olipnjv/FaceDetectionTutorialProject.zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-www-mobiletuts-me-一个及时更新的Android开发教程网站"><span class="nav-number">26.</span> <span class="nav-text">http://www.mobiletuts.me 一个及时更新的Android开发教程网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#再次说下，由于原图挂了，最近又比较忙，还没能及时补图，还有现在也有很多成熟的脸部检测方案了，比如免费的脸型检测SDK网站Face-需要进阶功能的童靴可以自行登录face-com去建立更加专业的脸型检测。"><span class="nav-number">27.</span> <span class="nav-text">再次说下，由于原图挂了，最近又比较忙，还没能及时补图，还有现在也有很多成熟的脸部检测方案了，比如免费的脸型检测SDK网站Face++,需要进阶功能的童靴可以自行登录face++.com去建立更加专业的脸型检测。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.3.20 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered By - WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+    个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  WinterSmileSB101
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>
