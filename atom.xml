@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T07:07:21.193Z</updated>
+  <updated>2017-03-22T07:15:04.307Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AppBarLayout.OnOffsetChangedListener的使用-监听AppBarLauout的滑动</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/AppBarLayout-OnOffsetChangedListener%E7%9A%84%E4%BD%BF%E7%94%A8-%E7%9B%91%E5%90%ACAppBarLauout%E7%9A%84%E6%BB%91%E5%8A%A8/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/AppBarLayout-OnOffsetChangedListener的使用-监听AppBarLauout的滑动/</id>
+    <published>2017-03-22T07:08:51.000Z</published>
+    <updated>2017-03-22T07:15:04.307Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主转载文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 实战" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/"/>
+    
+    
+      <category term="AppBarLayout 滑动" scheme="http://WinterSmileSB101.online/tags/AppBarLayout-%E6%BB%91%E5%8A%A8/"/>
+    
+      <category term="OnOffsetChangedListener" scheme="http://WinterSmileSB101.online/tags/OnOffsetChangedListener/"/>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>让Fragment的layout也能够实现沉浸（透明）状态栏</title>
@@ -445,9 +472,9 @@
       <category term="Next" scheme="http://WinterSmileSB101.online/categories/Hexo/Next/"/>
     
     
-      <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
-    
       <category term="总结" scheme="http://WinterSmileSB101.online/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
     
   </entry>
   
@@ -497,9 +524,9 @@
       <category term="Hexo" scheme="http://WinterSmileSB101.online/categories/Hexo/"/>
     
     
-      <category term="动画" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E7%94%BB/"/>
-    
       <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
+    
+      <category term="动画" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E7%94%BB/"/>
     
       <category term="Nest" scheme="http://WinterSmileSB101.online/tags/Nest/"/>
     
@@ -521,9 +548,9 @@
       <category term="博客" scheme="http://WinterSmileSB101.online/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
-    
       <category term="Github" scheme="http://WinterSmileSB101.online/tags/Github/"/>
+    
+      <category term="Hexo" scheme="http://WinterSmileSB101.online/tags/Hexo/"/>
     
       <category term="独立博客" scheme="http://WinterSmileSB101.online/tags/%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
     
