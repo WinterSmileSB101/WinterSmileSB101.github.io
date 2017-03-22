@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-22T05:42:00.194Z</updated>
+  <updated>2017-03-22T05:50:17.440Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -16,11 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>漫吧漫画阅读界面的搭建（一）基础布局搭建（完整代码）</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/%E6%BC%AB%E5%90%A7%E6%BC%AB%E7%94%BB%E9%98%85%E8%AF%BB%E7%95%8C%E9%9D%A2%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E5%B8%83%E5%B1%80%E6%90%AD%E5%BB%BA%EF%BC%88%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%EF%BC%89/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/漫吧漫画阅读界面的搭建（一）基础布局搭建（完整代码）/</id>
+    <published>2017-03-22T05:45:17.000Z</published>
+    <updated>2017-03-22T05:50:17.440Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 实战" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/"/>
+    
+      <category term="Android 漫画App漫吧（自写爬虫）开发" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E6%88%98/Android-%E6%BC%AB%E7%94%BBApp%E6%BC%AB%E5%90%A7%EF%BC%88%E8%87%AA%E5%86%99%E7%88%AC%E8%99%AB%EF%BC%89%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="界面" scheme="http://WinterSmileSB101.online/tags/%E7%95%8C%E9%9D%A2/"/>
+    
+      <category term="UI" scheme="http://WinterSmileSB101.online/tags/UI/"/>
+    
+      <category term="漫吧" scheme="http://WinterSmileSB101.online/tags/%E6%BC%AB%E5%90%A7/"/>
+    
+      <category term="Cartoon8" scheme="http://WinterSmileSB101.online/tags/Cartoon8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>漫吧漫画阅读界面的搭建（一）基础布局搭建（下）</title>
     <link href="http://WinterSmileSB101.online/2017/03/22/%E6%BC%AB%E5%90%A7%E6%BC%AB%E7%94%BB%E9%98%85%E8%AF%BB%E7%95%8C%E9%9D%A2%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E5%B8%83%E5%B1%80%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
     <id>http://WinterSmileSB101.online/2017/03/22/漫吧漫画阅读界面的搭建（一）基础布局搭建（下）/</id>
     <published>2017-03-22T05:30:47.000Z</published>
-    <updated>2017-03-22T05:42:00.194Z</updated>
+    <updated>2017-03-22T05:50:20.124Z</updated>
     
     <summary type="html">
     
@@ -51,7 +82,7 @@
     <link href="http://WinterSmileSB101.online/2017/03/22/uibuilder-first-1/"/>
     <id>http://WinterSmileSB101.online/2017/03/22/uibuilder-first-1/</id>
     <published>2017-03-22T02:59:43.000Z</published>
-    <updated>2017-03-22T05:32:45.157Z</updated>
+    <updated>2017-03-22T05:43:46.784Z</updated>
     
     <summary type="html">
     
@@ -153,9 +184,9 @@
       <category term="Next" scheme="http://WinterSmileSB101.online/categories/Hexo/Next/"/>
     
     
-      <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
-    
       <category term="总结" scheme="http://WinterSmileSB101.online/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="Next" scheme="http://WinterSmileSB101.online/tags/Next/"/>
     
   </entry>
   
