@@ -1,47 +1,531 @@
-{% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!doctype html>
 
-{% block title %}
-  {% set page_title_suffix = ' | ' + config.title %}
 
-  {% if page.type === "categories" and not page.title  %}
-    {{ __('title.category') + page_title_suffix }}
-  {% elif page.type === "tags" and not page.title  %}
-    {{ __('title.tag') + page_title_suffix }}
-  {% else %}
-    {{ page.title + page_title_suffix }}
-  {% endif %}
-{% endblock %}
 
-{% block content %}
-  <div id="posts" class="posts-expand">
-  {% include '_partials/page-header.swig' %}
-    {# tagcloud page support #}
-    {% if page.type === "tags" %}
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            {{ _p('counter.tag_cloud', site.tags.length) }}
-        </div>
-        <div class="tag-cloud-tags">
-          {{ tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'}) }}
-        </div>
-      </div>
-    {% elif page.type === 'categories' %}
-      <div class="category-all-page">
-        <div class="category-all-title">
-            {{ _p('counter.categories', site.categories.length) }}
-        </div>
-        <div class="category-all">
-          {{ list_categories() }}
-        </div>
-      </div>
-    {% else %}
-      {{ page.content }}
-    {% endif %}
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="成都工业学院14级，学习了各种后台技能，对前端也甚是抱有好感，准备再入坑前端。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://WinterSmileSB101.online/tags/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="成都工业学院14级，学习了各种后台技能，对前端也甚是抱有好感，准备再入坑前端。">
+<meta property="og:updated_time" content="2017-03-23T14:43:52.689Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="成都工业学院14级，学习了各种后台技能，对前端也甚是抱有好感，准备再入坑前端。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/tags/"/>
+
+
+
+
+
+  <title>
+  
+
+  
+    tags | WinterSmileSB101 的个人房间
+  
+</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">胆小认生，不易相处</p>
+      
   </div>
 
-{% endblock %}
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+  <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">tags</h1>
+
+
+
+</header>
+
+    
+    
+      <div class="tag-cloud">
+        <div class="tag-cloud-title">
+            目前共计 96 个标签
+        </div>
+        <div class="tag-cloud-tags">
+          <a href="/tags/16进制/" style="font-size: 12px; color: #ccc">16进制</a> <a href="/tags/API/" style="font-size: 12px; color: #ccc">API</a> <a href="/tags/Activity/" style="font-size: 15.6px; color: #a7a7a7">Activity</a> <a href="/tags/AlertDialog/" style="font-size: 12px; color: #ccc">AlertDialog</a> <a href="/tags/Andriod/" style="font-size: 19.2px; color: #818181">Andriod</a> <a href="/tags/Android/" style="font-size: 30px; color: #111">Android</a> <a href="/tags/Android-爬虫/" style="font-size: 12px; color: #ccc">Android 爬虫</a> <a href="/tags/Android-遇到的坑/" style="font-size: 12px; color: #ccc">Android 遇到的坑</a> <a href="/tags/AppBarLayout/" style="font-size: 12px; color: #ccc">AppBarLayout</a> <a href="/tags/AppBarLayout-滑动/" style="font-size: 12px; color: #ccc">AppBarLayout 滑动</a> <a href="/tags/Cartoon8/" style="font-size: 19.2px; color: #818181">Cartoon8</a> <a href="/tags/CollapsingToolbarLayout/" style="font-size: 12px; color: #ccc">CollapsingToolbarLayout</a> <a href="/tags/CoordinatorLayout/" style="font-size: 12px; color: #ccc">CoordinatorLayout</a> <a href="/tags/EditText/" style="font-size: 12px; color: #ccc">EditText</a> <a href="/tags/Face-Detector/" style="font-size: 12px; color: #ccc">Face Detector</a> <a href="/tags/Fragment-layout/" style="font-size: 12px; color: #ccc">Fragment layout</a> <a href="/tags/Github/" style="font-size: 12px; color: #ccc">Github</a> <a href="/tags/Gson/" style="font-size: 12px; color: #ccc">Gson</a> <a href="/tags/Hexo/" style="font-size: 26.4px; color: #363636">Hexo</a> <a href="/tags/JSP/" style="font-size: 15.6px; color: #a7a7a7">JSP</a> <a href="/tags/Json/" style="font-size: 12px; color: #ccc">Json</a> <a href="/tags/Json-字符串/" style="font-size: 12px; color: #ccc">Json 字符串</a> <a href="/tags/LayoutInflater/" style="font-size: 12px; color: #ccc">LayoutInflater</a> <a href="/tags/Nest/" style="font-size: 12px; color: #ccc">Nest</a> <a href="/tags/NestedScrollView/" style="font-size: 12px; color: #ccc">NestedScrollView</a> <a href="/tags/Next/" style="font-size: 15.6px; color: #a7a7a7">Next</a> <a href="/tags/Node-js/" style="font-size: 15.6px; color: #a7a7a7">Node.js</a> <a href="/tags/OOM/" style="font-size: 12px; color: #ccc">OOM</a> <a href="/tags/Okhttp/" style="font-size: 12px; color: #ccc">Okhttp</a> <a href="/tags/OnOffsetChangedListener/" style="font-size: 15.6px; color: #a7a7a7">OnOffsetChangedListener</a> <a href="/tags/OnScrollListener/" style="font-size: 12px; color: #ccc">OnScrollListener</a> <a href="/tags/OverWatch/" style="font-size: 12px; color: #ccc">OverWatch</a> <a href="/tags/Random/" style="font-size: 12px; color: #ccc">Random</a> <a href="/tags/RecyclerView/" style="font-size: 15.6px; color: #a7a7a7">RecyclerView</a> <a href="/tags/RecyclerView-滑动冲突/" style="font-size: 12px; color: #ccc">RecyclerView 滑动冲突</a> <a href="/tags/SDK/" style="font-size: 12px; color: #ccc">SDK</a> <a href="/tags/SeekBar/" style="font-size: 12px; color: #ccc">SeekBar</a> <a href="/tags/Service/" style="font-size: 22.8px; color: #5c5c5c">Service</a> <a href="/tags/Spider/" style="font-size: 15.6px; color: #a7a7a7">Spider</a> <a href="/tags/Split/" style="font-size: 12px; color: #ccc">Split</a> <a href="/tags/TabLayout/" style="font-size: 12px; color: #ccc">TabLayout</a> <a href="/tags/UI/" style="font-size: 26.4px; color: #363636">UI</a> <a href="/tags/ViewPager/" style="font-size: 12px; color: #ccc">ViewPager</a> <a href="/tags/Web/" style="font-size: 15.6px; color: #a7a7a7">Web</a> <a href="/tags/WebView/" style="font-size: 12px; color: #ccc">WebView</a> <a href="/tags/color/" style="font-size: 12px; color: #ccc">color</a> <a href="/tags/editText/" style="font-size: 12px; color: #ccc">editText</a> <a href="/tags/setContentView/" style="font-size: 12px; color: #ccc">setContentView</a> <a href="/tags/中文网页乱码/" style="font-size: 12px; color: #ccc">中文网页乱码</a> <a href="/tags/云存储器/" style="font-size: 12px; color: #ccc">云存储器</a> <a href="/tags/人脸识别/" style="font-size: 12px; color: #ccc">人脸识别</a> <a href="/tags/侧边栏/" style="font-size: 12px; color: #ccc">侧边栏</a> <a href="/tags/免费/" style="font-size: 12px; color: #ccc">免费</a> <a href="/tags/内存溢出/" style="font-size: 12px; color: #ccc">内存溢出</a> <a href="/tags/分割/" style="font-size: 12px; color: #ccc">分割</a> <a href="/tags/动态网页/" style="font-size: 12px; color: #ccc">动态网页</a> <a href="/tags/动态输入框/" style="font-size: 12px; color: #ccc">动态输入框</a> <a href="/tags/动画/" style="font-size: 12px; color: #ccc">动画</a> <a href="/tags/图床/" style="font-size: 12px; color: #ccc">图床</a> <a href="/tags/图片资源/" style="font-size: 12px; color: #ccc">图片资源</a> <a href="/tags/圆形图片控件/" style="font-size: 12px; color: #ccc">圆形图片控件</a> <a href="/tags/字符串/" style="font-size: 15.6px; color: #a7a7a7">字符串</a> <a href="/tags/守望先锋/" style="font-size: 12px; color: #ccc">守望先锋</a> <a href="/tags/定制/" style="font-size: 12px; color: #ccc">定制</a> <a href="/tags/对比/" style="font-size: 12px; color: #ccc">对比</a> <a href="/tags/展开与折叠/" style="font-size: 12px; color: #ccc">展开与折叠</a> <a href="/tags/底部播放栏/" style="font-size: 19.2px; color: #818181">底部播放栏</a> <a href="/tags/引入Jar包/" style="font-size: 12px; color: #ccc">引入Jar包</a> <a href="/tags/总结/" style="font-size: 15.6px; color: #a7a7a7">总结</a> <a href="/tags/接口/" style="font-size: 12px; color: #ccc">接口</a> <a href="/tags/控件/" style="font-size: 12px; color: #ccc">控件</a> <a href="/tags/搭建博客/" style="font-size: 12px; color: #ccc">搭建博客</a> <a href="/tags/新闻/" style="font-size: 12px; color: #ccc">新闻</a> <a href="/tags/无法弹出软键盘/" style="font-size: 12px; color: #ccc">无法弹出软键盘</a> <a href="/tags/显示集合元素/" style="font-size: 12px; color: #ccc">显示集合元素</a> <a href="/tags/活动传递-List/" style="font-size: 12px; color: #ccc">活动传递 List</a> <a href="/tags/活动传递对象/" style="font-size: 12px; color: #ccc">活动传递对象</a> <a href="/tags/滑动冲突/" style="font-size: 12px; color: #ccc">滑动冲突</a> <a href="/tags/漫吧/" style="font-size: 19.2px; color: #818181">漫吧</a> <a href="/tags/爬虫/" style="font-size: 19.2px; color: #818181">爬虫</a> <a href="/tags/独立博客/" style="font-size: 12px; color: #ccc">独立博客</a> <a href="/tags/界面/" style="font-size: 19.2px; color: #818181">界面</a> <a href="/tags/相对动画/" style="font-size: 12px; color: #ccc">相对动画</a> <a href="/tags/网易云音乐/" style="font-size: 22.8px; color: #5c5c5c">网易云音乐</a> <a href="/tags/网易新闻/" style="font-size: 12px; color: #ccc">网易新闻</a> <a href="/tags/自定义-BaseActivity/" style="font-size: 15.6px; color: #a7a7a7">自定义 BaseActivity</a> <a href="/tags/自定义-Dialog/" style="font-size: 12px; color: #ccc">自定义 Dialog</a> <a href="/tags/自定义-View/" style="font-size: 15.6px; color: #a7a7a7">自定义 View</a> <a href="/tags/自定义View/" style="font-size: 12px; color: #ccc">自定义View</a> <a href="/tags/获取星期/" style="font-size: 12px; color: #ccc">获取星期</a> <a href="/tags/轮播效果/" style="font-size: 12px; color: #ccc">轮播效果</a> <a href="/tags/透明状态栏/" style="font-size: 12px; color: #ccc">透明状态栏</a> <a href="/tags/遍历/" style="font-size: 12px; color: #ccc">遍历</a> <a href="/tags/静态网页/" style="font-size: 12px; color: #ccc">静态网页</a> <a href="/tags/颜色/" style="font-size: 12px; color: #ccc">颜色</a> <a href="/tags/鸿洋/" style="font-size: 12px; color: #ccc">鸿洋</a>
+        </div>
+      </div>
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description">成都工业学院14级，学习了各种后台技能，对前端也甚是抱有好感，准备再入坑前端。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">96</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
