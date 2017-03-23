@@ -1,0 +1,1215 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans,zh-hk,en,fr-FR,ru,de,ja,id,ko,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="爬虫,Spider,Node.js,Json 字符串,动态网页,网易新闻," />
+
+
+
+
+
+  <link rel="alternate" href="http://blog.csdn.net/qq_21265915/rss/list" title="WinterSmileSB101 的个人房间" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻,我们要抓取的位置如下:
+首先来上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起学爬虫 Node.js 爬虫篇（二）">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/23/node-spider-scend/index.html">
+<meta property="og:site_name" content="WinterSmileSB101 的个人房间">
+<meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻,我们要抓取的位置如下:
+首先来上">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/34448525-file_1490261201810_807e.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/71601232-file_1490261572369_3333.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/59803470-file_1490274042701_67ae.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/47264701-file_1490274230870_3177.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/64554156-file_1490274698606_1257.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/74210596-file_1490261772161_113e7.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/97516487-file_1490268273791_eb52.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/9069553-file_1490273522605_e993.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/72938976-file_1490278799901_124ee.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/35036394-file_1490278996843_1cd3.png">
+<meta property="og:updated_time" content="2017-03-23T14:32:49.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一起学爬虫 Node.js 爬虫篇（二）">
+<meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻,我们要抓取的位置如下:
+首先来上">
+<meta name="twitter:image" content="http://on792ofrp.bkt.clouddn.com/17-3-23/34448525-file_1490261201810_807e.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/23/node-spider-scend/"/>
+
+
+
+
+
+  <title> 一起学爬虫 Node.js 爬虫篇（二） | WinterSmileSB101 的个人房间 </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WinterSmileSB101 的个人房间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">胆小认生，不易相处</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/23/node-spider-scend/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WinterSmileSB101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WinterSmileSB101 的个人房间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                一起学爬虫 Node.js 爬虫篇（二）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T17:17:58+08:00">
+                2017-03-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-23T22:32:49+08:00">
+                2017-03-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/Node-js-爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js 爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/23/node-spider-scend/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/23/node-spider-scend/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/23/node-spider-scend/" class="leancloud_visitors" data-flag-title="一起学爬虫 Node.js 爬虫篇（二）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
+</blockquote>
+<h4 id="上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻-我们要抓取的位置如下"><a href="#上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻-我们要抓取的位置如下" class="headerlink" title="上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻,我们要抓取的位置如下:"></a>上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻,我们要抓取的位置如下:</h4><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/34448525-file_1490261201810_807e.png" alt="image"></p>
+<h4 id="首先来上爬取网站的测试"><a href="#首先来上爬取网站的测试" class="headerlink" title="首先来上爬取网站的测试"></a>首先来上爬取网站的测试</h4><h5 id="1-先按下-F12-点击-Network-就会弹出网络请求界面-从这个界面我们看是否有-Ajax-请求-如果有那么就试着伪造请求来获取数据（这样获取的数据很直接，一般都是-json-格式很清晰），伪造不了就使用-pathomjs-来进行网络请求实现抓取。"><a href="#1-先按下-F12-点击-Network-就会弹出网络请求界面-从这个界面我们看是否有-Ajax-请求-如果有那么就试着伪造请求来获取数据（这样获取的数据很直接，一般都是-json-格式很清晰），伪造不了就使用-pathomjs-来进行网络请求实现抓取。" class="headerlink" title="1.先按下 F12 点击 Network,就会弹出网络请求界面,从这个界面我们看是否有 Ajax 请求,如果有那么就试着伪造请求来获取数据（这样获取的数据很直接，一般都是 json 格式很清晰），伪造不了就使用 pathomjs 来进行网络请求实现抓取。"></a>1.先按下 F12 点击 Network,就会弹出网络请求界面,从这个界面我们看是否有 Ajax 请求,如果有那么就试着伪造请求来获取数据（这样获取的数据很直接，一般都是 json 格式很清晰），伪造不了就使用 pathomjs 来进行网络请求实现抓取。</h5><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/71601232-file_1490261572369_3333.png" alt="image"></p>
+<h4 id="这里可以看到我们的网络请求获取的数据并不为空，那么我们直接对网页的网络加载进行分析，红框的位置就是数据的请求"><a href="#这里可以看到我们的网络请求获取的数据并不为空，那么我们直接对网页的网络加载进行分析，红框的位置就是数据的请求" class="headerlink" title="这里可以看到我们的网络请求获取的数据并不为空，那么我们直接对网页的网络加载进行分析，红框的位置就是数据的请求"></a>这里可以看到我们的网络请求获取的数据并不为空，那么我们直接对网页的网络加载进行分析，红框的位置就是数据的请求</h4><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/59803470-file_1490274042701_67ae.png" alt="image"></p>
+<h4 id="直接拖拽打开请求网址-先点击-header-然后就可以看到网址"><a href="#直接拖拽打开请求网址-先点击-header-然后就可以看到网址" class="headerlink" title="直接拖拽打开请求网址(先点击 header 然后就可以看到网址)"></a>直接拖拽打开请求网址(先点击 header 然后就可以看到网址)</h4><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/47264701-file_1490274230870_3177.png" alt="image"></p>
+<h4 id="打开页面如下"><a href="#打开页面如下" class="headerlink" title="打开页面如下"></a>打开页面如下</h4><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/64554156-file_1490274698606_1257.png" alt="image"></p>
+<h4 id="是不是很激动，这不就是数据嘛，还是-json-的，简直比获取网页源码还还解析，直接上代码"><a href="#是不是很激动，这不就是数据嘛，还是-json-的，简直比获取网页源码还还解析，直接上代码" class="headerlink" title=",是不是很激动，这不就是数据嘛，还是 json 的，简直比获取网页源码还还解析，直接上代码"></a>,是不是很激动，这不就是数据嘛，还是 json 的，简直比获取网页源码还还解析，直接上代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var request = require(<span class="string">"request"</span>);</div><div class="line">var cheerio = require(<span class="string">"cheerio"</span>);</div><div class="line">request(<span class="string">'http://news.163.com/'</span>,function(err,result)&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        console.log(<span class="string">"错误："</span>+err);</div><div class="line">    &#125;</div><div class="line">    console.log(result.body);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h5 id="然后运行测试，可以看到这里我们获取的页面产生了乱码"><a href="#然后运行测试，可以看到这里我们获取的页面产生了乱码" class="headerlink" title="然后运行测试，可以看到这里我们获取的页面产生了乱码"></a>然后运行测试，可以看到这里我们获取的页面产生了乱码</h5><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/74210596-file_1490261772161_113e7.png" alt="image"></p>
+<h5 id="如何解决乱码？有两种方式"><a href="#如何解决乱码？有两种方式" class="headerlink" title="如何解决乱码？有两种方式"></a>如何解决乱码？有两种方式</h5><h6 id="1-这里就需要使用到另外的库-superagent-以及-superagent-charset"><a href="#1-这里就需要使用到另外的库-superagent-以及-superagent-charset" class="headerlink" title="1.这里就需要使用到另外的库 superagent 以及 superagent-charset"></a>1.这里就需要使用到另外的库 superagent 以及 superagent-charset</h6><h6 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install superagent --save</div><div class="line">npm install superagent-charset</div></pre></td></tr></table></figure>
+<h6 id="然后改写代码如下"><a href="#然后改写代码如下" class="headerlink" title="然后改写代码如下"></a>然后改写代码如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> install = require(<span class="string">'superagent-charset'</span>);</div><div class="line"><span class="keyword">const</span> request = require(<span class="string">'superagent'</span>);</div><div class="line">superagent = install(request);</div><div class="line">superagent.get(<span class="string">'http://news.163.com/'</span>).charset(<span class="string">'gb2312'</span>).end(function(err,res) &#123;</div><div class="line">	<span class="keyword">if</span>(err) console.log(err);</div><div class="line">        console.log(res.text);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h5 id="然后运行，如下成功转码"><a href="#然后运行，如下成功转码" class="headerlink" title="然后运行，如下成功转码"></a>然后运行，如下成功转码</h5><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/97516487-file_1490268273791_eb52.png" alt="image"></p>
+<h5 id="2-就直接对-request-配合-iconv-lite"><a href="#2-就直接对-request-配合-iconv-lite" class="headerlink" title="2.就直接对 request 配合 iconv-lite"></a>2.就直接对 request 配合 iconv-lite</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install iconv-lite</div></pre></td></tr></table></figure>
+<h5 id="然后修改代码，如下"><a href="#然后修改代码，如下" class="headerlink" title="然后修改代码，如下"></a>然后修改代码，如下</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var request = require(<span class="string">'request'</span>);</div><div class="line">var cheerio = require(<span class="string">'cheerio'</span>);</div><div class="line">var iconv = require(<span class="string">'iconv-lite'</span>);</div><div class="line">request.get(&#123;</div><div class="line">    url : <span class="string">'http://temp.163.com/special/00804KVA/cm_yaowen.js?callback=data_callback'</span>,</div><div class="line">    encoding : <span class="keyword">null</span> <span class="comment">//让body 直接是buffer</span></div><div class="line">&#125;, function (err, response, body) &#123;</div><div class="line">    <span class="comment">//返回的body 直接就是buffer 了...</span></div><div class="line">    var buf =  iconv.decode(body, <span class="string">'gb2312'</span>);</div><div class="line">    console.log(buf);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h5 id="然后运行，如下成功转码-1"><a href="#然后运行，如下成功转码-1" class="headerlink" title="然后运行，如下成功转码"></a>然后运行，如下成功转码</h5><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/9069553-file_1490273522605_e993.png" alt="image"></p>
+<h4 id="终于可以开始进入正题了，我怕拉闸"><a href="#终于可以开始进入正题了，我怕拉闸" class="headerlink" title="终于可以开始进入正题了，我怕拉闸"></a><strong>终于可以开始进入正题了，我怕拉闸</strong></h4><h4 id="来解析网页，我们来分析分析要取到合适位置需要做些什么-这是个-json-字符串，结构如下所示"><a href="#来解析网页，我们来分析分析要取到合适位置需要做些什么-这是个-json-字符串，结构如下所示" class="headerlink" title="来解析网页，我们来分析分析要取到合适位置需要做些什么,这是个 json 字符串，结构如下所示"></a>来解析网页，我们来分析分析要取到合适位置需要做些什么,这是个 json 字符串，结构如下所示</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">data(</div><div class="line">[</div><div class="line">  &#123;</div><div class="line">    title:'Node.js爬虫爬坑之路',</div><div class="line">    date:'2017-03',</div><div class="line">    athour:'wintersmilesb101',</div><div class="line">    blog:'wintersmilesb101.online'</div><div class="line">  &#125;</div><div class="line">]</div><div class="line">)</div></pre></td></tr></table></figure>
+<h4 id="所以我们要做如下工作，先把外面的-data-去掉，然后通过-JSON-parse-String-把-json-字符串转换成-json-对象，然后我们就可以对变量直接进行操作了，是不是很方便"><a href="#所以我们要做如下工作，先把外面的-data-去掉，然后通过-JSON-parse-String-把-json-字符串转换成-json-对象，然后我们就可以对变量直接进行操作了，是不是很方便" class="headerlink" title="所以我们要做如下工作，先把外面的 data() 去掉，然后通过 JSON.parse(String) 把 json 字符串转换成 json 对象，然后我们就可以对变量直接进行操作了，是不是很方便"></a>所以我们要做如下工作，先把外面的 data() 去掉，然后通过 JSON.parse(String) 把 json 字符串转换成 json 对象，然后我们就可以对变量直接进行操作了，是不是很方便</h4><h4 id="代码如下，运行"><a href="#代码如下，运行" class="headerlink" title="代码如下，运行"></a>代码如下，运行</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var request = require(<span class="string">'request'</span>);</div><div class="line">var iconv = require(<span class="string">'iconv-lite'</span>);</div><div class="line">request.get(&#123;</div><div class="line">    url : <span class="string">'http://temp.163.com/special/00804KVA/cm_yaowen.js?callback=data_callback'</span>,</div><div class="line">    encoding : <span class="keyword">null</span> <span class="comment">//让body 直接是buffer</span></div><div class="line">&#125;, function (err, response, body) &#123;</div><div class="line">    <span class="comment">//返回的body 直接就是buffer 了...</span></div><div class="line">    var buf =  iconv.decode(body, <span class="string">'gb2312'</span>);</div><div class="line">    <span class="comment">//去掉头部的 data_callback(</span></div><div class="line">    var str = buf.replace(<span class="string">'data_callback('</span>,<span class="string">''</span>);</div><div class="line">    <span class="comment">//去掉尾部的 )</span></div><div class="line">    str = str.replace(<span class="string">')'</span>,<span class="string">''</span>);</div><div class="line">    <span class="comment">//遍历输出数据，输出标题测试</span></div><div class="line">    var str1 = JSON.parse(str);</div><div class="line">    str1.forEach(function(s)&#123;</div><div class="line">      console.log(s.title);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="成功输出了！接着我们来补全我们的输出"><a href="#成功输出了！接着我们来补全我们的输出" class="headerlink" title="成功输出了！接着我们来补全我们的输出"></a>成功输出了！接着我们来补全我们的输出</h4><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/72938976-file_1490278799901_124ee.png" alt="image"></p>
+<h4 id="修改后代码如下"><a href="#修改后代码如下" class="headerlink" title="修改后代码如下"></a>修改后代码如下</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var request = require(<span class="string">'request'</span>);</div><div class="line">var iconv = require(<span class="string">'iconv-lite'</span>);</div><div class="line">request.get(&#123;</div><div class="line">    url : <span class="string">'http://temp.163.com/special/00804KVA/cm_yaowen.js?callback=data_callback'</span>,</div><div class="line">    encoding : <span class="keyword">null</span> <span class="comment">//让body 直接是buffer</span></div><div class="line">&#125;, function (err, response, body) &#123;</div><div class="line">    <span class="comment">//返回的body 直接就是buffer 了...</span></div><div class="line">    var buf =  iconv.decode(body, <span class="string">'gb2312'</span>);</div><div class="line">    <span class="comment">//去掉头部的 data_callback(</span></div><div class="line">    var str = buf.replace(<span class="string">'data_callback('</span>,<span class="string">''</span>);</div><div class="line">    <span class="comment">//去掉尾部的 )</span></div><div class="line">    str = str.replace(<span class="string">')'</span>,<span class="string">''</span>);</div><div class="line">    var str1 = JSON.parse(str);</div><div class="line">    str1.forEach(function(s)&#123;</div><div class="line">      console.log(<span class="string">'文章标题：'</span>+s.title);</div><div class="line">      console.log(<span class="string">'摘要：'</span>s.digest);</div><div class="line">      console.log(<span class="string">'文章链接：'</span>+s.docurl);</div><div class="line">      console.log(<span class="string">'内容链接：'</span>+s.commenturl);</div><div class="line">      console.log(<span class="string">'tienum：'</span>+s.tienum);</div><div class="line">      console.log(<span class="string">'tlastid：'</span>+s.tlastid);</div><div class="line">      console.log(<span class="string">'tlink：'</span>+s.tlink);</div><div class="line">      console.log(<span class="string">'标签：'</span>+s.label);</div><div class="line">      console.log(<span class="string">'时间：'</span>+s.time);</div><div class="line">      console.log(<span class="string">'新闻类别：'</span>+s.newstype);</div><div class="line">      console.log(<span class="string">'频道名称：'</span>+s.channelname);</div><div class="line">      console.log(<span class="string">'图片链接：'</span>+s.imgurl);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="运行，大功告成，下次我们学习通过-pathomjs-来获取动态网页内容"><a href="#运行，大功告成，下次我们学习通过-pathomjs-来获取动态网页内容" class="headerlink" title="运行，大功告成，下次我们学习通过 pathomjs 来获取动态网页内容"></a>运行，大功告成，下次我们学习通过 pathomjs 来获取动态网页内容</h4><h5 id="再贴上几个地址，试试自己练习抓抓，自己也可以找一些其他网站练习，谢谢收看！"><a href="#再贴上几个地址，试试自己练习抓抓，自己也可以找一些其他网站练习，谢谢收看！" class="headerlink" title="再贴上几个地址，试试自己练习抓抓，自己也可以找一些其他网站练习，谢谢收看！"></a>再贴上几个地址，试试自己练习抓抓，自己也可以找一些其他网站练习，谢谢收看！</h5><h6 id="1-http-news-163-com-（网易新闻主页，可以练习分析网页的加载）"><a href="#1-http-news-163-com-（网易新闻主页，可以练习分析网页的加载）" class="headerlink" title="1.http://news.163.com/（网易新闻主页，可以练习分析网页的加载）"></a>1.<a href="http://news.163.com/（网易新闻主页，可以练习分析网页的加载）" target="_blank" rel="external">http://news.163.com/（网易新闻主页，可以练习分析网页的加载）</a></h6><h6 id="2-http-temp-163-com-special-00804KVA-cm-yaowen-js-callback-data-callback-（提取出来的请求，可以练习-Json-的处理以及中文网页转码）"><a href="#2-http-temp-163-com-special-00804KVA-cm-yaowen-js-callback-data-callback-（提取出来的请求，可以练习-Json-的处理以及中文网页转码）" class="headerlink" title="2.http://temp.163.com/special/00804KVA/cm_yaowen.js?callback=data_callback （提取出来的请求，可以练习 Json 的处理以及中文网页转码）"></a>2.<a href="http://temp.163.com/special/00804KVA/cm_yaowen.js?callback=data_callback" target="_blank" rel="external">http://temp.163.com/special/00804KVA/cm_yaowen.js?callback=data_callback</a> （提取出来的请求，可以练习 Json 的处理以及中文网页转码）</h6><h6 id="3-http-news-163-com-special-yaowen-channel-api-callback-channel-callback-amp-date-0120（就是前面那个再加上了时间戳，也用来练习-Json-处理以及中文网页转码）"><a href="#3-http-news-163-com-special-yaowen-channel-api-callback-channel-callback-amp-date-0120（就是前面那个再加上了时间戳，也用来练习-Json-处理以及中文网页转码）" class="headerlink" title="3.http://news.163.com/special/yaowen_channel_api/?callback=channel_callback&amp;date=0120（就是前面那个再加上了时间戳，也用来练习 Json 处理以及中文网页转码）"></a>3.<a href="http://news.163.com/special/yaowen_channel_api/?callback=channel_callback&amp;date=0120（就是前面那个再加上了时间戳，也用来练习" target="_blank" rel="external">http://news.163.com/special/yaowen_channel_api/?callback=channel_callback&amp;date=0120（就是前面那个再加上了时间戳，也用来练习</a> Json 处理以及中文网页转码）</h6><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-23/35036394-file_1490278996843_1cd3.png" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://on792ofrp.bkt.clouddn.com/17-3-22/89969433-file_1490159480281_107f8.jpg" alt="WinterSmileSB101 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的微信公众帐号，不定期推送各种技术文章</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      WinterSmileSB101
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://WinterSmileSB101.online/2017/03/23/node-spider-scend/" title="一起学爬虫 Node.js 爬虫篇（二）">http://WinterSmileSB101.online/2017/03/23/node-spider-scend/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/Spider/" rel="tag"># Spider</a>
+          
+            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+          
+            <a href="/tags/Json-字符串/" rel="tag"># Json 字符串</a>
+          
+            <a href="/tags/动态网页/" rel="tag"># 动态网页</a>
+          
+            <a href="/tags/网易新闻/" rel="tag"># 网易新闻</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/23/node-spider-first/" rel="next" title="一起学爬虫 Node.js 爬虫篇（一）">
+                <i class="fa fa-chevron-left"></i> 一起学爬虫 Node.js 爬虫篇（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/23/node-spider-scend/"
+     data-title="一起学爬虫 Node.js 爬虫篇（二）"
+     data-content=""
+     data-url="http://WinterSmileSB101.online/2017/03/23/node-spider-scend/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/23/node-spider-scend/"
+           data-title="一起学爬虫 Node.js 爬虫篇（二）" data-url="http://WinterSmileSB101.online/2017/03/23/node-spider-scend/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg"
+               alt="WinterSmileSB101" />
+          <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">96</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://blog.csdn.net/qq_21265915/rss/list" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+      <!--  <div class="links-of-author motion-element">
+          
+        </div>
+        -->
+
+<!--自己写的社交链接-->
+        <div class="links-of-author motion-element">
+         <span class="links-of-author-item">
+         <a href="https://github.com/WinterSmileSB101" title="Github">
+         <i class="fa fa-fw fa-github fa-lg"></i>
+         </a>
+         </span>
+
+         <span class="links-of-author-item">
+                  <a href="http://weibo.com/5602632941/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博">
+                  <i class="fa fa-fw fa-weibo fa-lg"></i>
+                  </a>
+                  </span>
+
+         <span class="links-of-author-item">
+         <a href="http://www.jianshu.com/users/73344bc7e890/timeline" title="简书">
+         <i class="fa fa-fw fa-bookmark fa-lg"></i>
+         </a>
+         </span>
+
+<br />
+
+        <span class="links-of-author-item">
+                 <a href="https://www.douban.com/people/159359470/" title="豆瓣">
+                 <i class="fa fa-fw fa-newspaper-o fa-lg"></i>
+                 </a>
+                 </span>
+
+        <span class="links-of-author-item">
+                 <a href="http://blog.csdn.net/qq_21265915" title="CSDN博客">
+                 <i class="fa fa-fw fa-bug fa-lg"></i>
+                 </a>
+                 </span>
+
+        </div>
+        <!--自己写的社交链接-->
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻-我们要抓取的位置如下"><span class="nav-number">1.</span> <span class="nav-text">上一篇中我们对百度首页进行了标题的爬取，本来打算这次直接对上次没有爬取到的推荐新闻进行爬取，谁知道网页加载出来没网页了，这是天要亡我大宋啊。。那我们直接去抓取网易新闻，进入网易新闻,我们要抓取的位置如下:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首先来上爬取网站的测试"><span class="nav-number">2.</span> <span class="nav-text">首先来上爬取网站的测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-先按下-F12-点击-Network-就会弹出网络请求界面-从这个界面我们看是否有-Ajax-请求-如果有那么就试着伪造请求来获取数据（这样获取的数据很直接，一般都是-json-格式很清晰），伪造不了就使用-pathomjs-来进行网络请求实现抓取。"><span class="nav-number">2.1.</span> <span class="nav-text">1.先按下 F12 点击 Network,就会弹出网络请求界面,从这个界面我们看是否有 Ajax 请求,如果有那么就试着伪造请求来获取数据（这样获取的数据很直接，一般都是 json 格式很清晰），伪造不了就使用 pathomjs 来进行网络请求实现抓取。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这里可以看到我们的网络请求获取的数据并不为空，那么我们直接对网页的网络加载进行分析，红框的位置就是数据的请求"><span class="nav-number">3.</span> <span class="nav-text">这里可以看到我们的网络请求获取的数据并不为空，那么我们直接对网页的网络加载进行分析，红框的位置就是数据的请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接拖拽打开请求网址-先点击-header-然后就可以看到网址"><span class="nav-number">4.</span> <span class="nav-text">直接拖拽打开请求网址(先点击 header 然后就可以看到网址)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开页面如下"><span class="nav-number">5.</span> <span class="nav-text">打开页面如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#是不是很激动，这不就是数据嘛，还是-json-的，简直比获取网页源码还还解析，直接上代码"><span class="nav-number">6.</span> <span class="nav-text">,是不是很激动，这不就是数据嘛，还是 json 的，简直比获取网页源码还还解析，直接上代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#然后运行测试，可以看到这里我们获取的页面产生了乱码"><span class="nav-number">6.1.</span> <span class="nav-text">然后运行测试，可以看到这里我们获取的页面产生了乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何解决乱码？有两种方式"><span class="nav-number">6.2.</span> <span class="nav-text">如何解决乱码？有两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-这里就需要使用到另外的库-superagent-以及-superagent-charset"><span class="nav-number">6.2.1.</span> <span class="nav-text">1.这里就需要使用到另外的库 superagent 以及 superagent-charset</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#安装方式"><span class="nav-number">6.2.2.</span> <span class="nav-text">安装方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#然后改写代码如下"><span class="nav-number">6.2.3.</span> <span class="nav-text">然后改写代码如下</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#然后运行，如下成功转码"><span class="nav-number">6.3.</span> <span class="nav-text">然后运行，如下成功转码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-就直接对-request-配合-iconv-lite"><span class="nav-number">6.4.</span> <span class="nav-text">2.就直接对 request 配合 iconv-lite</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#然后修改代码，如下"><span class="nav-number">6.5.</span> <span class="nav-text">然后修改代码，如下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#然后运行，如下成功转码-1"><span class="nav-number">6.6.</span> <span class="nav-text">然后运行，如下成功转码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#终于可以开始进入正题了，我怕拉闸"><span class="nav-number">7.</span> <span class="nav-text">终于可以开始进入正题了，我怕拉闸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#来解析网页，我们来分析分析要取到合适位置需要做些什么-这是个-json-字符串，结构如下所示"><span class="nav-number">8.</span> <span class="nav-text">来解析网页，我们来分析分析要取到合适位置需要做些什么,这是个 json 字符串，结构如下所示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#所以我们要做如下工作，先把外面的-data-去掉，然后通过-JSON-parse-String-把-json-字符串转换成-json-对象，然后我们就可以对变量直接进行操作了，是不是很方便"><span class="nav-number">9.</span> <span class="nav-text">所以我们要做如下工作，先把外面的 data() 去掉，然后通过 JSON.parse(String) 把 json 字符串转换成 json 对象，然后我们就可以对变量直接进行操作了，是不是很方便</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下，运行"><span class="nav-number">10.</span> <span class="nav-text">代码如下，运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成功输出了！接着我们来补全我们的输出"><span class="nav-number">11.</span> <span class="nav-text">成功输出了！接着我们来补全我们的输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改后代码如下"><span class="nav-number">12.</span> <span class="nav-text">修改后代码如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行，大功告成，下次我们学习通过-pathomjs-来获取动态网页内容"><span class="nav-number">13.</span> <span class="nav-text">运行，大功告成，下次我们学习通过 pathomjs 来获取动态网页内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#再贴上几个地址，试试自己练习抓抓，自己也可以找一些其他网站练习，谢谢收看！"><span class="nav-number">13.1.</span> <span class="nav-text">再贴上几个地址，试试自己练习抓抓，自己也可以找一些其他网站练习，谢谢收看！</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-http-news-163-com-（网易新闻主页，可以练习分析网页的加载）"><span class="nav-number">13.1.1.</span> <span class="nav-text">1.http://news.163.com/（网易新闻主页，可以练习分析网页的加载）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-http-temp-163-com-special-00804KVA-cm-yaowen-js-callback-data-callback-（提取出来的请求，可以练习-Json-的处理以及中文网页转码）"><span class="nav-number">13.1.2.</span> <span class="nav-text">2.http://temp.163.com/special/00804KVA/cm_yaowen.js?callback=data_callback （提取出来的请求，可以练习 Json 的处理以及中文网页转码）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-http-news-163-com-special-yaowen-channel-api-callback-channel-callback-amp-date-0120（就是前面那个再加上了时间戳，也用来练习-Json-处理以及中文网页转码）"><span class="nav-number">13.1.3.</span> <span class="nav-text">3.http://news.163.com/special/yaowen_channel_api/?callback=channel_callback&date=0120（就是前面那个再加上了时间戳，也用来练习 Json 处理以及中文网页转码）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.3.20 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered By - WinterSmileSB101</span>
+</div>
+
+
+<div class="powered-by">
+    个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  WinterSmileSB101
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+
+</body>
+</html>
