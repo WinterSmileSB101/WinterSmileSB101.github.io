@@ -48,17 +48,35 @@
   
 
   
+    
+      
+    
 
-  
-
+    
   
 
   
 
   
     
+      
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -71,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,JAVA,Unity3D,C#,javaScript,开发者,程序猿,极客,编程,开源,IT网站,Developer,Programmer,Coder,Geek,html,用户体验,Node.js" />
+  <meta name="keywords" content="Android,JAVA,Unity3D,C#,javaScript,开发者,程序猿,极客,编程,开源,IT网站,Developer,Programmer,Coder,Geek,html,用户体验" />
 
 
 
@@ -82,7 +100,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/myHeadImg.jpeg?v=5.1.0" />
 
 
 
@@ -106,12 +124,12 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
-      author: '博主'
+      userId: '6376853978663093000',
+      author: 'WinterSmileSB101'
     },
     algolia: {
       applicationID: '',
@@ -156,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
@@ -255,9 +273,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -287,7 +339,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -327,7 +379,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T17:03:42+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -368,9 +432,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/安卓网易云音乐能用的API/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/安卓网易云音乐能用的API/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/安卓网易云音乐能用的API/" class="leancloud_visitors" data-flag-title="安卓网易云音乐能用的API">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -392,14 +477,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。<br><a href="http://download.csdn.net/detail/qq_21265915/9670422" target="_blank" rel="external">源码地址</a>（源码相对于没有那么全，但是道理是一样的）</p>
-</blockquote>
-<h3 id="最近在做一个仿网易云音乐的APP，需要通过网络获取歌曲以及歌词，于是做了这些API整合，这里面的都是我测试过能够获取到信息的API，写这篇博客为了备份与分享。"><a href="#最近在做一个仿网易云音乐的APP，需要通过网络获取歌曲以及歌词，于是做了这些API整合，这里面的都是我测试过能够获取到信息的API，写这篇博客为了备份与分享。" class="headerlink" title="最近在做一个仿网易云音乐的APP，需要通过网络获取歌曲以及歌词，于是做了这些API整合，这里面的都是我测试过能够获取到信息的API，写这篇博客为了备份与分享。"></a>最近在做一个仿网易云音乐的APP，需要通过网络获取歌曲以及歌词，于是做了这些API整合，这里面的都是我测试过能够获取到信息的API，写这篇博客为了备份与分享。</h3><h3 id="先说API来源，来自这篇博客：网易云音乐常用API"><a href="#先说API来源，来自这篇博客：网易云音乐常用API" class="headerlink" title="先说API来源，来自这篇博客：网易云音乐常用API"></a>先说API来源，来自这篇博客：<a href="http://moonlib.com/606.html" target="_blank" rel="external">网易云音乐常用API</a></h3><h4 id="我们使用Volley来解析处理网络请求，由于返回的是Json，所以我们使用Gson来解析返回数据。"><a href="#我们使用Volley来解析处理网络请求，由于返回的是Json，所以我们使用Gson来解析返回数据。" class="headerlink" title="我们使用Volley来解析处理网络请求，由于返回的是Json，所以我们使用Gson来解析返回数据。"></a>我们使用Volley来解析处理网络请求，由于返回的是Json，所以我们使用Gson来解析返回数据。</h4><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><h4 id="Volley下载以及使用地址：Volley使用指南以及下载"><a href="#Volley下载以及使用地址：Volley使用指南以及下载" class="headerlink" title="Volley下载以及使用地址：Volley使用指南以及下载"></a>Volley下载以及使用地址：<a href="http://www.kwstu.com/ArticleView/kwstu_20144118313429" target="_blank" rel="external">Volley使用指南以及下载</a></h4><h4 id="Gson-jar下载地址：Gson-jar"><a href="#Gson-jar下载地址：Gson-jar" class="headerlink" title="Gson.jar下载地址：Gson.jar"></a>Gson.jar下载地址：<a href="http://download.csdn.net/detail/qq_21265915/9670409" target="_blank" rel="external">Gson.jar</a></h4><h4 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h4><h4 id="AS中拷贝类库文件到libs文件夹下，然后右键类库文件选择Add-as-Library。"><a href="#AS中拷贝类库文件到libs文件夹下，然后右键类库文件选择Add-as-Library。" class="headerlink" title="AS中拷贝类库文件到libs文件夹下，然后右键类库文件选择Add as Library。"></a>AS中拷贝类库文件到libs文件夹下，然后右键类库文件选择Add as Library。</h4><h4 id="下面附上工具类代码："><a href="#下面附上工具类代码：" class="headerlink" title="下面附上工具类代码："></a>下面附上工具类代码：</h4><h4 id="1-获取RequestQueue实例："><a href="#1-获取RequestQueue实例：" class="headerlink" title="1.获取RequestQueue实例："></a>1.获取RequestQueue实例：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> winter.zxb.smilesb101.testdemo;  </div><div class="line"><span class="keyword">import</span> android.content.Context;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> com.android.volley.Request;  </div><div class="line"><span class="keyword">import</span> com.android.volley.RequestQueue;  </div><div class="line"><span class="keyword">import</span> com.android.volley.Response;  </div><div class="line"><span class="keyword">import</span> com.android.volley.toolbox.JsonObjectRequest;  </div><div class="line"><span class="keyword">import</span> com.android.volley.toolbox.Volley;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> org.json.JSONObject;  </div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 网络通信工具类</div><div class="line"> * Created by SmileSB101 on 2016/11/1 0001.</div><div class="line"> */  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InternetUtil</span></span>&#123;  </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 网络请求队列</div><div class="line">     */  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> RequestQueue mRequestqueue;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RequestQueue <span class="title">getmRequestqueue</span><span class="params">(Context context)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">if</span>(mRequestqueue == <span class="keyword">null</span>)  </div><div class="line">        &#123;  </div><div class="line">            mRequestqueue = Volley.newRequestQueue(context);  </div><div class="line">            <span class="keyword">return</span> mRequestqueue;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">else</span>&#123;  </div><div class="line">            <span class="keyword">return</span> mRequestqueue;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-网络请求处理类"><a href="#2-网络请求处理类" class="headerlink" title="2.网络请求处理类"></a>2.网络请求处理类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> winter.zxb.smilesb101.testdemo;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;  </div><div class="line"><span class="keyword">import</span> android.util.Log;  </div><div class="line"><span class="keyword">import</span> android.util.StateSet;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> com.android.volley.RequestQueue;  </div><div class="line"><span class="keyword">import</span> com.android.volley.Response;  </div><div class="line"><span class="keyword">import</span> com.android.volley.VolleyError;  </div><div class="line"><span class="keyword">import</span> com.android.volley.toolbox.StringRequest;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> org.json.JSONException;  </div><div class="line"><span class="keyword">import</span> org.json.JSONObject;  </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 音乐网络类</div><div class="line"> * Created by SmileSB101 on 2016/11/1 0001.</div><div class="line"> */  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MusicNetWork</span></span>&#123;  </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 网易音乐搜索API</div><div class="line">     * http://s.music.163.com/search/get/</div><div class="line">     * 获取方式：GET</div><div class="line">     * 参数：</div><div class="line">     * src: lofter //可为空</div><div class="line">     * type: 1</div><div class="line">     * filterDj: true|false //可为空</div><div class="line">     * s: //关键词</div><div class="line">     * limit: 10 //限制返回结果数</div><div class="line">     * offset: 0 //偏移</div><div class="line">     * callback: //为空时返回json，反之返回jsonp callback</div><div class="line">     * <span class="doctag">@param</span> s</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     * 注意废数字才用‘’符号，要不不能用，否则出错！！</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SearchMusic</span><span class="params">(Context context,String s,<span class="keyword">int</span> limit,<span class="keyword">int</span> type,<span class="keyword">int</span> offset)</span></span>&#123;  </div><div class="line">        String url = UrlConstants.CLOUD_MUSIC_API_SEARCH + <span class="string">"type="</span>+type+<span class="string">"&amp;s='"</span> + s + <span class="string">"'&amp;limit="</span>+limit+<span class="string">"&amp;offset="</span>+offset;  </div><div class="line">        RequestQueue requestQueue = InternetUtil.getmRequestqueue(context);  </div><div class="line">        StringRequest straingRequest = <span class="keyword">new</span> StringRequest(url,<span class="keyword">new</span> Response.Listener&lt;String&gt;()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String s)</span></span>&#123;  </div><div class="line">                <span class="keyword">try</span> &#123;  </div><div class="line">                    JSONObject json = <span class="keyword">new</span> JSONObject(s);  </div><div class="line">                    Log.i(<span class="string">"onResponse: "</span>,json.toString());  </div><div class="line">                &#125; <span class="keyword">catch</span>(JSONException e) &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="keyword">new</span> Response.ErrorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError volleyError)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"onResponse: "</span>,volleyError.toString());  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        requestQueue.add(straingRequest);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 网易云音乐歌曲信息API</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@param</span> id 歌曲id</div><div class="line">     * <span class="doctag">@param</span> ids 用[]包裹起来的歌曲id 写法%5B %5D</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Cloud_Music_MusicInfoAPI</span><span class="params">(Context context,String id,String ids)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        String url = UrlConstants.CLOUD_MUSIC_API_MUSICINGO + <span class="string">"id="</span>+id+<span class="string">"&amp;ids=%5B"</span>+ids+<span class="string">"%5D"</span>;  </div><div class="line">        RequestQueue requestQueue = InternetUtil.getmRequestqueue(context);  </div><div class="line">        StringRequest straingRequest = <span class="keyword">new</span> StringRequest(url,<span class="keyword">new</span> Response.Listener&lt;String&gt;()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String s)</span></span>&#123;  </div><div class="line">                <span class="keyword">try</span> &#123;  </div><div class="line">                    JSONObject json = <span class="keyword">new</span> JSONObject(s);  </div><div class="line">                    Log.i(<span class="string">"onResponse: "</span>,json.toString());  </div><div class="line">                &#125; <span class="keyword">catch</span>(JSONException e) &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="keyword">new</span> Response.ErrorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError volleyError)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"onResponse: "</span>,volleyError.toString());  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        requestQueue.add(straingRequest);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取歌曲歌词的API</div><div class="line">     *URL：</div><div class="line"></div><div class="line">     GET http://music.163.com/api/song/lyric</div><div class="line"></div><div class="line">     必要参数：</div><div class="line"></div><div class="line">     id：歌曲ID</div><div class="line"></div><div class="line">     lv：值为-1，我猜测应该是判断是否搜索lyric格式</div><div class="line"></div><div class="line">     kv：值为-1，这个值貌似并不影响结果，意义不明</div><div class="line"></div><div class="line">     tv：值为-1，是否搜索tlyric格式</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@param</span> os</div><div class="line">     * <span class="doctag">@param</span> id</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Cloud_Muisc_getLrcAPI</span><span class="params">(Context context,String os,String id)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        String url = UrlConstants.CLOUD_MUSIC_API_MUSICLRC + <span class="string">"os="</span>+os+<span class="string">"&amp;id="</span>+id+<span class="string">"&amp;lv=-1&amp;kv=-1&amp;tv=-1"</span>;  </div><div class="line">        RequestQueue requestQueue = InternetUtil.getmRequestqueue(context);  </div><div class="line">        StringRequest straingRequest = <span class="keyword">new</span> StringRequest(url,<span class="keyword">new</span> Response.Listener&lt;String&gt;()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String s)</span></span>&#123;  </div><div class="line">                <span class="keyword">try</span> &#123;  </div><div class="line">                    JSONObject json = <span class="keyword">new</span> JSONObject(s);  </div><div class="line">                    Log.i(<span class="string">"onResponse: "</span>,json.toString());  </div><div class="line">                &#125; <span class="keyword">catch</span>(JSONException e) &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="keyword">new</span> Response.ErrorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError volleyError)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"onResponse: "</span>,volleyError.toString());  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        requestQueue.add(straingRequest);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取歌单的API</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@param</span> id 歌单ID</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Cloud_Muisc_MusicListSearch</span><span class="params">(Context context,String id)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        String url = UrlConstants.CLOUD_MUSIC_API_MUSICLIST + <span class="string">"id="</span>+id+<span class="string">"&amp;updateTime=-1"</span>;  </div><div class="line">        RequestQueue requestQueue = InternetUtil.getmRequestqueue(context);  </div><div class="line">        StringRequest straingRequest = <span class="keyword">new</span> StringRequest(url,<span class="keyword">new</span> Response.Listener&lt;String&gt;()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String s)</span></span>&#123;  </div><div class="line">                <span class="keyword">try</span> &#123;  </div><div class="line">                    JSONObject json = <span class="keyword">new</span> JSONObject(s);  </div><div class="line">                    Log.i(<span class="string">"onResponse: "</span>,json.toString());  </div><div class="line">                &#125; <span class="keyword">catch</span>(JSONException e) &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="keyword">new</span> Response.ErrorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError volleyError)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"onResponse: "</span>,volleyError.toString());  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        requestQueue.add(straingRequest);  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> JSONObject json = <span class="keyword">null</span>;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> JSONObject <span class="title">getInfoFromUrl_Volley</span><span class="params">(String url,Context context)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        json = <span class="keyword">null</span>;  </div><div class="line">        RequestQueue requestQueue = InternetUtil.getmRequestqueue(context);  </div><div class="line">        StringRequest straingRequest = <span class="keyword">new</span> StringRequest(url,<span class="keyword">new</span> Response.Listener&lt;String&gt;()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String s)</span></span>&#123;  </div><div class="line">                <span class="keyword">try</span> &#123;  </div><div class="line">                    json = <span class="keyword">new</span> JSONObject(s);  </div><div class="line">                    Log.i(<span class="string">"onResponse: "</span>,json.toString());  </div><div class="line">                &#125; <span class="keyword">catch</span>(JSONException e) &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="keyword">new</span> Response.ErrorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError volleyError)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"onResponse: "</span>,volleyError.toString());  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        requestQueue.add(straingRequest);  </div><div class="line">        <span class="keyword">return</span> json;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UrlConstants</span> </span>&#123;  </div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 云音乐搜索API网址</div><div class="line">         */  </div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CLOUD_MUSIC_API_SEARCH = <span class="string">"http://s.music.163.com/search/get/?"</span>;  </div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 歌曲信息API网址</div><div class="line">         */  </div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CLOUD_MUSIC_API_MUSICINGO = <span class="string">"http://music.163.com/api/song/detail/?"</span>;  </div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 获取歌曲的歌词</div><div class="line">         */  </div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CLOUD_MUSIC_API_MUSICLRC = <span class="string">"http://music.163.com/api/song/lyric?"</span>;  </div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 获取歌单</div><div class="line">         */  </div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CLOUD_MUSIC_API_MUSICLIST = <span class="string">"http://music.163.com/api/playlist/detail?"</span>;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="调用类："><a href="#调用类：" class="headerlink" title="调用类："></a>调用类：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> winter.zxb.smilesb101.testdemo;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;  </div><div class="line"><span class="keyword">import</span> android.os.Bundle;  </div><div class="line"><span class="keyword">import</span> android.util.Log;  </div><div class="line"><span class="keyword">import</span> android.view.View;  </div><div class="line"><span class="keyword">import</span> android.widget.Button;  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span></span>&#123;  </div><div class="line"></div><div class="line">    <span class="keyword">private</span> Button NetWorkTest;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </div><div class="line">        setContentView(R.layout.activity_main);  </div><div class="line">        NetWorkTest = (Button)findViewById(R.id.NetWorkTest);  </div><div class="line">        NetWorkTest.setOnClickListener(<span class="keyword">this</span>);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>&#123;  </div><div class="line">        <span class="keyword">switch</span>(v.getId())  </div><div class="line">        &#123;  </div><div class="line">            <span class="keyword">case</span> R.id.NetWorkTest:<span class="comment">//网络测试  </span></div><div class="line">                Log.i(<span class="string">"进入"</span>,<span class="string">"onClick: "</span>);  </div><div class="line">                <span class="comment">//MusicNetWork.SearchMusic(this,"光荣",10,1,0);  </span></div><div class="line">                <span class="comment">//MusicNetWork.Cloud_Music_MusicInfoAPI(this,"26562231","26562231");  </span></div><div class="line">                <span class="comment">//MusicNetWork.Cloud_Muisc_getLrcAPI(this,"pc","26562231");  </span></div><div class="line">                MusicNetWork.Cloud_Muisc_MusicListSearch(<span class="keyword">this</span>,<span class="string">"37880978"</span>);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。源码地址（源码相对于没有那么全，但是道理是一样的）
+
+最近在做一个仿网易云音乐的APP，需要通过网络获取歌曲以及歌词，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/安卓网易云音乐能用的API/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -446,7 +535,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -486,7 +575,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T17:03:59+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -527,9 +628,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/安卓中字符串分割（Split）的坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/安卓中字符串分割（Split）的坑/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/安卓中字符串分割（Split）的坑/" class="leancloud_visitors" data-flag-title="安卓中字符串分割（Split）的坑">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -551,11 +673,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h3 id="今天在做一款音乐APP的时候需要解析JSON数据，解析到最后有个数组由-分割开来，于是想到使用字符串的spilt-方法来做，"><a href="#今天在做一款音乐APP的时候需要解析JSON数据，解析到最后有个数组由-分割开来，于是想到使用字符串的spilt-方法来做，" class="headerlink" title="今天在做一款音乐APP的时候需要解析JSON数据，解析到最后有个数组由||分割开来，于是想到使用字符串的spilt()方法来做，"></a>今天在做一款音乐APP的时候需要解析JSON数据，解析到最后有个数组由||分割开来，于是想到使用字符串的spilt()方法来做，</h3><h3 id="说做就做：s-spilt-“-”"><a href="#说做就做：s-spilt-“-”" class="headerlink" title="说做就做：s.spilt(“||”);"></a>说做就做：s.spilt(“||”);</h3><h3 id="运行，居然没用，没有任何分割的字符串出现。"><a href="#运行，居然没用，没有任何分割的字符串出现。" class="headerlink" title="运行，居然没用，没有任何分割的字符串出现。"></a>运行，居然没用，没有任何分割的字符串出现。</h3><h3 id="折腾了许久，通过查询资料，终于找到问题，原来是在安卓下使用spilt-方法的时候需要加-符号。"><a href="#折腾了许久，通过查询资料，终于找到问题，原来是在安卓下使用spilt-方法的时候需要加-符号。" class="headerlink" title="折腾了许久，通过查询资料，终于找到问题，原来是在安卓下使用spilt()方法的时候需要加[]符号。"></a>折腾了许久，通过查询资料，终于找到问题，原来是在安卓下使用spilt()方法的时候需要加[]符号。</h3><h3 id="比如，分割字符串还是我这里的-，"><a href="#比如，分割字符串还是我这里的-，" class="headerlink" title="比如，分割字符串还是我这里的||，"></a>比如，分割字符串还是我这里的||，</h3><h3 id="我们正确的打开方式应该是："><a href="#我们正确的打开方式应该是：" class="headerlink" title="我们正确的打开方式应该是："></a>我们正确的打开方式应该是：</h3><h3 id="s-spilt-“-”"><a href="#s-spilt-“-”" class="headerlink" title="s.spilt(“[||]”);"></a>s.spilt(“[||]”);</h3><h3 id="运行一下，完美。"><a href="#运行一下，完美。" class="headerlink" title="运行一下，完美。"></a>运行一下，完美。</h3>
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+今天在做一款音乐APP的时候需要解析JSON数据，解析到最后有个数组由||分割开来，于是想到使用字符串的spilt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/安卓中字符串分割（Split）的坑/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -602,7 +731,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -642,7 +771,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T16:45:30+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -683,9 +824,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/安卓中字符串对比（相等）的坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/安卓中字符串对比（相等）的坑/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/安卓中字符串对比（相等）的坑/" class="leancloud_visitors" data-flag-title="安卓中字符串对比（相等）的坑">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -707,11 +869,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h3 id="今天在写一个音乐APP的时候，涉及到对比传入的歌手与搜索到的歌手是否匹配的问题，"><a href="#今天在写一个音乐APP的时候，涉及到对比传入的歌手与搜索到的歌手是否匹配的问题，" class="headerlink" title="今天在写一个音乐APP的时候，涉及到对比传入的歌手与搜索到的歌手是否匹配的问题，"></a>今天在写一个音乐APP的时候，涉及到对比传入的歌手与搜索到的歌手是否匹配的问题，</h3><h3 id="一开始使用的是if-a-b-…"><a href="#一开始使用的是if-a-b-…" class="headerlink" title="一开始使用的是if(a==b)…"></a>一开始使用的是if(a==b)…</h3><h3 id="执行，没有反应。"><a href="#执行，没有反应。" class="headerlink" title="执行，没有反应。"></a>执行，没有反应。</h3><h3 id="后来想到这和Java里是不是一样，-符号是用来判断引用相等，而不是字符串内容想等，"><a href="#后来想到这和Java里是不是一样，-符号是用来判断引用相等，而不是字符串内容想等，" class="headerlink" title="后来想到这和Java里是不是一样，==符号是用来判断引用相等，而不是字符串内容想等，"></a>后来想到这和Java里是不是一样，==符号是用来判断引用相等，而不是字符串内容想等，</h3><h3 id="于是就想到使用equals（）方法来判断想等，以前JAVA也遇到过这个坑，不过久了倒是忘了。"><a href="#于是就想到使用equals（）方法来判断想等，以前JAVA也遇到过这个坑，不过久了倒是忘了。" class="headerlink" title="于是就想到使用equals（）方法来判断想等，以前JAVA也遇到过这个坑，不过久了倒是忘了。"></a>于是就想到使用equals（）方法来判断想等，以前JAVA也遇到过这个坑，不过久了倒是忘了。</h3><h3 id="修改代码：if-a-equals-b-…"><a href="#修改代码：if-a-equals-b-…" class="headerlink" title="修改代码：if(a.equals(b))…"></a>修改代码：if(a.equals(b))…</h3><h3 id="执行-成功判断了。"><a href="#执行-成功判断了。" class="headerlink" title="执行 成功判断了。"></a>执行 成功判断了。</h3>
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+今天在写一个音乐APP的时候，涉及到对比传入的歌手与搜索到的歌手是否匹配的问题，一开始使用的是if(a==b)…执
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/安卓中字符串对比（相等）的坑/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -758,7 +927,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -798,7 +967,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T21:14:07+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -839,9 +1020,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/" class="leancloud_visitors" data-flag-title="安卓（Android）ViewPager+TabLayout实现图片轮播效果">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -863,22 +1065,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。<br><a href="http://download.csdn.net/detail/qq_21265915/9678637" target="_blank" rel="external">最终代码传送门</a></p>
-</blockquote>
-<h2 id="文章较长，请耐心食用"><a href="#文章较长，请耐心食用" class="headerlink" title="文章较长，请耐心食用"></a>文章较长，请耐心食用</h2><h4 id="起因：-最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。"><a href="#起因：-最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。" class="headerlink" title="起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。"></a>起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。</h4><h4 id="思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题："><a href="#思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题：" class="headerlink" title="思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题："></a>思路：viewpager可以用来显示图片，并且可以提供滑动，15年（不知记错没）新出的TabLayout可以绑定ViewPager的Adapter来实现ViewPager与Tablayout的联动效果，比如qq的下面菜单栏，微信的菜单栏，都可以这样实现。而且我们可以通过两种方式来实现TabLayout的图片标题：</h4><h4 id="1-SpannableString-来实现图文混排，混排方法（传送门）。"><a href="#1-SpannableString-来实现图文混排，混排方法（传送门）。" class="headerlink" title="1.SpannableString 来实现图文混排，混排方法（传送门）。"></a>1.SpannableString 来实现图文混排，混排方法（<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2013/0731/1497.html" target="_blank" rel="external">传送门</a>）。</h4><h4 id="2-使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView-View-view-或者setCustomView-int-R-id-方法来设置显示。"><a href="#2-使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView-View-view-或者setCustomView-int-R-id-方法来设置显示。" class="headerlink" title="2.使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView(View view)或者setCustomView(int R_id)方法来设置显示。"></a>2.使用自定义布局，布局中添加你想要显示的内容，然后调用tablayout中tab的setCustomView(View view)或者setCustomView(int R_id)方法来设置显示。</h4><h4 id="下面正题："><a href="#下面正题：" class="headerlink" title="下面正题："></a>下面正题：</h4><h4 id="这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。"><a href="#这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。" class="headerlink" title="这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。"></a>这里我使用第二种方法来实现，至于为什么用第二种（好吧其实是我使用第一种的时候遇到了一个不显示的bug，当然第二种也遇到了，后面会提及，后来就没改回第一种了，原理一样）源码在最后面有下载。</h4><h3 id="一。首先我们来准备图片："><a href="#一。首先我们来准备图片：" class="headerlink" title="一。首先我们来准备图片："></a>一。首先我们来准备图片：</h3><h4 id="没有选中的位置的提示图片："><a href="#没有选中的位置的提示图片：" class="headerlink" title="没有选中的位置的提示图片："></a>没有选中的位置的提示图片：</h4><p><img src="http://img.blog.csdn.net/20161109222057157?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
-<h4 id="选中了之后的位置的提示图片："><a href="#选中了之后的位置的提示图片：" class="headerlink" title="选中了之后的位置的提示图片："></a>选中了之后的位置的提示图片：</h4><p><img src="http://img.blog.csdn.net/20161109222144877?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
-<h4 id="图片都可以使用ps制作，很简单。"><a href="#图片都可以使用ps制作，很简单。" class="headerlink" title="图片都可以使用ps制作，很简单。"></a>图片都可以使用ps制作，很简单。</h4><h3 id="二。然后我们来写轮播界面的布局（老规矩，先代码后解释）："><a href="#二。然后我们来写轮播界面的布局（老规矩，先代码后解释）：" class="headerlink" title="二。然后我们来写轮播界面的布局（老规矩，先代码后解释）："></a>二。然后我们来写轮播界面的布局（老规矩，先代码后解释）：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line"><span class="comment">&lt;!--轮播viewpager布局--&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>  </span></div><div class="line">                <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>  </div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>&gt;  </div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span>  </span></div><div class="line">        <span class="attr">app:tabIndicatorColor</span>=<span class="string">"@color/colorTransparent"</span>  </div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/luobo_tablayout"</span>  </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"100dp"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"10dp"</span>  </div><div class="line">        <span class="attr">app:tabMinWidth</span>=<span class="string">"10dp"</span>  </div><div class="line">        <span class="attr">app:tabMaxWidth</span>=<span class="string">"30dp"</span>  </div><div class="line">        <span class="attr">app:tabGravity</span>=<span class="string">"center"</span>  </div><div class="line">        <span class="attr">app:tabMode</span>=<span class="string">"fixed"</span>  </div><div class="line">        <span class="attr">android:layout_alignParentEnd</span>=<span class="string">"true"</span>  </div><div class="line">        <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>  </div><div class="line">        <span class="attr">android:translationZ</span>=<span class="string">"2dp"</span>  </div><div class="line">        <span class="attr">android:layout_marginBottom</span>=<span class="string">"5dp"</span>/&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span>  </span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/luobo_viewpager"</span>  </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:translationZ</span>=<span class="string">"0dp"</span>  </div><div class="line">    &gt;  </div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.view.ViewPager</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="这里解释几个点："><a href="#这里解释几个点：" class="headerlink" title="这里解释几个点："></a>这里解释几个点：</h4><h5 id="（1）translationZ属性-为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。"><a href="#（1）translationZ属性-为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。" class="headerlink" title="（1）translationZ属性:为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。"></a>（1）translationZ属性:为了让Tablayout显示在Viewpager的上方，不设置z值大于ViewPager的话，就显示不出来了。</h5><h5 id="（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。"><a href="#（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。" class="headerlink" title="（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。"></a>（2）tabMode属性：为了不让tablayout滑动（在内容超出控件宽度的时候里面内容滑动从而造成显示上的逻辑错误）。</h5><h5 id="（3）tabMinWidth属性："><a href="#（3）tabMinWidth属性：" class="headerlink" title="（3）tabMinWidth属性："></a>（3）tabMinWidth属性：</h5><h5 id="tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。"><a href="#tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。" class="headerlink" title="tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。"></a>tabMaxWidth属性：设置tab的最小值和最大值，来控制每个tab的宽度（先立个Flag）。</h5><h3 id="三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），"><a href="#三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），" class="headerlink" title="三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），"></a>三。现在我们来为ViewPager的内容写布局文件，这里我们的内容有新闻图片（覆盖全页面），新闻标题（位于左下角），</h3><h4 id="布局文件如下："><a href="#布局文件如下：" class="headerlink" title="布局文件如下："></a>布局文件如下：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>  </span></div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/imageLayout_Image"</span>  </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>  </div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@mipmap/winter_news_place_hloder_pic"</span>  </div><div class="line">    <span class="attr">android:src</span>=<span class="string">"@color/colorTransparent"</span>/&gt;  </div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span>  </span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/imageLayout_Title"</span>  </div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"@color/colorWrite"</span>  </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"200dp"</span>  </div><div class="line">        <span class="attr">android:marqueeRepeatLimit</span>=<span class="string">"marquee_forever"</span>  </div><div class="line">        <span class="attr">android:maxLines</span>=<span class="string">"1"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"20dp"</span>  </div><div class="line">        <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>  </div><div class="line">        <span class="attr">android:textAlignment</span>=<span class="string">"viewStart"</span>  </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"15dp"</span>/&gt;  </div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="这里设置了图片为默认的占位图片。可根据喜好设置。"><a href="#这里设置了图片为默认的占位图片。可根据喜好设置。" class="headerlink" title="这里设置了图片为默认的占位图片。可根据喜好设置。"></a>这里设置了图片为默认的占位图片。可根据喜好设置。</h4><h3 id="四。既然我们要自定义-tablayout-的布局，那么我们现在就来写这个布局文件"><a href="#四。既然我们要自定义-tablayout-的布局，那么我们现在就来写这个布局文件" class="headerlink" title="四。既然我们要自定义 tablayout 的布局，那么我们现在就来写这个布局文件"></a>四。既然我们要自定义 tablayout 的布局，那么我们现在就来写这个布局文件</h3><h4 id="布局很简单，就一个-ImageView，为了拉伸图片到全部页面，我们这里设置他的-background-属性而不是-src-属性："><a href="#布局很简单，就一个-ImageView，为了拉伸图片到全部页面，我们这里设置他的-background-属性而不是-src-属性：" class="headerlink" title="布局很简单，就一个 ImageView，为了拉伸图片到全部页面，我们这里设置他的 background 属性而不是 src 属性："></a>布局很简单，就一个 ImageView，为了拉伸图片到全部页面，我们这里设置他的 background 属性而不是 src 属性：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>  </span></div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  </div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;  </div><div class="line"><span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/Imageview"</span>  </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>  </div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@mipmap/luobo_unseleted"</span>/&gt;  </div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。"><a href="#五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。" class="headerlink" title="五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。"></a>五。布局我们已经弄好了，接下来就是逻辑代码了，我这里使用继承自Fragment是为了方便插入任何其他布局里，我这里插入的是首页。</h3><h4 id="这里插播一下布局中插入碎片（Fragment）的方法，老规矩："><a href="#这里插播一下布局中插入碎片（Fragment）的方法，老规矩：" class="headerlink" title="这里插播一下布局中插入碎片（Fragment）的方法，老规矩："></a>这里插播一下布局中插入碎片（Fragment）的方法，老规矩：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">fragment</span>  </span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span>  </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>  </div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/luoboViewPaget"</span>  </div><div class="line">        <span class="attr">android:name</span>=<span class="string">"lunbo.viewPagerLuobo"</span>/&gt;</div></pre></td></tr></table></figure>
-<h4 id="注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。"><a href="#注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。" class="headerlink" title="注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。"></a>注意上面的name属性是必要的，用来指向Fragment的定义，其他的属性和一般的一样设置就可以了。</h4><h3 id="现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）："><a href="#现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）：" class="headerlink" title="现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）："></a>现在可以写轮播的Fragment的代码了（很简单的逻辑，我就不解释了，重要的地方有注释）：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> lunbo;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;  </div><div class="line"><span class="keyword">import</span> android.graphics.BitmapFactory;  </div><div class="line"><span class="keyword">import</span> android.graphics.drawable.BitmapDrawable;  </div><div class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;  </div><div class="line"><span class="keyword">import</span> android.icu.text.LocaleDisplayNames;  </div><div class="line"><span class="keyword">import</span> android.os.Bundle;  </div><div class="line"><span class="keyword">import</span> android.os.Handler;  </div><div class="line"><span class="keyword">import</span> android.os.Message;  </div><div class="line"><span class="keyword">import</span> android.support.annotation.Nullable;  </div><div class="line"><span class="keyword">import</span> android.support.design.widget.TabLayout;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.Fragment;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.FragmentManager;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.FragmentPagerAdapter;  </div><div class="line"><span class="keyword">import</span> android.support.v4.content.ContextCompat;  </div><div class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager;  </div><div class="line"><span class="keyword">import</span> android.support.v7.app.WindowDecorActionBar;  </div><div class="line"><span class="keyword">import</span> android.text.Spannable;  </div><div class="line"><span class="keyword">import</span> android.text.SpannableString;  </div><div class="line"><span class="keyword">import</span> android.text.style.ImageSpan;  </div><div class="line"><span class="keyword">import</span> android.util.Log;  </div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;  </div><div class="line"><span class="keyword">import</span> android.view.View;  </div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;  </div><div class="line"><span class="keyword">import</span> android.widget.ImageView;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> com.android.volley.RequestQueue;  </div><div class="line"><span class="keyword">import</span> com.android.volley.Response;  </div><div class="line"><span class="keyword">import</span> com.android.volley.VolleyError;  </div><div class="line"><span class="keyword">import</span> com.android.volley.toolbox.StringRequest;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> NewsInfo.JUHE_NewsInfo;  </div><div class="line"><span class="keyword">import</span> Static.StaticValue;  </div><div class="line"><span class="keyword">import</span> Util.FileOP.FileStore;  </div><div class="line"><span class="keyword">import</span> Util.NetWork;  </div><div class="line"><span class="keyword">import</span> winter.zxb.smilesb101.winternews.R;  </div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 项目名称：WinterNews</div><div class="line"> * 类描述：图片轮播类</div><div class="line"> * 创建人：SmileSB101</div><div class="line"> * 创建时间：2016/11/9 0009 07:36</div><div class="line"> * 修改人：Administrator</div><div class="line"> * 修改时间：2016/11/9 0009 07:36</div><div class="line"> * 修改备注：</div><div class="line"> */  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">viewPagerLuobo</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span>&#123;  </div><div class="line">    <span class="keyword">private</span> TabLayout mTablayout;  </div><div class="line">    <span class="keyword">private</span> ViewPager mViewPager;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> selectNum;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> pageNum;  </div><div class="line">    <span class="keyword">private</span> View view;  </div><div class="line">    <span class="keyword">private</span> ArrayList&lt;JUHE_NewsInfo&gt; juhe_newsInfos = <span class="keyword">new</span> ArrayList&lt;&gt;();  </div><div class="line">    <span class="keyword">private</span> viewPagerAdapter mViewPageAdapter;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GetNewsDown = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GetNewsError = -<span class="number">1</span>;  </div><div class="line">    <span class="keyword">private</span> Handler handler = <span class="keyword">new</span> Handler()&#123;  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span></span>&#123;  </div><div class="line">            <span class="keyword">super</span>.handleMessage(msg);  </div><div class="line">            <span class="keyword">switch</span>(msg.what)  </div><div class="line">            &#123;  </div><div class="line">                <span class="keyword">case</span> GetNewsDown:  </div><div class="line">                    Log.i(<span class="string">"设置轮播图片显示"</span>,<span class="string">"handleMessage: "</span>);  </div><div class="line">                    showTopNews();  </div><div class="line">                    <span class="keyword">break</span>;  </div><div class="line">                <span class="keyword">case</span> GetNewsError:  </div><div class="line">                    <span class="keyword">break</span>;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;;  </div><div class="line">    <span class="meta">@Nullable</span>  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState)</span></span>&#123;  </div><div class="line">        view = inflater.inflate(R.layout.lunbo_viewpager,container,<span class="keyword">false</span>);  </div><div class="line">        selectNum = <span class="number">0</span>;  </div><div class="line">        pageNum = <span class="number">3</span>;  </div><div class="line">        getTopNews();  </div><div class="line">        <span class="keyword">return</span> view;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getTopNews</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        RequestQueue mrequeue = NetWork.getmRequestqueue(StaticValue.MainActivity);  </div><div class="line">        String utl = <span class="string">"http://v.juhe.cn/toutiao/index?top&amp;key=2d89bbcc668f4ef02cade2b00d7d9265"</span>;  </div><div class="line">        StringRequest stringRequest = <span class="keyword">new</span> StringRequest(utl,<span class="keyword">new</span> Response.Listener&lt;String&gt;()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String s)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"获取到头条"</span>,<span class="string">"onResponse: "</span>);  </div><div class="line">                juhe_newsInfos = FileStore.getJUHENews_List(s);  </div><div class="line">                handler.sendEmptyMessage(GetNewsDown);  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="keyword">new</span> Response.ErrorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError volleyError)</span></span>&#123;  </div><div class="line">                handler.sendEmptyMessage(GetNewsError);  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        mrequeue.add(stringRequest);  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showTopNews</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mViewPager = (ViewPager)view.findViewById(R.id.luobo_viewpager);  </div><div class="line">        mViewPageAdapter = <span class="keyword">new</span> viewPagerAdapter(getFragmentManager());  </div><div class="line">        mViewPager.setAdapter(mViewPageAdapter);  </div><div class="line">        setmTablayout();  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setmTablayout</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mTablayout = (TabLayout)view.findViewById(R.id.luobo_tablayout);  </div><div class="line">        mTablayout.setupWithViewPager(mViewPager);  </div><div class="line">        <span class="comment">//添加tab，这里添加一开始显示的图片，重要代码  </span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;mViewPageAdapter.getCount();i++) &#123;  </div><div class="line">            TabLayout.Tab tab = mTablayout.getTabAt(i);  </div><div class="line">            Log.i(<span class="string">"添加图片"</span>,<span class="string">"setmTablayout: 1"</span>);  </div><div class="line">            View v = LayoutInflater.from(StaticValue.MainActivity).inflate(R.layout.luobo_tablayout,<span class="keyword">null</span>);  </div><div class="line">            ImageView tabImage = (ImageView)v.findViewById(R.id.Imageview);  </div><div class="line">            tabImage.setBackgroundResource(R.mipmap.luobo_unseleted);  </div><div class="line">            tab.setCustomView(v);  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">//添加图片变换，在这里进行选项变化时图片的设置，重要代码  </span></div><div class="line">        mTablayout.addOnTabSelectedListener(<span class="keyword">new</span> TabLayout.OnTabSelectedListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabSelected</span><span class="params">(TabLayout.Tab tab)</span></span>&#123;  </div><div class="line">                Log.i(<span class="string">"图片添加"</span>,<span class="string">"onTabSelected: "</span>);  </div><div class="line">                View v = tab.getCustomView();  </div><div class="line">                ImageView tabImage = (ImageView)v.findViewById(R.id.Imageview);  </div><div class="line">                tabImage.setBackgroundResource(R.mipmap.luobo_seleted);  </div><div class="line">                <span class="comment">//tab.setCustomView(v);  </span></div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabUnselected</span><span class="params">(TabLayout.Tab tab)</span></span>&#123;  </div><div class="line">                View v = tab.getCustomView();  </div><div class="line">                ImageView tabImage = (ImageView)v.findViewById(R.id.Imageview);  </div><div class="line">                tabImage.setBackgroundResource(R.mipmap.luobo_unseleted);  </div><div class="line">                <span class="comment">//tab.setCustomView(v);  </span></div><div class="line">            &#125;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabReselected</span><span class="params">(TabLayout.Tab tab)</span></span>&#123;  </div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">        <span class="comment">//后台开启计时器线程，每3秒设置一次选项变化，实现轮播的逻辑，重要代码。  </span></div><div class="line">        handler.postDelayed(<span class="keyword">new</span> Runnable()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;  </div><div class="line">                selectNum = selectNum%pageNum;  </div><div class="line">                Log.i(<span class="string">"选项卡数量"</span>,<span class="string">"run: "</span>+selectNum);  </div><div class="line">                mViewPager.setCurrentItem(selectNum);  </div><div class="line">                selectNum++;  </div><div class="line">                handler.postDelayed(<span class="keyword">this</span>,<span class="number">3000</span>);  </div><div class="line">            &#125;  </div><div class="line">        &#125;,<span class="number">0</span>);  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">viewPagerAdapter</span> <span class="keyword">extends</span> <span class="title">FragmentPagerAdapter</span></span>&#123;  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">viewPagerAdapter</span><span class="params">(FragmentManager fm)</span></span>&#123;  </div><div class="line">            <span class="keyword">super</span>(fm);  </div><div class="line">        &#125;  </div><div class="line"></div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span></span>&#123;  </div><div class="line">            <span class="keyword">return</span> pageNum;  </div><div class="line">        &#125;  </div><div class="line"></div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;  </div><div class="line">            <span class="keyword">return</span> ImageFragment.newInstence(juhe_newsInfos.get(position));  </div><div class="line">        &#125;  </div><div class="line"></div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> CharSequence <span class="title">getPageTitle</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;  </div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="获取新闻数据接口是来自聚合网，"><a href="#获取新闻数据接口是来自聚合网，" class="headerlink" title="获取新闻数据接口是来自聚合网，"></a>获取新闻数据接口是来自聚合网，</h4><h4 id="下面贴出轮播Viewpager中的内容Fragment："><a href="#下面贴出轮播Viewpager中的内容Fragment：" class="headerlink" title="下面贴出轮播Viewpager中的内容Fragment："></a>下面贴出轮播Viewpager中的内容Fragment：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> lunbo;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;  </div><div class="line"><span class="keyword">import</span> android.support.annotation.Nullable;  </div><div class="line"><span class="keyword">import</span> android.support.v4.app.Fragment;  </div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;  </div><div class="line"><span class="keyword">import</span> android.view.View;  </div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;  </div><div class="line"><span class="keyword">import</span> android.widget.ImageView;  </div><div class="line"><span class="keyword">import</span> android.widget.TextView;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> com.bumptech.glide.Glide;  </div><div class="line"><span class="keyword">import</span> com.bumptech.glide.load.resource.drawable.GlideDrawable;  </div><div class="line"><span class="keyword">import</span> com.bumptech.glide.request.animation.GlideAnimation;  </div><div class="line"><span class="keyword">import</span> com.bumptech.glide.request.target.SimpleTarget;  </div><div class="line"></div><div class="line"><span class="keyword">import</span> NewsInfo.JUHE_NewsInfo;  </div><div class="line"><span class="keyword">import</span> winter.zxb.smilesb101.winternews.R;  </div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 项目名称：WinterNews</div><div class="line"> * 类描述：轮播ViewPager中显示的内容的Fragment</div><div class="line"> * 创建人：SmileSB101</div><div class="line"> * 创建时间：2016/11/9 0009 13:24</div><div class="line"> * 修改人：Administrator</div><div class="line"> * 修改时间：2016/11/9 0009 13:24</div><div class="line"> * 修改备注：</div><div class="line"> */  </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImageFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span>&#123;  </div><div class="line">    <span class="keyword">private</span> ImageView mImageView;  </div><div class="line">    <span class="keyword">private</span> JUHE_NewsInfo juhe_newsInfo;  </div><div class="line">    <span class="keyword">private</span> TextView title;  </div><div class="line">    Fragment context;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJuhe_newsInfo</span><span class="params">(JUHE_NewsInfo juhe_newsInfo)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">this</span>.juhe_newsInfo = juhe_newsInfo;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImageFragment</span><span class="params">()</span></span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ImageFragment <span class="title">newInstence</span><span class="params">(JUHE_NewsInfo juhe_newsInfo)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        ImageFragment imageFragment = <span class="keyword">new</span> ImageFragment();  </div><div class="line">        imageFragment.setJuhe_newsInfo(juhe_newsInfo);  </div><div class="line">        <span class="keyword">return</span> imageFragment;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="meta">@Nullable</span>  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState)</span></span>&#123;  </div><div class="line">        View rootView = <span class="keyword">null</span>;  </div><div class="line">        context = <span class="keyword">this</span>;  </div><div class="line">        rootView = inflater.inflate(R.layout.image_layout,container,<span class="keyword">false</span>);  </div><div class="line">        title = (TextView)rootView.findViewById(R.id.imageLayout_Title);  </div><div class="line">        mImageView = (ImageView)rootView.findViewById(R.id.imageLayout_Image);  </div><div class="line">        <span class="keyword">if</span>(juhe_newsInfo!=<span class="keyword">null</span>) &#123;  </div><div class="line">            Glide.with(context)  </div><div class="line">                    .load(juhe_newsInfo.getThumbnail_pic_s())  </div><div class="line">                    .placeholder(R.mipmap.winter_news_place_hloder_pic)  </div><div class="line">                    .error(R.mipmap.winter_news_error_pic)  </div><div class="line">                    .into(<span class="keyword">new</span> SimpleTarget&lt;GlideDrawable&gt;()&#123;  </div><div class="line">                        <span class="meta">@Override</span>  </div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource,GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; glideAnimation)</span></span>&#123;  </div><div class="line">                            <span class="comment">//在这里设置图片背景（当GLide获取完成图片之后执行）  </span></div><div class="line">                            mImageView.setBackground(resource);  </div><div class="line">                        &#125;  </div><div class="line">                    &#125;);  </div><div class="line">            title.setText(juhe_newsInfo.getTitle());  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">else</span>  </div><div class="line">        &#123;  </div><div class="line">            Glide.with(context)  </div><div class="line">                    .load(R.mipmap.winter_news_place_hloder_pic)  </div><div class="line">                    .error(R.mipmap.winter_news_error_pic)  </div><div class="line">                    .into(<span class="keyword">new</span> SimpleTarget&lt;GlideDrawable&gt;()&#123;  </div><div class="line">                        <span class="meta">@Override</span>  </div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource,GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; glideAnimation)</span></span>&#123;  </div><div class="line">                            <span class="comment">//在这里设置图片背景（当GLide获取完成图片之后执行）  </span></div><div class="line">                            mImageView.setBackground(resource);  </div><div class="line">                        &#125;  </div><div class="line">                    &#125;);  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">return</span> rootView;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。"><a href="#图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。" class="headerlink" title="图片加载我使用的是Glide库，详细的使用方法（点击开启传送门）。"></a>图片加载我使用的是Glide库，详细的使用方法（<a href="http://blog.csdn.net/carson_ho/article/details/52663351" target="_blank" rel="external">点击开启传送门</a>）。</h4><h3 id="下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）"><a href="#下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）" class="headerlink" title="下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）"></a>下面说一下我遇到的bug，在包含tablayout的布局中，没有设置tab的最大宽度值，导致数量多了之后看不到背景图片（这么简单的问题，蜗居然改本来就是能用的代码改了大半天！！后来突然想到改少tab数量会不会有效才发现问题所在，在这里做个记录，以防再次入坑。）</h3><h2 id="下面是截图（可以看到效果已经实现了，但是tab间距太远-骚新闻什么的不要理他）"><a href="#下面是截图（可以看到效果已经实现了，但是tab间距太远-骚新闻什么的不要理他）" class="headerlink" title="下面是截图（可以看到效果已经实现了，但是tab间距太远,骚新闻什么的不要理他）"></a><strong>下面是截图（可以看到效果已经实现了，但是tab间距太远,骚新闻什么的不要理他）</strong></h2><p><img src="http://img.blog.csdn.net/20161110120943179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
-<h2 id="于是我们调整一下tablayout的padding值以及tabMaxWidth的值："><a href="#于是我们调整一下tablayout的padding值以及tabMaxWidth的值：" class="headerlink" title="于是我们调整一下tablayout的padding值以及tabMaxWidth的值："></a>于是我们调整一下tablayout的padding值以及tabMaxWidth的值：</h2><h3 id="改变之后的tablayout如下："><a href="#改变之后的tablayout如下：" class="headerlink" title="改变之后的tablayout如下："></a>改变之后的tablayout如下：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span>  </span></div><div class="line">       <span class="attr">app:tabIndicatorColor</span>=<span class="string">"@color/colorTransparent"</span>  </div><div class="line">       <span class="attr">android:id</span>=<span class="string">"@+id/luobo_tablayout"</span>  </div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"100dp"</span>  </div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"10dp"</span>  </div><div class="line">       <span class="attr">app:tabMinWidth</span>=<span class="string">"10dp"</span>  </div><div class="line">       <span class="attr">app:tabMaxWidth</span>=<span class="string">"10dp"</span>  </div><div class="line">       <span class="attr">app:tabPadding</span>=<span class="string">"0dp"</span>  </div><div class="line">       <span class="attr">app:tabPaddingStart</span>=<span class="string">"0dp"</span>  </div><div class="line">       <span class="attr">app:tabPaddingEnd</span>=<span class="string">"0dp"</span>  </div><div class="line">       <span class="attr">app:tabGravity</span>=<span class="string">"center"</span>  </div><div class="line">       <span class="attr">app:tabMode</span>=<span class="string">"fixed"</span>  </div><div class="line">       <span class="attr">android:layout_alignParentEnd</span>=<span class="string">"true"</span>  </div><div class="line">       <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>  </div><div class="line">       <span class="attr">android:translationZ</span>=<span class="string">"2dp"</span>  </div><div class="line">       <span class="attr">android:layout_marginBottom</span>=<span class="string">"5dp"</span>/&gt;</div></pre></td></tr></table></figure>
-<h3 id="这里控件的宽度可以自己根据实际需求更改"><a href="#这里控件的宽度可以自己根据实际需求更改" class="headerlink" title="这里控件的宽度可以自己根据实际需求更改"></a>这里控件的宽度可以自己根据实际需求更改</h3><h3 id="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"><a href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！" class="headerlink" title="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"></a>注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</h3><h3 id="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-1"><a href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-1" class="headerlink" title="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"></a>注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</h3><h3 id="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-2"><a href="#注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！-2" class="headerlink" title="注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！"></a>注意必须三个padding和MaxWidth同时设置才能有如下效果，缺一不可！！</h3><h3 id="最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。"><a href="#最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。" class="headerlink" title="最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。"></a>最后截图，原谅我没有截成gif。实在不会用咔咔截屏。。。。</h3><h3 id="如有问题，欢迎指正。"><a href="#如有问题，欢迎指正。" class="headerlink" title="如有问题，欢迎指正。"></a>如有问题，欢迎指正。</h3><h3 id="现在来看看最终效果："><a href="#现在来看看最终效果：" class="headerlink" title="现在来看看最终效果："></a>现在来看看最终效果：</h3><p><img src="http://img.blog.csdn.net/20161110120854770?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
-
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。最终代码传送门
+
+文章较长，请耐心食用起因： 最近在做一个新闻APP，看到现在的新闻客户端顶端都有个热点新闻轮播。思路
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/安卓（Android）ViewPager-TabLayout实现图片轮播效果/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -925,7 +1123,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -965,7 +1163,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T21:13:55+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -1006,9 +1216,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/自己动手实现守望先锋动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/自己动手实现守望先锋动画/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/自己动手实现守望先锋动画/" class="leancloud_visitors" data-flag-title="Android 自己动手实现守望先锋动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1030,18 +1261,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h4 id="起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。"><a href="#起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。" class="headerlink" title="起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。"></a>起因：因为逛CSDN的时候无意间看到这篇博文（<a href="http://blog.csdn.net/a396901990/article/details/52862077?locationNum=4&amp;fps=1" target="_blank" rel="external">传送门</a>），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（不知道为什么是用那个报一堆不知名的错误），于是我决定自己动手，丰衣足食。</h4><h4 id="先上效果："><a href="#先上效果：" class="headerlink" title="先上效果："></a>先上效果：</h4><p><img src="http://img.blog.csdn.net/20161111121431279?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"><br><img src="http://img.blog.csdn.net/20161111121502254?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"><br><img src="http://img.blog.csdn.net/20161111121519989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
-<h4 id="截图不是gif，请见谅。"><a href="#截图不是gif，请见谅。" class="headerlink" title="截图不是gif，请见谅。"></a>截图不是gif，请见谅。</h4><h4 id="下面来实现：（绘制一个正六边形我就不再多说）"><a href="#下面来实现：（绘制一个正六边形我就不再多说）" class="headerlink" title="下面来实现：（绘制一个正六边形我就不再多说）"></a>下面来实现：（绘制一个正六边形我就不再多说）</h4><h4 id="先来绘制出所有的六边形："><a href="#先来绘制出所有的六边形：" class="headerlink" title="先来绘制出所有的六边形："></a>先来绘制出所有的六边形：</h4><h4 id="按照上图所示："><a href="#按照上图所示：" class="headerlink" title="按照上图所示："></a>按照上图所示：</h4><h4 id="六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么"><a href="#六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么" class="headerlink" title="六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么"></a>六边形在没有x和y的偏移量的情况下，假设我们从左边的第一个定点开始绘制的话，那么</h4><h4 id="六边形的高等于：Math-sqrt-3-六边形边长。"><a href="#六边形的高等于：Math-sqrt-3-六边形边长。" class="headerlink" title="六边形的高等于：Math.sqrt(3)*六边形边长。"></a>六边形的高等于：Math.sqrt(3)*六边形边长。</h4><h4 id="第一个出现位置的起始点坐标是：（六边形的高-2，六边形边长-2）。"><a href="#第一个出现位置的起始点坐标是：（六边形的高-2，六边形边长-2）。" class="headerlink" title="第一个出现位置的起始点坐标是：（六边形的高/2，六边形边长/2）。"></a>第一个出现位置的起始点坐标是：（六边形的高/2，六边形边长/2）。</h4><h4 id="第二个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形的边长-2）"><a href="#第二个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形的边长-2）" class="headerlink" title="第二个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形的边长/2）."></a>第二个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形的边长/2）.</h4><h4 id="第三个出现位置的起始点坐标是：（六边形的高-2，（六边形的边长-2）-3）"><a href="#第三个出现位置的起始点坐标是：（六边形的高-2，（六边形的边长-2）-3）" class="headerlink" title="第三个出现位置的起始点坐标是：（六边形的高*2，（六边形的边长/2）*3）."></a>第三个出现位置的起始点坐标是：（六边形的高*2，（六边形的边长/2）*3）.</h4><h4 id="第四个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形边长-3）"><a href="#第四个出现位置的起始点坐标是：（（六边形的高-2）-3，六边形边长-3）" class="headerlink" title="第四个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形边长*3）."></a>第四个出现位置的起始点坐标是：（（六边形的高/2）*3，六边形边长*3）.</h4><h4 id="第五个出现位置的起始点坐标是：（六边形的高-2，六边形边长-3）"><a href="#第五个出现位置的起始点坐标是：（六边形的高-2，六边形边长-3）" class="headerlink" title="第五个出现位置的起始点坐标是：（六边形的高/2，六边形边长*3）."></a>第五个出现位置的起始点坐标是：（六边形的高/2，六边形边长*3）.</h4><h4 id="第六个出现位置的起始点坐标是：（0，（六边形的边长-2）-3）"><a href="#第六个出现位置的起始点坐标是：（0，（六边形的边长-2）-3）" class="headerlink" title="第六个出现位置的起始点坐标是：（0，（六边形的边长/2）*3）."></a>第六个出现位置的起始点坐标是：（0，（六边形的边长/2）*3）.</h4><h4 id="第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长-2）-3）"><a href="#第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长-2）-3）" class="headerlink" title="第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长/2）*3）."></a>第七个出现位置的起始点坐标是：（六边形的高，（六边形的边长/2）*3）.</h4><h4 id="其他点的计算就不一一列举了，都是很简单的数学计算。"><a href="#其他点的计算就不一一列举了，都是很简单的数学计算。" class="headerlink" title="其他点的计算就不一一列举了，都是很简单的数学计算。"></a>其他点的计算就不一一列举了，都是很简单的数学计算。</h4><h4 id="先讲动画："><a href="#先讲动画：" class="headerlink" title="先讲动画："></a>先讲动画：</h4><h4 id="这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。"><a href="#这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。" class="headerlink" title="这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。"></a>这里有一个动画，一种是显示的，一种隐藏的，但是隐藏的可以用显示的动画reverse（）来实现逆向动画。</h4><h4 id="下面是动画代码："><a href="#下面是动画代码：" class="headerlink" title="下面是动画代码："></a>下面是动画代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mShowAni = ValueAnimator.ofFloat(<span class="number">0</span>,<span class="number">1</span>);  </div><div class="line">        mShowAni.setDuration(<span class="number">200</span>);  </div><div class="line">        mShowAni.setInterpolator(<span class="keyword">new</span> DecelerateInterpolator());  </div><div class="line">        mShowAni.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animation)</span></span>&#123;  </div><div class="line">                <span class="keyword">float</span> value = (<span class="keyword">float</span>)animation.getAnimatedValue();  </div><div class="line">                mScale = <span class="number">0.5f</span>+value/<span class="number">2</span>;  </div><div class="line">                mPaint.setAlpha((<span class="keyword">int</span>)(value*<span class="number">255</span>));  </div><div class="line">                invalidate();<span class="comment">//更新  </span></div><div class="line">            &#125;  </div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
-<h4 id="添加动画监听："><a href="#添加动画监听：" class="headerlink" title="添加动画监听："></a>添加动画监听：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">mShowAni.addListener(<span class="keyword">new</span> Animator.AnimatorListener()&#123;  </div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line"></div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line">                mShowAni.removeAllListeners();  </div><div class="line">                mShowAni = <span class="keyword">null</span>;  </div><div class="line">                initAni();  </div><div class="line">                <span class="keyword">if</span>(drawNum!=<span class="number">8</span>) &#123;  </div><div class="line">                    backDrawNum = <span class="number">8</span>;<span class="comment">//赋值回退动画的位置  </span></div><div class="line">                    drawNum++;<span class="comment">//正向动画的位置自增1  </span></div><div class="line">                &#125;  </div><div class="line">                <span class="keyword">if</span>(drawNum==<span class="number">8</span> &amp;&amp; backDrawNum!=<span class="number">0</span>)  </div><div class="line">                &#123;  </div><div class="line">                    <span class="comment">//开始播放逆向动画  </span></div><div class="line">                    backDrawNum--;  </div><div class="line">                    mShowAni.reverse();  </div><div class="line">                &#125;  </div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(drawNum==<span class="number">8</span> &amp;&amp; backDrawNum==<span class="number">0</span>)  </div><div class="line">                &#123;  </div><div class="line">                    <span class="comment">//逆向动画播放完毕，播放正向动画  </span></div><div class="line">                    drawNum = <span class="number">1</span>;  </div><div class="line">                &#125;  </div><div class="line">                invalidate();  </div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationCancel</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line"></div><div class="line">            &#125;  </div><div class="line"></div><div class="line">            <span class="meta">@Override</span>  </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span></span>&#123;  </div><div class="line"></div><div class="line">            &#125;  </div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
-<h4 id="现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）："><a href="#现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）：" class="headerlink" title="现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）："></a>现在可以来看看绘画代码了（代码很简单，必要的地方我已经加上了注释）：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DrawSix</span><span class="params">(Canvas canvas,Paint paint,<span class="keyword">int</span> mLength,<span class="keyword">float</span> Xoffset,<span class="keyword">float</span> Yoffset,<span class="keyword">float</span> scale)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        Path mPath = <span class="keyword">new</span> Path();  </div><div class="line">        <span class="keyword">float</span> height = (<span class="keyword">float</span>)(Math.sqrt(<span class="number">3</span>)*mLength);  </div><div class="line">        mPath.moveTo(Xoffset,Yoffset+mLength/<span class="number">2</span>);<span class="comment">//初始点  </span></div><div class="line">        mPath.lineTo(Xoffset+height/<span class="number">2</span>,Yoffset);  </div><div class="line">        mPath.lineTo(Xoffset+height,Yoffset+mLength/<span class="number">2</span>);  </div><div class="line">        mPath.lineTo(Xoffset+height,Yoffset+(mLength/<span class="number">2</span>)*<span class="number">3</span>);  </div><div class="line">        mPath.lineTo(Xoffset+height/<span class="number">2</span>,Yoffset+mLength*<span class="number">2</span>);  </div><div class="line">        mPath.lineTo(Xoffset,Yoffset+(mLength/<span class="number">2</span>)*<span class="number">3</span>);  </div><div class="line">        mPath.lineTo(Xoffset,Yoffset+mLength/<span class="number">2</span>);  </div><div class="line">        mPath.close();<span class="comment">//闭合路径  </span></div><div class="line">        <span class="comment">//Log.i("动画里","mScale:"+mScale);  </span></div><div class="line">        <span class="keyword">if</span>(scale!=-<span class="number">1</span>) &#123;<span class="comment">//防止动画重复播放  </span></div><div class="line">            <span class="keyword">if</span>(mShowAni != <span class="keyword">null</span> &amp;&amp; ! mShowAni.isRunning()) &#123;  </div><div class="line">                mShowAni.start();  </div><div class="line">            &#125;  </div><div class="line">            canvas.save();  </div><div class="line">            canvas.scale(scale,scale,Xoffset + height / <span class="number">2</span>,Yoffset + mLength);  </div><div class="line">            canvas.drawPath(mPath,paint);  </div><div class="line">            canvas.restore();  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">else</span>  </div><div class="line">        &#123;  </div><div class="line">            <span class="comment">//==-1的时候不播放动画，不处理会导致画面闪动  </span></div><div class="line">            canvas.save();  </div><div class="line">            canvas.scale(<span class="number">1</span>,<span class="number">1</span>,Xoffset + height / <span class="number">2</span>,Yoffset + mLength);  </div><div class="line">            canvas.drawPath(mPath,paint);  </div><div class="line">            canvas.restore();  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 画守望六边形</div><div class="line">     * <span class="doctag">@param</span> canvas</div><div class="line">     * <span class="doctag">@param</span> paint</div><div class="line">     * <span class="doctag">@param</span> mLength 半径</div><div class="line">     * <span class="doctag">@param</span> Xoffset 偏移量</div><div class="line">     * <span class="doctag">@param</span> Yoffset Y偏移量</div><div class="line">     * <span class="doctag">@param</span> drawNum 绘画的位置</div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DrawOWSix</span><span class="params">(Canvas canvas,Paint paint,<span class="keyword">int</span> mLength,<span class="keyword">float</span> Xoffset,<span class="keyword">float</span> Yoffset,<span class="keyword">int</span> drawNum,<span class="keyword">int</span> backNum)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">float</span> height = (<span class="keyword">float</span>)(Math.sqrt(<span class="number">3</span>)*mLength);  </div><div class="line">        <span class="keyword">float</span> XoffsetZero = Xoffset;  </div><div class="line">        <span class="keyword">float</span> XoffsetOne = Xoffset+height/<span class="number">2</span>;  </div><div class="line">        <span class="keyword">float</span> YoffsetOne = Yoffset;  </div><div class="line">        <span class="keyword">float</span> XoffsetTwo = Xoffset+(height/<span class="number">2</span>)*<span class="number">3</span>;  </div><div class="line">        <span class="keyword">float</span> XoffsetThree = Xoffset+height*<span class="number">2</span>;  </div><div class="line">        <span class="keyword">float</span> YoffsetTwo = Yoffset+(mLength/<span class="number">2</span>)*<span class="number">3</span>;  </div><div class="line">        <span class="keyword">float</span> YoffsetThree = Xoffset+mLength*<span class="number">3</span>;  </div><div class="line">        <span class="keyword">float</span> XoffsetCenter = Xoffset+height;  </div><div class="line">        Paint defaultPaint = paint;<span class="comment">//用来绘制已经播放完成动画的六边形  </span></div><div class="line">        paint.setAlpha(<span class="number">255</span>);  </div><div class="line">        <span class="keyword">if</span>(drawNum==<span class="number">8</span>)  </div><div class="line">        &#123;  </div><div class="line">            drawNum = backNum;  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">//画六边形，里面的-1赋值是用来让动画不再播放的  </span></div><div class="line">        <span class="keyword">switch</span>(drawNum) &#123;  </div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetOne,YoffsetOne,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">4</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">5</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetOne + <span class="number">3</span>,YoffsetThree + <span class="number">6</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">6</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne + <span class="number">3</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetZero,YoffsetTwo + <span class="number">3</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">7</span>:  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">3</span>,YoffsetOne,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetThree + <span class="number">6</span>,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetTwo + <span class="number">6</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetOne + <span class="number">3</span>,YoffsetThree + <span class="number">6</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,defaultPaint,mLength,XoffsetZero,YoffsetTwo + <span class="number">3</span>,-<span class="number">1</span>);  </div><div class="line">                DrawSix(canvas,paint,mLength,XoffsetCenter + <span class="number">3</span>,YoffsetTwo + <span class="number">3</span>,mScale);  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">default</span>:  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h4 id="接下来就要实现ondraw（）方法了："><a href="#接下来就要实现ondraw（）方法了：" class="headerlink" title="接下来就要实现ondraw（）方法了："></a>接下来就要实现ondraw（）方法了：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);  </div><div class="line">        <span class="keyword">this</span>.canvas = canvas;  </div><div class="line">        DrawOWSix(<span class="keyword">this</span>.canvas,mPaint,mLength,XOffset,YOffset,drawNum,backDrawNum);  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h4 id="实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）："><a href="#实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）：" class="headerlink" title="实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）："></a>实现构造方法（在这里对画笔，绘画大小，动画等进行初始化）：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">DrawStar</span><span class="params">(Context context,AttributeSet attrs)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context,attrs);  </div><div class="line">    <span class="keyword">final</span> TypedArray array = context.getTheme().obtainStyledAttributes(attrs,R.styleable.OverWatchLoadingView, <span class="number">0</span>, <span class="number">0</span>);  </div><div class="line">        mColor = array.getColor(R.styleable.OverWatchLoadingView_view_color, Color.parseColor(<span class="string">"#FFCC00"</span>));  </div><div class="line">        array.recycle();  </div><div class="line">        mPaint = <span class="keyword">new</span> Paint();  </div><div class="line">        mPaint.setAntiAlias(<span class="keyword">true</span>);  </div><div class="line">        mPaint.setAlpha(<span class="number">0</span>);  </div><div class="line">        mPaint.setColor(mColor);  </div><div class="line">        View = <span class="keyword">this</span>;  </div><div class="line">        mScale = <span class="number">0</span>;  </div><div class="line">        initAni();  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DrawStar</span><span class="params">(Context context,AttributeSet attrs,<span class="keyword">int</span> defStyleAttr,Paint mPaint)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context,attrs,defStyleAttr);  </div><div class="line">        <span class="keyword">this</span>.mPaint = mPaint;  </div><div class="line">        View = <span class="keyword">this</span>;  </div><div class="line">        mScale = <span class="number">0</span>;  </div><div class="line">        initAni();  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DrawStar</span><span class="params">(Context context,AttributeSet attrs,<span class="keyword">int</span> defStyleAttr,<span class="keyword">int</span> defStyleRes,Paint mPaint)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context,attrs,defStyleAttr,defStyleRes);  </div><div class="line">        <span class="keyword">this</span>.mPaint = mPaint;  </div><div class="line">        View = <span class="keyword">this</span>;  </div><div class="line">        mScale = <span class="number">0</span>;  </div><div class="line">        initAni();  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h4 id="当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。"><a href="#当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。" class="headerlink" title="当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。"></a>当然，我们需要外部可以控制这些动画的播放，加上几个方法应该就可以了（并没有测试）。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pauseLoading</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mShowAni.pause();  </div><div class="line">    &#125;  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">continueLoading</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mShowAni.start();  </div><div class="line">    &#125;  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancelLoading</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        mShowAni.cancel();  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h4 id="源码传送门（传送门）"><a href="#源码传送门（传送门）" class="headerlink" title="源码传送门（传送门）"></a>源码传送门（<a href="http://download.csdn.net/detail/qq_21265915/9680135" target="_blank" rel="external">传送门</a>）</h4>
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+起因：因为逛CSDN的时候无意间看到这篇博文（传送门），想给自己的项目加上这个加载效果，但是原谅我放荡不羁用不来（
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/自己动手实现守望先锋动画/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1088,7 +1319,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1128,7 +1359,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T16:12:10+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -1169,9 +1412,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/新闻接口（2016-11-15更新）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/新闻接口（2016-11-15更新）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/新闻接口（2016-11-15更新）/" class="leancloud_visitors" data-flag-title="新闻接口（2016-11-15更新）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1193,11 +1457,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h4 id="最近做一款新闻app于是用到了一些新闻接口"><a href="#最近做一款新闻app于是用到了一些新闻接口" class="headerlink" title="最近做一款新闻app于是用到了一些新闻接口"></a>最近做一款新闻app于是用到了一些新闻接口</h4><h4 id="1-聚合数据：https-www-juhe-cn-基本推送的是一些骚新闻，假的不行。。。"><a href="#1-聚合数据：https-www-juhe-cn-基本推送的是一些骚新闻，假的不行。。。" class="headerlink" title="1.聚合数据：https://www.juhe.cn/--基本推送的是一些骚新闻，假的不行。。。"></a>1.聚合数据：<a href="https://www.juhe.cn/--基本推送的是一些骚新闻，假的不行。。。" target="_blank" rel="external">https://www.juhe.cn/--基本推送的是一些骚新闻，假的不行。。。</a></h4><h4 id="2-易源数据：http-apistore-baidu-com-apiworks-servicedetail-688-html-这个没有看过，不过里面分类比较多，频道也比较多，返回内容比较多，更新也比较快，从开发者做一个新闻app来说，完全够用了。"><a href="#2-易源数据：http-apistore-baidu-com-apiworks-servicedetail-688-html-这个没有看过，不过里面分类比较多，频道也比较多，返回内容比较多，更新也比较快，从开发者做一个新闻app来说，完全够用了。" class="headerlink" title="2.易源数据：http://apistore.baidu.com/apiworks/servicedetail/688.html--这个没有看过，不过里面分类比较多，频道也比较多，返回内容比较多，更新也比较快，从开发者做一个新闻app来说，完全够用了。"></a>2.易源数据：<a href="http://apistore.baidu.com/apiworks/servicedetail/688.html--这个没有看过，不过里面分类比较多，频道也比较多，返回内容比较多，更新也比较快，从开发者做一个新闻app来说，完全够用了。" target="_blank" rel="external">http://apistore.baidu.com/apiworks/servicedetail/688.html--这个没有看过，不过里面分类比较多，频道也比较多，返回内容比较多，更新也比较快，从开发者做一个新闻app来说，完全够用了。</a></h4><h4 id="3-天行数据：http-www-tianapi-com-个人觉得这个比较没用，完全开发自娱自乐还行，100000次调用限制在哪里摆着呢，不过也不知道内容怎么样，可以尝试，如果内容很好，也可以用来做上线app"><a href="#3-天行数据：http-www-tianapi-com-个人觉得这个比较没用，完全开发自娱自乐还行，100000次调用限制在哪里摆着呢，不过也不知道内容怎么样，可以尝试，如果内容很好，也可以用来做上线app" class="headerlink" title="3.天行数据：http://www.tianapi.com/--个人觉得这个比较没用，完全开发自娱自乐还行，100000次调用限制在哪里摆着呢，不过也不知道内容怎么样，可以尝试，如果内容很好，也可以用来做上线app"></a>3.天行数据：<a href="http://www.tianapi.com/--个人觉得这个比较没用，完全开发自娱自乐还行，100000次调用限制在哪里摆着呢，不过也不知道内容怎么样，可以尝试，如果内容很好，也可以用来做上线app" target="_blank" rel="external">http://www.tianapi.com/--个人觉得这个比较没用，完全开发自娱自乐还行，100000次调用限制在哪里摆着呢，不过也不知道内容怎么样，可以尝试，如果内容很好，也可以用来做上线app</a></h4>
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+最近做一款新闻app于是用到了一些新闻接口1.聚合数据：https://www.juhe.cn/--基本推送的是一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/新闻接口（2016-11-15更新）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1244,7 +1515,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1284,7 +1555,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T16:07:34+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -1325,9 +1608,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/Jsp显示集合元素方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/Jsp显示集合元素方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/Jsp显示集合元素方式/" class="leancloud_visitors" data-flag-title="Jsp显示集合元素方式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1349,13 +1653,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h4 id="最近遇到一个显示集合的问题，在这里记录一下："><a href="#最近遇到一个显示集合的问题，在这里记录一下：" class="headerlink" title="最近遇到一个显示集合的问题，在这里记录一下："></a>最近遇到一个显示集合的问题，在这里记录一下：</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;%</div><div class="line">    List&lt;String&gt; str_list = new ArrayList&lt;String&gt;();</div><div class="line">    for (int i = 0; i &lt; str_list.size(); i++)&#123;</div><div class="line">//对上一个&lt;%%&gt;进行封闭，以方便下面的显示</div><div class="line">    %&gt;</div><div class="line">        &lt;p&gt;&lt;%=str_list.get(i) %&gt;&lt;/p&gt;</div><div class="line">    &lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
-<h4 id="比如我们在servlet中传递了一个customerS的ArrayList过来，想要遍历显示的话："><a href="#比如我们在servlet中传递了一个customerS的ArrayList过来，想要遍历显示的话：" class="headerlink" title="比如我们在servlet中传递了一个customerS的ArrayList过来，想要遍历显示的话："></a>比如我们在servlet中传递了一个customerS的ArrayList<customer>过来，想要遍历显示的话：</customer></h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;%  </div><div class="line">ArrayList&lt;Customer&gt; al = (ArrayList&lt;Customer&gt;)request.getAttribute("customerS");  </div><div class="line">System.out.println("al大小："+al.size());  </div><div class="line">for(Customer c:al)  </div><div class="line">&#123;  </div><div class="line">    //在这里设置c的值  </div><div class="line">    pageContext.setAttribute("c",c);  </div><div class="line">    //这里对&lt;%进行关闭，用于插入表格显示数据  </div><div class="line">    %&gt;  </div><div class="line">    &lt;table&gt;  </div><div class="line">&lt;tr&gt;&lt;td&gt;顾客号：&lt;/td&gt;&lt;td&gt;$&#123;c.cust_id&#125;&lt;/td&gt;&lt;/tr&gt;  </div><div class="line">&lt;tr&gt;&lt;td&gt;顾客名称：&lt;/td&gt;&lt;td&gt;$&#123;c.cname&#125;&lt;/td&gt;&lt;/tr&gt;  </div><div class="line">&lt;tr&gt;&lt;td&gt;顾客邮编：&lt;/td&gt;&lt;td&gt;$&#123;c.email&#125;&lt;/td&gt;&lt;/tr&gt;  </div><div class="line">&lt;tr&gt;&lt;td&gt;顾客余额：&lt;/td&gt;&lt;td&gt;$&#123;c.balance&#125;&lt;/td&gt;&lt;/tr&gt;  </div><div class="line">&lt;/table&gt;  </div><div class="line">&lt;%  </div><div class="line">    &#125;  </div><div class="line">%&gt;</div></pre></td></tr></table></figure>
-<h4 id="注意：前面需要加上相关包的引用（引用方式传送门）。"><a href="#注意：前面需要加上相关包的引用（引用方式传送门）。" class="headerlink" title="注意：前面需要加上相关包的引用（引用方式传送门）。"></a>注意：前面需要加上相关包的引用（<a href="http://wintersmilesb101.online/2017/03/22/JSP%E8%BF%9B%E8%A1%8C%E5%BC%95%E7%94%A8jar%E5%8C%85%E7%9A%84%E6%96%B9%E6%B3%95/">引用方式传送门</a>）。</h4>
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+最近遇到一个显示集合的问题，在这里记录一下：1234567&lt;%    List&lt;String&gt; 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/Jsp显示集合元素方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1402,7 +1711,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1442,7 +1751,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T15:58:22+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -1483,9 +1804,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/JSP进行引用jar包的方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/JSP进行引用jar包的方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/JSP进行引用jar包的方法/" class="leancloud_visitors" data-flag-title="JSP中使用 <% %> 的时候进行引用jar包的方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1507,13 +1849,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h4 id="仅仅作为一个记录，方便许久不用的快速查询"><a href="#仅仅作为一个记录，方便许久不用的快速查询" class="headerlink" title="仅仅作为一个记录，方便许久不用的快速查询"></a>仅仅作为一个记录，方便许久不用的快速查询</h4><h4 id="引用方法："><a href="#引用方法：" class="headerlink" title="引用方法："></a>引用方法：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">%@page</span> <span class="attr">import</span>=<span class="string">"填写与在Java中一样的引用地址"</span>%&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="比如在java中引用java-util-ArrayList的方式是"><a href="#比如在java中引用java-util-ArrayList的方式是" class="headerlink" title="比如在java中引用java.util.ArrayList的方式是"></a>比如在java中引用java.util.ArrayList的方式是</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line">则在这里我们的引用方式是：</div><div class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span> = <span class="string">"java.util.ArrayList"</span> %&gt;</div></pre></td></tr></table></figure>
-
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+仅仅作为一个记录，方便许久不用的快速查询引用方法：1&lt;%@page import="填写与在Java中一样的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/JSP进行引用jar包的方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1560,7 +1907,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1600,7 +1947,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T15:53:51+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -1641,9 +2000,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法/" class="leancloud_visitors" data-flag-title="使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1665,15 +2045,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h4 id="起因：今天写一个视频图片信息展示页面的时候，在recyclerView中添加条目中，使用"><a href="#起因：今天写一个视频图片信息展示页面的时候，在recyclerView中添加条目中，使用" class="headerlink" title="起因：今天写一个视频图片信息展示页面的时候，在recyclerView中添加条目中，使用"></a>起因：今天写一个视频图片信息展示页面的时候，在recyclerView中添加条目中，使用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.file_item,parent,<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
-<h3 id="但是一运行就提示如下错误"><a href="#但是一运行就提示如下错误" class="headerlink" title="但是一运行就提示如下错误"></a>但是一运行就提示如下错误</h3><p><img src="http://img.blog.csdn.net/20161210224509198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjEyNjU5MTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="imgae"></p>
-<h3 id="接下来的错误信息我就不提供了，没什么实际作用，从前面的指向来看，就是："><a href="#接下来的错误信息我就不提供了，没什么实际作用，从前面的指向来看，就是：" class="headerlink" title="接下来的错误信息我就不提供了，没什么实际作用，从前面的指向来看，就是："></a>接下来的错误信息我就不提供了，没什么实际作用，从前面的指向来看，就是：</h3> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.file_item,parent,<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
-<h3 id="这句语句所带来的问题，但是这句语句是正确的，所以唯一能有问题的就是布局文件。"><a href="#这句语句所带来的问题，但是这句语句是正确的，所以唯一能有问题的就是布局文件。" class="headerlink" title="这句语句所带来的问题，但是这句语句是正确的，所以唯一能有问题的就是布局文件。"></a>这句语句所带来的问题，但是这句语句是正确的，所以唯一能有问题的就是布局文件。</h3><h3 id="经过测试，锁定了问题的症结：布局中使用的图片分辨率太大了！由于是在网上找的图标素材，故每个都是超过15001500以上的分辨率，而我这里同时使用了4个这样的控件来提供用户操作。这就是导致OOM的问题所在。"><a href="#经过测试，锁定了问题的症结：布局中使用的图片分辨率太大了！由于是在网上找的图标素材，故每个都是超过15001500以上的分辨率，而我这里同时使用了4个这样的控件来提供用户操作。这就是导致OOM的问题所在。" class="headerlink" title="*经过测试，锁定了问题的症结：布局中使用的图片分辨率太大了！由于是在网上找的图标素材，故每个都是超过15001500以上的分辨率，而我这里同时使用了4个这样的控件来提供用户操作。这就是导致OOM的问题所在。"></a><em>*经过测试，锁定了问题的症结：布局中使用的图片分辨率太大了！由于是在网上找的图标素材，故每个都是超过1500</em>1500以上的分辨率，而我这里同时使用了4个这样的控件来提供用户操作。这就是导致OOM的问题所在。</h3><p>解决方法：既然找到了问题所在，那么就可以想办法解决，这里我提供两种思路：<br>1.使用低分辨率的图片（建议使用）。<br>2.使用Glide或者其他开源图片加载库使用代码控制图片的载入（但是这样会加重代码量，而且用户体验也不一定好，不建议使用）。<br>我这里使用的就是第一种思路，第二种没有测试过，应该是可行的，但是在用户体验和代码量上，应该会有问题。<br>那么问题又来了，怎么降低图片分辨率？**<br><a href="https://jingyan.baidu.com/article/8275fc868cd27946a03cf6a7.html" target="_blank" rel="external">缩小图片大小方法</a></p>
-
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+起因：今天写一个视频图片信息展示页面的时候，在recyclerView中添加条目中，使用1View view = 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/使用LayoutInflater装载布局或者setContentView装载布局的时候出现OOM（内存溢出）的解决办法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1720,7 +2103,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1760,7 +2143,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T15:48:18+08:00">
+                2017-03-22
+              </time>
             
           </span>
 
@@ -1801,9 +2196,30 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/解决在自定义AlertDialog中EditText无法弹出软键盘的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/解决在自定义AlertDialog中EditText无法弹出软键盘的问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+             <span id="/2017/03/22/解决在自定义AlertDialog中EditText无法弹出软键盘的问题/" class="leancloud_visitors" data-flag-title="解决在自定义AlertDialog中EditText无法弹出软键盘的问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1825,13 +2241,18 @@
       
         
           
-            <blockquote>
-<p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
-</blockquote>
-<h4 id="原因：今天做一个文件管理器的时候，在文件重命名上遇到了一个问题（准确的说是两个另外一个与本文无关，就不多提）—在弹出的AlertDialog中的EditText居然无法弹出软键盘，我这里需要输入你这是逗我？"><a href="#原因：今天做一个文件管理器的时候，在文件重命名上遇到了一个问题（准确的说是两个另外一个与本文无关，就不多提）—在弹出的AlertDialog中的EditText居然无法弹出软键盘，我这里需要输入你这是逗我？" class="headerlink" title="原因：今天做一个文件管理器的时候，在文件重命名上遇到了一个问题（准确的说是两个另外一个与本文无关，就不多提）—在弹出的AlertDialog中的EditText居然无法弹出软键盘，我这里需要输入你这是逗我？"></a>原因：今天做一个文件管理器的时候，在文件重命名上遇到了一个问题（准确的说是两个另外一个与本文无关，就不多提）—在弹出的AlertDialog中的EditText居然无法弹出软键盘，我这里需要输入你这是逗我？</h4><h4 id="多番查询之后知道了原因："><a href="#多番查询之后知道了原因：" class="headerlink" title="多番查询之后知道了原因："></a>多番查询之后知道了原因：</h4><h4 id="在setContentView（）方法之前就调用了show（）方法。所以没能够识别（或者是没有这么彻底，具体原因我也不解）。"><a href="#在setContentView（）方法之前就调用了show（）方法。所以没能够识别（或者是没有这么彻底，具体原因我也不解）。" class="headerlink" title="在setContentView（）方法之前就调用了show（）方法。所以没能够识别（或者是没有这么彻底，具体原因我也不解）。"></a>在setContentView（）方法之前就调用了show（）方法。所以没能够识别（或者是没有这么彻底，具体原因我也不解）。</h4><h4 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h4><h4 id="在show之前，使用-LayoutInflat-来新建一个布局，然后通过setView（）方法，先把布局设置进去。后面的就不变。问题就此解决。"><a href="#在show之前，使用-LayoutInflat-来新建一个布局，然后通过setView（）方法，先把布局设置进去。后面的就不变。问题就此解决。" class="headerlink" title="在show之前，使用 LayoutInflat 来新建一个布局，然后通过setView（）方法，先把布局设置进去。后面的就不变。问题就此解决。"></a>在show之前，使用 LayoutInflat 来新建一个布局，然后通过setView（）方法，先把布局设置进去。后面的就不变。问题就此解决。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">alertDialog = <span class="keyword">new</span> android.app.AlertDialog.Builder(context).create();  </div><div class="line">        alertDialog.setCancelable(<span class="keyword">true</span>);  </div><div class="line">        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </div><div class="line">        LinearLayout layout = (LinearLayout)inflater.inflate(contentViewID, <span class="keyword">null</span>);  </div><div class="line">        alertDialog.setView(layout);  </div><div class="line">        window = alertDialog.getWindow();  </div><div class="line">        window.setContentView(contentViewID);  </div><div class="line">        alertDialog.show();  </div><div class="line">        nameTextView = (EditText)window.findViewById(R.id.dialog_name);  </div><div class="line">        nameTextView.setText(name);  </div><div class="line">        <span class="keyword">this</span>.name = name;  </div><div class="line">        surebtn = (Button)window.findViewById(R.id.dialog_sureBtn);  </div><div class="line">        canclebtn = (Button)window.findViewById(R.id.dialog_cancleBtn);</div></pre></td></tr></table></figure>
-<h4 id="这里的LinearLayout是因为自定义的AlertDialog布局的根布局就是LinearLayout，所以，根布局是什么这里就应该用什么。"><a href="#这里的LinearLayout是因为自定义的AlertDialog布局的根布局就是LinearLayout，所以，根布局是什么这里就应该用什么。" class="headerlink" title="这里的LinearLayout是因为自定义的AlertDialog布局的根布局就是LinearLayout，所以，根布局是什么这里就应该用什么。"></a>这里的LinearLayout是因为自定义的AlertDialog布局的根布局就是LinearLayout，所以，根布局是什么这里就应该用什么。</h4><h4 id="下面效果图："><a href="#下面效果图：" class="headerlink" title="下面效果图："></a>下面效果图：</h4><p><img src="http://img.blog.csdn.net/20161212214749930?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjEyNjU5MTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
-
           
+版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
+
+原因：今天做一个文件管理器的时候，在文件重命名上遇到了一个问题（准确的说是两个另外一个与本文无关，就不多提）—在弹
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/解决在自定义AlertDialog中EditText无法弹出软键盘的问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1901,7 +2322,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="http://on792ofrp.bkt.clouddn.com/17-3-22/29073846-file_1490159480452_d2de.jpg"
                alt="WinterSmileSB101" />
           <p class="site-author-name" itemprop="name">WinterSmileSB101</p>
            
@@ -1970,6 +2391,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -2011,11 +2439,6 @@
     </footer>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
 
   </div>
 
@@ -2038,6 +2461,8 @@
   
 
 
+  
+
 
 
   
@@ -2057,6 +2482,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -2082,45 +2510,289 @@
 
   
 
-
-
+  
+    
   
 
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wintersmilesb101"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
-
-
-
-
-
-  
-
-
-
-
-
-
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cOFi0858xVYxKW1wnErxqEra-gzGzoHsz", "7LaqqR82XnjzTbkv5eCKw5aW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
