@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="爬虫,Node.js,动态网页,PhantomJS," />
+  <meta name="keywords" content="PhantomJS,Node.js,动态网页,爬虫," />
 
 
 
@@ -126,7 +126,7 @@
 <meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-24/40921411-file_1490325481784_d95b.png">
 <meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-24/42824014-file_1490326430225_14f18.png">
 <meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-24/98489690-file_1490326436738_118d3.png">
-<meta property="og:updated_time" content="2017-03-24T03:37:27.785Z">
+<meta property="og:updated_time" content="2017-03-24T04:57:00.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一起学爬虫 Node.js 爬虫篇（三）使用 PhantomJS 爬取动态页面">
 <meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
@@ -401,7 +401,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-03-24T11:37:27+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-24T12:57:00+08:00">
                 2017-03-24
               </time>
             
@@ -496,7 +496,7 @@
 <li><h6 id="page-content-String：获取或设置当前页面的html。"><a href="#page-content-String：获取或设置当前页面的html。" class="headerlink" title="page.content String：获取或设置当前页面的html。"></a>page.content String：获取或设置当前页面的html。</h6></li>
 <li><h6 id="page-plainText-String：这是一个只读属性，获取页面去除html标记的文本（考虑-text-）。"><a href="#page-plainText-String：这是一个只读属性，获取页面去除html标记的文本（考虑-text-）。" class="headerlink" title="page.plainText String：这是一个只读属性，获取页面去除html标记的文本（考虑$.text()）。"></a>page.plainText String：这是一个只读属性，获取页面去除html标记的文本（考虑$.text()）。</h6></li>
 </ul>
-<h5 id="看了上面的-API-我们这里就先获取网页返回-也就是使用"><a href="#看了上面的-API-我们这里就先获取网页返回-也就是使用" class="headerlink" title="看了上面的 API 我们这里就先获取网页返回 也就是使用"></a>看了上面的 API 我们这里就先获取网页返回 也就是使用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</div><div class="line">phantom.outputEncoding=<span class="string">"gbk"</span>;<span class="comment">//指定编码方式</span></div><div class="line">page.open(<span class="string">"http://news.163.com/"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">status</span>) </span>&#123;</div><div class="line"><span class="keyword">if</span> ( status === <span class="string">"success"</span> ) &#123;</div><div class="line"><span class="built_in">console</span>.log(page.body);<span class="comment">//输出网页</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"网页加载失败"</span>);</div><div class="line">&#125;</div><div class="line">phantom.exit(<span class="number">0</span>);<span class="comment">//退出系统</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h5 id="看了上面的-API-我们这里就先获取网页返回-也就是使用"><a href="#看了上面的-API-我们这里就先获取网页返回-也就是使用" class="headerlink" title="看了上面的 API 我们这里就先获取网页返回 也就是使用"></a>看了上面的 API 我们这里就先获取网页返回 也就是使用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</div><div class="line">phantom.outputEncoding=<span class="string">"gbk"</span>;<span class="comment">//指定编码方式</span></div><div class="line">page.open(<span class="string">"http://news.163.com/"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">status</span>) </span>&#123;</div><div class="line"><span class="keyword">if</span> ( status === <span class="string">"success"</span> ) &#123;</div><div class="line"><span class="built_in">console</span>.log(page.content);<span class="comment">//输出网页</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"网页加载失败"</span>);</div><div class="line">&#125;</div><div class="line">phantom.exit(<span class="number">0</span>);<span class="comment">//退出系统</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h5 id="输出如下："><a href="#输出如下：" class="headerlink" title="输出如下："></a>输出如下：</h5><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-24/63115879-file_1490320458928_d4ed.png" alt="image"></p>
 <h5 id="可以看到网页全文已经输出完毕了（现在的延时都比较严重了，有个几秒延时了，当然我们这里重点不在这个，还没学会走就想跑是不好的），我们就来分析怎么才能获取到我们需要的内容，这里我们使用-DOM-来解析，也可以使用-cheerio-来解析，看看下图"><a href="#可以看到网页全文已经输出完毕了（现在的延时都比较严重了，有个几秒延时了，当然我们这里重点不在这个，还没学会走就想跑是不好的），我们就来分析怎么才能获取到我们需要的内容，这里我们使用-DOM-来解析，也可以使用-cheerio-来解析，看看下图" class="headerlink" title="可以看到网页全文已经输出完毕了（现在的延时都比较严重了，有个几秒延时了，当然我们这里重点不在这个，还没学会走就想跑是不好的），我们就来分析怎么才能获取到我们需要的内容，这里我们使用 DOM 来解析，也可以使用 cheerio 来解析，看看下图"></a>可以看到网页全文已经输出完毕了（现在的延时都比较严重了，有个几秒延时了，当然我们这里重点不在这个，还没学会走就想跑是不好的），我们就来分析怎么才能获取到我们需要的内容，这里我们使用 DOM 来解析，也可以使用 cheerio 来解析，看看下图</h5><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-24/69246509-file_1490321926785_189d.png" alt="image"></p>
 <h5 id="分析可以看出，我们现在解析的-DOM-语句可以是这样"><a href="#分析可以看出，我们现在解析的-DOM-语句可以是这样" class="headerlink" title="分析可以看出，我们现在解析的 DOM 语句可以是这样"></a>分析可以看出，我们现在解析的 DOM 语句可以是这样</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="string">'ul li.newsdata_item div.ndi_main div a'</span>;</div></pre></td></tr></table></figure>
@@ -560,13 +560,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+            <a href="/tags/PhantomJS/" rel="tag"># PhantomJS</a>
           
             <a href="/tags/Node-js/" rel="tag"># Node.js</a>
           
             <a href="/tags/动态网页/" rel="tag"># 动态网页</a>
           
-            <a href="/tags/PhantomJS/" rel="tag"># PhantomJS</a>
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
           
         </div>
       
