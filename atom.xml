@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-23T14:32:49.969Z</updated>
+  <updated>2017-03-24T01:28:17.456Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Node.js 动态网页爬取 PhantomJS 使用入门</title>
+    <link href="http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/"/>
+    <id>http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/</id>
+    <published>2017-03-24T00:43:25.000Z</published>
+    <updated>2017-03-24T01:28:17.456Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Node.js 爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/Node-js-%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="PhantomJS" scheme="http://WinterSmileSB101.online/tags/PhantomJS/"/>
+    
+      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
+    
+      <category term="动态网页" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
+    
+      <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>一起学爬虫 Node.js 爬虫篇（二）</title>
@@ -34,15 +63,15 @@
       <category term="Node.js 爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/Node-js-%E7%88%AC%E8%99%AB/"/>
     
     
+      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
+    
+      <category term="动态网页" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
+    
       <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="Spider" scheme="http://WinterSmileSB101.online/tags/Spider/"/>
     
-      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
-    
       <category term="Json 字符串" scheme="http://WinterSmileSB101.online/tags/Json-%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-      <category term="动态网页" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
     
       <category term="网易新闻" scheme="http://WinterSmileSB101.online/tags/%E7%BD%91%E6%98%93%E6%96%B0%E9%97%BB/"/>
     
@@ -67,11 +96,11 @@
       <category term="Node.js 爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/Node-js-%E7%88%AC%E8%99%AB/"/>
     
     
+      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
+    
       <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="Spider" scheme="http://WinterSmileSB101.online/tags/Spider/"/>
-    
-      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
     
       <category term="静态网页" scheme="http://WinterSmileSB101.online/tags/%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/"/>
     
@@ -561,35 +590,6 @@
       <category term="LayoutInflater" scheme="http://WinterSmileSB101.online/tags/LayoutInflater/"/>
     
       <category term="setContentView" scheme="http://WinterSmileSB101.online/tags/setContentView/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决在自定义AlertDialog中EditText无法弹出软键盘的问题</title>
-    <link href="http://WinterSmileSB101.online/2017/03/22/%E8%A7%A3%E5%86%B3%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89AlertDialog%E4%B8%ADEditText%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%BD%AF%E9%94%AE%E7%9B%98%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://WinterSmileSB101.online/2017/03/22/解决在自定义AlertDialog中EditText无法弹出软键盘的问题/</id>
-    <published>2017-03-22T07:45:49.000Z</published>
-    <updated>2017-03-22T07:48:18.586Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
-    
-    </summary>
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
-    
-      <category term="Android 实践" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
-    
-      <category term="AlertDialog" scheme="http://WinterSmileSB101.online/tags/AlertDialog/"/>
-    
-      <category term="EditText" scheme="http://WinterSmileSB101.online/tags/EditText/"/>
-    
-      <category term="无法弹出软键盘" scheme="http://WinterSmileSB101.online/tags/%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%BD%AF%E9%94%AE%E7%9B%98/"/>
     
   </entry>
   

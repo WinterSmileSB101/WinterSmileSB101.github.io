@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,图片资源,云存储器,图床," />
+  <meta name="keywords" content="PhantomJS,Node.js,动态网页,爬虫," />
 
 
 
@@ -109,26 +109,24 @@
 
 <meta name="description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
 
-独立博客创建好了，最近又了解到七牛云储存,有免费 10 G 的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片">
+既然是入门，那我们就从人类的起源。。PhantomJS 来说起吧。1、PhantomJS是什么？PhantomJS是一个基于webkit的javascript API。它使用QtWebKit作为它核心浏览器的功能，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片资源从云存储器保存以及获取">
-<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/22/图片资源从云存储器保存以及获取/index.html">
+<meta property="og:title" content="Node.js 动态网页爬取 PhantomJS 使用入门">
+<meta property="og:url" content="http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/index.html">
 <meta property="og:site_name" content="WinterSmileSB101 的个人房间">
 <meta property="og:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
 
-独立博客创建好了，最近又了解到七牛云储存,有免费 10 G 的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片">
-<meta property="og:image" content="http://p1.bpimg.com/567571/30e9d6e83e4f4f27.png">
-<meta property="og:image" content="http://p1.bqimg.com/567571/107c0b4a1317e2f4.png">
-<meta property="og:image" content="http://p1.bqimg.com/567571/86b1181ab1e072fd.png">
-<meta property="og:image" content="http://p1.bpimg.com/567571/4e98a9ab706ffc40.png">
-<meta property="og:image" content="http://p1.bqimg.com/567571/c18cb7672bedcd97.png">
-<meta property="og:updated_time" content="2017-03-22T13:36:34.936Z">
+既然是入门，那我们就从人类的起源。。PhantomJS 来说起吧。1、PhantomJS是什么？PhantomJS是一个基于webkit的javascript API。它使用QtWebKit作为它核心浏览器的功能，">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-24/90993504-file_1490317582237_67a4.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-24/5757122-file_1490318527067_13804.png">
+<meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-3-24/62964387-file_1490318534742_1458d.png">
+<meta property="og:updated_time" content="2017-03-24T01:28:17.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图片资源从云存储器保存以及获取">
+<meta name="twitter:title" content="Node.js 动态网页爬取 PhantomJS 使用入门">
 <meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
 
-独立博客创建好了，最近又了解到七牛云储存,有免费 10 G 的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片">
-<meta name="twitter:image" content="http://p1.bpimg.com/567571/30e9d6e83e4f4f27.png">
+既然是入门，那我们就从人类的起源。。PhantomJS 来说起吧。1、PhantomJS是什么？PhantomJS是一个基于webkit的javascript API。它使用QtWebKit作为它核心浏览器的功能，">
+<meta name="twitter:image" content="http://on792ofrp.bkt.clouddn.com/17-3-24/90993504-file_1490317582237_67a4.png">
 
 
 
@@ -156,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/22/图片资源从云存储器保存以及获取/"/>
+  <link rel="canonical" href="http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/"/>
 
 
 
 
 
-  <title> 图片资源从云存储器保存以及获取 | WinterSmileSB101 的个人房间 </title>
+  <title> Node.js 动态网页爬取 PhantomJS 使用入门 | WinterSmileSB101 的个人房间 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -345,7 +343,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/22/图片资源从云存储器保存以及获取/">
+    <link itemprop="mainEntityOfPage" href="http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WinterSmileSB101">
@@ -366,7 +364,7 @@
             
             
               
-                图片资源从云存储器保存以及获取
+                Node.js 动态网页爬取 PhantomJS 使用入门
               
             
           </h2>
@@ -381,8 +379,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T21:16:01+08:00">
-                2017-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T08:43:25+08:00">
+                2017-03-24
               </time>
             
 
@@ -397,8 +395,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-03-22T21:36:34+08:00">
-                2017-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-24T09:28:17+08:00">
+                2017-03-24
               </time>
             
           </span>
@@ -416,8 +414,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/Node-js-爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js 爬虫</span>
                   </a>
                 </span>
 
@@ -434,8 +443,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/22/图片资源从云存储器保存以及获取/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/图片资源从云存储器保存以及获取/" itemprop="commentCount"></span>
+                <a href="/2017/03/24/get-phantomJS-start/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/24/get-phantomJS-start/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -443,7 +452,7 @@
 
           
           
-             <span id="/2017/03/22/图片资源从云存储器保存以及获取/" class="leancloud_visitors" data-flag-title="图片资源从云存储器保存以及获取">
+             <span id="/2017/03/24/get-phantomJS-start/" class="leancloud_visitors" data-flag-title="Node.js 动态网页爬取 PhantomJS 使用入门">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -475,12 +484,11 @@
         <blockquote>
 <p>版权声明：本文为 wintersmilesb101 -（个人独立博客– <a href="http://wintersmilesb101.online">http://wintersmilesb101.online</a> 欢迎访问）博主原创文章，未经博主允许不得转载。</p>
 </blockquote>
-<h2 id="独立博客创建好了，最近又了解到七牛云储存-有免费-10-G-的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片，够我们挥霍一段时间了。"><a href="#独立博客创建好了，最近又了解到七牛云储存-有免费-10-G-的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片，够我们挥霍一段时间了。" class="headerlink" title="独立博客创建好了，最近又了解到七牛云储存,有免费 10 G 的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片，够我们挥霍一段时间了。"></a>独立博客创建好了，最近又了解到<a href="http://www.qiniu.com/?utm_campaign=baiduSEM&amp;utm_source=baiduSEM&amp;utm_medium=baiduSEM&amp;utm_content=baiduSEM" target="_blank" rel="external">七牛云储存</a>,有免费 10 G 的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片，够我们挥霍一段时间了。</h2><h2 id="如果你充值的话，是可以直接绑定域名的，那样更美滋滋，金额也不多就需要账户余额大于-10-元"><a href="#如果你充值的话，是可以直接绑定域名的，那样更美滋滋，金额也不多就需要账户余额大于-10-元" class="headerlink" title="如果你充值的话，是可以直接绑定域名的，那样更美滋滋，金额也不多就需要账户余额大于 10 元"></a>如果你充值的话，是可以直接绑定域名的，那样更美滋滋，金额也不多就需要账户余额大于 10 元</h2><h2 id="不充值也可以，毕竟免费的-10G-不是盖的"><a href="#不充值也可以，毕竟免费的-10G-不是盖的" class="headerlink" title="不充值也可以，毕竟免费的 10G 不是盖的"></a>不充值也可以，毕竟免费的 10G 不是盖的</h2><h2 id="下面介绍怎么通过-极简图床-与我们的七牛云空间联系起来并且上传图片"><a href="#下面介绍怎么通过-极简图床-与我们的七牛云空间联系起来并且上传图片" class="headerlink" title="下面介绍怎么通过 极简图床 与我们的七牛云空间联系起来并且上传图片"></a>下面介绍怎么通过 <a href="http://yotuku.cn/#/" target="_blank" rel="external">极简图床</a> 与我们的七牛云空间联系起来并且上传图片</h2><h3 id="1-注册七牛云并登陆，点击下方的按钮添加对象存储"><a href="#1-注册七牛云并登陆，点击下方的按钮添加对象存储" class="headerlink" title="1.注册七牛云并登陆，点击下方的按钮添加对象存储"></a>1.注册七牛云并登陆，点击下方的按钮添加对象存储</h3><p><img src="http://p1.bpimg.com/567571/30e9d6e83e4f4f27.png" alt="image"></p>
-<h3 id="2-根据提示填写空间名称，存储区域，访问控制请选择公开访问"><a href="#2-根据提示填写空间名称，存储区域，访问控制请选择公开访问" class="headerlink" title="2.根据提示填写空间名称，存储区域，访问控制请选择公开访问"></a>2.根据提示填写空间名称，存储区域，访问控制请选择公开访问</h3><p><img src="http://p1.bqimg.com/567571/107c0b4a1317e2f4.png" alt="image"></p>
-<h3 id="3-创建成功后进入该空间，获取该空间的测试域名，复制后备用"><a href="#3-创建成功后进入该空间，获取该空间的测试域名，复制后备用" class="headerlink" title="3.创建成功后进入该空间，获取该空间的测试域名，复制后备用"></a>3.创建成功后进入该空间，获取该空间的测试域名，复制后备用</h3><p><img src="http://p1.bqimg.com/567571/86b1181ab1e072fd.png" alt="image"></p>
-<h3 id="4-点击“个人面板—密钥管理”，获取-AK-和-SK，复制后备用"><a href="#4-点击“个人面板—密钥管理”，获取-AK-和-SK，复制后备用" class="headerlink" title="4.点击“个人面板—密钥管理”，获取 AK 和 SK，复制后备用"></a>4.点击“个人面板—密钥管理”，获取 AK 和 SK，复制后备用</h3><p><img src="http://p1.bpimg.com/567571/4e98a9ab706ffc40.png" alt="image"></p>
-<h3 id="5-打开极简图床，点击右上角设置按钮，将上面获得的“空间名称”、“AK”、“SK”，“域名”依次填写到下方的输入框中，点击保存。返回首页，再上传的图片就会默认上传至您的七牛云空间了。"><a href="#5-打开极简图床，点击右上角设置按钮，将上面获得的“空间名称”、“AK”、“SK”，“域名”依次填写到下方的输入框中，点击保存。返回首页，再上传的图片就会默认上传至您的七牛云空间了。" class="headerlink" title="5.打开极简图床，点击右上角设置按钮，将上面获得的“空间名称”、“AK”、“SK”，“域名”依次填写到下方的输入框中，点击保存。返回首页，再上传的图片就会默认上传至您的七牛云空间了。"></a>5.打开极简图床，点击右上角设置按钮，将上面获得的“空间名称”、“AK”、“SK”，“域名”依次填写到下方的输入框中，点击保存。返回首页，再上传的图片就会默认上传至您的七牛云空间了。</h3><p><img src="http://p1.bqimg.com/567571/c18cb7672bedcd97.png" alt="image"></p>
-<h3 id="另外，极简图床也可以不使用外部云储存，不过限制比较厉害"><a href="#另外，极简图床也可以不使用外部云储存，不过限制比较厉害" class="headerlink" title="另外，极简图床也可以不使用外部云储存，不过限制比较厉害"></a>另外，极简图床也可以不使用外部云储存，不过限制比较厉害</h3><h3 id="使用公共空间时，如果您未注册登录，每天最多上传-10-张图片，登录后每天可上传-30-张图片，自定义七牛空间后将没有任何限制。"><a href="#使用公共空间时，如果您未注册登录，每天最多上传-10-张图片，登录后每天可上传-30-张图片，自定义七牛空间后将没有任何限制。" class="headerlink" title="使用公共空间时，如果您未注册登录，每天最多上传 10 张图片，登录后每天可上传 30 张图片，自定义七牛空间后将没有任何限制。"></a>使用公共空间时，如果您未注册登录，每天最多上传 10 张图片，登录后每天可上传 30 张图片，自定义七牛空间后将没有任何限制。</h3><h3 id="提供个小技巧，你可以在比如-CSDN-博客、简书、博客园等博客发布博客，然后再在私人博客发布，其中图片资源就使用那些博客的图片外链，"><a href="#提供个小技巧，你可以在比如-CSDN-博客、简书、博客园等博客发布博客，然后再在私人博客发布，其中图片资源就使用那些博客的图片外链，" class="headerlink" title="提供个小技巧，你可以在比如 CSDN 博客、简书、博客园等博客发布博客，然后再在私人博客发布，其中图片资源就使用那些博客的图片外链，"></a>提供个小技巧，你可以在比如 CSDN 博客、简书、博客园等博客发布博客，然后再在私人博客发布，其中图片资源就使用那些博客的图片外链，</h3><h3 id="这样也可以减少空间的消耗"><a href="#这样也可以减少空间的消耗" class="headerlink" title="这样也可以减少空间的消耗"></a>这样也可以减少空间的消耗</h3>
+<h4 id="既然是入门，那我们就从人类的起源。。PhantomJS-来说起吧。"><a href="#既然是入门，那我们就从人类的起源。。PhantomJS-来说起吧。" class="headerlink" title="既然是入门，那我们就从人类的起源。。PhantomJS 来说起吧。"></a>既然是入门，那我们就从人类的起源。。PhantomJS 来说起吧。</h4><h5 id="1、PhantomJS是什么？"><a href="#1、PhantomJS是什么？" class="headerlink" title="1、PhantomJS是什么？"></a>1、PhantomJS是什么？</h5><h6 id="PhantomJS是一个基于webkit的javascript-API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、html5、Canvas、SVG等，同时也提供了处理文件I-O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处可谓非常广泛，诸如网络监测、网页截屏、无需浏览器的-Web-测试、页面访问自动化等。"><a href="#PhantomJS是一个基于webkit的javascript-API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、html5、Canvas、SVG等，同时也提供了处理文件I-O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处可谓非常广泛，诸如网络监测、网页截屏、无需浏览器的-Web-测试、页面访问自动化等。" class="headerlink" title="PhantomJS是一个基于webkit的javascript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、html5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处可谓非常广泛，诸如网络监测、网页截屏、无需浏览器的 Web 测试、页面访问自动化等。"></a>PhantomJS是一个基于webkit的javascript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、html5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处可谓非常广泛，诸如网络监测、网页截屏、无需浏览器的 Web 测试、页面访问自动化等。</h6><h6 id="也就是说我们可以使用-PhantomJS-来模拟浏览器，而且是个无页面浏览器，想像一下我们的网页加载都是通过什么，浏览器，如果我们直接模拟浏览器加载，那么网页里面的什么-js-动态加载，ajax-动态的加载的东西啊全部不是问题，因为我们模拟的是浏览器，不过貌似效率上面略有欠缺，尤其是加载大型页面，对于此种我们可以选择放弃某些东西的加载，比如图片-css-之类，毕竟我们只是模拟请求不是为了界面，这样应该会提升一些速度。"><a href="#也就是说我们可以使用-PhantomJS-来模拟浏览器，而且是个无页面浏览器，想像一下我们的网页加载都是通过什么，浏览器，如果我们直接模拟浏览器加载，那么网页里面的什么-js-动态加载，ajax-动态的加载的东西啊全部不是问题，因为我们模拟的是浏览器，不过貌似效率上面略有欠缺，尤其是加载大型页面，对于此种我们可以选择放弃某些东西的加载，比如图片-css-之类，毕竟我们只是模拟请求不是为了界面，这样应该会提升一些速度。" class="headerlink" title="也就是说我们可以使用 PhantomJS 来模拟浏览器，而且是个无页面浏览器，想像一下我们的网页加载都是通过什么，浏览器，如果我们直接模拟浏览器加载，那么网页里面的什么 js 动态加载，ajax 动态的加载的东西啊全部不是问题，因为我们模拟的是浏览器，不过貌似效率上面略有欠缺，尤其是加载大型页面，对于此种我们可以选择放弃某些东西的加载，比如图片 css 之类，毕竟我们只是模拟请求不是为了界面，这样应该会提升一些速度。"></a>也就是说我们可以使用 PhantomJS 来模拟浏览器，而且是个无页面浏览器，想像一下我们的网页加载都是通过什么，浏览器，如果我们直接模拟浏览器加载，那么网页里面的什么 js 动态加载，ajax 动态的加载的东西啊全部不是问题，因为我们模拟的是浏览器，不过貌似效率上面略有欠缺，尤其是加载大型页面，对于此种我们可以选择放弃某些东西的加载，比如图片 css 之类，毕竟我们只是模拟请求不是为了界面，这样应该会提升一些速度。</h6><h5 id="下面给出几个地址"><a href="#下面给出几个地址" class="headerlink" title="下面给出几个地址"></a>下面给出几个地址</h5><h6 id="1-PhatomJS-官网"><a href="#1-PhatomJS-官网" class="headerlink" title="1.PhatomJS 官网"></a>1.<a href="http://phantomjs.org/" target="_blank" rel="external">PhatomJS 官网</a></h6><h6 id="2-PhantomJS-API"><a href="#2-PhantomJS-API" class="headerlink" title="2.PhantomJS API"></a>2.<a href="http://phantomjs.org/api/webpage/property/settings.html" target="_blank" rel="external">PhantomJS API</a></h6><h5 id="2、PhantomJS下载与安装"><a href="#2、PhantomJS下载与安装" class="headerlink" title="2、PhantomJS下载与安装"></a>2、PhantomJS下载与安装</h5><h6 id="官方下载地址：http-phantomjs-org-download-html。目前官方支持三种操作系统，包括windows-Mac-OS-linux这三大主流的环境。你可以根据你的运行环境选择要下载。"><a href="#官方下载地址：http-phantomjs-org-download-html。目前官方支持三种操作系统，包括windows-Mac-OS-linux这三大主流的环境。你可以根据你的运行环境选择要下载。" class="headerlink" title="官方下载地址：http://phantomjs.org/download.html。目前官方支持三种操作系统，包括windows\Mac OS\linux这三大主流的环境。你可以根据你的运行环境选择要下载。"></a>官方下载地址：<a href="http://phantomjs.org/download.html。目前官方支持三种操作系统，包括windows\Mac" target="_blank" rel="external">http://phantomjs.org/download.html。目前官方支持三种操作系统，包括windows\Mac</a> OS\linux这三大主流的环境。你可以根据你的运行环境选择要下载。</h6><h6 id="载完成后解压文件，建议为方便使用，单独放在一个文件夹里，其中路径最好不要有中文，以免出现什么奇怪的东西。到这里，你已经成功下载安装好PhantomJS了。那么，打开刚刚解压的陌路-phantomjs-bin-文件夹，双击运行phantomjs-exe，出现如下界面，那么你就可以运行JS代码了。不过这样还是比较麻烦，那么我们就来配置系统环境变量-右击我的电脑–-gt-点击管理–-gt-高级系统设置–-gt-环境变量-然后找到系统的-Path-WIn10的话直接点击新建然后贴上你的-PhatomJS-解压路径，注意路径要一直到-bin-文件夹，如果是-win7-就直接在现有的变量后面添加路径，注意开头要加-符号。"><a href="#载完成后解压文件，建议为方便使用，单独放在一个文件夹里，其中路径最好不要有中文，以免出现什么奇怪的东西。到这里，你已经成功下载安装好PhantomJS了。那么，打开刚刚解压的陌路-phantomjs-bin-文件夹，双击运行phantomjs-exe，出现如下界面，那么你就可以运行JS代码了。不过这样还是比较麻烦，那么我们就来配置系统环境变量-右击我的电脑–-gt-点击管理–-gt-高级系统设置–-gt-环境变量-然后找到系统的-Path-WIn10的话直接点击新建然后贴上你的-PhatomJS-解压路径，注意路径要一直到-bin-文件夹，如果是-win7-就直接在现有的变量后面添加路径，注意开头要加-符号。" class="headerlink" title="载完成后解压文件，建议为方便使用，单独放在一个文件夹里，其中路径最好不要有中文，以免出现什么奇怪的东西。到这里，你已经成功下载安装好PhantomJS了。那么，打开刚刚解压的陌路 phantomjs\bin 文件夹，双击运行phantomjs.exe，出现如下界面，那么你就可以运行JS代码了。不过这样还是比较麻烦，那么我们就来配置系统环境变量 右击我的电脑–&gt;点击管理–&gt;高级系统设置–&gt;环境变量,然后找到系统的 Path WIn10的话直接点击新建然后贴上你的 PhatomJS 解压路径，注意路径要一直到 bin 文件夹，如果是 win7 就直接在现有的变量后面添加路径，注意开头要加 ; 符号。"></a>载完成后解压文件，建议为方便使用，单独放在一个文件夹里，其中路径最好不要有中文，以免出现什么奇怪的东西。到这里，你已经成功下载安装好PhantomJS了。那么，打开刚刚解压的陌路 phantomjs\bin 文件夹，双击运行phantomjs.exe，出现如下界面，那么你就可以运行JS代码了。不过这样还是比较麻烦，那么我们就来配置系统环境变量 右击我的电脑–&gt;点击管理–&gt;高级系统设置–&gt;环境变量,然后找到系统的 Path WIn10的话直接点击新建然后贴上你的 PhatomJS 解压路径，注意路径要一直到 bin 文件夹，如果是 win7 就直接在现有的变量后面添加路径，注意开头要加 ; 符号。</h6><h6 id="为了测试是否环境变量配置正确，你可以-cmd-输入-phantomjs-，出现如下界面就成功了"><a href="#为了测试是否环境变量配置正确，你可以-cmd-输入-phantomjs-，出现如下界面就成功了" class="headerlink" title="为了测试是否环境变量配置正确，你可以 cmd 输入 phantomjs ，出现如下界面就成功了"></a>为了测试是否环境变量配置正确，你可以 cmd 输入 phantomjs ，出现如下界面就成功了</h6><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-24/90993504-file_1490317582237_67a4.png" alt="image"></p>
+<h5 id="下面我们就可以开始上菜了，HelloWorld。在你的工程目录下新建一个-hello-js-文件，输入以下代码，这次我们还是看看网易新闻-http-news-163-com"><a href="#下面我们就可以开始上菜了，HelloWorld。在你的工程目录下新建一个-hello-js-文件，输入以下代码，这次我们还是看看网易新闻-http-news-163-com" class="headerlink" title="下面我们就可以开始上菜了，HelloWorld。在你的工程目录下新建一个 hello.js 文件，输入以下代码，这次我们还是看看网易新闻 http://news.163.com/"></a>下面我们就可以开始上菜了，HelloWorld。在你的工程目录下新建一个 hello.js 文件，输入以下代码，这次我们还是看看网易新闻 <a href="http://news.163.com/" target="_blank" rel="external">http://news.163.com/</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var page = require(<span class="string">'webpage'</span>).create();</div><div class="line">phantom.outputEncoding=<span class="string">"gbk"</span>;<span class="comment">//指定编码方式</span></div><div class="line">page.open(<span class="string">"http://news.163.com/"</span>, function(status) &#123;</div><div class="line"><span class="keyword">if</span> ( status === <span class="string">"success"</span> ) &#123;</div><div class="line">console.log(page.title);<span class="comment">//输出网页标题</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">console.log(<span class="string">"网页加载失败"</span>);</div><div class="line">&#125;</div><div class="line">phantom.exit(<span class="number">0</span>);<span class="comment">//退出系统</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h6 id="然后-cmd-进入工程目录，也就是-hello-js-的目录，如下：输入-phantomjs-hello-js-运行"><a href="#然后-cmd-进入工程目录，也就是-hello-js-的目录，如下：输入-phantomjs-hello-js-运行" class="headerlink" title="然后 cmd 进入工程目录，也就是 hello.js 的目录，如下：输入 phantomjs hello.js 运行"></a>然后 cmd 进入工程目录，也就是 hello.js 的目录，如下：输入 phantomjs hello.js 运行</h6><p><img src="http://on792ofrp.bkt.clouddn.com/17-3-24/5757122-file_1490318527067_13804.png" alt="image"><br><img src="http://on792ofrp.bkt.clouddn.com/17-3-24/62964387-file_1490318534742_1458d.png" alt="image"></p>
+<p>#####　好了我们已经跑的第一个　ＰｈａｎｔｏｍＪＳ程序了，其他的这篇博客讲的比较详细，<a href="http://blog.csdn.net/mecho/article/details/45888465" target="_blank" rel="external">传送门</a></p>
+
       
     </div>
 
@@ -513,7 +521,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://WinterSmileSB101.online/2017/03/22/图片资源从云存储器保存以及获取/" title="图片资源从云存储器保存以及获取">http://WinterSmileSB101.online/2017/03/22/图片资源从云存储器保存以及获取/</a>
+      <a href="http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/" title="Node.js 动态网页爬取 PhantomJS 使用入门">http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -529,13 +537,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/PhantomJS/" rel="tag"># PhantomJS</a>
           
-            <a href="/tags/图片资源/" rel="tag"># 图片资源</a>
+            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
           
-            <a href="/tags/云存储器/" rel="tag"># 云存储器</a>
+            <a href="/tags/动态网页/" rel="tag"># 动态网页</a>
           
-            <a href="/tags/图床/" rel="tag"># 图床</a>
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
           
         </div>
       
@@ -548,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/22/用AndroidSDK中的FaceDetector实现人脸识别/" rel="next" title="用 AndroidSDK 中的 Face Detector 实现人脸识别">
-                <i class="fa fa-chevron-left"></i> 用 AndroidSDK 中的 Face Detector 实现人脸识别
+              <a href="/2017/03/23/node-spider-scend/" rel="next" title="一起学爬虫 Node.js 爬虫篇（二）">
+                <i class="fa fa-chevron-left"></i> 一起学爬虫 Node.js 爬虫篇（二）
               </a>
             
           </div>
@@ -557,10 +565,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/23/node-spider-first/" rel="prev" title="一起学爬虫 Node.js 爬虫篇（一）">
-                一起学爬虫 Node.js 爬虫篇（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,10 +579,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/22/图片资源从云存储器保存以及获取/"
-     data-title="图片资源从云存储器保存以及获取"
+        <div class="ds-share flat" data-thread-key="2017/03/24/get-phantomJS-start/"
+     data-title="Node.js 动态网页爬取 PhantomJS 使用入门"
      data-content=""
-     data-url="http://WinterSmileSB101.online/2017/03/22/图片资源从云存储器保存以及获取/">
+     data-url="http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -605,8 +609,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/22/图片资源从云存储器保存以及获取/"
-           data-title="图片资源从云存储器保存以及获取" data-url="http://WinterSmileSB101.online/2017/03/22/图片资源从云存储器保存以及获取/">
+      <div class="ds-thread" data-thread-key="2017/03/24/get-phantomJS-start/"
+           data-title="Node.js 动态网页爬取 PhantomJS 使用入门" data-url="http://WinterSmileSB101.online/2017/03/24/get-phantomJS-start/">
       </div>
     
   </div>
@@ -746,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#独立博客创建好了，最近又了解到七牛云储存-有免费-10-G-的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片，够我们挥霍一段时间了。"><span class="nav-number">1.</span> <span class="nav-text">独立博客创建好了，最近又了解到七牛云储存,有免费 10 G 的存储空间，于是心中又起了坏水，为什么不把博客上的图片资源（图片资源是真的浪费空间）保存到七牛云储存上，然后通过外链引用图片资源，这么大的空间用来保存图片，够我们挥霍一段时间了。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果你充值的话，是可以直接绑定域名的，那样更美滋滋，金额也不多就需要账户余额大于-10-元"><span class="nav-number">2.</span> <span class="nav-text">如果你充值的话，是可以直接绑定域名的，那样更美滋滋，金额也不多就需要账户余额大于 10 元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不充值也可以，毕竟免费的-10G-不是盖的"><span class="nav-number">3.</span> <span class="nav-text">不充值也可以，毕竟免费的 10G 不是盖的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面介绍怎么通过-极简图床-与我们的七牛云空间联系起来并且上传图片"><span class="nav-number">4.</span> <span class="nav-text">下面介绍怎么通过 极简图床 与我们的七牛云空间联系起来并且上传图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-注册七牛云并登陆，点击下方的按钮添加对象存储"><span class="nav-number">4.1.</span> <span class="nav-text">1.注册七牛云并登陆，点击下方的按钮添加对象存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-根据提示填写空间名称，存储区域，访问控制请选择公开访问"><span class="nav-number">4.2.</span> <span class="nav-text">2.根据提示填写空间名称，存储区域，访问控制请选择公开访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建成功后进入该空间，获取该空间的测试域名，复制后备用"><span class="nav-number">4.3.</span> <span class="nav-text">3.创建成功后进入该空间，获取该空间的测试域名，复制后备用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-点击“个人面板—密钥管理”，获取-AK-和-SK，复制后备用"><span class="nav-number">4.4.</span> <span class="nav-text">4.点击“个人面板—密钥管理”，获取 AK 和 SK，复制后备用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-打开极简图床，点击右上角设置按钮，将上面获得的“空间名称”、“AK”、“SK”，“域名”依次填写到下方的输入框中，点击保存。返回首页，再上传的图片就会默认上传至您的七牛云空间了。"><span class="nav-number">4.5.</span> <span class="nav-text">5.打开极简图床，点击右上角设置按钮，将上面获得的“空间名称”、“AK”、“SK”，“域名”依次填写到下方的输入框中，点击保存。返回首页，再上传的图片就会默认上传至您的七牛云空间了。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另外，极简图床也可以不使用外部云储存，不过限制比较厉害"><span class="nav-number">4.6.</span> <span class="nav-text">另外，极简图床也可以不使用外部云储存，不过限制比较厉害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用公共空间时，如果您未注册登录，每天最多上传-10-张图片，登录后每天可上传-30-张图片，自定义七牛空间后将没有任何限制。"><span class="nav-number">4.7.</span> <span class="nav-text">使用公共空间时，如果您未注册登录，每天最多上传 10 张图片，登录后每天可上传 30 张图片，自定义七牛空间后将没有任何限制。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提供个小技巧，你可以在比如-CSDN-博客、简书、博客园等博客发布博客，然后再在私人博客发布，其中图片资源就使用那些博客的图片外链，"><span class="nav-number">4.8.</span> <span class="nav-text">提供个小技巧，你可以在比如 CSDN 博客、简书、博客园等博客发布博客，然后再在私人博客发布，其中图片资源就使用那些博客的图片外链，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这样也可以减少空间的消耗"><span class="nav-number">4.9.</span> <span class="nav-text">这样也可以减少空间的消耗</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#既然是入门，那我们就从人类的起源。。PhantomJS-来说起吧。"><span class="nav-number">1.</span> <span class="nav-text">既然是入门，那我们就从人类的起源。。PhantomJS 来说起吧。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、PhantomJS是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">1、PhantomJS是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#PhantomJS是一个基于webkit的javascript-API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、html5、Canvas、SVG等，同时也提供了处理文件I-O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处可谓非常广泛，诸如网络监测、网页截屏、无需浏览器的-Web-测试、页面访问自动化等。"><span class="nav-number">1.1.1.</span> <span class="nav-text">PhantomJS是一个基于webkit的javascript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、html5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处可谓非常广泛，诸如网络监测、网页截屏、无需浏览器的 Web 测试、页面访问自动化等。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#也就是说我们可以使用-PhantomJS-来模拟浏览器，而且是个无页面浏览器，想像一下我们的网页加载都是通过什么，浏览器，如果我们直接模拟浏览器加载，那么网页里面的什么-js-动态加载，ajax-动态的加载的东西啊全部不是问题，因为我们模拟的是浏览器，不过貌似效率上面略有欠缺，尤其是加载大型页面，对于此种我们可以选择放弃某些东西的加载，比如图片-css-之类，毕竟我们只是模拟请求不是为了界面，这样应该会提升一些速度。"><span class="nav-number">1.1.2.</span> <span class="nav-text">也就是说我们可以使用 PhantomJS 来模拟浏览器，而且是个无页面浏览器，想像一下我们的网页加载都是通过什么，浏览器，如果我们直接模拟浏览器加载，那么网页里面的什么 js 动态加载，ajax 动态的加载的东西啊全部不是问题，因为我们模拟的是浏览器，不过貌似效率上面略有欠缺，尤其是加载大型页面，对于此种我们可以选择放弃某些东西的加载，比如图片 css 之类，毕竟我们只是模拟请求不是为了界面，这样应该会提升一些速度。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面给出几个地址"><span class="nav-number">1.2.</span> <span class="nav-text">下面给出几个地址</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-PhatomJS-官网"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.PhatomJS 官网</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-PhantomJS-API"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.PhantomJS API</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、PhantomJS下载与安装"><span class="nav-number">1.3.</span> <span class="nav-text">2、PhantomJS下载与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#官方下载地址：http-phantomjs-org-download-html。目前官方支持三种操作系统，包括windows-Mac-OS-linux这三大主流的环境。你可以根据你的运行环境选择要下载。"><span class="nav-number">1.3.1.</span> <span class="nav-text">官方下载地址：http://phantomjs.org/download.html。目前官方支持三种操作系统，包括windows\Mac OS\linux这三大主流的环境。你可以根据你的运行环境选择要下载。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#载完成后解压文件，建议为方便使用，单独放在一个文件夹里，其中路径最好不要有中文，以免出现什么奇怪的东西。到这里，你已经成功下载安装好PhantomJS了。那么，打开刚刚解压的陌路-phantomjs-bin-文件夹，双击运行phantomjs-exe，出现如下界面，那么你就可以运行JS代码了。不过这样还是比较麻烦，那么我们就来配置系统环境变量-右击我的电脑–-gt-点击管理–-gt-高级系统设置–-gt-环境变量-然后找到系统的-Path-WIn10的话直接点击新建然后贴上你的-PhatomJS-解压路径，注意路径要一直到-bin-文件夹，如果是-win7-就直接在现有的变量后面添加路径，注意开头要加-符号。"><span class="nav-number">1.3.2.</span> <span class="nav-text">载完成后解压文件，建议为方便使用，单独放在一个文件夹里，其中路径最好不要有中文，以免出现什么奇怪的东西。到这里，你已经成功下载安装好PhantomJS了。那么，打开刚刚解压的陌路 phantomjs\bin 文件夹，双击运行phantomjs.exe，出现如下界面，那么你就可以运行JS代码了。不过这样还是比较麻烦，那么我们就来配置系统环境变量 右击我的电脑–>点击管理–>高级系统设置–>环境变量,然后找到系统的 Path WIn10的话直接点击新建然后贴上你的 PhatomJS 解压路径，注意路径要一直到 bin 文件夹，如果是 win7 就直接在现有的变量后面添加路径，注意开头要加 ; 符号。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#为了测试是否环境变量配置正确，你可以-cmd-输入-phantomjs-，出现如下界面就成功了"><span class="nav-number">1.3.3.</span> <span class="nav-text">为了测试是否环境变量配置正确，你可以 cmd 输入 phantomjs ，出现如下界面就成功了</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面我们就可以开始上菜了，HelloWorld。在你的工程目录下新建一个-hello-js-文件，输入以下代码，这次我们还是看看网易新闻-http-news-163-com"><span class="nav-number">1.4.</span> <span class="nav-text">下面我们就可以开始上菜了，HelloWorld。在你的工程目录下新建一个 hello.js 文件，输入以下代码，这次我们还是看看网易新闻 http://news.163.com/</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#然后-cmd-进入工程目录，也就是-hello-js-的目录，如下：输入-phantomjs-hello-js-运行"><span class="nav-number">1.4.1.</span> <span class="nav-text">然后 cmd 进入工程目录，也就是 hello.js 的目录，如下：输入 phantomjs hello.js 运行</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
