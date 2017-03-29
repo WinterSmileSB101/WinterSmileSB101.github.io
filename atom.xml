@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-29T01:11:11.091Z</updated>
+  <updated>2017-03-29T01:03:16.658Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>g</title>
-    <link href="http://WinterSmileSB101.online/2017/03/29/g/"/>
-    <id>http://WinterSmileSB101.online/2017/03/29/g/</id>
-    <published>2017-03-29T01:11:11.000Z</published>
-    <updated>2017-03-29T01:11:11.091Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Css 文字省略样式（单行/多行）</title>
@@ -352,9 +338,9 @@
       <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
-    
       <category term="Activity" scheme="http://WinterSmileSB101.online/tags/Activity/"/>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
     
       <category term="Service" scheme="http://WinterSmileSB101.online/tags/Service/"/>
     
@@ -589,6 +575,35 @@
       <category term="ViewPager" scheme="http://WinterSmileSB101.online/tags/ViewPager/"/>
     
       <category term="TabLayout" scheme="http://WinterSmileSB101.online/tags/TabLayout/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 自己动手实现守望先锋动画</title>
+    <link href="http://WinterSmileSB101.online/2017/03/22/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B%E5%8A%A8%E7%94%BB/"/>
+    <id>http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/</id>
+    <published>2017-03-22T08:14:40.000Z</published>
+    <updated>2017-03-22T13:13:55.660Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
+    
+    </summary>
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
+    
+      <category term="Android 自定义View" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
+    
+    
+      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
+    
+      <category term="自定义 View" scheme="http://WinterSmileSB101.online/tags/%E8%87%AA%E5%AE%9A%E4%B9%89-View/"/>
+    
+      <category term="守望先锋" scheme="http://WinterSmileSB101.online/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/"/>
+    
+      <category term="OverWatch" scheme="http://WinterSmileSB101.online/tags/OverWatch/"/>
     
   </entry>
   
