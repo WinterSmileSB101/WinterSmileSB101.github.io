@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://WinterSmileSB101.online/"/>
-  <updated>2017-03-28T06:22:23.000Z</updated>
+  <updated>2017-03-29T01:11:11.091Z</updated>
   <id>http://WinterSmileSB101.online/</id>
   
   <author>
@@ -16,11 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>g</title>
+    <link href="http://WinterSmileSB101.online/2017/03/29/g/"/>
+    <id>http://WinterSmileSB101.online/2017/03/29/g/</id>
+    <published>2017-03-29T01:11:11.000Z</published>
+    <updated>2017-03-29T01:11:11.091Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Css 文字省略样式（单行/多行）</title>
+    <link href="http://WinterSmileSB101.online/2017/03/29/css-els/"/>
+    <id>http://WinterSmileSB101.online/2017/03/29/css-els/</id>
+    <published>2017-03-29T00:47:44.000Z</published>
+    <updated>2017-03-29T01:03:16.658Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主转载文章，
+    
+    </summary>
+    
+      <category term="WEB" scheme="http://WinterSmileSB101.online/categories/WEB/"/>
+    
+      <category term="前端开发" scheme="http://WinterSmileSB101.online/categories/WEB/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="CSS" scheme="http://WinterSmileSB101.online/categories/WEB/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://WinterSmileSB101.online/tags/CSS/"/>
+    
+      <category term="文字省略" scheme="http://WinterSmileSB101.online/tags/%E6%96%87%E5%AD%97%E7%9C%81%E7%95%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MUI 使用爬坑之路之 tab 多页面操作</title>
     <link href="http://WinterSmileSB101.online/2017/03/28/mui-tab-pages/"/>
     <id>http://WinterSmileSB101.online/2017/03/28/mui-tab-pages/</id>
     <published>2017-03-28T05:08:23.000Z</published>
-    <updated>2017-03-28T06:22:23.000Z</updated>
+    <updated>2017-03-29T01:04:49.048Z</updated>
     
     <summary type="html">
     
@@ -104,13 +145,13 @@
       <category term="Node.js 爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/Node-js-%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="PhantomJS" scheme="http://WinterSmileSB101.online/tags/PhantomJS/"/>
     
       <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
     
       <category term="动态网页" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
     
-      <category term="PhantomJS" scheme="http://WinterSmileSB101.online/tags/PhantomJS/"/>
+      <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -133,13 +174,13 @@
       <category term="Node.js 爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/Node-js-%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="PhantomJS" scheme="http://WinterSmileSB101.online/tags/PhantomJS/"/>
     
       <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
     
       <category term="动态网页" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
     
-      <category term="PhantomJS" scheme="http://WinterSmileSB101.online/tags/PhantomJS/"/>
+      <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -162,15 +203,15 @@
       <category term="Node.js 爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/Node-js-%E7%88%AC%E8%99%AB/"/>
     
     
+      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
+    
+      <category term="动态网页" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
+    
       <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="Spider" scheme="http://WinterSmileSB101.online/tags/Spider/"/>
     
-      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
-    
       <category term="Json 字符串" scheme="http://WinterSmileSB101.online/tags/Json-%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-      <category term="动态网页" scheme="http://WinterSmileSB101.online/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
     
       <category term="网易新闻" scheme="http://WinterSmileSB101.online/tags/%E7%BD%91%E6%98%93%E6%96%B0%E9%97%BB/"/>
     
@@ -195,11 +236,11 @@
       <category term="Node.js 爬虫" scheme="http://WinterSmileSB101.online/categories/%E7%88%AC%E8%99%AB/Node-js-%E7%88%AC%E8%99%AB/"/>
     
     
+      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
+    
       <category term="爬虫" scheme="http://WinterSmileSB101.online/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="Spider" scheme="http://WinterSmileSB101.online/tags/Spider/"/>
-    
-      <category term="Node.js" scheme="http://WinterSmileSB101.online/tags/Node-js/"/>
     
       <category term="静态网页" scheme="http://WinterSmileSB101.online/tags/%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/"/>
     
@@ -548,62 +589,6 @@
       <category term="ViewPager" scheme="http://WinterSmileSB101.online/tags/ViewPager/"/>
     
       <category term="TabLayout" scheme="http://WinterSmileSB101.online/tags/TabLayout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 自己动手实现守望先锋动画</title>
-    <link href="http://WinterSmileSB101.online/2017/03/22/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B%E5%8A%A8%E7%94%BB/"/>
-    <id>http://WinterSmileSB101.online/2017/03/22/自己动手实现守望先锋动画/</id>
-    <published>2017-03-22T08:14:40.000Z</published>
-    <updated>2017-03-22T13:13:55.660Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
-    
-    </summary>
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/categories/Android/"/>
-    
-      <category term="Android 自定义View" scheme="http://WinterSmileSB101.online/categories/Android/Android-%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
-    
-    
-      <category term="Android" scheme="http://WinterSmileSB101.online/tags/Android/"/>
-    
-      <category term="自定义 View" scheme="http://WinterSmileSB101.online/tags/%E8%87%AA%E5%AE%9A%E4%B9%89-View/"/>
-    
-      <category term="守望先锋" scheme="http://WinterSmileSB101.online/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/"/>
-    
-      <category term="OverWatch" scheme="http://WinterSmileSB101.online/tags/OverWatch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新闻接口（2016-11-15更新）</title>
-    <link href="http://WinterSmileSB101.online/2017/03/22/%E6%96%B0%E9%97%BB%E6%8E%A5%E5%8F%A3%EF%BC%882016-11-15%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
-    <id>http://WinterSmileSB101.online/2017/03/22/新闻接口（2016-11-15更新）/</id>
-    <published>2017-03-22T08:09:03.000Z</published>
-    <updated>2017-03-22T08:12:10.701Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;版权声明：本文为 wintersmilesb101 -（个人独立博客– &lt;a href=&quot;http://wintersmilesb101.online&quot;&gt;http://wintersmilesb101.online&lt;/a&gt; 欢迎访问）博主原创文章，
-    
-    </summary>
-    
-      <category term="开源" scheme="http://WinterSmileSB101.online/categories/%E5%BC%80%E6%BA%90/"/>
-    
-      <category term="接口（开放 Api ）" scheme="http://WinterSmileSB101.online/categories/%E5%BC%80%E6%BA%90/%E6%8E%A5%E5%8F%A3%EF%BC%88%E5%BC%80%E6%94%BE-Api-%EF%BC%89/"/>
-    
-    
-      <category term="接口" scheme="http://WinterSmileSB101.online/tags/%E6%8E%A5%E5%8F%A3/"/>
-    
-      <category term="新闻" scheme="http://WinterSmileSB101.online/tags/%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="免费" scheme="http://WinterSmileSB101.online/tags/%E5%85%8D%E8%B4%B9/"/>
     
   </entry>
   
