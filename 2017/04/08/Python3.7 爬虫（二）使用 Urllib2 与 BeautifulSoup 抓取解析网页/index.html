@@ -123,7 +123,7 @@ Beautif">
 <meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-4-9/14740586-file_1491710935660_6128.png">
 <meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-4-9/72364438-file_1491712058576_15dc9.png">
 <meta property="og:image" content="http://on792ofrp.bkt.clouddn.com/17-4-9/72021861-file_1491716802757_e01d.png">
-<meta property="og:updated_time" content="2017-04-09T05:50:49.123Z">
+<meta property="og:updated_time" content="2017-04-09T06:17:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python3.7 爬虫（二）使用 Urllib2 与 BeautifulSoup4 抓取解析网页">
 <meta name="twitter:description" content="版权声明：本文为 wintersmilesb101 -（个人独立博客– http://wintersmilesb101.online 欢迎访问）博主原创文章，未经博主允许不得转载。
@@ -399,7 +399,7 @@ Beautif">
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-09T13:50:49+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-04-09T14:17:52+08:00">
                 2017-04-09
               </time>
             
@@ -490,7 +490,7 @@ Beautif">
 </blockquote>
 <h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>上一篇中我们通过原生的 re 模块已经完成了网页的解析，对于熟悉正则表达式的童鞋来说很好上手，但是对于萌新来说，还是有一定难度以及复杂度的，那么这里我们就来使用第三方解析包来解析获取到的网页吧。</p>
 <h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><p>官方的 BeautifulSoup 是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。</div><div class="line">Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup就不能自动识别编码方式了。然后，你仅仅需要说明一下原始编码方式就可以了。</div><div class="line">Beautiful Soup已成为和lxml、html6lib一样出色的python解释器，为用户灵活地提供不同的解析策略或强劲的速度。</div></pre></td></tr></table></figure></p>
-<p>而且这个支持多种解析方式，以及解析方式中也可以加上正则表达式来过滤结果，是不是已经迫不及待要试试这个第三方库了？<br>那么看看<a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="external">官方中文文档</a>，如果看不到超链的：<a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="external">http://beautifulsoup.readthedocs.io/zh_CN/latest/</a> ，文档说的很清楚，从安装到使用，所以我这里就不再添足了。下面直接讲怎么使用它来解析一篇网页，我们这里还是以 <a href="http://www.qiushibaike.com/imgrank/" target="_blank" rel="external">糗事百科</a> 来实验。</p>
+<p>而且这个支持多种解析方式，以及解析方式中也可以加上正则表达式来过滤结果，是不是已经迫不及待要试试这个第三方库了？<br>那么看看<a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="external">官方中文文档</a>，如果看不到超链的：<a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="external">http://beautifulsoup.readthedocs.io/zh_CN/latest/</a> ，或者看看这篇博文，<a href="http://cuiqingcai.com/1319.html" target="_blank" rel="external">地址</a> : <a href="http://cuiqingcai.com/1319.html" target="_blank" rel="external">http://cuiqingcai.com/1319.html</a> ,文档说的很清楚，从安装到使用，所以我这里就不再添足了。下面直接讲怎么使用它来解析一篇网页，我们这里还是以 <a href="http://www.qiushibaike.com/imgrank/" target="_blank" rel="external">糗事百科</a> 来实验。</p>
 <h2 id="获取网页内容"><a href="#获取网页内容" class="headerlink" title="获取网页内容"></a>获取网页内容</h2><p>网址：<a href="http://www.qiushibaike.com/imgrank/" target="_blank" rel="external">http://www.qiushibaike.com/imgrank/</a><br>网页内容以及我们想要获取的信息如下：</p>
 <p><img src="http://on792ofrp.bkt.clouddn.com/17-4-9/4266580-file_1491711270558_5f86.png" alt="iamge"></p>
 <p>下面解释一下上图中几个位置的对应信息</p>
@@ -515,6 +515,7 @@ Beautif">
 <p>运行，结果：</p>
 <p><img src="http://on792ofrp.bkt.clouddn.com/17-4-9/72021861-file_1491716802757_e01d.png" alt="image"></p>
 <p>可以看到我们的数据已经全部取出来了。</p>
+<h2 id="获取全部网页段子"><a href="#获取全部网页段子" class="headerlink" title="获取全部网页段子"></a>获取全部网页段子</h2><p>那么想要获取全部的段子怎么办？网页中下方有页数，先通过主页获取一个html 然后得到页数 后面通过 <a href="http://www.qiushibaike.com/imgrank/page/" target="_blank" rel="external">http://www.qiushibaike.com/imgrank/page/</a> +页数就可以了，比如我们这里的首页其实也可以表示为 <a href="http://www.qiushibaike.com/imgrank/page/1" target="_blank" rel="external">http://www.qiushibaike.com/imgrank/page/1</a> ，表示之后通过循环或者递归调用爬取即可。</p>
 
       
     </div>
@@ -781,7 +782,7 @@ Beautif">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开篇"><span class="nav-number">1.</span> <span class="nav-text">开篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeautifulSoup"><span class="nav-number">2.</span> <span class="nav-text">BeautifulSoup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取网页内容"><span class="nav-number">3.</span> <span class="nav-text">获取网页内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析-Html"><span class="nav-number">4.</span> <span class="nav-text">解析 Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分别解析"><span class="nav-number">4.1.</span> <span class="nav-text">分别解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一次性解析"><span class="nav-number">4.2.</span> <span class="nav-text">一次性解析</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开篇"><span class="nav-number">1.</span> <span class="nav-text">开篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeautifulSoup"><span class="nav-number">2.</span> <span class="nav-text">BeautifulSoup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取网页内容"><span class="nav-number">3.</span> <span class="nav-text">获取网页内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析-Html"><span class="nav-number">4.</span> <span class="nav-text">解析 Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分别解析"><span class="nav-number">4.1.</span> <span class="nav-text">分别解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一次性解析"><span class="nav-number">4.2.</span> <span class="nav-text">一次性解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取全部网页段子"><span class="nav-number">5.</span> <span class="nav-text">获取全部网页段子</span></a></li></ol></div>
             
 
           </div>
